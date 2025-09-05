@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Tila Muhammad</title>
   <meta name="description" content="About Tila Muhammad — ML/NLP researcher. Research interests: summarization, sentiment analysis, fake news, hate speech; plus IoT + ML systems." />
-  <link rel="canonical" href="https://your-domain.example/about.html" />
+  <link rel="canonical" href="https://tila173.github.io/tila-portfolio/about.html" />
 
   <!-- Favicons -->
   <link rel="icon" href="assets/img/favicon.png" />
@@ -28,12 +28,38 @@
   <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet" />
 
+  <!-- Page overrides (alignment fix for about info rows) -->
+  <style>
+    /* Align icon | label | value neatly on all screens */
+    .about .content .about-info li {
+      display: grid;
+      grid-template-columns: 1.25rem 8.5rem 1fr; /* icon | label | value */
+      align-items: start;
+      column-gap: 8px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 576px) {
+      .about .content .about-info li {
+        grid-template-columns: 1.25rem 7.5rem 1fr; /* narrower label on mobile */
+      }
+    }
+    .about .content .about-info li i { line-height: 1; }
+    .about .content .about-info li strong {
+      font-weight: 600;
+      white-space: nowrap;            /* keep label on one line */
+      text-align: left;
+    }
+    .about .content .about-info li .value {
+      word-break: break-word;         /* wrap long links cleanly */
+    }
+  </style>
+
   <!-- Social cards -->
   <meta property="og:title" content="About — Tila Muhammad" />
-  <meta property="og:description" content="ML/NLP researcher and full-stack developer." />
+  <meta property="og:description" content="ML/NLP researcher." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.example/about.html" />
-  <meta property="og:image" content="https://your-domain.example/assets/img/og-cover.jpg" />
+  <meta property="og:url" content="https://tila173.github.io/tila-portfolio/about.html" />
+  <meta property="og:image" content="https://tila173.github.io/tila-portfolio/assets/img/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 </head>
 
@@ -83,7 +109,7 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-3">
-            <img src="assets/img/hero_bg.jpg" class="img-fluid rounded-3 shadow-sm" alt="Tila portrait or cover" loading="lazy" decoding="async" />
+            <img src="assets/img/hero_bg.jpg" class="img-fluid rounded-3 shadow-sm" alt="Portrait/cover of Tila Muhammad" loading="lazy" decoding="async" />
           </div>
 
           <div class="col-lg-8 content">
@@ -97,18 +123,52 @@
 
             <div class="row">
               <div class="d-flex flex-wrap justify-content-center gap-5 mb-3">
-                <ul class="list-unstyled small lh-lg m-0">
-                  <li><i class="bi bi-cake me-2 text-warning"></i><strong>Birthday:</strong> 15 Feb 1998</li>
-                  <li><i class="bi bi-globe me-2 text-primary"></i><strong>Website:</strong> <a href="https://tila173.github.io/tila-portfolio/" target="_blank" rel="noopener noreferrer">tila173.github.io/tila-portfolio</a></li>
-                  <li><i class="bi bi-phone me-2 text-success"></i><strong>Phone:</strong> +92 331 4030386</li>
-                  <li><i class="bi bi-geo-alt me-2 text-warning"></i><strong>City:</strong> Khyber Pakhtunkhwa, Pakistan</li>
+                <!-- Column 1 -->
+                <ul class="about-info list-unstyled small lh-lg m-0">
+                  <li>
+                    <i class="bi bi-cake me-2 text-warning"></i>
+                    <strong>Birthday:</strong>
+                    <span class="value">15 Feb 1998</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-globe me-2 text-primary"></i>
+                    <strong>Website:</strong>
+                    <span class="value"><a href="https://tila173.github.io/tila-portfolio/" target="_blank" rel="noopener">Portfolio</a></span>
+                  </li>
+                  <li>
+                    <i class="bi bi-phone me-2 text-success"></i>
+                    <strong>Phone:</strong>
+                    <span class="value">+92 331 4030386</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-geo-alt me-2 text-warning"></i>
+                    <strong>City:</strong>
+                    <span class="value">Khyber Pakhtunkhwa, Pakistan</span>
+                  </li>
                 </ul>
 
-                <ul class="list-unstyled small lh-lg m-0">
-                  <li><i class="bi bi-person me-2 text-purple"></i><strong>Age:</strong> 27</li>
-                  <li><i class="bi bi-mortarboard me-2 text-primary"></i><strong>Degree:</strong> MS in AI (in progress)</li>
-                  <li><i class="bi bi-envelope me-2 text-danger"></i><strong>Email:</strong> <a href="mailto:w4s.tila@gmail.com">w4s.tila@gmail.com</a></li>
-                  <li><i class="bi bi-briefcase me-2 text-success"></i><strong>Upwork:</strong> <a href="https://www.upwork.com/freelancers/~0168b3a45de594ce52?mp_source=share" target="_blank" rel="noopener noreferrer">Available</a></li>
+                <!-- Column 2 -->
+                <ul class="about-info list-unstyled small lh-lg m-0">
+                  <li>
+                    <i class="bi bi-person me-2 text-secondary"></i>
+                    <strong>Age:</strong>
+                    <span class="value">27</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-mortarboard me-2 text-primary"></i>
+                    <strong>Degree:</strong>
+                    <span class="value">MS in AI (in progress)</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-envelope me-2 text-danger"></i>
+                    <strong>Email:</strong>
+                    <span class="value"><a href="mailto:w4s.tila@gmail.com">w4s.tila@gmail.com</a></span>
+                  </li>
+                  <li>
+                    <i class="bi bi-briefcase me-2 text-success"></i>
+                    <strong>Upwork:</strong>
+                    <span class="value"><a href="https://www.upwork.com/freelancers/~0168b3a45de594ce52?mp_source=share" target="_blank" rel="noopener">Available</a></span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -276,8 +336,6 @@
     <!-- /Testimonials Section -->
   </main>
 
-  
-
   <footer id="footer" class="footer light-background">
     <div class="container">
       <div class="copyright text-center">
@@ -322,7 +380,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       const y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
-      // Init PureCounter if not auto
       if (window.PureCounter) new PureCounter();
     });
   </script>
