@@ -10,19 +10,21 @@
   <link href="assets/img/favicon.png" rel="icon" />
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-  <!-- Fonts (trimmed to one family & essential weights) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
 
-  <!-- Vendor CSS (lean) -->
+  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <!-- AOS CSS -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
 
-  <!-- Main CSS (keep your global styles) -->
+  <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet" />
 
-  <!-- Preload just the first image (boosts LCP) -->
+  <!-- Preload first image -->
   <link rel="preload" as="image" href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" fetchpriority="high">
 
   <style>
@@ -103,16 +105,16 @@
           <li><a href="about.html">About</a></li>
           <li><a href="resume.html">Resume</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html" class="active" aria-current="page">Projects</a></li>
+          <li><a href="portfolio.html" class="active">Projects</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu"></i>
       </nav>
 
       <div class="header-social-links">
         <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
         <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener"><i className="bi bi-instagram"></i></a>
         <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
       </div>
 
@@ -154,14 +156,16 @@
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS (lean + deferred) -->
+  <!-- Vendor JS (deferred in order) -->
   <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script defer src="assets/vendor/aos/aos.js"></script>
 
-  <!-- React 18 (pinned + deferred, jsDelivr for speed) -->
+  <!-- React 18 (pinned + deferred) -->
   <script defer src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js" crossorigin></script>
   <script defer src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
 
-  <!-- Portfolio React App (inline, runs after DOM ready) -->
+  <!-- Portfolio React App -->
   <script>
     (function () {
       const cx = (...a) => a.filter(Boolean).join(' ');
@@ -310,7 +314,7 @@
         const React = window.React;
         const [active, setActive] = React.useState("All");
         const [search, setSearch] = React.useState("");
-        const [sort, setSort] = React.useState("recent");
+        const [sort, setSort] = React.useState("recent");  /* <-- fixed */
         const modal = useModal();
 
         const filtered = React.useMemo(() => {
@@ -327,6 +331,11 @@
           return sortProjects(list, sort);
         }, [active, search, sort]);
 
+        /* Refresh AOS whenever grid content/filters change */
+        React.useEffect(() => {
+          if (window.AOS) window.AOS.refresh();
+        }, [filtered.length, active, sort, search]);
+
         return React.createElement(
           React.Fragment,
           null,
@@ -335,8 +344,13 @@
           }),
           React.createElement(
             'div', { className:"row grid-gap" },
-            filtered.map(p =>
-              React.createElement('div', { key:p.id, className:"col-12 col-sm-6 col-lg-4 d-flex" },
+            filtered.map((p, idx) =>
+              React.createElement('div', {
+                  key:p.id,
+                  className:"col-12 col-sm-6 col-lg-4 d-flex",
+                  'data-aos':'fade-up',
+                  'data-aos-delay': String(100 + (idx % 6) * 100) // 100..600
+                },
                 React.createElement(ProjectCard, { p, onPreview:modal.show })
               )
             ),
@@ -347,7 +361,7 @@
               )
             )
           ),
-          // Modal
+          /* Modal */
           React.createElement('div', { className:"modal fade", id:"projectModal", tabIndex:"-1", 'aria-hidden':"true" },
             React.createElement('div', { className:"modal-dialog modal-dialog-centered modal-lg" },
               React.createElement('div', { className:"modal-content" },
@@ -378,23 +392,37 @@
         );
       }
 
-      // Run after DOM is ready (deferred scripts load in order)
+      /* Boot */
       window.addEventListener('DOMContentLoaded', function () {
-        // Footer year
+        /* Footer year */
         const y = document.getElementById('year');
         if (y) y.textContent = new Date().getFullYear();
 
-        // Scroll-top (small helper so we don't need template main.js)
+        /* Scroll-top */
         const st = document.getElementById('scroll-top');
         if (st) st.addEventListener('click', function (e) {
           e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Mount React Grid
+        /* AOS init (mirror Services) */
+        if (window.AOS) {
+          window.AOS.init({
+            duration: 650,
+            easing: 'ease-out-quart',
+            once: true
+          });
+        }
+
+        /* Mount React Grid */
         const rootEl = document.getElementById('portfolio-root');
         if (rootEl && window.ReactDOM && window.React) {
           const root = window.ReactDOM.createRoot(rootEl);
           root.render(window.React.createElement(Grid));
+
+          /* After first paint, rescan for AOS nodes created by React */
+          if (window.AOS && typeof window.AOS.refreshHard === 'function') {
+            window.AOS.refreshHard();
+          }
         }
       });
     })();
