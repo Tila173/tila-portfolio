@@ -71,6 +71,57 @@
 /* If your theme overrides things aggressively, keep these helpers */
 .about-item, .about-item * { box-sizing: border-box; }
 
+/* ---------- Stats: mobile-first grid, equal heights ---------- */
+.stats-grid{
+  --stats-gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* phone: 2 per row */
+  gap: var(--stats-gap);
+}
+
+@media (min-width: 768px){
+  .stats-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); } /* md+: 4 per row */
+}
+
+.stats-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* vertical centering */
+  align-items: center;          /* horizontal centering */
+  gap: .25rem;
+  min-height: 150px;            /* equal visual height */
+  padding: 1rem;
+  background: var(--bs-light, #f8f9fa);
+  border-radius: .5rem;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.05);
+  width: 100%;
+}
+
+/* Make numbers and labels consistent lines */
+.stats-card .icon i{ line-height: 1; }
+.stats-card p{ min-height: 1.5rem; }
+
+/* ---------- Optional: add 1px grid lines (no gaps) ---------- */
+/* To enable lines, add class "lined" to .stats-grid (HTML) */
+.stats-grid.lined{
+  --line: #e9ecef;
+  gap: 0;                       /* remove gaps so borders meet cleanly */
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #fff;             /* cleaner look for lined mode */
+}
+
+.stats-grid.lined .stats-card{
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+  background: #fff;
+  min-height: 140px;            /* a touch tighter with lines */
+}
+
+
+    
   </style>
 
   <!-- Social cards -->
@@ -274,41 +325,39 @@
         <p>Quick numbers about my work and research.</p>
       </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 text-center">
-          <div class="col-6 col-md-3">
-            <div class="stats-item p-4 rounded shadow-sm bg-light">
-              <div class="icon mb-2"><i class="bi bi-journal-text fs-3 text-primary"></i></div>
-              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="2" class="purecounter fw-bold fs-2 text-dark"></span>
-              <p class="mt-2 text-secondary mb-0">Research Publications</p>
-            </div>
-          </div>
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+  <!-- Add class "lined" here if you want 1px grid lines -->
+  <div class="stats-grid">
+    <div class="stats-card">
+      <div class="icon mb-2"><i class="bi bi-journal-text fs-3 text-primary"></i></div>
+      <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="2"
+            class="purecounter fw-bold fs-2 text-dark"></span>
+      <p class="mt-2 text-secondary mb-0">Research Publications</p>
+    </div>
 
-          <div class="col-6 col-md-3">
-            <div class="stats-item p-4 rounded shadow-sm bg-light">
-              <div class="icon mb-2"><i class="bi bi-briefcase fs-3 text-primary"></i></div>
-              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="2" class="purecounter fw-bold fs-2 text-dark"></span>
-              <p class="mt-2 text-secondary mb-0">Internships</p>
-            </div>
-          </div>
+    <div class="stats-card">
+      <div class="icon mb-2"><i class="bi bi-briefcase fs-3 text-primary"></i></div>
+      <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="2"
+            class="purecounter fw-bold fs-2 text-dark"></span>
+      <p class="mt-2 text-secondary mb-0">Internships</p>
+    </div>
 
-          <div class="col-6 col-md-3">
-            <div class="stats-item p-4 rounded shadow-sm bg-light">
-              <div class="icon mb-2"><i class="bi bi-diagram-3 fs-3 text-primary"></i></div>
-              <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="2" data-purecounter-suffix="+" class="purecounter fw-bold fs-2 text-dark"></span>
-              <p class="mt-2 text-secondary mb-0">AI/ML/NLP Projects</p>
-            </div>
-          </div>
+    <div class="stats-card">
+      <div class="icon mb-2"><i class="bi bi-diagram-3 fs-3 text-primary"></i></div>
+      <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="2" data-purecounter-suffix="+"
+            class="purecounter fw-bold fs-2 text-dark"></span>
+      <p class="mt-2 text-secondary mb-0">AI/ML/NLP Projects</p>
+    </div>
 
-          <div class="col-6 col-md-3">
-            <div class="stats-item p-4 rounded shadow-sm bg-light">
-              <div class="icon mb-2"><i class="bi bi-person-workspace fs-3 text-primary"></i></div>
-              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="2" class="purecounter fw-bold fs-2 text-dark"></span>
-              <p class="mt-2 text-secondary mb-0">Students Mentored</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="stats-card">
+      <div class="icon mb-2"><i class="bi bi-person-workspace fs-3 text-primary"></i></div>
+      <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="2"
+            class="purecounter fw-bold fs-2 text-dark"></span>
+      <p class="mt-2 text-secondary mb-0">Students Mentored</p>
+    </div>
+  </div>
+</div>
+
     </section>
     <!-- /Stats Section -->
 
