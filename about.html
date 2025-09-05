@@ -11,11 +11,9 @@
   <link rel="icon" href="assets/img/favicon.png" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
 
-  <!-- Preconnects -->
+  <!-- Preconnects & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Vendor CSS -->
@@ -25,43 +23,51 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
 
-  <!-- Main CSS -->
-  <link href="assets/css/main.css" rel="stylesheet" />
+  <!-- Main CSS (cache-busted) -->
+  <link href="assets/css/main.css?v=4" rel="stylesheet" />
 
-  <!-- Page overrides (alignment fix for about info rows) -->
+  <!-- Page overrides: bullet-proof alignment -->
   <style>
-    /* Align icon | label | value neatly on all screens */
-   /* === About info rows: icon | label | value (mobile-safe) === */
-.about .content .about-info li{
-  display:flex !important;
-  align-items:flex-start !important;
-  gap:8px !important;
-  margin-bottom:10px;
-}
+    /* One unified list; becomes 2 columns on lg+ screens */
+    .about .content .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;      /* single column by default (mobile) */
+      gap: 10px 24px;
+    }
+    @media (min-width: 992px) {
+      .about .content .about-list {
+        grid-template-columns: 1fr 1fr; /* two columns on desktop */
+      }
+    }
 
-.about .content .about-info li i{
-  flex:0 0 1.25rem !important;   /* fixed icon track */
-  line-height:1;
-  text-align:center;
-}
+    /* Each row is a 3-track grid: icon | label | value */
+    .about .content .about-list > li {
+      display: grid !important;
+      grid-template-columns: 1.25rem 7.5rem 1fr; /* mobile label width */
+      align-items: start;
+      column-gap: 8px;
+    }
+    @media (min-width: 992px) {
+      .about .content .about-list > li {
+        grid-template-columns: 1.25rem 8.5rem 1fr; /* wider label on desktop */
+      }
+    }
 
-.about .content .about-info li strong{
-  flex:0 0 8.5rem !important;    /* fixed label track */
-  white-space:nowrap;
-  font-weight:600;
-}
-
-.about .content .about-info li .value{
-  flex:1 1 auto !important;      /* value fills the rest */
-  min-width:0;
-  word-break:break-word;
-}
-
-/* Slightly tighter label on small phones */
-@media (max-width:576px){
-  .about .content .about-info li strong{ flex-basis:7.2rem !important; }
-}
-
+    .about .content .about-list i {
+      line-height: 1;
+      text-align: center;
+    }
+    .about .content .about-list .label {
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .about .content .about-list .value {
+      min-width: 0;
+      word-break: break-word; /* wrap long links nicely */
+    }
   </style>
 
   <!-- Social cards -->
@@ -96,10 +102,10 @@
       </nav>
 
       <div class="header-social-links">
-        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
-        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
       </div>
 
     </div>
@@ -131,59 +137,51 @@
               <span class="fw-semibold" style="color:#d32f2f;">IoT-powered systems</span> that fuse sensor data with ML.
             </p>
 
-            <div class="row">
-              <div class="d-flex flex-wrap justify-content-center gap-5 mb-3">
-                <!-- Column 1 -->
-                <ul class="about-info list-unstyled small lh-lg m-0">
-                  <li>
-                    <i class="bi bi-cake me-2 text-warning"></i>
-                    <strong>Birthday:</strong>
-                    <span class="value">15 Feb 1998</span>
-                  </li>
-                  <li>
-                    <i class="bi bi-globe me-2 text-primary"></i>
-                    <strong>Website:</strong>
-                    <span class="value"><a href="https://tila173.github.io/tila-portfolio/" target="_blank" rel="noopener">Portfolio</a></span>
-                  </li>
-                  <li>
-                    <i class="bi bi-phone me-2 text-success"></i>
-                    <strong>Phone:</strong>
-                    <span class="value">+92 331 4030386</span>
-                  </li>
-                  <li>
-                    <i class="bi bi-geo-alt me-2 text-warning"></i>
-                    <strong>City:</strong>
-                    <span class="value">Khyber Pakhtunkhwa, Pakistan</span>
-                  </li>
-                </ul>
+            <!-- ONE unified list for all rows -->
+            <ul class="about-list">
+              <li>
+                <i class="bi bi-cake text-warning"></i>
+                <span class="label">Birthday:</span>
+                <span class="value">15 Feb 1998</span>
+              </li>
+              <li>
+                <i class="bi bi-globe text-primary"></i>
+                <span class="label">Website:</span>
+                <span class="value"><a href="https://tila173.github.io/tila-portfolio/" target="_blank" rel="noopener">Portfolio</a></span>
+              </li>
+              <li>
+                <i class="bi bi-phone text-success"></i>
+                <span class="label">Phone:</span>
+                <span class="value">+92 331 4030386</span>
+              </li>
+              <li>
+                <i class="bi bi-geo-alt text-warning"></i>
+                <span class="label">City:</span>
+                <span class="value">Khyber Pakhtunkhwa, Pakistan</span>
+              </li>
+              <li>
+                <i class="bi bi-person text-secondary"></i>
+                <span class="label">Age:</span>
+                <span class="value">27</span>
+              </li>
+              <li>
+                <i class="bi bi-mortarboard text-primary"></i>
+                <span class="label">Degree:</span>
+                <span class="value">MS in AI (in progress)</span>
+              </li>
+              <li>
+                <i class="bi bi-envelope text-danger"></i>
+                <span class="label">Email:</span>
+                <span class="value"><a href="mailto:w4s.tila@gmail.com">w4s.tila@gmail.com</a></span>
+              </li>
+              <li>
+                <i class="bi bi-briefcase text-success"></i>
+                <span class="label">Upwork:</span>
+                <span class="value"><a href="https://www.upwork.com/freelancers/~0168b3a45de594ce52?mp_source=share" target="_blank" rel="noopener">Available</a></span>
+              </li>
+            </ul>
 
-                <!-- Column 2 -->
-                <ul class="about-info list-unstyled small lh-lg m-0">
-                  <li>
-                    <i class="bi bi-person me-2 text-secondary"></i>
-                    <strong>Age:</strong>
-                    <span class="value">27</span>
-                  </li>
-                  <li>
-                    <i class="bi bi-mortarboard me-2 text-primary"></i>
-                    <strong>Degree:</strong>
-                    <span class="value">MS in AI (in progress)</span>
-                  </li>
-                  <li>
-                    <i class="bi bi-envelope me-2 text-danger"></i>
-                    <strong>Email:</strong>
-                    <span class="value"><a href="mailto:w4s.tila@gmail.com">w4s.tila@gmail.com</a></span>
-                  </li>
-                  <li>
-                    <i class="bi bi-briefcase me-2 text-success"></i>
-                    <strong>Upwork:</strong>
-                    <span class="value"><a href="https://www.upwork.com/freelancers/~0168b3a45de594ce52?mp_source=share" target="_blank" rel="noopener">Available</a></span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <p class="text-muted" style="max-width: 800px;">
+            <p class="text-muted mt-3" style="max-width: 800px;">
               I aim to work/collaborate with leading labs and advance research that delivers real-world
               <span class="fw-semibold text-primary">AI</span> impact.
             </p>
@@ -315,7 +313,6 @@
           </script>
 
           <div class="swiper-wrapper">
-            <!-- Replace with real testimonials / headshots -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="Profile 1" loading="lazy" decoding="async" />
@@ -352,14 +349,14 @@
         <p>© <span id="year"></span> <strong class="px-1 sitename">Tila</strong> — All Rights Reserved</p>
       </div>
       <div class="social-links d-flex justify-content-center">
-        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
       </div>
       <div class="credits small text-center text-muted">
-        Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener noreferrer">BootstrapMade</a>
-        &middot; Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener noreferrer">ThemeWagon</a>
+        Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a>
+        &middot; Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a>
       </div>
     </div>
   </footer>
