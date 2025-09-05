@@ -29,45 +29,36 @@
   <!-- Page overrides: bullet-proof alignment -->
   <style>
     /* One unified list; becomes 2 columns on lg+ screens */
-    .about .content .about-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: 1fr;      /* single column by default (mobile) */
-      gap: 10px 24px;
-    }
-    @media (min-width: 992px) {
-      .about .content .about-list {
-        grid-template-columns: 1fr 1fr; /* two columns on desktop */
-      }
-    }
+  /* === About info rows: icon | label | value (mobile-safe) === */
+.about .content .about-info li{
+  display:flex !important;
+  align-items:flex-start !important;
+  gap:8px !important;
+  margin-bottom:10px;
+}
 
-    /* Each row is a 3-track grid: icon | label | value */
-    .about .content .about-list > li {
-      display: grid !important;
-      grid-template-columns: 1.25rem 7.5rem 1fr; /* mobile label width */
-      align-items: start;
-      column-gap: 8px;
-    }
-    @media (min-width: 992px) {
-      .about .content .about-list > li {
-        grid-template-columns: 1.25rem 8.5rem 1fr; /* wider label on desktop */
-      }
-    }
+.about .content .about-info li i{
+  flex:0 0 1.25rem !important;   /* fixed icon track */
+  line-height:1;
+  text-align:center;
+}
 
-    .about .content .about-list i {
-      line-height: 1;
-      text-align: center;
-    }
-    .about .content .about-list .label {
-      white-space: nowrap;
-      font-weight: 600;
-    }
-    .about .content .about-list .value {
-      min-width: 0;
-      word-break: break-word; /* wrap long links nicely */
-    }
+.about .content .about-info li strong{
+  flex:0 0 8.5rem !important;    /* fixed label track */
+  white-space:nowrap;
+  font-weight:600;
+}
+
+.about .content .about-info li .value{
+  flex:1 1 auto !important;      /* value fills the rest */
+  min-width:0;
+  word-break:break-word;
+}
+
+/* Slightly tighter label on small phones */
+@media (max-width:576px){
+  .about .content .about-info li strong{ flex-basis:7.2rem !important; }
+}
   </style>
 
   <!-- Social cards -->
