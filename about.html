@@ -30,35 +30,47 @@
   <style>
     /* One unified list; becomes 2 columns on lg+ screens */
   /* === About info rows: icon | label | value (mobile-safe) === */
-.about .content .about-info li{
-  display:flex !important;
-  align-items:flex-start !important;
-  gap:8px !important;
-  margin-bottom:10px;
+/* Container: 1 column on phones, 2 on wider screens */
+.about-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns: 1fr;                 /* mobile: single column */
+  gap:12px 24px;
+}
+@media (min-width: 768px){
+  .about-list{
+    grid-template-columns: repeat(2, minmax(280px, 1fr)); /* desktop: two columns */
+  }
 }
 
-.about .content .about-info li i{
-  flex:0 0 1.25rem !important;   /* fixed icon track */
-  line-height:1;
-  text-align:center;
+/* Each item: icon | label | value (aligned) */
+.about-item{
+  display:grid !important;
+  grid-template-columns: 1.25rem 7.5rem 1fr;  /* icon | label | value (mobile label width) */
+  align-items:start;
+  column-gap:8px;
+  padding:6px 8px;                            /* comfortable touch target */
+  border-radius:8px;
+  background: var(--bs-light, #f8f9fa);       /* subtle card look; uses Bootstrap var if present */
 }
 
-.about .content .about-info li strong{
-  flex:0 0 8.5rem !important;    /* fixed label track */
-  white-space:nowrap;
-  font-weight:600;
+/* Widen label track on larger screens */
+@media (min-width: 992px){
+  .about-item{
+    grid-template-columns: 1.25rem 8.5rem 1fr;
+  }
 }
 
-.about .content .about-info li .value{
-  flex:1 1 auto !important;      /* value fills the rest */
-  min-width:0;
-  word-break:break-word;
-}
+.about-item i{ line-height:1; text-align:center; }
+.about-item .label{ font-weight:600; white-space:nowrap; }
+.about-item .value{ min-width:0; word-break: break-word; }
+.about-item a{ text-decoration: underline; text-underline-offset: 2px; }
 
-/* Slightly tighter label on small phones */
-@media (max-width:576px){
-  .about .content .about-info li strong{ flex-basis:7.2rem !important; }
-}
+/* If your theme overrides things aggressively, keep these helpers */
+.about-item, .about-item * { box-sizing: border-box; }
+
   </style>
 
   <!-- Social cards -->
@@ -129,48 +141,64 @@
             </p>
 
             <!-- ONE unified list for all rows -->
-            <ul class="about-list">
-              <li>
-                <i class="bi bi-cake text-warning"></i>
-                <span class="label">Birthday:</span>
-                <span class="value">15 Feb 1998</span>
-              </li>
-              <li>
-                <i class="bi bi-globe text-primary"></i>
-                <span class="label">Website:</span>
-                <span class="value"><a href="https://tila173.github.io/tila-portfolio/" target="_blank" rel="noopener">Portfolio</a></span>
-              </li>
-              <li>
-                <i class="bi bi-phone text-success"></i>
-                <span class="label">Phone:</span>
-                <span class="value">+92 331 4030386</span>
-              </li>
-              <li>
-                <i class="bi bi-geo-alt text-warning"></i>
-                <span class="label">City:</span>
-                <span class="value">KP, Pakistan</span>
-              </li>
-              <li>
-                <i class="bi bi-person text-secondary"></i>
-                <span class="label">Age:</span>
-                <span class="value">27</span>
-              </li>
-              <li>
-                <i class="bi bi-mortarboard text-primary"></i>
-                <span class="label">Degree:</span>
-                <span class="value">MS in AI (in progress)</span>
-              </li>
-              <li>
-                <i class="bi bi-envelope text-danger"></i>
-                <span class="label">Email:</span>
-                <span class="value"><a href="mailto:w4s.tila@gmail.com">w4s.tila@gmail.com</a></span>
-              </li>
-              <li>
-                <i class="bi bi-briefcase text-success"></i>
-                <span class="label">Upwork:</span>
-                <span class="value"><a href="https://www.upwork.com/freelancers/~0168b3a45de594ce52?mp_source=share" target="_blank" rel="noopener">Available</a></span>
-              </li>
-            </ul>
+<ul class="about-list">
+  <li class="about-item">
+    <i class="bi bi-cake text-warning" aria-hidden="true"></i>
+    <span class="label">Birthday:</span>
+    <span class="value">15 Feb 1998</span>
+  </li>
+
+  <li class="about-item">
+    <i class="bi bi-globe text-primary" aria-hidden="true"></i>
+    <span class="label">Website:</span>
+    <span class="value">
+      <a href="https://tila173.github.io/tila-portfolio/" target="_blank" rel="noopener">Portfolio</a>
+    </span>
+  </li>
+
+  <li class="about-item">
+    <i class="bi bi-phone text-success" aria-hidden="true"></i>
+    <span class="label">Phone:</span>
+    <span class="value">
+      <a href="tel:+923314030386">+92 331 4030386</a>
+    </span>
+  </li>
+
+  <li class="about-item">
+    <i class="bi bi-geo-alt text-warning" aria-hidden="true"></i>
+    <span class="label">City:</span>
+    <span class="value">KP, Pakistan</span>
+  </li>
+
+  <li class="about-item">
+    <i class="bi bi-person text-secondary" aria-hidden="true"></i>
+    <span class="label">Age:</span>
+    <span class="value">27</span>
+  </li>
+
+  <li class="about-item">
+    <i class="bi bi-mortarboard text-primary" aria-hidden="true"></i>
+    <span class="label">Degree:</span>
+    <span class="value">MS in AI (in progress)</span>
+  </li>
+
+  <li class="about-item">
+    <i class="bi bi-envelope text-danger" aria-hidden="true"></i>
+    <span class="label">Email:</span>
+    <span class="value">
+      <a href="mailto:w4s.tila@gmail.com">w4s.tila@gmail.com</a>
+    </span>
+  </li>
+
+  <li class="about-item">
+    <i class="bi bi-briefcase text-success" aria-hidden="true"></i>
+    <span class="label">Upwork:</span>
+    <span class="value">
+      <a href="https://www.upwork.com/freelancers/~0168b3a45de594ce52?mp_source=share" target="_blank" rel="noopener">Available</a>
+    </span>
+  </li>
+</ul>
+
 
             <p class="text-muted mt-3" style="max-width: 800px;">
               I aim to work/collaborate with leading labs and advance research that delivers real-world
@@ -268,7 +296,7 @@
             <div class="stats-item p-4 rounded shadow-sm bg-light">
               <div class="icon mb-2"><i class="bi bi-diagram-3 fs-3 text-primary"></i></div>
               <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="2" data-purecounter-suffix="+" class="purecounter fw-bold fs-2 text-dark"></span>
-              <p class="mt-2 text-secondary mb-0">ML/NLP Projects</p>
+              <p class="mt-2 text-secondary mb-0">AI/ML/NLP Projects</p>
             </div>
           </div>
 
