@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Projects — Tila Portfolio</title>
+  <meta name="description" content="Projects by Tila Muhammad" />
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Fonts (trimmed to one family & essential weights) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS (lean) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Main CSS (keep your global styles) -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <!-- Preload just the first image (boosts LCP) -->
+  <link rel="preload" as="image" href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" fetchpriority="high">
+
+  <style>
+    /* Page polish */
+    body { font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+
+    /* Section */
+    #portfolio { background:#fff; }
+    .section-title { text-align:center; margin-bottom: 1.25rem; }
+    .section-title h2 { font-weight:800; margin:0 0 .25rem; }
+    .section-title p { margin:0; opacity:.85; }
+
+    /* Filters/Search/Sort */
+    .filter-chip {
+      border:1px solid #000; color:#000; background:#fff;
+      padding:.35rem .7rem; border-radius:999px; cursor:pointer;
+      font-weight:600; font-size:.9rem; transition: transform .15s ease, background .15s;
+    }
+    .filter-chip.active { background:#000; color:#fff; }
+    .filter-chip:active { transform:scale(.98); }
+    .search-input {
+      border:1px solid #000; border-radius:999px; padding:.55rem .9rem; outline:none;
+    }
+    .sort-select {
+      border:1px solid #000; border-radius:10px; padding:.5rem .75rem; background:#fff;
+    }
+
+    /* Cards */
+    .project-card {
+      background:#fff;
+      border:1px solid rgba(0,0,0,.2);
+      border-radius:16px;
+      overflow:hidden;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+    }
+    .project-thumb {
+      position:relative;
+      overflow:hidden;
+      aspect-ratio: 16 / 10; /* consistent, prevents CLS */
+      background:#fff;
+    }
+    .project-thumb img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition: transform .35s ease;
+    }
+    .project-card:hover .project-thumb img { transform: scale(1.04); }
+    .project-body {
+      padding:0.9rem 0.9rem 1rem;
+      display:flex; flex-direction:column; gap:0.4rem; flex:1;
+    }
+    .project-title { font-size:1rem; font-weight:800; margin:0; }
+    .project-meta { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; font-size:.85rem; opacity:.8; }
+    .project-meta .badge { font-weight:600; }
+    .project-desc { font-size:.95rem; opacity:.9; margin:0; }
+    .project-actions { margin-top:auto; display:flex; gap:.5rem; justify-content:flex-end; }
+
+    .grid-gap { row-gap: 1.2rem; }
+
+    /* Modal image fit */
+    .modal-img { width:100%; height:auto; object-fit:cover; border-radius:12px; }
+  </style>
+</head>
+
+<body class="portfolio-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Tila</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html" class="active">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+      <div class="container section-title">
+        <h2>Projects</h2>
+        <p>Explore selected work across apps, products, and web branding.</p>
+      </div>
+
+      <div class="container" id="portfolio-root">
+        <!-- React mounts here -->
+      </div>
+    </section>
+    <!-- /Portfolio Section -->
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span id="year"></span> <strong class="px-1 sitename">Tila</strong> — All Rights Reserved</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS (lean + deferred) -->
+  <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- React 18 (pinned + deferred, jsDelivr for speed) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+
+  <!-- Portfolio React App (inline, runs after DOM ready) -->
+  <script>
+    (function () {
+      const cx = (...a) => a.filter(Boolean).join(' ');
+
+      // Data (replace with your real work)
+      const PROJECTS = [
+        { id:1, title:"App 1", category:"App", year:2025,
+          desc:"A mobile-first app with offline capabilities and secure auth.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-1.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-1.jpg" },
+        { id:2, title:"Product 1", category:"Card", year:2024,
+          desc:"Product UI components library with design tokens.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-2.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-2.jpg" },
+        { id:3, title:"Branding 1", category:"Web", year:2023,
+          desc:"High-conversion landing page with A/B tested hero.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-3.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-3.jpg" },
+        { id:4, title:"App 2", category:"App", year:2024,
+          desc:"Realtime chat with WebSocket backend and push notifications.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-4.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-4.jpg" },
+        { id:5, title:"Product 2", category:"Card", year:2023,
+          desc:"Design system documentation site with live code playgrounds.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-5.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-5.jpg" },
+        { id:6, title:"Branding 2", category:"Web", year:2025,
+          desc:"E-commerce branding with optimized product cards.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-6.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-6.jpg" },
+        { id:7, title:"App 3", category:"App", year:2023,
+          desc:"Health tracker app with charts and streaks.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-7.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-7.jpg" },
+        { id:8, title:"Product 3", category:"Card", year:2025,
+          desc:"3D product cards with lightweight WebGL preview.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-8.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-8.jpg" },
+        { id:9, title:"Branding 3", category:"Web", year:2024,
+          desc:"SEO-first brand site with schema and blazing TTFB.",
+          img:"assets/img/masonry-portfolio/masonry-portfolio-9.jpg",
+          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-9.jpg" },
+      ];
+
+      const CATEGORIES = ["All", "App", "Card", "Web"];
+      const SORTS = [
+        { key: "recent", label: "Newest first" },
+        { key: "old",    label: "Oldest first" },
+        { key: "az",     label: "A → Z" },
+        { key: "za",     label: "Z → A" },
+      ];
+
+      function sortProjects(list, key){
+        const arr = list.slice();
+        switch(key){
+          case "recent": return arr.sort((a,b) => b.year - a.year || a.title.localeCompare(b.title));
+          case "old":    return arr.sort((a,b) => a.year - b.year || a.title.localeCompare(b.title));
+          case "az":     return arr.sort((a,b) => a.title.localeCompare(b.title));
+          case "za":     return arr.sort((a,b) => b.title.localeCompare(a.title));
+          default:       return arr;
+        }
+      }
+
+      function useModal(){
+        const React = window.React;
+        const [item, setItem] = React.useState(null);
+
+        const show = (project) => {
+          setItem(project);
+          const el = document.getElementById('projectModal');
+          if (el && window.bootstrap) {
+            new window.bootstrap.Modal(el).show();
+          }
+        };
+        const clear = () => setItem(null);
+        return { item, show, clear };
+      }
+
+      function Filters({active, onChange, search, onSearch, sort, onSort}){
+        const React = window.React;
+        return React.createElement(
+          'div',
+          { className: "d-flex flex-column flex-lg-row justify-content-between align-items-stretch align-items-lg-center gap-3 mb-3" },
+          React.createElement(
+            'div',
+            { className: "d-flex flex-wrap gap-2" },
+            CATEGORIES.map(cat =>
+              React.createElement(
+                'button',
+                {
+                  key: cat, type: "button",
+                  className: cx("filter-chip", active===cat && "active"),
+                  onClick: () => onChange(cat), 'aria-pressed': active===cat
+                },
+                cat
+              )
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: "d-flex flex-column flex-md-row gap-2" },
+            React.createElement('input', {
+              className:"search-input", type:"search", placeholder:"Search projects…",
+              value:search, onChange:e=>onSearch(e.target.value), 'aria-label':"Search projects"
+            }),
+            React.createElement('select', {
+              className:"sort-select", value:sort, onChange:e=>onSort(e.target.value), 'aria-label':"Sort projects"
+            }, SORTS.map(s => React.createElement('option', { key:s.key, value:s.key }, s.label)))
+          )
+        );
+      }
+
+      function ProjectCard({p, onPreview}){
+        const React = window.React;
+        return React.createElement(
+          'article', { className:"project-card" },
+          React.createElement('div', { className:"project-thumb" },
+            React.createElement('img', {
+              src: p.img,
+              alt: p.title,
+              loading: "lazy",
+              decoding: "async",
+              fetchpriority: "low"
+            })
+          ),
+          React.createElement('div', { className:"project-body" },
+            React.createElement('div', { className:"d-flex justify-content-between align-items-center" },
+              React.createElement('h3', { className:"project-title mb-0" }, p.title),
+              React.createElement('span', { className:"badge text-bg-dark" }, p.year)
+            ),
+            React.createElement('div', { className:"project-meta" },
+              React.createElement('span', { className:"badge rounded-pill text-bg-light border" }, p.category)
+            ),
+            React.createElement('p', { className:"project-desc" }, p.desc),
+            React.createElement('div', { className:"project-actions" },
+              React.createElement('a', { className:"btn btn-outline-dark btn-sm", href:p.live, target:"_blank", rel:"noopener" }, "Details"),
+              React.createElement('button', { className:"btn btn-dark btn-sm", onClick:()=>onPreview(p), type:"button" },
+                React.createElement('i', { className:"bi bi-zoom-in me-1" }), "Preview"
+              )
+            )
+          )
+        );
+      }
+
+      function Grid(){
+        const React = window.React;
+        const [active, setActive] = React.useState("All");
+        const [search, setSearch] = React.useState("");
+        const [sort, setSort] = React.useState("recent");
+        const modal = useModal();
+
+        const filtered = React.useMemo(() => {
+          let list = PROJECTS.filter(p => active==="All" ? true : p.category===active);
+          if (search.trim()){
+            const q = search.toLowerCase();
+            list = list.filter(p =>
+              p.title.toLowerCase().includes(q) ||
+              p.desc.toLowerCase().includes(q) ||
+              String(p.year).includes(q) ||
+              p.category.toLowerCase().includes(q)
+            );
+          }
+          return sortProjects(list, sort);
+        }, [active, search, sort]);
+
+        return React.createElement(
+          React.Fragment,
+          null,
+          React.createElement(Filters, {
+            active, onChange:setActive, search, onSearch:setSearch, sort, onSort:setSort
+          }),
+          React.createElement(
+            'div', { className:"row grid-gap" },
+            filtered.map(p =>
+              React.createElement('div', { key:p.id, className:"col-12 col-sm-6 col-lg-4 d-flex" },
+                React.createElement(ProjectCard, { p, onPreview:modal.show })
+              )
+            ),
+            filtered.length===0 &&
+            React.createElement('div', { className:"col-12" },
+              React.createElement('div', { className:"text-center py-5" },
+                React.createElement('p', { className:"mb-0" }, "No projects match your filters.")
+              )
+            )
+          ),
+          // Modal
+          React.createElement('div', { className:"modal fade", id:"projectModal", tabIndex:"-1", 'aria-hidden':"true" },
+            React.createElement('div', { className:"modal-dialog modal-dialog-centered modal-lg" },
+              React.createElement('div', { className:"modal-content" },
+                React.createElement('div', { className:"modal-header" },
+                  React.createElement('h5', { className:"modal-title" }, modal.item?.title || "Preview"),
+                  React.createElement('button', {
+                    type:"button", className:"btn-close", 'data-bs-dismiss':"modal",
+                    'aria-label':"Close", onClick: modal.clear
+                  })
+                ),
+                React.createElement('div', { className:"modal-body" },
+                  modal.item && React.createElement(React.Fragment, null,
+                    React.createElement('img', { className:"modal-img mb-3", src: modal.item.preview, alt: modal.item.title, loading:"lazy", decoding:"async" }),
+                    React.createElement('div', { className:"d-flex flex-wrap gap-2 align-items-center" },
+                      React.createElement('span', { className:"badge text-bg-dark" }, modal.item.year),
+                      React.createElement('span', { className:"badge rounded-pill text-bg-light border" }, modal.item.category)
+                    ),
+                    React.createElement('p', { className:"mt-3 mb-0" }, modal.item.desc)
+                  )
+                ),
+                React.createElement('div', { className:"modal-footer" },
+                  modal.item?.live && React.createElement('a', { className:"btn btn-dark", href: modal.item.live, target:"_blank", rel:"noopener" }, "Open details"),
+                  React.createElement('button', { type:"button", className:"btn btn-outline-dark", 'data-bs-dismiss':"modal", onClick: modal.clear }, "Close")
+                )
+              )
+            )
+          )
+        );
+      }
+
+      // Run after DOM is ready (deferred scripts load in order)
+      window.addEventListener('DOMContentLoaded', function () {
+        // Footer year
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear();
+
+        // Scroll-top (small helper so we don't need template main.js)
+        const st = document.getElementById('scroll-top');
+        if (st) st.addEventListener('click', function (e) {
+          e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mount React Grid
+        const rootEl = document.getElementById('portfolio-root');
+        if (rootEl && window.ReactDOM && window.React) {
+          const root = window.ReactDOM.createRoot(rootEl);
+          root.render(window.React.createElement(Grid));
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

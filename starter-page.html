@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Starter — Tila Portfolio</title>
+  <meta name="description" content="Starter kit page for quickly building new sections and pages on Tila's portfolio." />
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --ink:#0f1011;
+      --ink-2:#1f2328;
+      --muted:#6b7280;
+      --line:rgba(0,0,0,.12);
+      --radius:16px;
+
+      /* Accent palette you can tweak */
+      --primary:#2563eb; /* blue */
+      --secondary:#06b6d4; /* cyan */
+      --violet:#7c3aed; /* violet */
+
+      --g-hero: linear-gradient(135deg, rgba(37,99,235,.10), rgba(6,182,212,.10));
+      --g-chip: linear-gradient(135deg, rgba(124,58,237,.10), rgba(6,182,212,.10));
+      --g-btn: linear-gradient(135deg, #2563eb, #7c3aed);
+    }
+    body{ font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color:var(--ink-2); background:#fff; }
+
+    /* Section title */
+    .section-title{ text-align:center; margin-bottom:1.25rem; }
+    .section-title h2{ font-weight:800; margin:0 0 .25rem; }
+    .section-title p{ margin:0; color:var(--muted); }
+
+    /* HERO */
+    .starter-hero{
+      border:1px solid var(--line); border-radius:var(--radius); padding:2rem; background:var(--g-hero);
+      position:relative; overflow:hidden;
+    }
+    .starter-hero::after{
+      content:""; position:absolute; inset:-4px; pointer-events:none;
+      background:
+        radial-gradient(500px 200px at 0% 0%, rgba(37,99,235,.12), transparent 60%),
+        radial-gradient(450px 250px at 100% 100%, rgba(124,58,237,.12), transparent 60%);
+    }
+    .starter-hero > *{ position:relative; z-index:1; }
+    .chip{
+      display:inline-flex; align-items:center; gap:.5rem; padding:.4rem .75rem; border-radius:999px; 
+      border:1px solid var(--line); background:#fff; font-weight:600; font-size:.9rem;
+    }
+    .chip-colored{
+      background:var(--g-chip); border-color:rgba(124,58,237,.25);
+    }
+    .btn-gradient{
+      background:var(--g-btn); border:0; color:#fff; border-radius:999px;
+    }
+    .btn-gradient:hover{ opacity:.95; color:#fff; }
+
+    /* Quick Links */
+    .q-card{
+      height:100%; background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+      padding:1rem; transition: transform .25s ease, border-color .25s ease;
+    }
+    .q-card:hover{ transform: translateY(-4px); border-color:rgba(37,99,235,.35); }
+    .q-icon{
+      width:44px; height:44px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center;
+      background:#fff; border:1px solid rgba(37,99,235,.25); color:#1743a6; font-size:1.2rem;
+    }
+    .q-title{ margin:.75rem 0 .25rem; font-weight:800; font-size:1.05rem; }
+    .q-text{ color:var(--muted); margin:0; font-size:.96rem; }
+
+    /* Reusable Blocks */
+    .b-card{
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:1rem; height:100%;
+    }
+    .b-badge{ background:rgba(37,99,235,.08); color:#11307c; border:1px solid rgba(37,99,235,.25); }
+
+    /* FAQ */
+    .accordion-button:not(.collapsed){ background:#fff; color:var(--ink-2); box-shadow:none; }
+    .accordion-button{ font-weight:600; }
+    .accordion-item{ border:1px solid var(--line); border-radius:12px !important; overflow:hidden; }
+    .link-colored{ color:var(--primary); }
+    .link-colored:hover{ color:#1743a6; }
+  </style>
+</head>
+<body class="starter-page-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Tila</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Starter / Hero -->
+    <section id="starter" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Starter Kit</h2>
+        <p>Drop-in blocks and links to build new pages in seconds.</p>
+      </div>
+
+      <div class="container">
+        <div class="starter-hero" data-aos="zoom-in" data-aos-delay="50">
+          <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+            <div>
+              <div class="chip chip-colored mb-2"><i class="bi bi-lightning-charge-fill"></i> Ready-to-use components</div>
+              <h1 class="mb-1" style="font-weight:800; letter-spacing:.2px;">Start from here.</h1>
+              <p class="mb-0" style="max-width:680px; color:var(--muted);">
+                Use the quick links and blocks below to scaffold new pages. Everything is accessible, responsive,
+                and matches your site’s visual language.
+              </p>
+            </div>
+            <div class="d-flex gap-2">
+              <a class="btn btn-gradient px-4" href="portfolio.html"><i class="bi bi-grid-1x2 me-1"></i> See Projects</a>
+              <a class="btn btn-outline-dark px-4" href="contact.html"><i class="bi bi-send me-1"></i> Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="section pt-3">
+      <div class="container">
+        <div class="row g-3 g-md-4">
+          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+            <div class="q-card">
+              <div class="q-icon"><i class="bi bi-person-badge"></i></div>
+              <h3 class="q-title">About</h3>
+              <p class="q-text">Bio, skills, stats, and testimonials.</p>
+              <div class="mt-3">
+                <a href="about.html" class="link-colored fw-semibold">Open <i class="bi bi-arrow-right-short"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="q-card">
+              <div class="q-icon"><i class="bi bi-file-earmark-text"></i></div>
+              <h3 class="q-title">Resume</h3>
+              <p class="q-text">Experience, education, publications.</p>
+              <div class="mt-3">
+                <a href="resume.html" class="link-colored fw-semibold">Open <i class="bi bi-arrow-right-short"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="q-card">
+              <div class="q-icon"><i class="bi bi-gear"></i></div>
+              <h3 class="q-title">Services</h3>
+              <p class="q-text">ML, NLP, data viz, IoT & deployments.</p>
+              <div class="mt-3">
+                <a href="services.html" class="link-colored fw-semibold">Open <i class="bi bi-arrow-right-short"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="q-card">
+              <div class="q-icon"><i class="bi bi-kanban"></i></div>
+              <h3 class="q-title">Projects</h3>
+              <p class="q-text">Selected apps, models, and demos.</p>
+              <div class="mt-3">
+                <a href="portfolio.html" class="link-colored fw-semibold">Open <i class="bi bi-arrow-right-short"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+            <div class="q-card">
+              <div class="q-icon"><i class="bi bi-journal-bookmark"></i></div>
+              <h3 class="q-title">Research</h3>
+              <p class="q-text">Publications & ongoing work.</p>
+              <div class="mt-3">
+                <a href="resume.html#research-papers" class="link-colored fw-semibold">Open <i class="bi bi-arrow-right-short"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="q-card">
+              <div class="q-icon"><i class="bi bi-chat-left-text"></i></div>
+              <h3 class="q-title">Contact</h3>
+              <p class="q-text">Email, WhatsApp, and quick form.</p>
+              <div class="mt-3 d-flex gap-2">
+                <a href="contact.html" class="link-colored fw-semibold">Open <i class="bi bi-arrow-right-short"></i></a>
+                <a href="mailto:w4s.tila@gmail.com" class="text-decoration-none"><i class="bi bi-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="my-4" />
+      </div>
+    </section>
+
+    <!-- Reusable Blocks -->
+    <section class="section pt-0">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Reusable Blocks</h2>
+        <p>Copy & paste into any page. Minimal code, maximum clarity.</p>
+      </div>
+
+      <div class="container">
+        <div class="row g-3 g-md-4">
+          <!-- Callout -->
+          <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="50">
+            <div class="b-card h-100">
+              <span class="badge rounded-pill b-badge mb-2"><i class="bi bi-megaphone-fill me-1"></i> Callout</span>
+              <h3 class="fs-5 fw-bold mb-1">Looking for a fast proof-of-concept?</h3>
+              <p class="mb-3" style="color:var(--muted);">
+                I can ship a functional Streamlit or FastAPI demo in days—clean UX, Dockerized, and ready to iterate.
+              </p>
+              <a class="btn btn-gradient btn-sm px-3" href="services.html#services"><i class="bi bi-rocket-takeoff me-1"></i> Start now</a>
+            </div>
+          </div>
+
+          <!-- Testimonial -->
+          <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="b-card h-100">
+              <span class="badge rounded-pill b-badge mb-2"><i class="bi bi-chat-quote-fill me-1"></i> Testimonial</span>
+              <blockquote class="mb-2" style="font-size:1rem">
+                “Professional, communicative, and delivers on time. Our NLP prototype exceeded expectations.”
+              </blockquote>
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-person-circle fs-4"></i>
+                <div>
+                  <div class="fw-bold">Client, Clouditecture</div>
+                  <div class="small" style="color:var(--muted);">Sentiment & spam detection POC</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature List -->
+          <div class="col-12" data-aos="fade-up" data-aos-delay="150">
+            <div class="b-card">
+              <span class="badge rounded-pill b-badge mb-2"><i class="bi bi-list-check me-1"></i> Feature List</span>
+              <div class="row g-3">
+                <div class="col-12 col-md-4 d-flex gap-2">
+                  <div class="q-icon" style="border-color:rgba(6,182,212,.35); color:#05667a;"><i class="bi bi-cpu"></i></div>
+                  <div><div class="fw-bold">ML Pipelines</div><div class="small" style="color:var(--muted);">scikit-learn • PyTorch</div></div>
+                </div>
+                <div class="col-12 col-md-4 d-flex gap-2">
+                  <div class="q-icon" style="border-color:rgba(124,58,237,.35); color:#4a1db2;"><i class="bi bi-translate"></i></div>
+                  <div><div class="fw-bold">NLP Systems</div><div class="small" style="color:var(--muted);">Transformers • spaCy • Urdu</div></div>
+                </div>
+                <div class="col-12 col-md-4 d-flex gap-2">
+                  <div class="q-icon" style="border-color:rgba(37,99,235,.35); color:#1743a6;"><i class="bi bi-graph-up-arrow"></i></div>
+                  <div><div class="fw-bold">Data Viz</div><div class="small" style="color:var(--muted);">Dashboards • EDA • BI</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+            <div class="b-card">
+              <span class="badge rounded-pill b-badge mb-2"><i class="bi bi-question-circle-fill me-1"></i> FAQ</span>
+              <div class="accordion" id="faq">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="q1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="false" aria-controls="a1">
+                      How fast can we start?
+                    </button>
+                  </h2>
+                  <div id="a1" class="accordion-collapse collapse" aria-labelledby="q1" data-bs-parent="#faq">
+                    <div class="accordion-body">
+                      Immediately for discovery. Prototyping typically starts within 48–72 hours after scope confirmation.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item mt-2">
+                  <h2 class="accordion-header" id="q2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+                      What do you need from me?
+                    </button>
+                  </h2>
+                  <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faq">
+                    <div class="accordion-body">
+                      A clear goal, sample data (or access), and constraints. I’ll propose milestones and deliverables you can review.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item mt-2">
+                  <h2 class="accordion-header" id="q3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
+                      Do you handle deployment?
+                    </button>
+                  </h2>
+                  <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faq">
+                    <div class="accordion-body">
+                      Yes—Streamlit/FastAPI frontends, containerization, simple CI, and cloud hosting guidance are included when needed.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3">
+                Still curious? <a class="link-colored fw-semibold" href="contact.html">Ask anything <i class="bi bi-arrow-right-short"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="250">
+          <a class="btn btn-gradient px-4" href="services.html"><i class="bi bi-hammer me-1"></i> Build a new page</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span id="year"></span> <strong class="px-1 sitename">Tila</strong> — All Rights Reserved</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Page JS -->
+  <script>
+    // AOS
+    AOS.init({ once: true, duration: 600, easing: 'ease-out' });
+
+    // Footer year
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    });
+
+    // Smooth scroll-to-top
+    document.getElementById('scroll-top')?.addEventListener('click', (e) => {
+      e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

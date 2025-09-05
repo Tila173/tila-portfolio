@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Contact — Tila Portfolio</title>
+  <meta name="description" content="Contact Tila Muhammad for ML, NLP, Data, and IoT projects." />
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Fonts (lean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --ink: #0f1011;
+      --ink-2: #1f2328;
+      --muted: #6b7280;
+      --line: rgba(0,0,0,.12);
+      --pill: rgba(0,0,0,.06);
+
+      /* Colorful accents */
+      --primary: #2563eb;  /* blue */
+      --secondary: #06b6d4;/* cyan */
+      --violet: #7c3aed;
+      --orange: #f97316;
+      --green: #10b981;
+
+      --g1: linear-gradient(135deg, rgba(37,99,235,.08), rgba(6,182,212,.08));
+      --g2: linear-gradient(135deg, #2563eb, #06b6d4);
+      --g3: linear-gradient(135deg, rgba(124,58,237,.12), rgba(6,182,212,.12));
+      --gbtn: linear-gradient(135deg, #2563eb, #7c3aed);
+    }
+    body{ font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color:var(--ink-2); background:#fff; }
+
+    /* Section Title */
+    .section-title{ text-align:center; margin-bottom: 1.25rem; }
+    .section-title h2{ font-weight:800; margin:0 0 .25rem; }
+    .section-title p{ margin:0; color:var(--muted); }
+
+    /* Contact header (soft colorful gradient) */
+    .contact-hero{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:1.25rem;
+      background: var(--g1);
+      position:relative;
+      overflow:hidden;
+    }
+    .contact-hero::after{
+      content:""; position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 200px at 10% -10%, rgba(37,99,235,.10), transparent 60%),
+        radial-gradient(400px 200px at 90% 110%, rgba(124,58,237,.10), transparent 60%);
+      pointer-events:none;
+      z-index:0;
+    }
+    .contact-hero > *{ position:relative; z-index:1; }
+
+    .contact-pill{
+      display:inline-flex; align-items:center; gap:.5rem;
+      border:1px solid var(--line); border-radius:999px; padding:.35rem .75rem;
+      background: #fff; font-weight:600; font-size:.9rem;
+    }
+    .pill-blue{ background: rgba(37,99,235,.10); border-color: rgba(37,99,235,.25); color:#0b3ea3; }
+    .pill-cyan{ background: rgba(6,182,212,.10); border-color: rgba(6,182,212,.25); color:#026b78; }
+    .pill-violet{ background: rgba(124,58,237,.10); border-color: rgba(124,58,237,.25); color:#4a1db2; }
+    .pill-orange{ background: rgba(249,115,22,.10); border-color: rgba(249,115,22,.25); color:#9a3e03; }
+    .pill-green{ background: rgba(16,185,129,.10); border-color: rgba(16,185,129,.25); color:#0c6e52; }
+
+    .contact-cta a.btn{ border-radius:999px; }
+
+    /* Info cards */
+    .info-card{
+      background:#fff; border:1px solid var(--line); border-radius:16px; padding:1rem; height:100%;
+    }
+    .info-card .icon{
+      width:44px; height:44px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center;
+      background: var(--g3); color:#4a1db2; border:1px solid rgba(124,58,237,.25);
+      font-size:1.15rem;
+    }
+    .info-card h3{ font-weight:800; font-size:1.05rem; margin:.75rem 0 .25rem; }
+    .info-card p, .info-card a{ margin:0; color:var(--muted); font-size:.95rem; }
+
+    /* Map */
+    .map-wrap{ border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; }
+    .map-wrap iframe{ display:block; width:100%; height:320px; filter: saturate(1.1) contrast(1.05); }
+
+    /* Form */
+    .contact-form{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:1rem; }
+    .form-floating > label{ color:var(--muted); }
+    .form-control, .form-select{ border:1px solid var(--line) !important; background:#fff; color:var(--ink-2); }
+    .form-control:focus, .form-select:focus{
+      border-color: transparent !important;
+      box-shadow: 0 0 0 .15rem rgba(37,99,235,.25);
+      background:#fff;
+    }
+
+    /* Buttons */
+    .btn-gradient{
+      background: var(--gbtn);
+      color:#fff; border:1px solid transparent;
+    }
+    .btn-gradient:hover{ opacity:.95; color:#fff; }
+    .btn-outline-ink{ background:#fff; color:var(--ink); border:1px solid var(--ink); }
+    .btn-outline-ink:hover{ background:var(--ink); color:#fff; }
+
+    /* Status & helpers */
+    .status{ min-height:1.5rem; font-size:.95rem; }
+    .badge-soft{ background: rgba(37,99,235,.10); border:1px solid rgba(37,99,235,.25); }
+    .copy-btn{ border:1px solid var(--line); background:#fff; }
+    .copy-btn:hover{ border-color: var(--primary); color: var(--primary); }
+    .link-colored{ color: var(--primary); }
+    .link-colored:hover{ color:#1743a6; }
+  </style>
+</head>
+
+<body class="contact-page">
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Tila</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container section-title">
+        <h2>Contact</h2>
+        <p>Let’s build something intelligent together.</p>
+      </div>
+
+      <div class="container">
+        <!-- Hero / CTAs -->
+        <div class="contact-hero mb-4">
+          <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+            <div class="d-flex align-items-center flex-wrap gap-2">
+              <span class="contact-pill pill-blue">
+                <i class="bi bi-clock-history"></i>
+                <span>Reply within <strong>24h</strong></span>
+              </span>
+              <span class="contact-pill pill-cyan">
+                <i class="bi bi-geo"></i> Khyber Pakhtunkhwa, PK
+              </span>
+              <span class="contact-pill pill-violet">
+                <i class="bi bi-laptop"></i> Freelance: <strong>Available</strong>
+              </span>
+            </div>
+            <div class="contact-cta d-flex gap-2">
+              <a class="btn btn-outline-ink" target="_blank" rel="noopener"
+                 href="mailto:w4s.tila@gmail.com?subject=Project%20Inquiry%20from%20Portfolio&body=Hi%20Tila%2C%0A%0A">
+                <i class="bi bi-envelope me-1"></i> Email
+              </a>
+              <a class="btn btn-gradient" target="_blank" rel="noopener"
+                 href="https://wa.me/923314030386?text=Hi%20Tila%2C%20I%27d%20like%20to%20discuss%20a%20project.">
+                <i class="bi bi-whatsapp me-1"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <!-- Left: Info + Map -->
+          <div class="col-lg-5">
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="info-card">
+                  <div class="d-flex align-items-start gap-3">
+                    <div class="icon"><i class="bi bi-geo-alt"></i></div>
+                    <div>
+                      <h3>Address</h3>
+                      <p>Ismail Khel, Darwazgai, Nowshera, Khyber Pakhtunkhwa, Pakistan 24000</p>
+                      <a class="link-colored" target="_blank" rel="noopener"
+                         href="https://www.google.com/maps/search/?api=1&query=Ismail+Khel+Darwazgai+Nowshera+Khyber+Pakhtunkhwa+Pakistan+24000">
+                        Open in Google Maps <i class="bi bi-arrow-up-right ms-1"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <hr class="my-3" />
+                  <div class="d-flex align-items-start gap-3">
+                    <div class="icon"><i class="bi bi-telephone"></i></div>
+                    <div class="w-100">
+                      <h3>Call</h3>
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <a href="tel:+923314030386" class="link-colored">+92 331 4030386</a>
+                        <button class="btn btn-sm copy-btn" data-copy="+923314030386" type="button" aria-label="Copy phone">
+                          <i class="bi bi-clipboard"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="my-3" />
+                  <div class="d-flex align-items-start gap-3">
+                    <div class="icon"><i class="bi bi-envelope"></i></div>
+                    <div class="w-100">
+                      <h3>Email</h3>
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <a href="mailto:w4s.tila@gmail.com" class="link-colored">w4s.tila@gmail.com</a>
+                        <button class="btn btn-sm copy-btn" data-copy="w4s.tila@gmail.com" type="button" aria-label="Copy email">
+                          <i class="bi bi-clipboard"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Map -->
+              <div class="col-12">
+                <div class="map-wrap">
+                  <iframe
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Ismail+Khel+Darwazgai+Nowshera+Khyber+Pakhtunkhwa+Pakistan+24000&output=embed"
+                    title="Map to Ismail Khel, Darwazgai, Nowshera">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Form -->
+          <div class="col-lg-7">
+            <form id="contact-form" action="forms/contact.php" method="post" class="contact-form" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required />
+                    <label for="name">Your Name</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required />
+                    <label for="email">Your Email</label>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required />
+                    <label for="subject">Subject</label>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 160px" required></textarea>
+                    <label for="message">Message</label>
+                  </div>
+                </div>
+
+                <!-- Honeypot (spam trap) -->
+                <div class="d-none">
+                  <label>Leave this empty</label>
+                  <input type="text" name="company" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <div class="col-md-12 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                  <div class="status" id="form-status" role="status" aria-live="polite"></div>
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-gradient">
+                      <span class="spinner-border spinner-border-sm me-2 d-none" id="btn-spinner" role="status" aria-hidden="true"></span>
+                      Send Message
+                    </button>
+                    <a class="btn btn-outline-ink" href="mailto:w4s.tila@gmail.com?subject=Project%20Inquiry%20from%20Portfolio&body=Hi%20Tila%2C%0A%0A">
+                      Or email directly
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <!-- Quick Contact Pills -->
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="contact-pill pill-green"><i class="bi bi-clock me-1"></i> Local time: <span id="local-time">—</span></span>
+              <span class="contact-pill pill-orange"><i class="bi bi-translate me-1"></i> English • Urdu</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Contact Section -->
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span id="year"></span> <strong class="px-1 sitename">Tila</strong> — All Rights Reserved</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Page JS -->
+  <script>
+    // Footer year
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    });
+
+    // Local time (Asia/Karachi)
+    (function showLocalTime() {
+      try {
+        const el = document.getElementById('local-time');
+        if (!el) return;
+        const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Karachi' });
+        const update = () => { el.textContent = fmt.format(new Date()); };
+        update();
+        setInterval(update, 60000);
+      } catch(e){}
+    })();
+
+    // Copy helpers
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.copy-btn');
+      if (!btn) return;
+      const val = btn.getAttribute('data-copy');
+      if (!val) return;
+      navigator.clipboard.writeText(val).then(() => {
+        btn.innerHTML = '<i class="bi bi-check2"></i>';
+        setTimeout(() => btn.innerHTML = '<i class="bi bi-clipboard"></i>', 1500);
+      }).catch(()=>{});
+    });
+
+    // Smooth scroll-to-top
+    document.getElementById('scroll-top')?.addEventListener('click', (e) => {
+      e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // AJAX form submit (keeps PHP fallback)
+    (function () {
+      const form = document.getElementById('contact-form');
+      if (!form) return;
+      const status = document.getElementById('form-status');
+      const spinner = document.getElementById('btn-spinner');
+
+      form.addEventListener('submit', async (e) => {
+        // Honeypot
+        const hp = form.querySelector('input[name="company"]');
+        if (hp && hp.value) { e.preventDefault(); return; }
+
+        if (!window.fetch) return; // fallback to normal POST
+        e.preventDefault();
+        status.textContent = '';
+        spinner?.classList.remove('d-none');
+
+        const formData = new FormData(form);
+
+        try {
+          const res = await fetch(form.action || 'forms/contact.php', {
+            method: 'POST',
+            body: new URLSearchParams([...formData]),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          });
+
+          const ok = res.ok;
+          if (ok) {
+            status.innerHTML = '<span class="text-success"><i class="bi bi-check-circle me-1"></i> Your message has been sent. Thank you!</span>';
+            form.reset();
+          } else {
+            status.innerHTML = '<span class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i> Failed to send. Please email me directly.</span>';
+          }
+        } catch (err) {
+          status.innerHTML = '<span class="text-danger"><i class="bi bi-wifi-off me-1"></i> Network error. Try again or email me directly.</span>';
+        } finally {
+          spinner?.classList.add('d-none');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

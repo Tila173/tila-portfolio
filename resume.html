@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume — Tila Muhammad</title>
+  <meta name="description" content="Resume of Tila Muhammad — ML/NLP researcher and full-stack developer. Education, experience, and publications." />
+  <link rel="canonical" href="https://your-domain.example/resume.html" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <!-- Page-specific styles -->
+  <style>
+    .link-underline {
+      position: relative; text-decoration: none; color: #1a73e8; font-weight: 600; transition: color .2s, transform .2s;
+    }
+    .link-underline::after {
+      content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:#1a73e8; transition:width .25s;
+    }
+    .link-underline:hover { color:#0d57cc; transform: translateY(-1px); }
+    .link-underline:hover::after { width:100%; }
+    .resume-item h4 { font-weight:700; }
+    .resume-item ul { margin-bottom:0; }
+    .btn-toolbar-gap .btn { margin-right:.5rem; }
+
+    /* ——— Research Papers: Equal-height cards + visual polish ——— */
+    .paper-grid .paper-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 1.1rem;
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,.07);
+      transition: transform .25s ease, box-shadow .25s ease;
+      min-height: 240px;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .paper-grid .paper-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      border-radius: 1.05rem;
+      background: linear-gradient(120deg, #8ec5fc, #e0c3fc, #a1ffce, #faffd1);
+      background-size: 200% 200%;
+      opacity: .6;
+      filter: blur(10px);
+      transition: opacity .25s ease, filter .25s ease, transform .25s ease;
+    }
+    .paper-grid .paper-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    }
+    .paper-grid .paper-card:hover::before {
+      opacity: .9;
+      filter: blur(16px);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .paper-grid .paper-card,
+      .paper-grid .paper-card::before { transition: none !important; }
+    }
+    .paper-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #0d47a1;
+      margin: .25rem 0 .5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .paper-summary {
+      color: #556;
+      font-size: .94rem;
+      line-height: 1.5;
+      margin-bottom: .75rem;
+    }
+
+    /* ——— Print-friendly resume ——— */
+    @media print {
+      html, body {
+        background: #fff !important;
+        color: #000 !important;
+        font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+        font-size: 11pt !important;
+        line-height: 1.35 !important;
+      }
+      /* Hide non-content chrome */
+      header, footer, #scroll-top, .preloader, .btn-toolbar-gap,
+      .header-social-links, .navmenu, .credits, .section .btn, .paper-grid .btn {
+        display: none !important;
+      }
+      /* Full-width containers */
+      .section .container, .container, .container-fluid {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      /* Single column */
+      .row, [class*="col-"] {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .section-title { margin: 0 0 10pt 0 !important; }
+      .resume-title { margin: 14pt 0 6pt 0 !important; }
+
+      .resume-item { break-inside: avoid !important; page-break-inside: avoid !important; margin-bottom: 10pt; }
+      h3, h4, h5 { break-after: avoid !important; page-break-after: avoid !important; }
+
+      ul { padding-left: 16pt !important; margin: 6pt 0 !important; }
+      li { margin: 2pt 0 !important; }
+
+      .paper-grid .paper-card,
+      .paper-grid .paper-card::before {
+        box-shadow: none !important;
+        filter: none !important;
+        transform: none !important;
+        background: #fff !important;
+      }
+
+      /* Keep layout clean: don't print URLs after links */
+      a[href]:after { content: "" !important; }
+    }
+  </style>
+
+  <!-- Social Cards -->
+  <meta property="og:title" content="Resume — Tila Muhammad" />
+  <meta property="og:description" content="ML/NLP researcher and full-stack developer. Education, experience, and publications." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.example/resume.html" />
+  <meta property="og:image" content="https://your-domain.example/assets/img/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- JSON-LD Person -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Tila Muhammad",
+    "url":"https://your-domain.example/",
+    "email":"mailto:w4s.tila@gmail.com",
+    "sameAs":[
+      "https://github.com/Tila173",
+      "https://www.linkedin.com/in/tila-muhammad-b77498240",
+      "https://www.instagram.com/wings4scholars",
+      "https://www.facebook.com/share/1BJ2wSbfV3/"
+    ],
+    "hasOccupation": { "@type":"Occupation", "name":"ML/NLP Researcher & Full-Stack Developer" }
+  }
+  </script>
+</head>
+
+<body class="resume-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="Home">
+        <h1 class="sitename m-0">Tila</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu" aria-label="Primary Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html" class="active" aria-current="page">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-nav-toggle d-xl-none btn btn-link p-0" aria-label="Open menu">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p class="text-muted">ML/NLP researcher and full-stack developer focused on practical AI for low-resource languages and robust web systems.</p>
+
+        <div class="btn-toolbar-gap mt-3">
+          <a class="btn btn-primary btn-sm" href="assets/docs/Tila_Muhammad_CV.pdf" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-download me-1"></i> Download CV (PDF)
+          </a>
+          <button class="btn btn-outline-secondary btn-sm" onclick="window.print()">
+            <i class="bi bi-printer me-1"></i> Print
+          </button>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <!-- Left column -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item pb-0">
+              <h4>Tila Muhammad</h4>
+              <p class="mb-2">
+                <em>ML/NLP researcher & full-stack developer. Experienced in text classification (sentiment, hate speech, fake news),
+                summarization, and deploying ML apps (Streamlit/FastAPI). Passionate about Urdu NLP and applied AI.</em>
+              </p>
+              <ul>
+                <li>Nowshera, Khyber Pakhtunkhwa, Pakistan</li>
+                <li>+92 331-4030386</li>
+                <li><a href="mailto:w4s.tila@gmail.com" class="link-underline">w4s.tila@gmail.com</a></li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+
+            <div class="resume-item">
+              <h4>Master of Science in Artificial Intelligence</h4>
+              <h5>08/2025 — Present</h5>
+              <p class="mb-1"><em>
+                <a href="https://isb.nu.edu.pk/" target="_blank" rel="noopener noreferrer" class="link-underline">
+                  FAST-NUCES, Islamabad
+                </a>
+              </em></p>
+              <p class="mb-0">
+                Coursework & focus: ML, NLP, information retrieval, and deployment. (Add thesis topic or lab once confirmed.)
+              </p>
+            </div>
+
+            <div class="resume-item">
+              <h4>Bachelor of Science in Software Engineering</h4>
+              <h5>08/2017 — 09/2021</h5>
+              <p class="mb-1"><em>
+                <a href="https://icp.edu.pk/" target="_blank" rel="noopener noreferrer" class="link-underline">
+                  Islamia College University, Peshawar
+                </a>
+              </em></p>
+              <p class="mb-0">
+                Foundation in algorithms, databases, and software engineering; senior projects in NLP and ML.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right column -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+
+            <div class="resume-item">
+              <h4>AI/ML Intern</h4>
+              <h5>11/2024 — 02/2025</h5>
+              <p class="mb-1"><em>
+                <a href="https://www.clouditecture.tech/" target="_blank" rel="noopener noreferrer" class="link-underline">
+                  Clouditecture, Peshawar
+                </a>
+              </em></p>
+              <ul>
+                <li>Built sentiment models on Yelp/Twitter; <em>(add metric: e.g., +X% F1 vs baseline)</em>.</li>
+                <li>Deployed a Streamlit email-spam classifier (NLP pipeline, model monitoring).</li>
+                <li>Implemented Quora duplicate detection using Sentence-Transformers + KNN; <em>(add accuracy/F1)</em>.</li>
+                <li>Automated JD classification → ESCO codes; <em>(add throughput/latency or accuracy)</em>.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>DS &amp; AI Trainee</h4>
+              <h5>01/2024 — 09/2024</h5>
+              <p class="mb-1"><em>
+                <a href="https://atomcamp.com/" target="_blank" rel="noopener noreferrer" class="link-underline">
+                  atomcamp, Islamabad
+                </a>
+              </em></p>
+              <ul>
+                <li>News classification on BBC dataset; evaluated classical ML vs BERT; <em>(insert best metric)</em>.</li>
+                <li>Student adaptability prediction using behavioral data (feature engineering, model comparison).</li>
+                <li>CV for weather condition identification from images; data augmentation + evaluation.</li>
+                <li>Urdu discussion summarization with LSTM + K-Means topic grouping.</li>
+                <li>Time-series obesity trend analysis and forecasting (ML + statistical baselines).</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Odoo Developer Intern</h4>
+              <h5>03/2022 — 09/2022</h5>
+              <p class="mb-1"><em>
+                <a href="https://strings.com.pk/" target="_blank" rel="noopener noreferrer" class="link-underline">
+                  Strings Technologies, Peshawar
+                </a>
+              </em></p>
+              <ul>
+                <li>Customized Odoo ERP modules per business requirements (Sales, Inventory, HR).</li>
+                <li>Diagnosed/resolved core framework issues; improved stability and performance.</li>
+                <li>Maintained technical documentation for custom modules and fixes.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Resume Section -->
+
+    <!-- ===================== Research Papers (White + Gray, with inline SVGs) ===================== -->
+<!-- Font Awesome (icons) – kept here so this block is fully self-contained -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<section id="research-papers" class="section" data-aos="fade-up">
+  <div class="container">
+    <h2 class="text-center mb-4">📚 Research Papers</h2>
+
+    <div class="row g-4 papers-grid">
+      <!-- Paper 1 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <article class="paper-card">
+          <div
+            class="paper-media"
+            style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><defs><linearGradient id=&quot;g&quot; x1=&quot;0&quot; x2=&quot;1&quot; y1=&quot;0&quot; y2=&quot;1&quot;><stop offset=&quot;0&quot; stop-color=&quot;%23ffffff&quot;/><stop offset=&quot;1&quot; stop-color=&quot;%23f3f4f6&quot;/></linearGradient></defs><rect fill=&quot;url(%23g)&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;240&quot; y=&quot;210&quot; rx=&quot;24&quot; ry=&quot;24&quot; width=&quot;720&quot; height=&quot;380&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;300&quot; y=&quot;270&quot; rx=&quot;12&quot; ry=&quot;12&quot; width=&quot;600&quot; height=&quot;260&quot; fill=&quot;%23ffffff&quot; stroke=&quot;%23d1d5db&quot; stroke-width=&quot;2&quot;/><g fill=&quot;%239ca3af&quot;><rect x=&quot;340&quot; y=&quot;310&quot; width=&quot;200&quot; height=&quot;8&quot; rx=&quot;4&quot;/><rect x=&quot;340&quot; y=&quot;330&quot; width=&quot;160&quot; height=&quot;8&quot; rx=&quot;4&quot;/></g><g fill=&quot;%239ca3af&quot; opacity=&quot;.8&quot;><rect x=&quot;620&quot; y=&quot;310&quot; width=&quot;60&quot; height=&quot;60&quot; rx=&quot;8&quot;/><rect x=&quot;700&quot; y=&quot;310&quot; width=&quot;60&quot; height=&quot;60&quot; rx=&quot;8&quot;/><rect x=&quot;540&quot; y=&quot;310&quot; width=&quot;60&quot; height=&quot;60&quot; rx=&quot;8&quot;/></g><g fill=&quot;%23d1d5db&quot;><rect x=&quot;340&quot; y=&quot;400&quot; width=&quot;420&quot; height=&quot;6&quot; rx=&quot;3&quot;/><rect x=&quot;340&quot; y=&quot;416&quot; width=&quot;380&quot; height=&quot;6&quot; rx=&quot;3&quot;/><rect x=&quot;340&quot; y=&quot;432&quot; width=&quot;440&quot; height=&quot;6&quot; rx=&quot;3&quot;/></g></g><circle cx=&quot;110&quot; cy=&quot;100&quot; r=&quot;40&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;80&quot; y=&quot;140&quot; width=&quot;60&quot; height=&quot;18&quot; rx=&quot;9&quot; fill=&quot;%23d1d5db&quot;/></svg>')"
+          >
+            <span class="paper-ribbon">2025</span>
+            <i class="fa-solid fa-microchip paper-icon" aria-hidden="true"></i>
+          </div>
+
+          <div class="paper-body">
+            <h3 class="paper-title" title="IoT-Enabled Food Freshness Detection Using Multi-Sensor Data Fusion and Mobile Sensing Interface">
+              IoT-Enabled Food Freshness Detection Using Multi-Sensor Data Fusion and Mobile Sensing Interface
+            </h3>
+
+            <div class="paper-tags" aria-label="Tags">
+              <span class="chip chip-gray">IoT</span>
+              <span class="chip chip-gray">Sensors</span>
+              <span class="chip chip-gray">ML</span>
+            </div>
+
+            <p class="paper-summary">
+              Real-time freshness estimation using pH, moisture, and ethanol sensors. Reduces waste and improves safety.
+            </p>
+
+            <div class="paper-actions mt-auto">
+              <a class="btn btn-paper neutral" target="_blank" rel="noopener noreferrer"
+                 href="https://www.icck.org/article/abs/tscc.2025.401245">
+                <i class="fa-solid fa-book-open me-1" aria-hidden="true"></i>
+                <span>Read paper</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Paper 2 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <article class="paper-card">
+          <div
+            class="paper-media"
+            style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><rect fill=&quot;%23ffffff&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;220&quot; y=&quot;220&quot; width=&quot;760&quot; height=&quot;360&quot; rx=&quot;24&quot; fill=&quot;%23f3f4f6&quot;/><rect x=&quot;280&quot; y=&quot;280&quot; width=&quot;640&quot; height=&quot;120&quot; rx=&quot;16&quot; fill=&quot;%23ffffff&quot; stroke=&quot;%23e5e7eb&quot; stroke-width=&quot;2&quot;/><g fill=&quot;%239ca3af&quot;><rect x=&quot;310&quot; y=&quot;310&quot; width=&quot;400&quot; height=&quot;10&quot; rx=&quot;5&quot;/><rect x=&quot;310&quot; y=&quot;330&quot; width=&quot;460&quot; height=&quot;8&quot; rx=&quot;4&quot;/></g><rect x=&quot;280&quot; y=&quot;420&quot; width=&quot;420&quot; height=&quot;18&quot; rx=&quot;9&quot; fill=&quot;%23d1d5db&quot; opacity=&quot;.75&quot;/><rect x=&quot;720&quot; y=&quot;420&quot; width=&quot;200&quot; height=&quot;18&quot; rx=&quot;9&quot; fill=&quot;%23d1d5db&quot; opacity=&quot;.75&quot;/></g><g opacity=&quot;.5&quot;><circle cx=&quot;1050&quot; cy=&quot;150&quot; r=&quot;36&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;1018&quot; y=&quot;188&quot; width=&quot;64&quot; height=&quot;14&quot; rx=&quot;7&quot; fill=&quot;%23d1d5db&quot;/></g></svg>')"
+          >
+            <span class="paper-ribbon">2023</span>
+            <i class="fa-solid fa-language paper-icon" aria-hidden="true"></i>
+          </div>
+
+          <div class="paper-body">
+            <h3 class="paper-title" title="Hate Speech Detection Using Machine Learning and N-Gram Techniques">
+              Hate Speech Detection Using Machine Learning and N-Gram Techniques
+            </h3>
+
+            <div class="paper-tags" aria-label="Tags">
+              <span class="chip chip-gray">NLP</span>
+              <span class="chip chip-gray">Classification</span>
+              <span class="chip chip-gray">Baselines</span>
+            </div>
+
+            <p class="paper-summary">
+              Classical ML with n-gram features for toxic text detection; a strong, simple baseline for English experiments.
+            </p>
+
+            <div class="paper-actions mt-auto">
+              <a class="btn btn-paper neutral" target="_blank" rel="noopener noreferrer"
+                 href="https://jurnal.mdp.ac.id/index.php/jatisi/article/view/4711">
+                <i class="fa-solid fa-book-open-reader me-1" aria-hidden="true"></i>
+                <span>Read paper</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Paper 3 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <article class="paper-card">
+          <div
+            class="paper-media"
+            style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><rect fill=&quot;%23ffffff&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;420&quot; y=&quot;180&quot; width=&quot;360&quot; height=&quot;440&quot; rx=&quot;36&quot; fill=&quot;%23f3f4f6&quot; stroke=&quot;%23e5e7eb&quot; stroke-width=&quot;2&quot;/><rect x=&quot;480&quot; y=&quot;240&quot; width=&quot;240&quot; height=&quot;120&quot; rx=&quot;16&quot; fill=&quot;%23ffffff&quot; stroke=&quot;%23d1d5db&quot; stroke-width=&quot;2&quot;/><rect x=&quot;540&quot; y=&quot;240&quot; width=&quot;120&quot; height=&quot;120&quot; rx=&quot;60&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;480&quot; y=&quot;390&quot; width=&quot;240&quot; height=&quot;12&quot; rx=&quot;6&quot; fill=&quot;%23d1d5db&quot;/><rect x=&quot;510&quot; y=&quot;410&quot; width=&quot;180&quot; height=&quot;10&quot; rx=&quot;5&quot; fill=&quot;%23e5e7eb&quot;/></g><g opacity=&quot;.5&quot;><circle cx=&quot;104&quot; cy=&quot;680&quot; r=&quot;48&quot; fill=&quot;%23f3f4f6&quot;/><rect x=&quot;60&quot; y=&quot;732&quot; width=&quot;88&quot; height=&quot;16&quot; rx=&quot;8&quot; fill=&quot;%23e5e7eb&quot;/></g></svg>')"
+          >
+            <span class="paper-ribbon">In progress</span>
+            <i class="fa-solid fa-hourglass-half paper-icon" aria-hidden="true"></i>
+          </div>
+
+          <div class="paper-body">
+            <h3 class="paper-title" title="Transliteration-Invariant Urdu Toxicity Detection with Fine-Grained Labels">
+              Transliteration-Invariant Urdu Toxicity Detection with Fine-Grained Labels
+            </h3>
+
+            <div class="paper-tags" aria-label="Tags">
+              <span class="chip chip-gray">NLP</span>
+              <span class="chip chip-gray">Urdu</span>
+              <span class="chip chip-gray">Cross-domain</span>
+            </div>
+
+            <p class="paper-summary">
+              Robust toxicity detection across scripts and domains using label granularity and transliteration stability.
+            </p>
+
+            <div class="paper-actions mt-auto">
+              <button class="btn btn-paper neutral disabled" disabled>
+                <i class="fa-solid fa-circle-notch me-1" aria-hidden="true"></i>
+                <span>Coming soon</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Styles specific to Research Papers (white + gray) -->
+<style>
+  :root{ --paper-radius: 16px; }
+
+  .papers-grid .paper-card{
+    display:flex; flex-direction: column; height:100%;
+    border-radius: var(--paper-radius);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(0,0,0,.06);
+    position: relative; isolation: isolate;
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    border: 1px solid #e5e7eb;
+  }
+  .papers-grid .paper-card::before{
+    /* soft neutral glow */
+    content:"";
+    position:absolute; inset:-1px;
+    border-radius: calc(var(--paper-radius) + 1px);
+    background: radial-gradient(120% 120% at 20% 0%, rgba(156,163,175,.15), transparent 55%),
+                radial-gradient(120% 120% at 80% 100%, rgba(156,163,175,.12), transparent 55%);
+    filter: blur(14px); opacity:.45; z-index:-1;
+    transition: opacity .25s ease, filter .25s ease, transform .25s ease;
+  }
+  .papers-grid .paper-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 42px rgba(17,24,39,.10);
+  }
+  .papers-grid .paper-card:hover::before{ opacity:.7; filter: blur(18px); }
+
+  .paper-media{
+    position: relative; height: 160px;
+    background: var(--paper-img, linear-gradient(135deg,#ffffff,#f3f4f6));
+    background-size: cover; background-position: center;
+  }
+  .paper-media::after{
+    /* subtle shine sweep */
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(75deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.22) 50%, rgba(255,255,255,0) 65%);
+    transform: translateX(-120%); transition: transform .8s ease;
+  }
+  .paper-card:hover .paper-media::after{ transform: translateX(120%); }
+
+  .paper-icon{
+    position:absolute; bottom:12px; right:14px;
+    font-size: 2.2rem; color: rgba(31,41,55,.85);
+    text-shadow: 0 2px 10px rgba(0,0,0,.15);
+    transition: transform .3s ease, color .3s ease, opacity .3s ease;
+  }
+  .paper-card:hover .paper-icon{ transform: translateY(-2px); color: rgba(17,24,39,.95); }
+
+  .paper-ribbon{
+    position:absolute; top:12px; left:12px;
+    background: rgba(255,255,255,.95);
+    color:#374151; border:1px solid #e5e7eb;
+    font-weight:700; font-size:.78rem;
+    padding:.25rem .55rem; border-radius:999px;
+    backdrop-filter: blur(6px);
+  }
+
+  .paper-body{
+    display:flex; flex-direction: column; gap:.6rem;
+    padding: 1rem .95rem 1rem .95rem;
+  }
+  .paper-title{
+    font-size:1.02rem; font-weight:800; color:#111827; margin:0;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    letter-spacing:.1px;
+  }
+  .paper-tags{ display:flex; flex-wrap:wrap; gap:.35rem; }
+  .chip{
+    font-size:.72rem; font-weight:600; line-height:1;
+    padding:.45rem .55rem; border-radius:999px;
+    background:#f3f4f6; color:#374151; border:1px solid #e5e7eb;
+  }
+  .chip-gray{ background:#f3f4f6; color:#374151; border-color:#e5e7eb; }
+
+  .paper-summary{ color:#4b5563; font-size:.92rem; line-height:1.55; margin:0; }
+
+  .paper-actions{ display:flex; gap:.5rem; justify-content: flex-end; }
+  .btn-paper{
+    background:#1f2937; color:#fff; border:none;
+    padding:.5rem .75rem; border-radius:10px;
+    font-weight:600; font-size:.86rem;
+    display:inline-flex; align-items:center;
+    box-shadow: 0 6px 16px rgba(17,24,39,.18);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  }
+  .btn-paper:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(17,24,39,.24); color:#fff; }
+  .btn-paper.neutral{ background:#1f2937; }
+  .btn-paper.disabled{ background:#9ca3af; box-shadow:none; cursor:not-allowed; }
+
+  @media (prefers-reduced-motion: reduce){
+    .papers-grid .paper-card,
+    .papers-grid .paper-card::before,
+    .paper-media::after,
+    .paper-icon,
+    .btn-paper{ transition:none !important; }
+  }
+</style>
+<!-- ===================== /Research Papers (White + Gray) ===================== -->
+
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span id="year"></span> <strong class="px-1 sitename">Tila</strong> — All Rights Reserved</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits small text-center text-muted">
+        Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener noreferrer">BootstrapMade</a>
+        &middot; Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener noreferrer">ThemeWagon</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true"></div>
+
+  <!-- Vendor JS -->
+  <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script defer src="assets/vendor/php-email-form/validate.js"></script>
+  <script defer src="assets/vendor/aos/aos.js"></script>
+  <script defer src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script defer src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script defer src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script defer src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS -->
+  <script defer src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+
+      // Optional: hide print button during printing (cosmetic)
+      const printBtn = document.querySelector('button[onclick="window.print()"]');
+      if (printBtn) {
+        const hide = () => printBtn.style.visibility = 'hidden';
+        const show = () => printBtn.style.visibility = '';
+        window.addEventListener('beforeprint', hide);
+        window.addEventListener('afterprint', show);
+      }
+
+      if (window.PureCounter) new PureCounter();
+    });
+  </script>
+</body>
+</html>
