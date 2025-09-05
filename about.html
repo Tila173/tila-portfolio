@@ -31,27 +31,37 @@
   <!-- Page overrides (alignment fix for about info rows) -->
   <style>
     /* Align icon | label | value neatly on all screens */
-    .about .content .about-info li {
-      display: grid;
-      grid-template-columns: 1.25rem 8.5rem 1fr; /* icon | label | value */
-      align-items: start;
-      column-gap: 8px;
-      margin-bottom: 10px;
-    }
-    @media (max-width: 576px) {
-      .about .content .about-info li {
-        grid-template-columns: 1.25rem 7.5rem 1fr; /* narrower label on mobile */
-      }
-    }
-    .about .content .about-info li i { line-height: 1; }
-    .about .content .about-info li strong {
-      font-weight: 600;
-      white-space: nowrap;            /* keep label on one line */
-      text-align: left;
-    }
-    .about .content .about-info li .value {
-      word-break: break-word;         /* wrap long links cleanly */
-    }
+   /* === About info rows: icon | label | value (mobile-safe) === */
+.about .content .about-info li{
+  display:flex !important;
+  align-items:flex-start !important;
+  gap:8px !important;
+  margin-bottom:10px;
+}
+
+.about .content .about-info li i{
+  flex:0 0 1.25rem !important;   /* fixed icon track */
+  line-height:1;
+  text-align:center;
+}
+
+.about .content .about-info li strong{
+  flex:0 0 8.5rem !important;    /* fixed label track */
+  white-space:nowrap;
+  font-weight:600;
+}
+
+.about .content .about-info li .value{
+  flex:1 1 auto !important;      /* value fills the rest */
+  min-width:0;
+  word-break:break-word;
+}
+
+/* Slightly tighter label on small phones */
+@media (max-width:576px){
+  .about .content .about-info li strong{ flex-basis:7.2rem !important; }
+}
+
   </style>
 
   <!-- Social cards -->
