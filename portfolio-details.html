@@ -218,26 +218,33 @@
 
         "job-esco-classification": {
           title: "Job ESCO Code Classification",
-          tagline: "Map job titles/descriptions to ESCO occupation codes.",
+          tagline: "Map job descriptions to standardized ESCO occupation codes.",
           images: [
-            "assets/img/portfolio/job-esco-classification-1.jpg",
-            "assets/img/portfolio/job-esco-classification-2.jpg",
-            "assets/img/portfolio/job-esco-classification-3.jpg"
+                  "assets/img/portfolio/j1.png",
+                  "assets/img/portfolio/j2.png",
+                  "assets/img/portfolio/j3.png",
+                  "assets/img/portfolio/j4.png"
           ],
           info: {
-            category: "Applied AI",
-            client: "—",
-            date: "2025",
-            url: "#",
-            urlLabel: "Repository"
+           info: {
+  category: "Applied AI",
+  client: "Self-initiated (ESCO v1.2.0, en)",
+  date: "2025",
+  url: "https://github.com/Tila173/ML-Learning-Diary/blob/main/code/ML-Projects/01-ESCO-Job-Classifier/Project%2001%20-%20Job%20Description%20Classification%20using%20Sentence%20Transformers%20%26%20SVM.ipynb",
+  urlLabel: "Open Notebook on GitHub"
+},
           },
-          lead: "Normalizes job text and predicts ESCO codes using transformer embeddings and a calibrated multi-class classifier.",
-          chips: ["Transformers","Multi-class","Calibration","scikit-learn"],
+          lead: "Builds a robust classifier that converts job text into Sentence-BERT embeddings (all-MiniLM-L6-v2) and predicts ESCO codes using a class-weighted LinearSVC. Data is filtered to the Top-500 frequent codes to reduce extreme imbalance, then split 80/20 for evaluation with a full classification report.",
+          chips: ["Sentence-BERT", "Linear SVM", "ESCO v1.2.0", "Top-500", "LabelEncoder", "80/20 split"],
           grid: [
-            {h:"Dataset", html:"<p>ESCO taxonomy + curated job postings.</p>"},
-            {h:"Pipeline", html:"<ol><li>Cleaning/normalization</li><li>Embedding (BERT)</li><li>Classifier + calibration</li></ol>"},
-            {h:"Evaluation", html:"<p>Macro-F1, ROC-AUC per class.</p>"},
-            {h:"Use cases", html:"<p>HR tagging, job search enrichment, analytics.</p>"}
+    { h: "Dataset", html: "<p>ESCO v1.2.0 (en) — <code>occupations_en.csv</code>.</p>" },
+    { h: "Text Build", html: "<p><code>preferredLabel</code> + <code>altLabels</code> + <code>definition</code> + <code>description</code> → single cleaned field.</p>" },
+    { h: "Embeddings", html: "<p>Sentence-Transformers model: <strong>all-MiniLM-L6-v2</strong>.</p>" },
+    { h: "Classifier", html: "<p><code>LinearSVC</code> with <code>class_weight='balanced'</code>; targets encoded with <code>LabelEncoder</code>.</p>" },
+    { h: "Selection", html: "<p>Restrict to <strong>Top-500</strong> most frequent ESCO codes to curb long-tail noise.</p>" },
+    { h: "Split & Eval", html: "<p>Train/Test 80/20; per-class Precision/Recall/F1 via <code>classification_report</code>.</p>" },
+    { h: "Helper", html: "<p>Poster-style prediction function (<code>predict_and_display_poster</code>) renders role title, ESCO code, and definition for a given input.</p>" },
+    { h: "Use Cases", html: "<p>HR tagging, search normalization, analytics & reporting.</p>" }
           ]
         },
 
