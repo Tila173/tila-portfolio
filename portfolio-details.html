@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,14 +26,6 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Tila
-  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="portfolio-details-page">
@@ -42,7 +34,6 @@
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Tila</h1>
       </a>
@@ -59,7 +50,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-     <div class="header-social-links">
+      <div class="header-social-links">
         <a href="https://github.com/Tila173" class="github" target="_blank"><i class="bi bi-github"></i></a>
         <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -76,17 +67,17 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Project Details</h2>
-        <p>A semantic duplicate-question detector for Q&A platforms.</p>
+        <h2 id="project-title">Project Details</h2>
+        <p id="project-tagline">A semantic duplicate-question detector for Q&A platforms.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
 
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper init-swiper">
 
+              <!-- Keep your Swiper config exactly as-is -->
               <script type="application/json" class="swiper-config">
                 {
                   "loop": true,
@@ -103,25 +94,10 @@
                 }
               </script>
 
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/q1.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/q3.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/q2.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/q4.png" alt="">
-                </div>
-
+              <div class="swiper-wrapper align-items-center" id="slides">
+                <!-- Slides injected by script -->
               </div>
+
               <div class="swiper-pagination"></div>
             </div>
           </div>
@@ -129,88 +105,53 @@
           <div class="col-lg-4">
             <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
-              <ul>
-  <li><strong>Category</strong>: NLP / Machine Learning</li>
-  <li><strong>Client</strong>: Self-initiated (Kaggle – Quora Question Pairs)</li>
-  <li><strong>Project date</strong>: April, 2025</li>
-  <li><strong>Project URL</strong>: <a href="https://github.com/Tila173/ML-Learning-Diary/blob/main/code/ML-Projects/02-KNN-Duplicate-Detection/Project%2002%20-%20Quora-Duplicate-Question-Detection.ipynb"
-     target="_blank" rel="noopener noreferrer">
-     Open Notebook on GitHub</a></li>
+              <ul id="info-list">
+                <!-- Info injected by script -->
               </ul>
-
             </div>
+
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-  <h2>Description</h2>
-  <p class="lead">
-    A semantic duplicate-question detector for Quora pairs. It cleans text, embeds with
-    Sentence-BERT, and classifies duplicates using K-Nearest Neighbors—delivering an
-    explainable score and a compact, reproducible workflow.
-  </p>
+              <h2>Description</h2>
+              <p class="lead" id="desc-lead">
+                <!-- Lead injected by script -->
+              </p>
 
-  <div class="chips">
-    <span class="chip">SBERT</span>
-    <span class="chip">KNN</span>
-    <span class="chip">Cosine Similarity</span>
-    <span class="chip">Python</span>
-    <span class="chip">scikit-learn</span>
-  </div>
+              <div class="chips" id="chips">
+                <!-- Chips injected by script -->
+              </div>
 
-  <div class="desc-grid">
-    <div>
-      <h4>Dataset</h4>
-      <p>Kaggle — Quora Question Pairs.</p>
-    </div>
-    <div>
-      <h4>Pipeline</h4>
-      <ol>
-        <li>Preprocess paired questions</li>
-        <li>Sentence embeddings (Sentence-Transformers)</li>
-        <li>KNN classification + threshold tuning</li>
-      </ol>
-    </div>
-    <div>
-      <h4>Evaluation</h4>
-      <p>Accuracy, Precision, Recall, F1 + readable confusion matrix.</p>
-    </div>
-    <div>
-      <h4>Deliverables</h4>
-      <p>Notebook, helper for human-readable predictions.</p>
-    </div>
-    <div>
-      <h4>Use cases</h4>
-      <p>De-duplicating forum posts, boosting FAQ search, aiding moderation.</p>
-    </div>
-  </div>
-</div>
+              <div class="desc-grid" id="desc-grid">
+                <!-- Grid injected by script -->
+              </div>
+            </div>
 
-<style>
-  .portfolio-description .lead{
-    font-size:1.05rem; line-height:1.7; color:#2b2b2b; margin-bottom:.8rem;
-  }
-  .chips{display:flex; flex-wrap:wrap; gap:.5rem; margin: .6rem 0 1rem}
-  .chip{
-    padding:.28rem .6rem; border:1px solid #e5e7eb; border-radius:999px;
-    background:#f9fafb; font-size:.85rem; font-weight:600; color:#111827;
-  }
-  .desc-grid{
-    display:grid; gap:1rem; 
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    background:#fff; border:1px solid #eef0f3; border-radius:14px; padding:1rem;
-    box-shadow:0 2px 10px rgba(0,0,0,.04);
-  }
-  .desc-grid h4{
-    margin:.1rem 0 .3rem; font-size:1rem; color:#0f172a;
-  }
-  .desc-grid p, .desc-grid ol{
-    margin:0; color:#374151; font-size:.95rem;
-  }
-  .desc-grid ol{ padding-left:1.1rem; }
-</style>
+            <style>
+              .portfolio-description .lead{
+                font-size:1.05rem; line-height:1.7; color:#2b2b2b; margin-bottom:.8rem;
+              }
+              .chips{display:flex; flex-wrap:wrap; gap:.5rem; margin: .6rem 0 1rem}
+              .chip{
+                padding:.28rem .6rem; border:1px solid #e5e7eb; border-radius:999px;
+                background:#f9fafb; font-size:.85rem; font-weight:600; color:#111827;
+              }
+              .desc-grid{
+                display:grid; gap:1rem;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                background:#fff; border:1px solid #eef0f3; border-radius:14px; padding:1rem;
+                box-shadow:0 2px 10px rgba(0,0,0,.04);
+              }
+              .desc-grid h4{
+                margin:.1rem 0 .3rem; font-size:1rem; color:#0f172a;
+              }
+              .desc-grid p, .desc-grid ol{
+                margin:0; color:#374151; font-size:.95rem;
+              }
+              .desc-grid ol{ padding-left:1.1rem; }
+            </style>
 
           </div>
 
         </div>
-
       </div>
 
     </section><!-- /Portfolio Details Section -->
@@ -218,7 +159,6 @@
   </main>
 
   <footer id="footer" class="footer light-background">
-
     <div class="container">
       <div class="copyright text-center ">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">Tila</strong> <span>All Rights Reserved<br></span></p>
@@ -230,14 +170,9 @@
         <a href="https://www.linkedin.com/in/tila-muhammad-b77498240"><i class="bi bi-linkedin"></i></a>
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
       </div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
@@ -245,6 +180,248 @@
 
   <!-- Preloader -->
   <div id="preloader"></div>
+
+  <!-- 🔹 Dynamic content script (runs BEFORE main.js so Swiper sees the slides) -->
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id') || 'quora'; // default to quora if missing
+
+      // 👉 Replace image paths with your real screenshots later.
+      //    Keep 2–4 images per project; Swiper will loop them.
+      const DB = {
+        "quora": {
+          title: "Quora Duplicate Detector",
+          tagline: "A semantic duplicate-question detector for Q&A platforms.",
+          images: [
+            "assets/img/portfolio/q1.png",
+            "assets/img/portfolio/q3.png",
+            "assets/img/portfolio/q2.png",
+            "assets/img/portfolio/q4.png"
+          ],
+          info: {
+            category: "NLP / Machine Learning",
+            client: "Self-initiated (Kaggle – Quora Question Pairs)",
+            date: "April, 2025",
+            url: "https://github.com/Tila173/ML-Learning-Diary/blob/main/code/ML-Projects/02-KNN-Duplicate-Detection/Project%2002%20-%20Quora-Duplicate-Question-Detection.ipynb",
+            urlLabel: "Open Notebook on GitHub"
+          },
+          lead: "Cleans text pairs, embeds with Sentence-BERT, and classifies duplicates using K-Nearest Neighbors with an explainable score.",
+          chips: ["SBERT","KNN","Cosine Similarity","Python","scikit-learn"],
+          grid: [
+            {h:"Dataset", html:"<p>Kaggle — Quora Question Pairs.</p>"},
+            {h:"Pipeline", html:"<ol><li>Preprocess paired questions</li><li>Sentence embeddings (Sentence-Transformers)</li><li>KNN classification + threshold tuning</li></ol>"},
+            {h:"Evaluation", html:"<p>Accuracy, Precision, Recall, F1 + confusion matrix.</p>"},
+            {h:"Use cases", html:"<p>De-duplicating forum posts, boosting FAQ search, aiding moderation.</p>"}
+          ]
+        },
+
+        "job-esco-classification": {
+          title: "Job ESCO Code Classification",
+          tagline: "Map job titles/descriptions to ESCO occupation codes.",
+          images: [
+            "assets/img/portfolio/job-esco-classification-1.jpg",
+            "assets/img/portfolio/job-esco-classification-2.jpg",
+            "assets/img/portfolio/job-esco-classification-3.jpg"
+          ],
+          info: {
+            category: "Applied AI",
+            client: "—",
+            date: "2025",
+            url: "#",
+            urlLabel: "Repository"
+          },
+          lead: "Normalizes job text and predicts ESCO codes using transformer embeddings and a calibrated multi-class classifier.",
+          chips: ["Transformers","Multi-class","Calibration","scikit-learn"],
+          grid: [
+            {h:"Dataset", html:"<p>ESCO taxonomy + curated job postings.</p>"},
+            {h:"Pipeline", html:"<ol><li>Cleaning/normalization</li><li>Embedding (BERT)</li><li>Classifier + calibration</li></ol>"},
+            {h:"Evaluation", html:"<p>Macro-F1, ROC-AUC per class.</p>"},
+            {h:"Use cases", html:"<p>HR tagging, job search enrichment, analytics.</p>"}
+          ]
+        },
+
+        "email-spam-filter": {
+          title: "Email Spam Filtering",
+          tagline: "Binary classifier for spam vs ham with explainable tokens.",
+          images: [
+            "assets/img/portfolio/email-spam-filter-1.jpg",
+            "assets/img/portfolio/email-spam-filter-2.jpg",
+            "assets/img/portfolio/email-spam-filter-3.jpg"
+          ],
+          info: { category:"Applied AI", client:"—", date:"2025", url:"#", urlLabel:"Repository" },
+          lead: "Filters unsolicited emails using TF-IDF + Naive Bayes with threshold tuning and interpretable top features.",
+          chips: ["TF-IDF","Naive Bayes","ROC-AUC","Thresholding"],
+          grid: [
+            {h:"Dataset", html:"<p>SpamAssassin / Enron email subsets.</p>"},
+            {h:"Pipeline", html:"<ol><li>Tokenization</li><li>TF-IDF</li><li>Naive Bayes + threshold</li></ol>"},
+            {h:"Evaluation", html:"<p>Precision-Recall, ROC-AUC, confusion matrix.</p>"},
+            {h:"Use cases", html:"<p>Inbox hygiene, phishing pre-filtering.</p>"}
+          ]
+        },
+
+        "sentiment-analysis": {
+          title: "Sentiment Analysis",
+          tagline: "Classify sentiment (positive / negative / neutral).",
+          images: [
+            "assets/img/portfolio/sentiment-analysis-1.jpg",
+            "assets/img/portfolio/sentiment-analysis-2.jpg",
+            "assets/img/portfolio/sentiment-analysis-3.jpg"
+          ],
+          info: { category:"Applied AI", client:"—", date:"2025", url:"#", urlLabel:"Repository" },
+          lead: "Predicts sentiment across domains using fine-tuned transformers with stratified evaluation.",
+          chips: ["BERT/RoBERTa","3-class","F1-score","HuggingFace"],
+          grid: [
+            {h:"Dataset", html:"<p>IMDB, Amazon reviews, domain blends.</p>"},
+            {h:"Pipeline", html:"<ol><li>Preprocess</li><li>Fine-tune transformer</li><li>Evaluate/Calibrate</li></ol>"},
+            {h:"Evaluation", html:"<p>Macro F1, per-class metrics.</p>"},
+            {h:"Use cases", html:"<p>Feedback mining, brand monitoring.</p>"}
+          ]
+        },
+
+        "keyword-extractor": {
+          title: "Keyword Extractor",
+          tagline: "Unsupervised keyphrase extraction for quick tagging.",
+          images: [
+            "assets/img/portfolio/keyword-extractor-1.jpg",
+            "assets/img/portfolio/keyword-extractor-2.jpg",
+            "assets/img/portfolio/keyword-extractor-3.jpg"
+          ],
+          info: { category:"Applied AI", client:"—", date:"2025", url:"#", urlLabel:"Repository" },
+          lead: "Extracts salient keyphrases via YAKE/RAKE/KeyBERT to speed up cataloging and discovery.",
+          chips: ["YAKE","RAKE","KeyBERT","Unsupervised"],
+          grid: [
+            {h:"Dataset", html:"<p>Docs/Articles/Reports (various domains).</p>"},
+            {h:"Pipeline", html:"<ol><li>Normalize</li><li>Candidate phrases</li><li>Score & deduplicate</li></ol>"},
+            {h:"Evaluation", html:"<p>Precision@k, overlap with gold keyphrases.</p>"},
+            {h:"Use cases", html:"<p>Auto-tagging, search boost, faceted nav.</p>"}
+          ]
+        },
+
+        "fake-news-detection": {
+          title: "Fake News Detection",
+          tagline: "Detect misinformation using linguistic features and embeddings.",
+          images: [
+            "assets/img/portfolio/fake-news-detection-1.jpg",
+            "assets/img/portfolio/fake-news-detection-2.jpg",
+            "assets/img/portfolio/fake-news-detection-3.jpg"
+          ],
+          info: { category:"Applied AI", client:"—", date:"2025", url:"#", urlLabel:"Repository" },
+          lead: "Flags misinformation with transformer features and robust cross-source evaluation.",
+          chips: ["Transformers","NLP","Cross-domain","Calibration"],
+          grid: [
+            {h:"Dataset", html:"<p>LIAR / FNC / COVID-news blends.</p>"},
+            {h:"Pipeline", html:"<ol><li>Clean/normalize</li><li>Embedding</li><li>Classifier + calibration</li></ol>"},
+            {h:"Evaluation", html:"<p>Macro F1, AUROC, source transfer.</p>"},
+            {h:"Use cases", html:"<p>Fact-checking assist, content moderation.</p>"}
+          ]
+        },
+
+        "bbc-news-classification": {
+          title: "News Classification (BBC Dataset)",
+          tagline: "Topic classification on BBC (business, entertainment, politics, sport, tech).",
+          images: [
+            "assets/img/portfolio/bbc-news-classification-1.jpg",
+            "assets/img/portfolio/bbc-news-classification-2.jpg",
+            "assets/img/portfolio/bbc-news-classification-3.jpg"
+          ],
+          info: { category:"Applied AI", client:"—", date:"2025", url:"#", urlLabel:"Repository" },
+          lead: "Classifies BBC news into five categories using SVM baseline and a fine-tuned transformer.",
+          chips: ["BBC Dataset","SVM","BERT","Evaluation"],
+          grid: [
+            {h:"Dataset", html:"<p>BBC news classification dataset.</p>"},
+            {h:"Pipeline", html:"<ol><li>TF-IDF + SVM baseline</li><li>Transformer fine-tune</li><li>Compare</li></ol>"},
+            {h:"Evaluation", html:"<p>Accuracy, macro F1, confusion matrix.</p>"},
+            {h:"Use cases", html:"<p>News routing, topic analytics.</p>"}
+          ]
+        },
+
+        "student-adaptability-prediction": {
+          title: "Student Adaptability Prediction",
+          tagline: "Predict adaptability using behavioral and academic features.",
+          images: [
+            "assets/img/portfolio/student-adaptability-prediction-1.jpg",
+            "assets/img/portfolio/student-adaptability-prediction-2.jpg",
+            "assets/img/portfolio/student-adaptability-prediction-3.jpg"
+          ],
+          info: { category:"Research", client:"—", date:"2025", url:"#", urlLabel:"Paper / Code" },
+          lead: "Models adaptability from behavioral indicators using interpretable tabular ML and SHAP.",
+          chips: ["XGBoost","EDA","SHAP","Tabular ML"],
+          grid: [
+            {h:"Dataset", html:"<p>Institutional behavioral/academic logs.</p>"},
+            {h:"Pipeline", html:"<ol><li>EDA/Cleaning</li><li>Feature engineering</li><li>Model + SHAP</li></ol>"},
+            {h:"Evaluation", html:"<p>ROC-AUC, PR-AUC, calibration.</p>"},
+            {h:"Use cases", html:"<p>Early alerts, counseling support.</p>"}
+          ]
+        },
+
+        "covid19-trial-analysis": {
+          title: "COVID-19 Clinical Trial Analysis",
+          tagline: "Analyze trial outcomes, phases, and interventions with NLP/EDA.",
+          images: [
+            "assets/img/portfolio/covid19-trial-analysis-1.jpg",
+            "assets/img/portfolio/covid19-trial-analysis-2.jpg",
+            "assets/img/portfolio/covid19-trial-analysis-3.jpg"
+          ],
+          info: { category:"Research", client:"—", date:"2025", url:"#", urlLabel:"Repository" },
+          lead: "Parses clinical trial records to analyze phases, interventions, and outcomes with reproducible EDA.",
+          chips: ["Clinical Trials","NLP","Curation","EDA"],
+          grid: [
+            {h:"Dataset", html:"<p>ClinicalTrials.gov snapshots.</p>"},
+            {h:"Pipeline", html:"<ol><li>Parse/normalize</li><li>Extract entities</li><li>Aggregate/visualize</li></ol>"},
+            {h:"Evaluation", html:"<p>Data completeness, sanity checks.</p>"},
+            {h:"Use cases", html:"<p>Landscape summaries, research scouting.</p>"}
+          ]
+        }
+      };
+
+      const data = DB[id];
+      if (!data) {
+        // fallback to first entry
+        window.location.href = "portfolio-details.html?id=quora";
+        return;
+      }
+
+      // Title & tagline
+      document.getElementById('project-title').textContent = data.title || "Project Details";
+      document.getElementById('project-tagline').textContent = data.tagline || "";
+
+      // Slides
+      const slides = document.getElementById('slides');
+      slides.innerHTML = (data.images || []).map(src => (
+        `<div class="swiper-slide"><img src="${src}" alt=""></div>`
+      )).join("");
+
+      // Info list
+      const info = data.info || {};
+      document.getElementById('info-list').innerHTML = `
+        <li><strong>Category</strong>: ${info.category || "—"}</li>
+        <li><strong>Client</strong>: ${info.client || "—"}</li>
+        <li><strong>Project date</strong>: ${info.date || "—"}</li>
+        <li><strong>Project URL</strong>: <a href="${info.url || "#"}" target="_blank" rel="noopener noreferrer">${info.urlLabel || "Open link"}</a></li>
+      `;
+
+      // Description lead
+      document.getElementById('desc-lead').textContent = data.lead || "";
+
+      // Chips
+      document.getElementById('chips').innerHTML = (data.chips || []).map(c => `<span class="chip">${c}</span>`).join("");
+
+      // Desc grid
+      const grid = data.grid || [];
+      document.getElementById('desc-grid').innerHTML = grid.map(g => `
+        <div>
+          <h4>${g.h}</h4>
+          ${g.html}
+        </div>
+      `).join("");
+
+      // Refresh AOS positions if available
+      if (window.AOS && typeof AOS.refresh === 'function') {
+        AOS.refresh();
+      }
+    })();
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -259,7 +436,5 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>
