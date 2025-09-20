@@ -140,10 +140,73 @@
 
             </div>
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Description</h2>
-              <p>
-                Built a duplicate-question detector for Quora question pairs. The pipeline cleans paired questions, converts them into semantic embeddings using Sentence Transformers, and classifies duplicates with a K-Nearest Neighbors (KNN) model. It includes a clear train/test split, evaluation via accuracy/precision/recall/F1 and a readable confusion matrix, plus a small helper that prints a human-friendly prediction with confidence. The result is a concise, reproducible workflow for text-pair similarity that can be adapted to other platforms (forums, FAQs, support portals) to reduce redundancy and improve search.              </p>
-            </div>
+  <h2>Description</h2>
+  <p class="lead">
+    A semantic duplicate-question detector for Quora pairs. It cleans text, embeds with
+    Sentence-BERT, and classifies duplicates using K-Nearest Neighbors—delivering an
+    explainable score and a compact, reproducible workflow.
+  </p>
+
+  <div class="chips">
+    <span class="chip">SBERT</span>
+    <span class="chip">KNN</span>
+    <span class="chip">Cosine Similarity</span>
+    <span class="chip">Python</span>
+    <span class="chip">scikit-learn</span>
+  </div>
+
+  <div class="desc-grid">
+    <div>
+      <h4>Dataset</h4>
+      <p>Kaggle — Quora Question Pairs.</p>
+    </div>
+    <div>
+      <h4>Pipeline</h4>
+      <ol>
+        <li>Preprocess paired questions</li>
+        <li>Sentence embeddings (Sentence-Transformers)</li>
+        <li>KNN classification + threshold tuning</li>
+      </ol>
+    </div>
+    <div>
+      <h4>Evaluation</h4>
+      <p>Accuracy, Precision, Recall, F1 + readable confusion matrix.</p>
+    </div>
+    <div>
+      <h4>Deliverables</h4>
+      <p>Notebook, helper for human-readable predictions, API-ready export.</p>
+    </div>
+    <div>
+      <h4>Use cases</h4>
+      <p>De-duplicating forum posts, boosting FAQ search, aiding moderation.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .portfolio-description .lead{
+    font-size:1.05rem; line-height:1.7; color:#2b2b2b; margin-bottom:.8rem;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:.5rem; margin: .6rem 0 1rem}
+  .chip{
+    padding:.28rem .6rem; border:1px solid #e5e7eb; border-radius:999px;
+    background:#f9fafb; font-size:.85rem; font-weight:600; color:#111827;
+  }
+  .desc-grid{
+    display:grid; gap:1rem; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    background:#fff; border:1px solid #eef0f3; border-radius:14px; padding:1rem;
+    box-shadow:0 2px 10px rgba(0,0,0,.04);
+  }
+  .desc-grid h4{
+    margin:.1rem 0 .3rem; font-size:1rem; color:#0f172a;
+  }
+  .desc-grid p, .desc-grid ol{
+    margin:0; color:#374151; font-size:.95rem;
+  }
+  .desc-grid ol{ padding-left:1.1rem; }
+</style>
+
           </div>
 
         </div>
