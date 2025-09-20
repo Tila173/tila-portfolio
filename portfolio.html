@@ -114,8 +114,8 @@
       <div class="header-social-links">
         <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
         <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
       </div>
 
     </div>
@@ -128,7 +128,7 @@
         <h2>Projects</h2>
         <p>Explore selected projects in machine learning, NLP, and applied AI </p>
       </div>
-<div class="container" id="portfolio-root"> <!-- React mounts here --> </div>
+      <div class="container" id="portfolio-root"> <!-- React mounts here --> </div>
     </section>
     <!-- /Portfolio Section -->
   </main>
@@ -167,47 +167,64 @@
     (function () {
       const cx = (...a) => a.filter(Boolean).join(' ');
 
-      // Data (replace with your real work)
+      // ✅ Your projects & categories
       const PROJECTS = [
-        { id:1, title:"Quora Duplicate Detector", category:"App", year:2025,
+        { id:"quora", slug:"quora", title:"Quora Duplicate Detector", category:"Applied AI", year:2025,
           desc:"Semantic-similarity model (Sentence Transformers + KNN) that flags duplicate questions with an explainable score.",
           img:"assets/img/masonry-portfolio/Quora.png",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/Quora.png" },
-        { id:2, title:"Product 1", category:"Research", year:2024,
-          desc:"Product UI components library with design tokens.",
-          img:"assets/img/masonry-portfolio/masonry-portfolio-2.jpg",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-2.jpg" },
-        { id:3, title:"Branding 1", category:"Systems & Web", year:2023,
-          desc:"High-conversion landing page with A/B tested hero.",
-          img:"assets/img/masonry-portfolio/masonry-portfolio-3.jpg",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-3.jpg" },
-        { id:4, title:"App 2", category:"App", year:2024,
-          desc:"Realtime chat with WebSocket backend and push notifications.",
-          img:"assets/img/masonry-portfolio/masonry-portfolio-4.jpg",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-4.jpg" },
-        { id:5, title:"Product 2", category:"Research", year:2023,
-          desc:"Design system documentation site with live code playgrounds.",
-          img:"assets/img/masonry-portfolio/masonry-portfolio-5.jpg",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-5.jpg" },
-        { id:6, title:"Branding 2", category:"Systems & Web", year:2025,
-          desc:"E-commerce branding with optimized product cards.",
-          img:"assets/img/masonry-portfolio/masonry-portfolio-6.jpg",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-6.jpg" },
-        { id:7, title:"App 3", category:"App", year:2023,
-          desc:"Health tracker app with charts and streaks.",
-          img:"assets/img/masonry-portfolio/masonry-portfolio-7.jpg",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-7.jpg" },
-        { id:8, title:"Product 3", category:"Research", year:2025,
-          desc:"3D product cards with lightweight WebGL preview.",
-          img:"assets/img/masonry-portfolio/masonry-portfolio-8.jpg",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-8.jpg" },
-        { id:9, title:"Branding 3", category:"Systems & Web", year:2024,
-          desc:"SEO-first brand site with schema and blazing TTFB.",
-          img:"assets/img/masonry-portfolio/masonry-portfolio-9.jpg",
-          live:"portfolio-details.html", preview:"assets/img/masonry-portfolio/masonry-portfolio-9.jpg" },
+          preview:"assets/img/masonry-portfolio/Quora.png",
+          live:"portfolio-details.html?id=quora" },
+
+        { id:"job-esco-classification", slug:"job-esco-classification", title:"Job ESCO Code Classification", category:"Applied AI", year:2025,
+          desc:"Map job titles/descriptions to ESCO occupation codes using transformer embeddings + calibrated classifier.",
+          img:"assets/img/masonry-portfolio/job-esco-classification.jpg",
+          preview:"assets/img/masonry-portfolio/job-esco-classification.jpg",
+          live:"portfolio-details.html?id=job-esco-classification" },
+
+        { id:"email-spam-filter", slug:"email-spam-filter", title:"Email Spam Filtering", category:"Applied AI", year:2025,
+          desc:"Binary spam vs ham classifier with TF-IDF + Naive Bayes and interpretable tokens.",
+          img:"assets/img/masonry-portfolio/email-spam-filter.jpg",
+          preview:"assets/img/masonry-portfolio/email-spam-filter.jpg",
+          live:"portfolio-details.html?id=email-spam-filter" },
+
+        { id:"sentiment-analysis", slug:"sentiment-analysis", title:"Sentiment Analysis", category:"Applied AI", year:2025,
+          desc:"Predicts sentiment (positive/negative/neutral) with fine-tuned transformers and stratified evaluation.",
+          img:"assets/img/masonry-portfolio/sentiment-analysis.jpg",
+          preview:"assets/img/masonry-portfolio/sentiment-analysis.jpg",
+          live:"portfolio-details.html?id=sentiment-analysis" },
+
+        { id:"keyword-extractor", slug:"keyword-extractor", title:"Keyword Extractor", category:"Applied AI", year:2025,
+          desc:"Unsupervised keyphrase extraction (YAKE/RAKE/KeyBERT) for fast document tagging.",
+          img:"assets/img/masonry-portfolio/keyword-extractor.jpg",
+          preview:"assets/img/masonry-portfolio/keyword-extractor.jpg",
+          live:"portfolio-details.html?id=keyword-extractor" },
+
+        { id:"fake-news-detection", slug:"fake-news-detection", title:"Fake News Detection", category:"Applied AI", year:2025,
+          desc:"Detects misinformation using linguistic features + embeddings with cross-source testing.",
+          img:"assets/img/masonry-portfolio/fake-news-detection.jpg",
+          preview:"assets/img/masonry-portfolio/fake-news-detection.jpg",
+          live:"portfolio-details.html?id=fake-news-detection" },
+
+        { id:"bbc-news-classification", slug:"bbc-news-classification", title:"News Classification (BBC)", category:"Applied AI", year:2025,
+          desc:"Five-way BBC topic classification with SVM baseline and fine-tuned transformer.",
+          img:"assets/img/masonry-portfolio/bbc-news-classification.jpg",
+          preview:"assets/img/masonry-portfolio/bbc-news-classification.jpg",
+          live:"portfolio-details.html?id=bbc-news-classification" },
+
+        { id:"student-adaptability-prediction", slug:"student-adaptability-prediction", title:"Student Adaptability Prediction", category:"Research", year:2025,
+          desc:"Models adaptability from behavioral features with interpretable tabular ML and SHAP.",
+          img:"assets/img/masonry-portfolio/student-adaptability-prediction.jpg",
+          preview:"assets/img/masonry-portfolio/student-adaptability-prediction.jpg",
+          live:"portfolio-details.html?id=student-adaptability-prediction" },
+
+        { id:"covid19-trial-analysis", slug:"covid19-trial-analysis", title:"COVID-19 Clinical Trial Analysis", category:"Research", year:2025,
+          desc:"Parses trial records; summarizes phases, interventions, and outcomes with reproducible EDA.",
+          img:"assets/img/masonry-portfolio/covid19-trial-analysis.jpg",
+          preview:"assets/img/masonry-portfolio/covid19-trial-analysis.jpg",
+          live:"portfolio-details.html?id=covid19-trial-analysis" }
       ];
 
-      const CATEGORIES = ["All", "App", "Research", "Systems & Web"];
+      const CATEGORIES = ["All", "App", "Applied AI", "Research"]; // keep “App” for future apps
       const SORTS = [
         { key: "recent", label: "Newest first" },
         { key: "old",    label: "Oldest first" },
@@ -229,13 +246,10 @@
       function useModal(){
         const React = window.React;
         const [item, setItem] = React.useState(null);
-
         const show = (project) => {
           setItem(project);
           const el = document.getElementById('projectModal');
-          if (el && window.bootstrap) {
-            new window.bootstrap.Modal(el).show();
-          }
+          if (el && window.bootstrap) new window.bootstrap.Modal(el).show();
         };
         const clear = () => setItem(null);
         return { item, show, clear };
@@ -401,7 +415,7 @@
           e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        /* AOS init (mirror Services) */
+        /* AOS init */
         if (window.AOS) {
           window.AOS.init({
             duration: 650,
