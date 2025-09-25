@@ -360,24 +360,38 @@
           ]
         },
 
-        "covid19-trial-analysis": {
+        "covid-clinical-trials-analysis": {
           title: "COVID-19 Clinical Trial Analysis",
-          tagline: "Analyze trial outcomes, phases, and interventions with NLP/EDA.",
+          tagline: "Explore phases, outcomes, timelines, and geography of COVID-19 clinical trials.",
           images: [
             "assets/img/portfolio/covid19-trial-analysis-1.png",
             "assets/img/portfolio/covid19-trial-analysis-2.png",
             "assets/img/portfolio/covid19-trial-analysis-3.png",
             "assets/img/portfolio/covid19-trial-analysis-4.png"
           ],
-          info: { category:"Research", client:"—", date:"2025", url:"#", urlLabel:"Repository" },
-          lead: "Parses clinical trial records to analyze phases, interventions, and outcomes with reproducible EDA.",
-          chips: ["Clinical Trials","NLP","Curation","EDA"],
-          grid: [
-            {h:"Dataset", html:"<p>ClinicalTrials.gov snapshots.</p>"},
-            {h:"Pipeline", html:"<ol><li>Parse/normalize</li><li>Extract entities</li><li>Aggregate/visualize</li></ol>"},
-            {h:"Evaluation", html:"<p>Data completeness, sanity checks.</p>"},
-            {h:"Use cases", html:"<p>Landscape summaries, research scouting.</p>"}
-          ]
+          "info": {
+            "category": "Applied AI",
+            "client": "Internship Project - atomcamp",
+            "date": "April 2024",
+            "url": "https://github.com/Tila173/Clinical-Trials-Analysis/blob/main/Covid_Clinical_Trials_Analysis.ipynb", 
+            "urlLabel": "Open Repository on GitHub"
+                    },
+          "lead": "End-to-end analysis of COVID-19 clinical trial metadata: cleaning and standardization, phase and sponsor distributions, timeline of registrations, geographic coverage, and outcome exploration. Includes evaluation panels (accuracy/F1 and confusion matrix) for a lightweight predictive experiment on trial outcomes.",
+          "chips": [
+                "Pandas", "NumPy", "Matplotlib", "Seaborn",
+                "Feature Engineering", "EDA", "Geospatial Summary",
+                "Classification (baseline)", "Confusion Matrix"
+                    ],
+          "grid": [
+              { "h": "Dataset", "html": "<p>Clinical trial records (COVID-19). Parsed & standardized fields: <code>phase</code>, <code>status</code>, <code>enrollment</code>, <code>intervention</code>, <code>start_date</code>, <code>locations</code>.</p>" },
+              { "h": "Cleaning", "html": "<p>Normalize text (lowercase, punctuation, whitespace), parse dates, unify phases (I/II/III/IV), handle missing values.</p>" },
+              { "h": "Exploration", "html": "<p>Phase distribution, outcomes by sponsor type, enrollment histograms, monthly registration timeline.</p>" },
+              { "h": "Geography", "html": "<p>Aggregate trials by region/continent; bar charts + world map overlay for participation counts.</p>" },
+              { "h": "Model (Optional)", "html": "<p>Baseline classifier on engineered features for outcome/status prediction; report Accuracy, Precision, Recall, F1.</p>" },
+              { "h": "Evaluation", "html": "<p>Confusion matrix heatmap and metric cards. Stratified train/test split.</p>" },
+              { "h": "Visualization", "html": "<p>Publication-ready plots (phases, outcomes, timeline) with consistent color palettes and annotations.</p>" },
+              { "h": "Insights", "html": "<p>Which phases dominate, which regions lead participation, and which interventions appear most frequently.</p>" }
+                ]
         }
       };
 
