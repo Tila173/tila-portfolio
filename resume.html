@@ -535,189 +535,180 @@
 <!-- ===================== /Certifications & Training ===================== -->
 
 
-    
-    <!-- ===================== Research Papers (White + Gray, with inline SVGs) ===================== -->
-<!-- Font Awesome (icons) – kept here so this block is fully self-contained -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<section class="papers-section">
+  <h2 class="section-title">Research Papers</h2>
+  <div class="papers-grid">
 
-<!-- ===================== Research Papers: Advanced Responsive ===================== -->
-<section id="research-papers" class="section" data-aos="fade-up" style="padding:60px 15px;">
-  <div class="container">
-    <h2 class="text-center mb-5" style="font-size:32px;">📚 Research Papers</h2>
-
-    <div class="papers-grid">
-      <!-- Paper Card Example -->
-      <article class="paper-card">
-        <div class="paper-header" style="background-image:url('assets/img/paper1.jpg');">
-          <span class="paper-ribbon">2025</span>
-          <i class="fa-solid fa-microchip paper-icon"></i>
-        </div>
-        <div class="paper-body">
-          <h3 class="paper-title" title="IoT-Enabled Food Freshness Detection Using Multi-Sensor Data Fusion and Mobile Sensing Interface">
-            IoT-Enabled Food Freshness Detection Using Multi-Sensor Data Fusion and Mobile Sensing Interface
-          </h3>
-          <div class="paper-tags">
-            <span class="chip">IoT</span>
-            <span class="chip">Sensors</span>
-            <span class="chip">ML</span>
-          </div>
-          <p class="paper-summary">
-            Real-time freshness estimation using pH, moisture, and ethanol sensors. Reduces waste and improves safety.
-          </p>
-          <div class="paper-actions">
-            <a href="https://www.icck.org/article/abs/tscc.2025.401245" class="btn-paper" target="_blank">
-              <i class="fa-solid fa-book-open me-1"></i> Read Paper
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Add more paper-card blocks here (Paper 2, Paper 3, etc.) -->
-
+    <!-- Paper 1 -->
+    <div class="paper-card new-card">
+      <div class="card-header">
+        <span class="year">2024</span>
+        <i class="fa-solid fa-brain"></i>
+      </div>
+      <div class="card-body">
+        <h3>Deep Learning Approach for Urdu Text Summarization</h3>
+        <p class="tags">
+          <span>NLP</span> | <span>Urdu</span> | <span>Summarization</span>
+        </p>
+        <p class="summary">
+          Explores transformer-based models for abstractive summarization in low-resource Urdu text datasets.
+        </p>
+        <a href="https://example.com/urdu-summarization-paper" target="_blank" class="read-btn">
+          Read Paper <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
+
+    <!-- Paper 2 -->
+    <div class="paper-card new-card">
+      <div class="card-header">
+        <span class="year">2025</span>
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <div class="card-body">
+        <h3>Automated Job Classification Using Machine Learning</h3>
+        <p class="tags">
+          <span>ML</span> | <span>Classification</span> | <span>Automation</span>
+        </p>
+        <p class="summary">
+          Develops an ML pipeline to automatically classify job descriptions into standardized categories with high accuracy.
+        </p>
+        <a href="https://example.com/automated-job-classification-paper" target="_blank" class="read-btn">
+          Read Paper <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Paper 3 -->
+    <div class="paper-card new-card">
+      <div class="card-header">
+        <span class="year">2026</span>
+        <i class="fa-solid fa-file-lines"></i>
+      </div>
+      <div class="card-body">
+        <h3>ASDE: Low-budget Text Classification via Active Semi-supervised Learning</h3>
+        <p class="tags">
+          <span>NLP</span> | <span>Text Classification</span> | <span>Semi-supervised</span>
+        </p>
+        <p class="summary">
+          Proposes an efficient semi-supervised learning mechanism with debiasing for low-resource text classification tasks.
+        </p>
+        <a href="https://doi.org/10.7717/peerj-cs.1032" target="_blank" class="read-btn">
+          Read Paper <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <style>
-  /* Grid layout */
+.papers-section {
+  padding: 2rem;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+.papers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.new-card {
+  background: linear-gradient(145deg, #ffffff, #e0f2fe);
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-weight: bold;
+  color: #0c4a6e;
+}
+
+.card-header i {
+  font-size: 1.5rem;
+  color: #0284c7;
+}
+
+.card-body {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.tags span {
+  background: #bae6fd;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+  color: #0c4a6e;
+}
+
+.summary {
+  font-size: 0.9rem;
+  margin: 0.7rem 0;
+  color: #374151;
+  flex-grow: 1;
+}
+
+.read-btn {
+  text-decoration: none;
+  color: #ffffff;
+  background: #0284c7;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.read-btn i {
+  margin-left: 0.5rem;
+}
+
+.read-btn:hover {
+  background: #0369a1;
+}
+
+@media (max-width: 768px) {
   .papers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
-
-  .paper-card {
-    display: flex;
     flex-direction: column;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 12px 30px rgba(0,0,0,.08);
-    transition: transform .3s ease, box-shadow .3s ease;
-    height: 100%;
-    border: 1px solid #e5e7eb;
-    position: relative;
+    align-items: center;
   }
-
-  .paper-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 48px rgba(0,0,0,.12);
-  }
-
-  .paper-header {
-    height: 140px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 8px;
-  }
-
-  .paper-ribbon {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 12px;
-  }
-
-  .paper-icon {
-    font-size: 28px;
-    color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,.6);
-  }
-
-  .paper-body {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    flex: 1;
-  }
-
-  .paper-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #0d47a1;
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-
-  .paper-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 8px;
-  }
-
-  .chip {
-    background: #e0e0e0;
-    color: #333;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 12px;
-  }
-
-  .paper-summary {
-    font-size: 0.92rem;
-    color: #555;
-    flex: 1;
-    margin-bottom: 12px;
-  }
-
-  .paper-actions {
-    margin-top: auto;
-  }
-
-  .btn-paper {
-    display: inline-block;
-    padding: 6px 14px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    border-radius: 22px;
-    text-decoration: none;
-    transition: transform .3s ease, box-shadow .3s ease;
-  }
-
-  .btn-paper:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,.2);
-  }
-
-  /* Mobile adjustments */
-  @media (max-width: 576px) {
-    .papers-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .paper-header {
-      height: 120px;
-    }
-
-    .paper-title {
-      font-size: 0.95rem;
-    }
-
-    .chip {
-      font-size: 10px;
-    }
-
-    .btn-paper {
-      font-size: 0.8rem;
-      padding: 5px 12px;
-    }
-  }
+}
 </style>
 
-<!-- ===================== /Research Papers (White + Gray) ===================== -->
 
 
   <footer id="footer" class="footer light-background">
