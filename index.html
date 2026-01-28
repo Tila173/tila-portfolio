@@ -108,22 +108,23 @@
       color: var(--secondary);
     }
 
-    /* ===== Footer ===== */
-    footer.light-background {
-      background: var(--bg-soft);
-      border-top: 1px solid var(--line);
-      color: var(--ink-2);
+    /* ===== Footer Dark Gray ===== */
+    footer.footer {
+      background: #1f2937; /* dark gray */
+      color: #d1d5db; /* light gray text */
       text-align: center;
       padding: 40px 20px;
     }
 
-    footer.light-background a {
-      color: var(--primary);
-      transition: 0.3s;
+    footer.footer a {
+      color: #9ca3af; /* light gray for icons */
+      font-size: 1.5rem;
+      transition: all 0.3s;
     }
 
-    footer.light-background a:hover {
-      color: var(--secondary);
+    footer.footer a:hover {
+      color: #2563eb; /* primary blue on hover */
+      transform: translateY(-5px);
     }
 
     /* Scroll-to-top button */
@@ -178,14 +179,17 @@
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer id="footer" class="footer light-background">
+  <footer id="footer" class="footer">
     <div class="container text-center py-4">
       <div class="social-links mb-3 d-flex justify-content-center gap-3">
-        <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
         <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
+        <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
+        <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
       </div>
-      <p class="mb-0" style="color: var(--ink-2); font-weight: 500;">© 2026 <strong>TILA</strong>. All Rights Reserved.</p>
+      <p class="mb-0" style="color: #d1d5db; font-weight: 500;">© 2026 <strong>TILA</strong>. All Rights Reserved.</p>
     </div>
   </footer>
 
