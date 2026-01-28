@@ -5,17 +5,15 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Tila Muhammad - AI/ML & NLP Portfolio</title>
-  <meta name="description" content="Portfolio of Tila Muhammad, AI/ML and NLP enthusiast.">
-  <meta name="keywords" content="Tila Muhammad, AI, ML, NLP, Portfolio, Resume, GitHub">
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-
+  
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- AOS for animations -->
+  
+  <!-- AOS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <!-- Three.js -->
@@ -31,10 +29,9 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
-      background: linear-gradient(135deg, #a6c0fe, #f68084);
+      background: linear-gradient(135deg, #f0faff, #fef6f6);
     }
 
-    /* Hero Section */
     #hero {
       position: relative;
       width: 100%;
@@ -43,11 +40,8 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      perspective: 1500px;
-      color: #fff;
     }
 
-    /* Canvas for 3D structures */
     #bgCanvas {
       position: absolute;
       top: 0;
@@ -57,22 +51,32 @@
       z-index: 0;
     }
 
-    /* Hero content */
     .hero-content {
       position: relative;
       z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
       text-align: center;
     }
 
-    .hero-content h1 {
+    .hero-img {
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-text h1 {
       font-size: 3rem;
       font-weight: 800;
-      color: var(--heading-color);
       background: linear-gradient(90deg, #ff9a9e, #fad0c4, #a1c4fd);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shine 3s linear infinite;
+      margin-bottom: 20px;
     }
 
     @keyframes shine {
@@ -81,20 +85,18 @@
       }
     }
 
-    .hero-content p {
-      font-size: 1.3rem;
-      margin: 20px 0;
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
       color: #1b1b1b;
     }
 
-    .btn-primary {
-      background: var(--accent-color);
-      border: none;
+    .btn-primary,
+    .btn-outline-primary {
       border-radius: 50px;
-      color: #fff;
       padding: 12px 30px;
       margin: 5px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: 0.3s all;
     }
 
     .btn-primary:hover {
@@ -102,113 +104,94 @@
       box-shadow: 0 10px 20px rgba(13, 202, 240, 0.5);
     }
 
-    .btn-outline-primary {
-      color: var(--accent-color);
-      border: 2px solid var(--accent-color);
-      border-radius: 50px;
-      padding: 12px 30px;
-      margin: 5px;
-      transition: transform 0.3s, color 0.3s;
-    }
-
     .btn-outline-primary:hover {
+      transform: scale(1.1);
       background: var(--accent-color);
       color: #fff;
-      transform: scale(1.1);
     }
 
     .social-links a {
       font-size: 1.5rem;
       margin: 0 10px;
       color: var(--accent-color);
-      transition: transform 0.3s, color 0.3s;
+      transition: 0.3s all;
     }
 
     .social-links a:hover {
       transform: scale(1.3);
-      color: #fff;
+      color: #0f1d40;
     }
 
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2rem;
+    @media(max-width:768px){
+      .hero-content{
+        flex-direction: column;
       }
-
-      .hero-content p {
-        font-size: 1rem;
+      .hero-text h1{
+        font-size:2rem;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Hero Section -->
   <section id="hero">
     <canvas id="bgCanvas"></canvas>
     <div class="hero-content" data-aos="fade-up">
-      <h1>Tila Muhammad</h1>
-      <p>AI/ML Learner focused on NLP & Large Language Models</p>
-      <div>
-        <a href="about.html" class="btn btn-primary">About Me</a>
-        <a href="contact.html" class="btn btn-outline-primary">Contact</a>
-      </div>
-      <div class="social-links mt-3">
-        <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i
-            class="bi bi-linkedin"></i></a>
-        <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i
-            class="bi bi-mortarboard"></i></a>
+      <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-img">
+      <div class="hero-text">
+        <h1>Tila Muhammad</h1>
+        <p>AI/ML Learner focused on NLP & Large Language Models</p>
+        <div>
+          <a href="about.html" class="btn btn-primary">About Me</a>
+          <a href="contact.html" class="btn btn-outline-primary">Contact</a>
+        </div>
+        <div class="social-links mt-3">
+          <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
+          <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Vendor JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-  <!-- Three.js 3D Neural Network Background -->
   <script>
     AOS.init();
 
+    // Three.js for Transformer Attention-inspired background
     const canvas = document.getElementById('bgCanvas');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    // Ambient & directional lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    // Light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight.position.set(10, 10, 10);
-    scene.add(directionalLight);
 
-    // Nodes (spheres) and connecting lines
+    // Nodes representing attention heads
+    const nodeCount = 50;
     const nodes = [];
-    const lines = [];
-    const nodeCount = 40;
     const nodeMaterial = new THREE.MeshStandardMaterial({ color: 0x0dcaf0, emissive: 0x0dcaf0, emissiveIntensity: 0.6 });
-
     for (let i = 0; i < nodeCount; i++) {
-      const nodeGeometry = new THREE.SphereGeometry(0.3, 16, 16);
-      const node = new THREE.Mesh(nodeGeometry, nodeMaterial.clone());
-      node.position.set((Math.random() - 0.5) * 20, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 20);
-      scene.add(node);
-      nodes.push(node);
+      const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 16), nodeMaterial.clone());
+      sphere.position.set(Math.random() * 20 - 10, Math.random() * 10 - 5, Math.random() * 20 - 10);
+      scene.add(sphere);
+      nodes.push(sphere);
     }
 
-    // Lines connecting nodes
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.3, transparent: true });
-    nodes.forEach((node, i) => {
+    // Lines connecting nodes (attention connections)
+    const lines = [];
+    const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.2, transparent: true });
+    nodes.forEach(node => {
       const connections = Math.floor(Math.random() * 3) + 1;
-      for (let j = 0; j < connections; j++) {
+      for (let i = 0; i < connections; i++) {
         const target = nodes[Math.floor(Math.random() * nodes.length)];
-        if (node !== target) {
-          const points = [];
-          points.push(node.position);
-          points.push(target.position);
+        if (target !== node) {
+          const points = [node.position, target.position];
           const geometry = new THREE.BufferGeometry().setFromPoints(points);
           const line = new THREE.Line(geometry, lineMaterial.clone());
           scene.add(line);
@@ -219,14 +202,15 @@
 
     camera.position.z = 25;
 
-    // Animate nodes & lines
     function animate() {
       requestAnimationFrame(animate);
+      // Animate nodes like attention moving dynamically
       nodes.forEach(node => {
         node.position.x += Math.sin(Date.now() * 0.001 + node.position.y) * 0.002;
         node.position.y += Math.sin(Date.now() * 0.001 + node.position.x) * 0.002;
       });
 
+      // Update lines
       lines.forEach(l => {
         const positions = l.line.geometry.attributes.position.array;
         positions[0] = l.start.position.x;
