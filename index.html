@@ -35,8 +35,16 @@
   <style>
     :root {
       --accent-color: #0dcaf0;
-      --heading-color: #111827;
+      --heading-color: #f1f5f9;
       --contrast-color: #fff;
+      --body-bg: #0f172a; /* Dark navy background */
+    }
+
+    body {
+      background-color: var(--body-bg);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
     }
 
     /* ===== Hero Section ===== */
@@ -48,10 +56,8 @@
       padding: 60px 20px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #34b7a7, #20c997, #0dcaf0);
-      background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
-      color: #fff;
+      background: var(--body-bg);
+      perspective: 1500px; /* 3D effect perspective */
     }
 
     #particles-js {
@@ -63,20 +69,6 @@
       z-index: 0;
     }
 
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
     #hero .container {
       position: relative;
       z-index: 1;
@@ -86,31 +78,25 @@
       width: 100%;
       max-width: 350px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
       object-fit: cover;
       margin: 0 auto;
-      animation: float 4s ease-in-out infinite;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
     }
 
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
+    #hero .hero-img:hover {
+      transform: rotateY(15deg) rotateX(10deg) scale(1.05);
     }
 
     #hero .hero-text h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 800;
       background: linear-gradient(90deg, var(--accent-color), #fff, var(--accent-color));
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shine 2s linear infinite;
+      animation: shine 3s linear infinite;
     }
 
     @keyframes shine {
@@ -120,9 +106,9 @@
     }
 
     #hero .hero-text p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      margin-bottom: 20px;
+      font-size: 1.3rem;
+      margin-top: 15px;
+      margin-bottom: 25px;
       min-height: 28px;
     }
 
@@ -136,14 +122,14 @@
 
     .btn-primary:hover {
       transform: scale(1.1);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px rgba(13, 202, 240, 0.5);
     }
 
     .btn-outline-primary {
       color: var(--accent-color);
       border: 1px solid var(--accent-color);
       border-radius: 999px;
-      transition: transform 0.3s;
+      transition: transform 0.3s, color 0.3s;
     }
 
     .btn-outline-primary:hover {
@@ -153,7 +139,7 @@
     }
 
     .social-links a {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--accent-color);
       margin: 0 8px;
       transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
@@ -161,7 +147,7 @@
 
     .social-links a:hover {
       transform: translateY(-5px) scale(1.2);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
       color: var(--heading-color);
     }
 
@@ -201,11 +187,11 @@
       }
 
       #hero .hero-text h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       #hero .hero-text p {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -236,7 +222,7 @@
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer id="footer" class="footer light-background py-4" data-aos="fade-up">
+  <footer id="footer" class="footer py-4" data-aos="fade-up">
     <div class="container text-center">
       <div class="social-links mb-3 d-flex justify-content-center gap-3">
         <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i
@@ -301,11 +287,11 @@
     // ===== Particles.js =====
     particlesJS("particles-js", {
       "particles": {
-        "number": { "value": 50 },
+        "number": { "value": 60 },
         "size": { "value": 3 },
         "move": { "speed": 2 },
         "color": { "value": "#0dcaf0" },
-        "line_linked": { "enable": true, "distance": 120, "color": "#0dcaf0", "opacity": 0.4, "width": 1 }
+        "line_linked": { "enable": true, "distance": 120, "color": "#0dcaf0", "opacity": 0.3, "width": 1 }
       },
       "interactivity": {
         "events": { "onhover": { "enable": true, "mode": "repulse" } }
