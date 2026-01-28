@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tila Muhammad - AI/ML & NLP Portfolio</title>
+  <title>Tila Muhammad</title>
   <meta name="description" content="Portfolio of Tila Muhammad, AI/ML and NLP enthusiast.">
   <meta name="keywords" content="Tila Muhammad, AI, ML, NLP, Portfolio, Resume, GitHub">
 
@@ -131,60 +131,6 @@
       }
     }
 
-    /* NLP Fun Analyzer */
-    #nlp-demo {
-      margin-top: 30px;
-      width: 100%;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #nlp-demo textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 15px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      resize: none;
-    }
-
-    #nlp-demo button {
-      border-radius: 999px;
-    }
-
-    .result-box {
-      background: #f0f9f9;
-      border-radius: 15px;
-      padding: 12px;
-      margin-bottom: 10px;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: 0.5s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .emoji {
-      font-size: 1.5rem;
-      animation: bounce 1s infinite alternate;
-    }
-
-    @keyframes bounce {
-      0% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-5px);
-      }
-
-      100% {
-        transform: translateY(0);
-      }
-    }
-
     /* Footer */
     footer {
       padding: 40px 20px;
@@ -213,10 +159,6 @@
       #hero p {
         font-size: 1rem;
       }
-
-      #nlp-demo textarea {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -233,18 +175,6 @@
       <div class="mt-3 mb-3">
         <a href="about.html" class="btn btn-primary btn-lg me-2 mb-2">About Me</a>
         <a href="contact.html" class="btn btn-outline-primary btn-lg mb-2">Contact</a>
-      </div>
-
-      <!-- Interactive NLP Fun Analyzer -->
-      <div id="nlp-demo">
-        <textarea id="nlp-input" placeholder="Type a sentence or paragraph..." rows="4"></textarea>
-        <button id="analyze-btn" class="btn btn-primary mt-2">Analyze Text</button>
-
-        <div id="nlp-results" style="margin-top:20px;">
-          <div id="sentiment" class="result-box"></div>
-          <div id="emotion" class="result-box"></div>
-          <div id="funfact" class="result-box"></div>
-        </div>
       </div>
     </div>
   </section>
@@ -318,76 +248,6 @@
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
-
-  <!-- Interactive AI Mood Analyzer -->
-  <script>
-    const analyzeBtn = document.getElementById("analyze-btn");
-    const nlpInput = document.getElementById("nlp-input");
-    const sentimentDiv = document.getElementById("sentiment");
-    const emotionDiv = document.getElementById("emotion");
-    const funfactDiv = document.getElementById("funfact");
-
-    const positiveWords = ["good","great","happy","love","excited","fun","fantastic","amazing"];
-    const negativeWords = ["bad","sad","angry","hate","terrible","upset","horrible"];
-    const emotions = {
-      happy: ["happy","joy","excited","fun","smile","love"],
-      sad: ["sad","depress","unhappy","cry","blue"],
-      angry: ["angry","mad","furious","hate","frustrated"],
-      surprised: ["surprise","shocked","wow","amazing","unexpected"],
-      neutral: []
-    };
-    const funFacts = [
-      "Did you know? NLP can detect emotions in text! 🤖",
-      "Fun fact: The word 'algorithm' comes from Al-Khwarizmi! 📜",
-      "AI loves learning from patterns! 🔍",
-      "Fun tip: Your text can be summarized instantly using AI! ✨"
-    ];
-
-    function detectSentiment(text){
-      let score = 0;
-      const words = text.toLowerCase().split(/\s+/);
-      words.forEach(w => {
-        if(positiveWords.includes(w)) score++;
-        if(negativeWords.includes(w)) score--;
-      });
-      if(score > 0) return {label:"Positive", emoji:"😊", color:"#d4f5e9"};
-      if(score < 0) return {label:"Negative", emoji:"😢", color:"#f5d4d4"};
-      return {label:"Neutral", emoji:"😐", color:"#e0e0e0"};
-    }
-
-    function detectEmotion(text){
-      text = text.toLowerCase();
-      for(let [emotion, keys] of Object.entries(emotions)){
-        if(keys.some(k => text.includes(k))) {
-          let emojiMap = {happy:"😄", sad:"😢", angry:"😡", surprised:"😲", neutral:"😐"};
-          return {label:emotion.charAt(0).toUpperCase()+emotion.slice(1), emoji:emojiMap[emotion] || "😐", color:"#f0f9ff"};
-        }
-      }
-      return {label:"Neutral", emoji:"😐", color:"#f0f9ff"};
-    }
-
-    function getFunFact(){
-      return funFacts[Math.floor(Math.random()*funFacts.length)];
-    }
-
-    function animateResult(div, text, emoji, bgColor){
-      div.innerHTML = `<span class="emoji">${emoji}</span> ${text}`;
-      div.style.background = bgColor;
-      div.style.transform = "scale(1.05)";
-      setTimeout(()=>{div.style.transform="scale(1)";},300);
-    }
-
-    analyzeBtn.addEventListener("click", ()=>{
-      const text = nlpInput.value.trim();
-      if(!text) return alert("Please type something to analyze!");
-      const sentiment = detectSentiment(text);
-      const emotion = detectEmotion(text);
-      const fact = getFunFact();
-      animateResult(sentimentDiv, `Sentiment: ${sentiment.label}`, sentiment.emoji, sentiment.color);
-      animateResult(emotionDiv, `Emotion: ${emotion.label}`, emotion.emoji, emotion.color);
-      animateResult(funfactDiv, fact, "💡", "#fff3cd");
     });
   </script>
 </body>
