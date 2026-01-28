@@ -25,14 +25,12 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    /* ===== Color Palette ===== */
     :root {
       --ink: #0f1011;
       --ink-2: #1f2328;
       --muted: #6b7280;
       --line: rgba(0, 0, 0, .12);
-
-      /* Accent Colors */
+      --bg-soft: #f4f5f7; /* Softer gray like Contact page */
       --primary: #2563eb;
       --secondary: #06b6d4;
       --violet: #7c3aed;
@@ -48,33 +46,57 @@
     body {
       font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
       color: var(--ink-2);
-      background: #fff;
+      background: var(--bg-soft);
       scroll-behavior: smooth;
     }
 
     /* ===== Header ===== */
     header {
-      background: #fff;
+      background: var(--bg-soft);
       border-bottom: 1px solid var(--line);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       position: sticky;
       top: 0;
       z-index: 999;
+      padding: 0.75rem 1rem;
     }
 
     .logo h1 {
       font-weight: 800;
-      color: var(--primary);
       font-size: 1.8rem;
+      margin: 0;
     }
 
+    nav#navmenu {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav#navmenu ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav#navmenu ul li a {
+      text-decoration: none;
+      color: var(--ink-2);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav#navmenu ul li a:hover,
     nav#navmenu ul li a.active {
       color: var(--primary);
-      font-weight: 600;
     }
 
-    nav#navmenu ul li a:hover {
-      color: var(--secondary);
+    /* Hamburger toggle */
+    .mobile-nav-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
     }
 
     /* ===== Hero Section ===== */
@@ -83,7 +105,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 0;
+      padding: 60px 20px;
     }
 
     #hero .hero-img {
@@ -147,7 +169,7 @@
 
     /* ===== Footer ===== */
     footer.light-background {
-      background: #f8f9fa;
+      background: var(--bg-soft);
       border-top: 1px solid var(--line);
       color: var(--ink-2);
       text-align: center;
@@ -160,16 +182,6 @@
     }
 
     .footer.light-background a:hover {
-      color: var(--secondary);
-    }
-
-    .footer .footer-icon {
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .footer .footer-icon:hover {
-      transform: translateY(-3px);
       color: var(--secondary);
     }
 
@@ -198,31 +210,25 @@
 
     /* ===== Mobile ===== */
     @media (max-width: 992px) {
-      #hero {
-        padding: 40px 20px;
-        flex-direction: column-reverse;
-      }
-
-      #hero .hero-text h1 {
-        font-size: 2rem;
-      }
-
-      #hero .hero-text p {
-        font-size: 0.95rem;
-      }
-
-      nav#navmenu {
+      nav#navmenu ul {
         display: none;
+        flex-direction: column;
+        background: var(--bg-soft);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        border-top: 1px solid var(--line);
       }
 
       .mobile-nav-toggle {
-        display: block !important;
-        cursor: pointer;
-        font-size: 1.6rem;
+        display: block;
+        margin-right: 0.75rem;
       }
 
-      .hero-img {
-        max-width: 250px;
+      #header .d-flex {
+        align-items: center;
       }
     }
   </style>
@@ -231,25 +237,24 @@
 <body>
 
   <!-- ===== Header ===== -->
-  <header id="header" class="header d-flex align-items-center">
-    <div class="container d-flex justify-content-between align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1>Tila</h1>
+  <header id="header" class="header d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <i class="mobile-nav-toggle bi bi-list"></i>
+      <a href="index.html" class="logo ms-2">
+        <h1>TILA</h1>
       </a>
-
-      <nav id="navmenu" class="navmenu d-none d-xl-flex">
-        <ul class="d-flex gap-3 mb-0">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-
-      <i class="mobile-nav-toggle d-xl-none bi bi-list fs-3"></i>
     </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- ===== Hero Section ===== -->
@@ -267,12 +272,9 @@
             <a href="contact.html" class="btn btn-outline-primary btn-lg mb-2">Contact</a>
           </div>
           <div class="social-links mt-3">
-            <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
-            <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
             <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
-            <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank"><i class="bi bi-instagram"></i></a>
             <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
+            <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
           </div>
         </div>
       </div>
@@ -287,7 +289,7 @@
         <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" class="footer-icon"><i class="bi bi-linkedin"></i></a>
         <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank" class="footer-icon"><i class="bi bi-mortarboard"></i></a>
       </div>
-      <p class="mb-0" style="color: var(--ink-2); font-weight: 500;">© 2026 <strong>Tila</strong>. All Rights Reserved.</p>
+      <p class="mb-0" style="color: var(--ink-2); font-weight: 500;">© 2026 <strong>TILA</strong>. All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -298,11 +300,10 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
 
-  <!-- Page Scripts -->
   <script>
     AOS.init();
 
-    // Scroll-to-top button
+    // Scroll-to-top
     const scrollTopBtn = document.getElementById('scroll-top');
     window.addEventListener('scroll', () => {
       scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
@@ -311,14 +312,11 @@
 
     // Mobile nav toggle
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const navMenu = document.getElementById('navmenu');
+    const navMenu = document.querySelector('#navmenu ul');
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('d-none');
-      navMenu.classList.toggle('d-flex');
-      navMenu.classList.toggle('flex-column');
+      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
     });
   </script>
 
 </body>
-
 </html>
