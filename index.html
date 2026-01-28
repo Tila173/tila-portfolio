@@ -8,21 +8,21 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  
+
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  
+
   <!-- AOS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <!-- Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/GLTFLoader.js"></script>
 
   <style>
     :root {
       --accent-color: #0dcaf0;
-      --heading-color: #0f1d40;
     }
 
     body {
@@ -122,12 +122,13 @@
       color: #0f1d40;
     }
 
-    @media(max-width:768px){
-      .hero-content{
+    @media(max-width:768px) {
+      .hero-content {
         flex-direction: column;
       }
-      .hero-text h1{
-        font-size:2rem;
+
+      .hero-text h1 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -160,7 +161,6 @@
   <script>
     AOS.init();
 
-    // Three.js for Transformer Attention-inspired background
     const canvas = document.getElementById('bgCanvas');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -168,43 +168,57 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    // Light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    scene.add(ambientLight);
+    // Ambient light
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
 
-    // Nodes representing attention heads
+    // Nodes (attention heads)
     const nodeCount = 50;
     const nodes = [];
-    const nodeMaterial = new THREE.MeshStandardMaterial({ color: 0x0dcaf0, emissive: 0x0dcaf0, emissiveIntensity: 0.6 });
+    const nodeMat = new THREE.MeshStandardMaterial({ color: 0x0dcaf0, emissive: 0x0dcaf0, emissiveIntensity: 0.6 });
     for (let i = 0; i < nodeCount; i++) {
-      const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 16), nodeMaterial.clone());
+      const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 16), nodeMat.clone());
       sphere.position.set(Math.random() * 20 - 10, Math.random() * 10 - 5, Math.random() * 20 - 10);
       scene.add(sphere);
       nodes.push(sphere);
     }
 
-    // Lines connecting nodes (attention connections)
+    // Lines between nodes
     const lines = [];
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.2, transparent: true });
+    const lineMat = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.2, transparent: true });
     nodes.forEach(node => {
       const connections = Math.floor(Math.random() * 3) + 1;
       for (let i = 0; i < connections; i++) {
         const target = nodes[Math.floor(Math.random() * nodes.length)];
         if (target !== node) {
-          const points = [node.position, target.position];
-          const geometry = new THREE.BufferGeometry().setFromPoints(points);
-          const line = new THREE.Line(geometry, lineMaterial.clone());
+          const geom = new THREE.BufferGeometry().setFromPoints([node.position, target.position]);
+          const line = new THREE.Line(geom, lineMat.clone());
           scene.add(line);
           lines.push({ line, start: node, end: target });
         }
       }
     });
 
+    // Load simple 3D models (like a bike) to represent entities
+    const loader = new THREE.TextureLoader();
+    const entityGeometry = new THREE.SphereGeometry(0.15, 8, 8); // Replace with actual GLTF for real models
+    const entityMat = new THREE.MeshStandardMaterial({ color: 0xff6b6b, emissive: 0xff6b6b, emissiveIntensity: 0.5 });
+    const entities = [];
+
+    for (let i = 0; i < 10; i++) {
+      const entity = new THREE.Mesh(entityGeometry, entityMat.clone());
+      const node = nodes[Math.floor(Math.random() * nodes.length)];
+      entity.userData.path = node;
+      entity.position.copy(node.position);
+      scene.add(entity);
+      entities.push(entity);
+    }
+
     camera.position.z = 25;
 
     function animate() {
       requestAnimationFrame(animate);
-      // Animate nodes like attention moving dynamically
+
+      // Move nodes slightly to simulate attention dynamics
       nodes.forEach(node => {
         node.position.x += Math.sin(Date.now() * 0.001 + node.position.y) * 0.002;
         node.position.y += Math.sin(Date.now() * 0.001 + node.position.x) * 0.002;
@@ -212,18 +226,25 @@
 
       // Update lines
       lines.forEach(l => {
-        const positions = l.line.geometry.attributes.position.array;
-        positions[0] = l.start.position.x;
-        positions[1] = l.start.position.y;
-        positions[2] = l.start.position.z;
-        positions[3] = l.end.position.x;
-        positions[4] = l.end.position.y;
-        positions[5] = l.end.position.z;
+        const pos = l.line.geometry.attributes.position.array;
+        pos[0] = l.start.position.x;
+        pos[1] = l.start.position.y;
+        pos[2] = l.start.position.z;
+        pos[3] = l.end.position.x;
+        pos[4] = l.end.position.y;
+        pos[5] = l.end.position.z;
         l.line.geometry.attributes.position.needsUpdate = true;
+      });
+
+      // Animate entities along random paths
+      entities.forEach(entity => {
+        const target = nodes[Math.floor(Math.random() * nodes.length)];
+        entity.position.lerp(target.position, 0.005); // smooth movement
       });
 
       renderer.render(scene, camera);
     }
+
     animate();
 
     window.addEventListener('resize', () => {
@@ -233,4 +254,5 @@
     });
   </script>
 </body>
+
 </html>
