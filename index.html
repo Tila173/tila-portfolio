@@ -108,22 +108,20 @@
       color: var(--secondary);
     }
 
-    /* ===== Footer Dark Gray ===== */
-    footer.footer {
-      background: #1f2937; /* dark gray */
-      color: #d1d5db; /* light gray text */
-      text-align: center;
-      padding: 40px 20px;
+    /* ===== Footer Dark Gray Override ===== */
+    footer.light-background {
+      background-color: #1f2937 !important; /* dark gray */
+      color: #d1d5db !important; /* light gray text */
     }
 
-    footer.footer a {
-      color: #9ca3af; /* light gray for icons */
+    footer.light-background a {
+      color: #9ca3af;
       font-size: 1.5rem;
       transition: all 0.3s;
     }
 
-    footer.footer a:hover {
-      color: #2563eb; /* primary blue on hover */
+    footer.light-background a:hover {
+      color: #2563eb; /* primary blue */
       transform: translateY(-5px);
     }
 
@@ -179,8 +177,8 @@
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer id="footer" class="footer">
-    <div class="container text-center py-4">
+  <footer id="footer" class="footer light-background py-4">
+    <div class="container text-center">
       <div class="social-links mb-3 d-flex justify-content-center gap-3">
         <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
         <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
