@@ -335,55 +335,51 @@
     <div style="display:flex;gap:16px;justify-content:center;">
 
       <!-- CARD -->
-      <div class="cert-card" style="flex:0 0 210px;background:#fff;border-radius:14px;padding:14px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center;">
+      <div class="cert-card">
+        <span class="year-badge">2023</span>
         <i class="bi bi-journal-text"></i>
         <h3>Scientific Paper Writing</h3>
         <p>Coursera</p>
-        <span>2023</span>
         <a href="CERTIFICATE_LINK" target="_blank" class="cert-btn">View</a>
       </div>
 
-      <div class="cert-card" style="flex:0 0 210px;background:#fff;border-radius:14px;padding:14px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center;">
+      <div class="cert-card">
+        <span class="year-badge blue">2023</span>
         <i class="bi bi-cpu-fill blue"></i>
         <h3>Machine Learning</h3>
         <p>Simplilearn</p>
-        <span>2023</span>
         <a href="CERTIFICATE_LINK" target="_blank" class="cert-btn blue">View</a>
       </div>
 
-      <div class="cert-card" style="flex:0 0 210px;background:#fff;border-radius:14px;padding:14px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center;">
+      <div class="cert-card">
+        <span class="year-badge purple">2025</span>
         <i class="bi bi-activity purple"></i>
         <h3>Bioinformatics Seminar</h3>
         <p>International</p>
-        <span>2025</span>
         <a href="CERTIFICATE_LINK" target="_blank" class="cert-btn purple">View</a>
       </div>
 
-      <div class="cert-card" style="flex:0 0 210px;background:#fff;border-radius:14px;padding:14px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center;">
+      <div class="cert-card">
+        <span class="year-badge orange">2020</span>
         <i class="bi bi-lightning-fill orange"></i>
         <h3>Zero to Mastery ML</h3>
         <p>Udemy</p>
-        <span>2020</span>
         <a href="CERTIFICATE_LINK" target="_blank" class="cert-btn orange">View</a>
       </div>
 
-      <div class="cert-card dashed" style="flex:0 0 210px;border-radius:14px;padding:14px;text-align:center;">
+      <!-- IELTS -->
+      <div class="cert-card dashed">
+        <span class="year-badge indigo">2025</span>
         <i class="bi bi-translate indigo"></i>
         <h3>IELTS – Band 6.0</h3>
         <p>L7 · R5 · W6 · S6</p>
-        <span>2025</span>
       </div>
 
-      <div class="cert-card" style="flex:0 0 210px;background:#fff;border-radius:14px;padding:14px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center;">
+      <div class="cert-card">
+        <span class="year-badge gray">2022</span>
         <i class="bi bi-briefcase-fill gray"></i>
         <h3>KP Digital Internship</h3>
         <p>Govt. of KPK</p>
-        <span>2022</span>
         <a href="CERTIFICATE_LINK" target="_blank" class="cert-btn gray">View</a>
       </div>
 
@@ -393,7 +389,14 @@
 
 <style>
 .cert-card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  flex: 0 0 210px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  text-align: center;
+  transition: transform .35s ease, box-shadow .35s ease;
 }
 
 .cert-card:hover {
@@ -401,75 +404,89 @@
   box-shadow: 0 16px 32px rgba(0,0,0,0.2);
 }
 
+/* YEAR BADGE (TOP LEFT) */
+.year-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: #4CAF50;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ICON */
 .cert-card i {
-  font-size:32px;
-  margin-bottom:6px;
-  color:#4CAF50;
-  transition: transform 0.35s ease;
+  font-size: 32px;
+  margin-bottom: 6px;
+  color: #4CAF50;
+  transition: transform .35s ease;
 }
 
 .cert-card:hover i {
   transform: scale(1.2) rotate(8deg);
 }
 
+/* TEXT */
 .cert-card h3 {
-  font-size:16px;
-  height:38px;
-  margin:8px 0 4px;
-  color:#333;
+  font-size: 16px;
+  height: 38px;
+  margin: 8px 0 4px;
+  color: #333;
 }
 
 .cert-card p {
-  font-size:13px;
-  color:#555;
-  margin:0;
+  font-size: 13px;
+  color: #555;
+  margin: 0;
 }
 
-.cert-card span {
-  font-size:12px;
-  color:#999;
-}
-
+/* BUTTON */
 .cert-btn {
-  display:inline-block;
-  margin-top:8px;
-  padding:6px 14px;
-  font-size:12px;
-  border-radius:20px;
-  border:2px solid #4CAF50;
-  color:#4CAF50;
-  text-decoration:none;
-  position:relative;
-  overflow:hidden;
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .cert-btn::after {
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:rgba(255,255,255,0.4);
-  transform:skewX(-20deg);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-20deg);
 }
 
 .cert-card:hover .cert-btn::after {
-  left:120%;
-  transition:left 0.6s ease;
+  left: 120%;
+  transition: left .6s ease;
 }
 
-.blue { color:#2196F3; border-color:#2196F3; }
-.purple { color:#9C27B0; border-color:#9C27B0; }
-.orange { color:#FF9800; border-color:#FF9800; }
-.gray { color:#607D8B; border-color:#607D8B; }
-.indigo { color:#3F51B5; }
+/* COLORS */
+.blue { color:#2196F3; border-color:#2196F3; background:#2196F3; }
+.purple { color:#9C27B0; border-color:#9C27B0; background:#9C27B0; }
+.orange { color:#FF9800; border-color:#FF9800; background:#FF9800; }
+.gray { color:#607D8B; border-color:#607D8B; background:#607D8B; }
+.indigo { color:#3F51B5; background:#3F51B5; }
 
+/* IELTS STYLE */
 .dashed {
   background:#eef2ff;
   border:2px dashed #3F51B5;
 }
 </style>
+
     
     <!-- ===================== Research Papers (White + Gray, with inline SVGs) ===================== -->
 <!-- Font Awesome (icons) – kept here so this block is fully self-contained -->
