@@ -215,7 +215,7 @@
     AOS.init();
   </script>
 
-  <!-- 3D Background with Mouse-Interactive Floating Icons -->
+  <!-- 3D Floating Words Background -->
   <script>
     const canvas = document.getElementById("bg-canvas");
     const scene = new THREE.Scene();
@@ -224,31 +224,28 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.position.z = 60;
 
-    // Spheres
-    const tokens = [];
-    const tokenGeometry = new THREE.SphereGeometry(0.8, 12, 12);
-    const tokenMaterial = new THREE.MeshStandardMaterial({ color: "#34b7a7", emissive: "#2a9d8f" });
-    for (let i = 0; i < 40; i++) {
-      const token = new THREE.Mesh(tokenGeometry, tokenMaterial);
-      token.position.set(Math.random() * 80 - 40, Math.random() * 30 - 15, Math.random() * 30 - 15);
-      scene.add(token);
-      tokens.push(token);
-    }
+    // Floating Words
+    const words = ["ML", "DL", "NLP", "LLMs", "Models", "AI", "Transformer", "Python", "Data", "Embedding"];
+    const floatingTexts = [];
 
-    // Floating icons
-    const loader = new THREE.TextureLoader();
-    const iconTextures = [
-      loader.load("https://i.imgur.com/wv1h6si.png"),
-      loader.load("https://i.imgur.com/RCqNf0T.png"),
-      loader.load("https://i.imgur.com/N7b8z3k.png")
-    ];
+    const loader = new THREE.FontLoader();
+    loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function(font) {
+      words.forEach((word) => {
+        const textGeo = new THREE.TextGeometry(word, {
+          font: font,
+          size: 3,
+          height: 0.5,
+          curveSegments: 4
+        });
+        const textMat = new THREE.MeshStandardMaterial({ color: "#34b7a7", emissive: "#2a9d8f" });
+        const textMesh = new THREE.Mesh(textGeo, textMat);
 
-    const floatingIcons = iconTextures.map(tex => {
-      const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true }));
-      sprite.scale.set(4, 4, 1);
-      sprite.position.set(Math.random() * 80 - 40, Math.random() * 40 - 20, Math.random() * 40 - 20);
-      scene.add(sprite);
-      return sprite;
+        // Random initial position
+        textMesh.position.set(Math.random() * 80 - 40, Math.random() * 40 - 20, Math.random() * 40 - 20);
+        textMesh.rotation.set(Math.random() * 0.5, Math.random() * 0.5, 0);
+        scene.add(textMesh);
+        floatingTexts.push(textMesh);
+      });
     });
 
     // Lights
@@ -258,7 +255,8 @@
     scene.add(directionalLight);
 
     // Mouse interaction
-    let mouseX = 0, mouseY = 0;
+    let mouseX = 0,
+      mouseY = 0;
     document.addEventListener("mousemove", e => {
       mouseX = (e.clientX / window.innerWidth - 0.5) * 20;
       mouseY = (0.5 - e.clientY / window.innerHeight) * 20;
@@ -267,19 +265,23 @@
     // Animate
     function animate() {
       requestAnimationFrame(animate);
-      tokens.forEach(t => { t.rotation.x += 0.003; t.rotation.y += 0.004; });
-      floatingIcons.forEach(icon => {
-        icon.position.y += 0.05;
-        icon.position.x += 0.02;
-        icon.position.x += mouseX * 0.002;
-        icon.position.y += mouseY * 0.002;
-        if (icon.position.y > 25) icon.position.y = -25;
-        if (icon.position.x > 40) icon.position.x = -40;
+      floatingTexts.forEach(text => {
+        text.rotation.y += 0.002;
+        text.rotation.x += 0.001;
+        text.position.x += mouseX * 0.001;
+        text.position.y += mouseY * 0.001;
+
+        // Wrap-around effect
+        if (text.position.y > 25) text.position.y = -25;
+        if (text.position.y < -25) text.position.y = 25;
+        if (text.position.x > 40) text.position.x = -40;
+        if (text.position.x < -40) text.position.x = 40;
       });
       renderer.render(scene, camera);
     }
     animate();
 
+    // Responsive
     window.addEventListener("resize", () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
