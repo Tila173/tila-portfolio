@@ -525,17 +525,17 @@
 </style>
 
 <!-- =========================
-     Testimonials Section (Circular Badge Images)
+     TESTIMONIALS SECTION
 ========================== -->
-<section id="testimonials" class="testimonials section" style="background:#f4f6f9; padding:60px 0;">
+<section id="testimonials" class="testimonials section" style="background: #f8f9fa; padding: 60px 0;">
   <div class="container section-title" data-aos="fade-up">
     <h2>Testimonials</h2>
     <p>What collaborators and mentors say.</p>
   </div>
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="swiper init-swiper">
-
+    <div class="swiper init-swiper" style="padding-top:30px; padding-bottom:30px;">
+      
       <script type="application/json" class="swiper-config">
       {
         "loop": true,
@@ -546,7 +546,8 @@
         "breakpoints": {
           "576": { "slidesPerView": 1 },
           "768": { "slidesPerView": 2 },
-          "992": { "slidesPerView": 3 }
+          "992": { "slidesPerView": 2 },
+          "1200": { "slidesPerView": 3 }
         },
         "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
       }
@@ -555,21 +556,43 @@
       <div class="swiper-wrapper">
 
         <!-- Testimonial 1 -->
-<!-- Testimonial Slide -->
-<div class="swiper-slide">
-  <div class="testimonial-card">
-    <div class="testimonial-img">
-      <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
-    </div>
-    <div class="testimonial-content">
-      <p>
-        I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, he patiently guided me and kept me motivated. Thanks to his help, I got selected!
-      </p>
-      <h3>Mazhar Iqbal</h3>
-      <h4>MEXT Scholar</h4>
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-img">
+              <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
+            </div>
+            <div class="testimonial-content">
+              <p>
+                I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, he patiently guided me and kept me motivated. Thanks to his help, I got selected!
+              </p>
+              <h3>Mazhar Iqbal</h3>
+              <h4>MEXT Scholar</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-img">
+              <img src="assets/img/testimonials/testimonials-2.jpg" alt="Manal Zafar">
+            </div>
+            <div class="testimonial-content">
+              <p>
+                While applying for the K-GKS scholarship, Tila Muhammad helped me at every stage. Whenever I was confused, he patiently guided me. His support played a big part in my selection for K-GKS 2024, and I am now pursuing my MS in Chemistry at Kumoh National Institute of Technology.
+              </p>
+              <h3>Manal Zafar</h3>
+              <h4>K-GKS Scholar</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="swiper-pagination" style="margin-top:24px;"></div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
 .testimonial-card {
@@ -578,7 +601,7 @@
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   text-align: center;
-  padding: 20px 20px 20px 20px; /* remove previous top padding */
+  padding: 20px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -586,7 +609,7 @@
   width: 100%;
 }
 
-/* Place image inside the card (top margin) */
+/* Circular image inside card */
 .testimonial-img {
   width: 110px;
   height: 110px;
@@ -594,7 +617,7 @@
   overflow: hidden;
   border: 4px solid #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  margin-top: 10px;  /* ensure fully visible */
+  margin-top: 10px;
 }
 
 .testimonial-img img {
@@ -624,7 +647,7 @@
   color: #0d6efd;
 }
 
-/* Hover */
+/* Hover effect */
 .testimonial-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
@@ -639,7 +662,6 @@
   .testimonial-content h4 { font-size: 13px; }
 }
 </style>
-
 
   </main>
 
