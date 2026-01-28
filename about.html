@@ -527,16 +527,16 @@
 
 <!-- =========================
 <!-- =========================
-     Testimonials Section
+     Modern Testimonials Section
 ========================== -->
-<section id="testimonials" class="testimonials section" style="background: #f8f9fa; padding: 60px 0;">
+<section id="testimonials" class="testimonials section" style="background:#f8f9fa; padding:60px 0;">
   <div class="container section-title" data-aos="fade-up">
     <h2>Testimonials</h2>
     <p>What collaborators and mentors say.</p>
   </div>
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="swiper init-swiper" style="padding-top:30px; padding-bottom:30px;">
+    <div class="swiper init-swiper">
 
       <script type="application/json" class="swiper-config">
       {
@@ -559,35 +559,39 @@
 
         <!-- Testimonial 1 -->
         <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
-            <h3>Mazhar Iqbal</h3>
-            <h4>MEXT Scholar</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          <div class="testimonial-card">
+            <div class="testimonial-img">
+              <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
             </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, I felt lost at so many points, but he patiently guided me through the process and kept me motivated. Thanks to his help, I got selected! I’m really grateful and would recommend him to anyone who needs honest guidance.
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
+            <div class="testimonial-content">
+              <h3>Mazhar Iqbal</h3>
+              <h4>MEXT Scholar</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, I felt lost at so many points, but he patiently guided me through the process and kept me motivated. Thanks to his help, I got selected! I’m really grateful and would recommend him to anyone who needs honest guidance.
+              </p>
+            </div>
           </div>
         </div>
 
         <!-- Testimonial 2 -->
         <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-2.jpg" alt="Manal Zafar">
-            <h3>Manal Zafar</h3>
-            <h4>K-GKS Scholar</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          <div class="testimonial-card">
+            <div class="testimonial-img">
+              <img src="assets/img/testimonials/testimonials-2.jpg" alt="Manal Zafar">
             </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              While applying for the K-GKS scholarship, Tila Muhammad helped me at every stage of the process. Whenever I was confused or unsure, he patiently guided me and explained things in a way that was easy to understand. His support played a big part in my selection for K-GKS 2024, and I am now pursuing my MS in Chemistry at Kumoh National Institute of Technology. I’m truly thankful for his help and would definitely recommend him to anyone who needs genuine guidance.
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
+            <div class="testimonial-content">
+              <h3>Manal Zafar</h3>
+              <h4>K-GKS Scholar</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                While applying for the K-GKS scholarship, Tila Muhammad helped me at every stage of the process. Whenever I was confused or unsure, he patiently guided me and explained things in a way that was easy to understand. His support played a big part in my selection for K-GKS 2024, and I am now pursuing my MS in Chemistry at Kumoh National Institute of Technology. I’m truly thankful for his help and would definitely recommend him to anyone who needs genuine guidance.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -599,82 +603,96 @@
 </section>
 
 <!-- =========================
-     Testimonials CSS
+     Modern Testimonials CSS
 ========================== -->
 <style>
-/* Make all testimonial slides equal height */
+/* Swiper slide full height */
 .swiper-slide {
-  display: flex !important;
+  display: flex;
   justify-content: center;
-  align-items: stretch; /* ensures all testimonial items match height */
+  align-items: stretch;
 }
 
-.testimonial-item {
+/* Card */
+.testimonial-card {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  background: linear-gradient(145deg,#ffffff,#f3f6fb);
+  background: #fff;
   border-radius: 20px;
   box-shadow: 0 12px 28px rgba(0,0,0,.08);
-  padding: 28px;
-  text-align: center;
+  overflow: hidden;
   width: 100%;
-  transition: all .35s ease;
-  min-height: 350px; /* ensures desktop & mobile match */
-  flex: 1; /* fill the height of swiper-slide */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.testimonial-item img {
-  width: 110px;
-  height: 110px;
+/* Hover effect */
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.12);
+}
+
+/* Image */
+.testimonial-img img {
+  width: 100%;
+  max-width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center;
-  margin: 0 auto 14px;
+  margin: 20px auto 10px auto;
   border: 3px solid #fff;
   box-shadow: 0 6px 16px rgba(0,0,0,.1);
 }
 
-.testimonial-item h3 {
+/* Content */
+.testimonial-content {
+  flex: 1;
+  padding: 0 20px 20px 20px;
+  text-align: center;
+}
+
+.testimonial-content h3 {
   font-size: 18px;
-  font-weight: 600;
   margin-bottom: 2px;
 }
 
-.testimonial-item h4 {
+.testimonial-content h4 {
   font-size: 14px;
   color: #0d6efd;
   margin-bottom: 10px;
 }
 
-.testimonial-item .stars {
+.testimonial-content .stars {
   color: #ffc107;
   margin-bottom: 12px;
 }
 
-.testimonial-item p {
+.testimonial-content p {
   font-size: 14px;
   color: #6c757d;
   line-height: 1.6;
-  flex-grow: 1;
+  max-height: 180px;
+  overflow-y: auto; /* scroll if too long */
+  padding-right: 5px;
 }
 
-/* Hover effect */
-.testimonial-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0,0,0,.12);
+/* Custom scrollbar for testimonials */
+.testimonial-content p::-webkit-scrollbar {
+  width: 5px;
+}
+.testimonial-content p::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.2);
+  border-radius: 5px;
 }
 
-/* Mobile adjustments */
+/* Mobile */
 @media(max-width:576px){
-  .testimonial-item {
-    padding:22px;
-    min-height:350px; /* keep equal height for mobile */
+  .testimonial-img img {
+    max-width: 90px;
+    height: 90px;
   }
-  .testimonial-item h3 { font-size:16px; }
-  .testimonial-item h4 { font-size:12px; }
-  .testimonial-item p { font-size:13px; }
-  .testimonial-item img { width:90px; height:90px; }
+  .testimonial-content h3 { font-size: 16px; }
+  .testimonial-content h4 { font-size: 12px; }
+  .testimonial-content p { font-size: 13px; max-height: 150px; }
 }
 </style>
 
