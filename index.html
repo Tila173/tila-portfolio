@@ -4,317 +4,259 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tila Muhammad - AI/ML & NLP Portfolio</title>
-  <meta name="description" content="Portfolio of Tila Muhammad, AI/ML and NLP enthusiast.">
-  <meta name="keywords" content="Tila Muhammad, AI, ML, NLP, Portfolio, Resume, GitHub">
+  <title>Contact - Tila Muhammad</title>
+  <meta name="description" content="Contact Tila Muhammad for ML, NLP, Data, and IoT projects.">
 
   <!-- Favicons -->
   <link href="assets/img/hero.jpg" rel="icon">
   <link href="assets/img/hero.jpg" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:wght@400;600;800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    :root {
-      --ink: #0f1011;
-      --ink-2: #1f2328;
-      --muted: #6b7280;
-      --line: rgba(0, 0, 0, .12);
-      --bg-soft: #f4f5f7; /* Softer gray like Contact page */
-      --primary: #2563eb;
-      --secondary: #06b6d4;
-      --violet: #7c3aed;
-      --orange: #f97316;
-      --green: #10b981;
-
-      --g1: linear-gradient(135deg, rgba(37, 99, 235, .08), rgba(6, 182, 212, .08));
-      --g2: linear-gradient(135deg, #2563eb, #06b6d4);
-      --g3: linear-gradient(135deg, rgba(124, 58, 237, .12), rgba(6, 182, 212, .12));
-      --gbtn: linear-gradient(135deg, #2563eb, #7c3aed);
-    }
-
     body {
       font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-      color: var(--ink-2);
-      background: var(--bg-soft);
-      scroll-behavior: smooth;
+      color: #1f2328;
+      background: #fff;
     }
 
-    /* ===== Header ===== */
-    header {
-      background: var(--bg-soft);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      padding: 0.75rem 1rem;
+    /* Contact Section Hero Pills */
+    .contact-hero {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 16px;
+      padding: 1.25rem;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(6, 182, 212, 0.08));
+      position: relative;
+      overflow: hidden;
     }
 
-    .logo h1 {
-      font-weight: 800;
-      font-size: 1.8rem;
-      margin: 0;
+    .contact-hero::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(600px 200px at 10% -10%, rgba(37, 99, 235, 0.10), transparent 60%),
+        radial-gradient(400px 200px at 90% 110%, rgba(124, 58, 237, 0.10), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    nav#navmenu {
-      display: flex;
+    .contact-hero>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-pill {
+      display: inline-flex;
       align-items: center;
-      gap: 1rem;
-    }
-
-    nav#navmenu ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav#navmenu ul li a {
-      text-decoration: none;
-      color: var(--ink-2);
+      gap: 0.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      background: #fff;
       font-weight: 600;
-      transition: color 0.3s;
+      font-size: 0.9rem;
     }
 
-    nav#navmenu ul li a:hover,
-    nav#navmenu ul li a.active {
-      color: var(--primary);
+    /* Footer & Header Color Adaptation */
+    .light-background {
+      background-color: #f9f9f9;
     }
 
-    /* Hamburger toggle */
-    .mobile-nav-toggle {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-
-    /* ===== Hero Section ===== */
-    #hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-    }
-
-    #hero .hero-img {
-      width: 100%;
-      max-width: 350px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      object-fit: cover;
-      margin: 0 auto;
-    }
-
-    #hero .hero-text h1 {
-      font-size: 2.5rem;
+    .sitename {
       font-weight: 800;
-      background: var(--g2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
-    #hero .hero-text p {
-      font-size: 1rem;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      color: var(--muted);
+    /* Form */
+    .contact-form {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 16px;
+      padding: 1rem;
     }
 
-    .btn-primary {
-      background: var(--gbtn);
-      border: none;
-      color: #fff;
-      border-radius: 999px;
+    .form-control,
+    .form-select {
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      background: #fff;
+      color: #1f2328;
     }
 
-    .btn-primary:hover {
-      opacity: 0.95;
-      color: #fff;
-    }
-
-    .btn-outline-primary {
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      border-radius: 999px;
-    }
-
-    .btn-outline-primary:hover {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .social-links a {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin: 0 8px;
-      transition: all 0.3s;
-    }
-
-    .social-links a:hover {
-      transform: translateY(-5px);
-      color: var(--secondary);
-    }
-
-    /* ===== Footer ===== */
-    footer.light-background {
-      background: var(--bg-soft);
-      border-top: 1px solid var(--line);
-      color: var(--ink-2);
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .footer.light-background a {
-      color: var(--primary);
-      transition: 0.3s;
-    }
-
-    .footer.light-background a:hover {
-      color: var(--secondary);
-    }
-
-    /* Scroll-to-top button */
-    #scroll-top {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: var(--primary);
-      color: white;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s;
-      z-index: 999;
-      display: none;
-    }
-
-    #scroll-top:hover {
-      background: var(--secondary);
-    }
-
-    /* ===== Mobile ===== */
-    @media (max-width: 992px) {
-      nav#navmenu ul {
-        display: none;
-        flex-direction: column;
-        background: var(--bg-soft);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .mobile-nav-toggle {
-        display: block;
-        margin-right: 0.75rem;
-      }
-
-      #header .d-flex {
-        align-items: center;
-      }
+    .form-control:focus,
+    .form-select:focus {
+      border-color: transparent !important;
+      box-shadow: 0 0 0 0.15rem rgba(37, 99, 235, 0.25);
+      background: #fff;
     }
   </style>
 </head>
 
-<body>
+<body class="contact-page">
 
-  <!-- ===== Header ===== -->
-  <header id="header" class="header d-flex justify-content-between align-items-center">
-    <div class="d-flex align-items-center">
-      <i class="mobile-nav-toggle bi bi-list"></i>
-      <a href="index.html" class="logo ms-2">
-        <h1>TILA</h1>
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename m-0">TILA</h1>
       </a>
-    </div>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" class="google-scholar"
+          target="_blank" rel="noopener" aria-label="Google Scholar"><i class="bi bi-mortarboard"></i></a>
+        <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" class="researchgate" target="_blank" rel="noopener"
+          aria-label="ResearchGate"><i class="bi bi-file-earmark-text"></i></a>
+        <a href="https://github.com/Tila173" class="github" target="_blank" rel="noopener" aria-label="GitHub"><i
+            class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank" rel="noopener"
+          aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank"
+          rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener"
+          aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
   </header>
 
-  <!-- ===== Hero Section ===== -->
-  <section id="hero">
-    <div class="container text-center text-lg-start">
-      <div class="row align-items-center">
-        <div class="col-lg-5">
-          <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-img" data-aos="fade-right">
-        </div>
-        <div class="col-lg-7 hero-text" data-aos="fade-left">
-          <h1>Tila Muhammad</h1>
-          <p>AI/ML Learner focused on NLP. Building small projects as I learn.</p>
-          <div class="mt-3 mb-3">
-            <a href="about.html" class="btn btn-primary btn-lg me-2 mb-2">About Me</a>
-            <a href="contact.html" class="btn btn-outline-primary btn-lg mb-2">Contact</a>
-          </div>
-          <div class="social-links mt-3">
-            <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
-            <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
-          </div>
-        </div>
+  <main class="main">
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Let’s build something intelligent together.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== Footer ===== -->
-  <footer id="footer" class="footer light-background">
-    <div class="container text-center py-4">
-      <div class="social-links mb-3 d-flex justify-content-center gap-3">
-        <a href="https://github.com/Tila173" target="_blank" class="footer-icon"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank" class="footer-icon"><i class="bi bi-linkedin"></i></a>
-        <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank" class="footer-icon"><i class="bi bi-mortarboard"></i></a>
+      <div class="container">
+        <!-- Contact Hero / Pills -->
+        <div class="contact-hero mb-4">
+          <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+            <div class="d-flex align-items-center flex-wrap gap-2">
+              <span class="contact-pill pill-blue">
+                <i class="bi bi-clock-history"></i>
+                <span>Reply within <strong>24h</strong></span>
+              </span>
+              <span class="contact-pill pill-cyan">
+                <i class="bi bi-geo"></i> Khyber Pakhtunkhwa, PK
+              </span>
+              <span class="contact-pill pill-violet">
+                <i class="bi bi-laptop"></i> Freelance: <strong>Available</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form (similar to previous) -->
+        <div class="row g-3">
+          <div class="col-lg-7">
+            <form id="contact-form" action="forms/contact.php" method="post" class="contact-form" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required />
+                    <label for="name">Your Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" name="email"
+                      placeholder="name@example.com" required />
+                    <label for="email">Your Email</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject"
+                      required />
+                    <label for="subject">Subject</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message"
+                      style="height: 160px" required></textarea>
+                    <label for="message">Message</label>
+                  </div>
+                </div>
+                <div class="col-md-12 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                  <button type="submit" class="btn btn-gradient">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
       </div>
-      <p class="mb-0" style="color: var(--ink-2); font-weight: 500;">© 2026 <strong>TILA</strong>. All Rights Reserved.</p>
+    </section>
+  </main>
+
+  <!-- Footer (same as Services page) -->
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span id="year"></span> <strong class="px-1 sitename">Tila</strong> — All Rights Reserved</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/Tila173" class="github" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
+          href="https://themewagon.com">ThemeWagon</a>
+      </div>
     </div>
   </footer>
 
   <!-- Scroll Top -->
-  <div id="scroll-top"><i class="bi bi-arrow-up-short"></i></div>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS -->
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
 
   <script>
-    AOS.init();
-
-    // Scroll-to-top
-    const scrollTopBtn = document.getElementById('scroll-top');
-    window.addEventListener('scroll', () => {
-      scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    });
-    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Mobile nav toggle
-    const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const navMenu = document.querySelector('#navmenu ul');
-    mobileToggle.addEventListener('click', () => {
-      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
     });
   </script>
 
