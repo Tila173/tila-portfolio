@@ -15,7 +15,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;800&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;800&family=Raleway:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,17 +26,60 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
   <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    /* Hero Section */
+    :root {
+      --accent-color: #0dcaf0;
+      --heading-color: #111827;
+      --contrast-color: #fff;
+    }
+
+    /* ===== Hero Section ===== */
     #hero {
-      min-height: 80vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #34b7a7, #20c997, #0dcaf0);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      color: #fff;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    #hero .container {
+      position: relative;
+      z-index: 1;
     }
 
     #hero .hero-img {
@@ -44,21 +89,41 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       object-fit: cover;
       margin: 0 auto;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
     }
 
     #hero .hero-text h1 {
       font-size: 2.5rem;
       font-weight: 800;
-      background: var(--accent-color);
+      background: linear-gradient(90deg, var(--accent-color), #fff, var(--accent-color));
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: shine 2s linear infinite;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
     }
 
     #hero .hero-text p {
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-top: 10px;
       margin-bottom: 20px;
-      color: #6b7280;
+      min-height: 28px;
     }
 
     .btn-primary {
@@ -66,28 +131,37 @@
       border: none;
       color: #fff;
       border-radius: 999px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .btn-outline-primary {
       color: var(--accent-color);
       border: 1px solid var(--accent-color);
       border-radius: 999px;
+      transition: transform 0.3s;
     }
 
     .btn-outline-primary:hover {
       background: var(--accent-color);
       color: #fff;
+      transform: scale(1.1);
     }
 
     .social-links a {
       font-size: 1.5rem;
       color: var(--accent-color);
       margin: 0 8px;
-      transition: all 0.3s;
+      transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
     }
 
     .social-links a:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       color: var(--heading-color);
     }
 
@@ -113,6 +187,27 @@
     #scroll-top:hover {
       background: color-mix(in srgb, var(--accent-color), white 25%);
     }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #hero .row {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-img {
+        max-width: 250px;
+        margin-bottom: 20px;
+      }
+
+      #hero .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      #hero .hero-text p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 
@@ -120,17 +215,20 @@
 
   <!-- ===== Hero Section ===== -->
   <section id="hero">
+    <div id="particles-js"></div>
     <div class="container text-center text-lg-start">
       <div class="row align-items-center">
-        <div class="col-lg-5">
-          <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-img" data-aos="fade-right">
+        <div class="col-lg-5" data-aos="fade-right">
+          <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-img">
         </div>
         <div class="col-lg-7 hero-text" data-aos="fade-left">
           <h1>Tila Muhammad</h1>
-          <p>AI/ML Learner focused on NLP. Building small projects as I learn.</p>
+          <p class="typed-text"></p>
           <div class="mt-3 mb-3">
-            <a href="about.html" class="btn btn-primary btn-lg me-2 mb-2">About Me</a>
-            <a href="contact.html" class="btn btn-outline-primary btn-lg mb-2">Contact</a>
+            <a href="about.html" class="btn btn-primary btn-lg me-2 mb-2" data-aos="fade-up"
+              data-aos-delay="200">About Me</a>
+            <a href="contact.html" class="btn btn-outline-primary btn-lg mb-2" data-aos="fade-up"
+              data-aos-delay="400">Contact</a>
           </div>
         </div>
       </div>
@@ -138,15 +236,19 @@
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer id="footer" class="footer light-background py-4">
+  <footer id="footer" class="footer light-background py-4" data-aos="fade-up">
     <div class="container text-center">
       <div class="social-links mb-3 d-flex justify-content-center gap-3">
-        <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
-        <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
+        <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i
+            class="bi bi-mortarboard"></i></a>
+        <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" target="_blank"><i
+            class="bi bi-file-earmark-text"></i></a>
         <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
         <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank"><i
+            class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i
+            class="bi bi-linkedin"></i></a>
       </div>
       <p class="mb-0" style="font-weight: 500;">© 2026 <strong>TILA</strong>. All Rights Reserved.</p>
     </div>
@@ -160,14 +262,55 @@
   <script src="assets/vendor/aos/aos.js"></script>
 
   <script>
+    // ===== Initialize AOS =====
     AOS.init();
 
-    // Scroll-to-top
+    // ===== Scroll-to-top button =====
     const scrollTopBtn = document.getElementById('scroll-top');
     window.addEventListener('scroll', () => {
       scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
     });
     scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ===== Typed Text Effect =====
+    const phrases = ["AI/ML Learner", "NLP Enthusiast", "Building Small Projects"];
+    let i = 0, j = 0, currentPhrase = [], isDeleting = false;
+
+    function type() {
+      if (i >= phrases.length) i = 0;
+      let fullText = phrases[i];
+
+      if (!isDeleting) {
+        currentPhrase.push(fullText[j]);
+        j++;
+        if (j === fullText.length) isDeleting = true;
+      } else {
+        currentPhrase.pop();
+        if (currentPhrase.length === 0) {
+          isDeleting = false;
+          i++;
+          j = 0;
+        }
+      }
+
+      document.querySelector(".typed-text").textContent = currentPhrase.join("");
+      setTimeout(type, isDeleting ? 50 : 150);
+    }
+    type();
+
+    // ===== Particles.js =====
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 50 },
+        "size": { "value": 3 },
+        "move": { "speed": 2 },
+        "color": { "value": "#0dcaf0" },
+        "line_linked": { "enable": true, "distance": 120, "color": "#0dcaf0", "opacity": 0.4, "width": 1 }
+      },
+      "interactivity": {
+        "events": { "onhover": { "enable": true, "mode": "repulse" } }
+      }
+    });
   </script>
 
 </body>
