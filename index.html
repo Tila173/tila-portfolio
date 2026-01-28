@@ -3,57 +3,56 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tila Muhammad - AI/ML & NLP Portfolio</title>
+  <meta name="description" content="Portfolio of Tila Muhammad, AI/ML and NLP enthusiast.">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;800&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- AOS -->
+  <!-- AOS for scroll animations -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/GLTFLoader.js"></script>
+  <!-- Three.js for 3D background -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+
+  <!-- Typed.js for typing animation -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
   <style>
-    :root {
-      --accent-color: #0dcaf0;
-    }
-
     body {
+      font-family: 'Roboto', sans-serif;
       margin: 0;
-      font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
-      background: linear-gradient(135deg, #f0faff, #fef6f6);
+      background: #f3f4f6;
+      color: #222;
     }
 
+    /* ===== Hero Section ===== */
     #hero {
       position: relative;
       width: 100%;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      padding: 80px 20px;
     }
 
-    #bgCanvas {
+    #hero canvas {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       z-index: 0;
     }
 
-    .hero-content {
+    .hero-container {
       position: relative;
-      z-index: 2;
+      z-index: 10;
       display: flex;
       align-items: center;
       gap: 50px;
@@ -63,188 +62,183 @@
     }
 
     .hero-img {
-      max-width: 300px;
+      width: 300px;
       border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      object-fit: cover;
     }
 
     .hero-text h1 {
       font-size: 3rem;
       font-weight: 800;
-      background: linear-gradient(90deg, #ff9a9e, #fad0c4, #a1c4fd);
-      background-clip: text;
+      background: linear-gradient(90deg, #34b7a7, #20c997);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shine 3s linear infinite;
       margin-bottom: 20px;
-    }
-
-    @keyframes shine {
-      to {
-        background-position: 200% center;
-      }
     }
 
     .hero-text p {
       font-size: 1.2rem;
-      margin-bottom: 20px;
-      color: #1b1b1b;
+      color: #555;
+      margin-bottom: 30px;
+      min-height: 50px;
     }
 
-    .btn-primary,
-    .btn-outline-primary {
-      border-radius: 50px;
-      padding: 12px 30px;
+    .hero-buttons a {
+      display: inline-block;
       margin: 5px;
-      transition: 0.3s all;
+      padding: 12px 35px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #34b7a7;
+      color: #fff;
+      border: none;
     }
 
     .btn-primary:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 20px rgba(13, 202, 240, 0.5);
+      background: #20c997;
+    }
+
+    .btn-outline-primary {
+      color: #34b7a7;
+      border: 2px solid #34b7a7;
     }
 
     .btn-outline-primary:hover {
-      transform: scale(1.1);
-      background: var(--accent-color);
+      background: #34b7a7;
       color: #fff;
     }
 
-    .social-links a {
+    /* Floating skill tags */
+    .skill-tag {
+      position: absolute;
+      color: #34b7a7;
+      font-weight: bold;
+      font-size: 1rem;
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      animation: floatTag 12s infinite linear;
+    }
+
+    @keyframes floatTag {
+      0% { transform: translate3d(0,0,0); }
+      50% { transform: translate3d(20px,-30px,0); }
+      100% { transform: translate3d(0,0,0); }
+    }
+
+    /* Footer */
+    footer {
+      background: #f3f4f6;
+      padding: 40px 0;
+      text-align: center;
+      font-weight: 500;
+      color: #444;
+    }
+
+    footer .social-links a {
       font-size: 1.5rem;
+      color: #34b7a7;
       margin: 0 10px;
-      color: var(--accent-color);
-      transition: 0.3s all;
+      transition: all 0.3s;
     }
 
-    .social-links a:hover {
-      transform: scale(1.3);
-      color: #0f1d40;
-    }
-
-    @media(max-width:768px) {
-      .hero-content {
-        flex-direction: column;
-      }
-
-      .hero-text h1 {
-        font-size: 2rem;
-      }
+    footer .social-links a:hover {
+      color: #222;
+      transform: translateY(-5px);
     }
   </style>
 </head>
 
 <body>
+  <!-- ===== Hero Section ===== -->
   <section id="hero">
-    <canvas id="bgCanvas"></canvas>
-    <div class="hero-content" data-aos="fade-up">
-      <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-img">
-      <div class="hero-text">
+    <canvas id="hero-bg"></canvas>
+    <div class="hero-container">
+      <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-img" data-aos="fade-right">
+      <div class="hero-text" data-aos="fade-left">
         <h1>Tila Muhammad</h1>
-        <p>AI/ML Learner focused on NLP & Large Language Models</p>
-        <div>
+        <p id="typed-text"></p>
+        <div class="hero-buttons">
           <a href="about.html" class="btn btn-primary">About Me</a>
           <a href="contact.html" class="btn btn-outline-primary">Contact</a>
         </div>
-        <div class="social-links mt-3">
-          <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
-          <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
-          <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
-        </div>
       </div>
     </div>
+    <!-- Floating skill tags -->
+    <div class="skill-tag" style="top:10%; left:15%;">Python</div>
+    <div class="skill-tag" style="top:25%; left:70%;">BERT</div>
+    <div class="skill-tag" style="top:60%; left:30%;">NLP</div>
+    <div class="skill-tag" style="top:40%; left:50%;">Transformers</div>
+    <div class="skill-tag" style="top:75%; left:80%;">LLMs</div>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="social-links mb-3">
+      <a href="https://scholar.google.com" target="_blank"><i class="bi bi-mortarboard"></i></a>
+      <a href="https://www.researchgate.net" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
+      <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <p>© 2026 <strong>TILA</strong>. All Rights Reserved.</p>
+  </footer>
 
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
 
-    const canvas = document.getElementById('bgCanvas');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-
-    // Ambient light
-    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-
-    // Nodes (attention heads)
-    const nodeCount = 50;
-    const nodes = [];
-    const nodeMat = new THREE.MeshStandardMaterial({ color: 0x0dcaf0, emissive: 0x0dcaf0, emissiveIntensity: 0.6 });
-    for (let i = 0; i < nodeCount; i++) {
-      const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 16), nodeMat.clone());
-      sphere.position.set(Math.random() * 20 - 10, Math.random() * 10 - 5, Math.random() * 20 - 10);
-      scene.add(sphere);
-      nodes.push(sphere);
-    }
-
-    // Lines between nodes
-    const lines = [];
-    const lineMat = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.2, transparent: true });
-    nodes.forEach(node => {
-      const connections = Math.floor(Math.random() * 3) + 1;
-      for (let i = 0; i < connections; i++) {
-        const target = nodes[Math.floor(Math.random() * nodes.length)];
-        if (target !== node) {
-          const geom = new THREE.BufferGeometry().setFromPoints([node.position, target.position]);
-          const line = new THREE.Line(geom, lineMat.clone());
-          scene.add(line);
-          lines.push({ line, start: node, end: target });
-        }
-      }
+    // Typed.js animation
+    new Typed('#typed-text', {
+      strings: [
+        "AI/ML Learner focused on NLP.",
+        "Exploring LLMs and Transformers.",
+        "Building real-world AI solutions."
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
     });
 
-    // Load simple 3D models (like a bike) to represent entities
-    const loader = new THREE.TextureLoader();
-    const entityGeometry = new THREE.SphereGeometry(0.15, 8, 8); // Replace with actual GLTF for real models
-    const entityMat = new THREE.MeshStandardMaterial({ color: 0xff6b6b, emissive: 0xff6b6b, emissiveIntensity: 0.5 });
-    const entities = [];
+    // ===== Three.js Background =====
+    const canvas = document.getElementById('hero-bg');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-    for (let i = 0; i < 10; i++) {
-      const entity = new THREE.Mesh(entityGeometry, entityMat.clone());
-      const node = nodes[Math.floor(Math.random() * nodes.length)];
-      entity.userData.path = node;
-      entity.position.copy(node.position);
-      scene.add(entity);
-      entities.push(entity);
+    const geometry = new THREE.SphereGeometry(0.2, 32, 32);
+    const material = new THREE.MeshBasicMaterial({ color: 0x34b7a7 });
+    const spheres = [];
+
+    for (let i = 0; i < 100; i++) {
+      let sphere = new THREE.Mesh(geometry, material);
+      sphere.position.set(
+        (Math.random() - 0.5) * 20,
+        (Math.random() - 0.5) * 10,
+        (Math.random() - 0.5) * 20
+      );
+      scene.add(sphere);
+      spheres.push(sphere);
     }
 
-    camera.position.z = 25;
+    camera.position.z = 10;
 
     function animate() {
       requestAnimationFrame(animate);
-
-      // Move nodes slightly to simulate attention dynamics
-      nodes.forEach(node => {
-        node.position.x += Math.sin(Date.now() * 0.001 + node.position.y) * 0.002;
-        node.position.y += Math.sin(Date.now() * 0.001 + node.position.x) * 0.002;
+      spheres.forEach(s => {
+        s.rotation.x += 0.002;
+        s.rotation.y += 0.003;
+        s.position.x += Math.sin(Date.now() * 0.001 + s.position.y * 0.1) * 0.005;
       });
-
-      // Update lines
-      lines.forEach(l => {
-        const pos = l.line.geometry.attributes.position.array;
-        pos[0] = l.start.position.x;
-        pos[1] = l.start.position.y;
-        pos[2] = l.start.position.z;
-        pos[3] = l.end.position.x;
-        pos[4] = l.end.position.y;
-        pos[5] = l.end.position.z;
-        l.line.geometry.attributes.position.needsUpdate = true;
-      });
-
-      // Animate entities along random paths
-      entities.forEach(entity => {
-        const target = nodes[Math.floor(Math.random() * nodes.length)];
-        entity.position.lerp(target.position, 0.005); // smooth movement
-      });
-
       renderer.render(scene, camera);
     }
-
     animate();
 
     window.addEventListener('resize', () => {
@@ -254,5 +248,4 @@
     });
   </script>
 </body>
-
 </html>
