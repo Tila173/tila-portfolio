@@ -455,48 +455,149 @@
      /SKILLS SECTION
 ========================== -->
     <!-- Stats Section -->
-    <section id="stats" class="stats section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Facts</h2>
-        <p>Quick numbers about my work and research.</p>
+   <!-- =========================
+     PREMIUM STATS SECTION
+========================== -->
+
+<style>
+
+/* ===== STATS GRID ===== */
+.premium-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+/* ===== STAT CARD ===== */
+.premium-stat-card {
+  background: linear-gradient(145deg, #ffffff, #f4f7fc);
+  border-radius: 18px;
+  padding: 22px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: all .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft Accent Glow */
+.premium-stat-card::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(13,110,253,.15), transparent 70%);
+}
+
+.premium-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+}
+
+/* ===== ICON ===== */
+.premium-stat-icon {
+  font-size: 28px;
+  color: #0d6efd;
+  margin-bottom: 8px;
+}
+
+/* ===== NUMBER ===== */
+.premium-stat-number {
+  font-size: 34px;
+  font-weight: 700;
+  color: #212529;
+}
+
+/* ===== LABEL ===== */
+.premium-stat-text {
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 576px) {
+
+  .premium-stat-card {
+    padding: 18px;
+  }
+
+  .premium-stat-number {
+    font-size: 28px;
+  }
+
+}
+
+</style>
+
+
+<section id="stats" class="stats section">
+
+  <div class="container section-title text-center" data-aos="fade-up">
+    <h2>Stats & Achievements</h2>
+    <p>Professional impact and technical milestones</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="premium-stats-grid">
+
+      <!-- STAT -->
+      <div class="premium-stat-card">
+        <div class="premium-stat-icon">
+          <i class="bi bi-folder-check"></i>
+        </div>
+        <div class="premium-stat-number" data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1">
+          15
+        </div>
+        <div class="premium-stat-text">Projects Completed</div>
       </div>
 
-<div class="container" data-aos="fade-up" data-aos-delay="100">
-  <!-- Add class "lined" here if you want 1px grid lines -->
-  <div class="stats-grid">
-    <div class="stats-card">
-      <div class="icon mb-2"><i class="bi bi-journal-text fs-3 text-primary"></i></div>
-      <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="2"
-            class="purecounter fw-bold fs-2 text-dark"></span>
-<p class="mt-2 text-secondary mb-0 text-center">Research Publications</p>
+      <!-- STAT -->
+      <div class="premium-stat-card">
+        <div class="premium-stat-icon">
+          <i class="bi bi-cpu"></i>
+        </div>
+        <div class="premium-stat-number" data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1">
+          8
+        </div>
+        <div class="premium-stat-text">ML Models Built</div>
+      </div>
+
+      <!-- STAT -->
+      <div class="premium-stat-card">
+        <div class="premium-stat-icon">
+          <i class="bi bi-github"></i>
+        </div>
+        <div class="premium-stat-number" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1">
+          25
+        </div>
+        <div class="premium-stat-text">GitHub Repositories</div>
+      </div>
+
+      <!-- STAT -->
+      <div class="premium-stat-card">
+        <div class="premium-stat-icon">
+          <i class="bi bi-mortarboard"></i>
+        </div>
+        <div class="premium-stat-number" data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1">
+          2
+        </div>
+        <div class="premium-stat-text">Years Experience</div>
+      </div>
 
     </div>
 
-    <div class="stats-card">
-      <div class="icon mb-2"><i class="bi bi-briefcase fs-3 text-primary"></i></div>
-      <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="2"
-            class="purecounter fw-bold fs-2 text-dark"></span>
-      <p class="mt-2 text-secondary mb-0">Internships</p>
-    </div>
-
-    <div class="stats-card">
-      <div class="icon mb-2"><i class="bi bi-diagram-3 fs-3 text-primary"></i></div>
-      <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="2" data-purecounter-suffix="+"
-            class="purecounter fw-bold fs-2 text-dark"></span>
-      <p class="mt-2 text-secondary mb-0">AI/ML/NLP Projects</p>
-    </div>
-
-    <div class="stats-card">
-      <div class="icon mb-2"><i class="bi bi-person-workspace fs-3 text-primary"></i></div>
-      <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="2"
-            class="purecounter fw-bold fs-2 text-dark"></span>
-      <p class="mt-2 text-secondary mb-0">Students Mentored</p>
-    </div>
   </div>
-</div>
 
-    </section>
-    <!-- /Stats Section -->
+</section>
+
+<!-- =========================
+     /PREMIUM STATS SECTION
+========================== -->
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
