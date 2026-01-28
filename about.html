@@ -555,82 +555,46 @@
       <div class="swiper-wrapper">
 
         <!-- Testimonial 1 -->
-        <div class="swiper-slide">
-          <div class="testimonial-card">
-            <div class="testimonial-img">
-              <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
-            </div>
-            <div class="testimonial-content">
-              <p>
-                I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, he patiently guided me and kept me motivated. Thanks to his help, I got selected!
-              </p>
-              <h3>Mazhar Iqbal</h3>
-              <h4>MEXT Scholar</h4>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="swiper-slide">
-          <div class="testimonial-card">
-            <div class="testimonial-img">
-              <img src="assets/img/testimonials/testimonials-2.jpg" alt="Manal Zafar">
-            </div>
-            <div class="testimonial-content">
-              <p>
-                Tila Muhammad helped me at every stage of the K-GKS scholarship process. Whenever I was confused, he guided me and explained things clearly. His support played a big part in my selection, and I’m truly thankful.
-              </p>
-              <h3>Manal Zafar</h3>
-              <h4>K-GKS Scholar</h4>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="swiper-pagination" style="margin-top:24px;"></div>
+<!-- Testimonial Slide -->
+<div class="swiper-slide">
+  <div class="testimonial-card">
+    <div class="testimonial-img">
+      <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
+    </div>
+    <div class="testimonial-content">
+      <p>
+        I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, he patiently guided me and kept me motivated. Thanks to his help, I got selected!
+      </p>
+      <h3>Mazhar Iqbal</h3>
+      <h4>MEXT Scholar</h4>
     </div>
   </div>
-</section>
+</div>
 
-<!-- =========================
-     Testimonials CSS (Circular Badge)
-========================== -->
 <style>
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-}
-
 .testimonial-card {
   position: relative;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   text-align: center;
-  padding: 60px 20px 20px 20px; /* top padding for badge */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px 20px 20px 20px; /* remove previous top padding */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
   max-width: 360px;
   width: 100%;
 }
 
-/* Circular badge image */
+/* Place image inside the card (top margin) */
 .testimonial-img {
-  position: absolute;
-  top: -50px; /* half of image height */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  background: #fff;
+  margin-top: 10px;  /* ensure fully visible */
 }
 
 .testimonial-img img {
@@ -639,19 +603,12 @@
   object-fit: cover;
 }
 
-/* Hover */
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-}
-
-/* Content */
+/* Content spacing */
 .testimonial-content p {
   font-size: 14px;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 15px;
-  margin-top: 10px; /* spacing under badge */
+  margin: 15px 0 10px 0;
 }
 
 .testimonial-content h3 {
@@ -665,18 +622,24 @@
   font-size: 14px;
   font-weight: 500;
   color: #0d6efd;
-  margin-bottom: 0;
+}
+
+/* Hover */
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
 
 /* Mobile */
 @media(max-width:576px){
-  .testimonial-card { max-width: 95%; padding: 50px 15px 15px 15px; }
-  .testimonial-img { width: 80px; height: 80px; top: -40px; }
+  .testimonial-card { max-width: 95%; padding: 15px; }
+  .testimonial-img { width: 90px; height: 90px; }
   .testimonial-content p { font-size: 13px; }
   .testimonial-content h3 { font-size: 15px; }
   .testimonial-content h4 { font-size: 13px; }
 }
 </style>
+
 
   </main>
 
