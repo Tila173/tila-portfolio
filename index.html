@@ -92,23 +92,10 @@
       text-decoration: none;
     }
 
-    .btn-primary {
-      background: #34b7a7;
-      color: #fff;
-      border: none;
-    }
-
+    .btn-primary { background: #34b7a7; color: #fff; border: none; }
     .btn-primary:hover { background: #20c997; }
-
-    .btn-outline-primary {
-      color: #34b7a7;
-      border: 2px solid #34b7a7;
-    }
-
-    .btn-outline-primary:hover {
-      background: #34b7a7;
-      color: #fff;
-    }
+    .btn-outline-primary { color: #34b7a7; border: 2px solid #34b7a7; }
+    .btn-outline-primary:hover { background: #34b7a7; color: #fff; }
 
     /* Floating skill tags */
     .skill-tag {
@@ -186,14 +173,11 @@
       transition: all 0.3s;
     }
 
-    footer .social-links a:hover {
-      color: #222;
-      transform: translateY(-5px);
-    }
+    footer .social-links a:hover { color: #222; transform: translateY(-5px); }
   </style>
 </head>
-
 <body>
+
   <!-- ===== Hero Section ===== -->
   <section id="hero">
     <canvas id="hero-bg"></canvas>
@@ -260,63 +244,74 @@
       loop: true
     });
 
-    // ===== Three.js Animated Background =====
+    // ===== Three.js Advanced Transformer Background =====
     const canvas = document.getElementById('hero-bg');
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha:true });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    const geometry = new THREE.SphereGeometry(0.2, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0x34b7a7 });
-    const spheres = [];
+    // Nodes & Edges (attention)
+    const nodes = [];
+    const edges = [];
+    const nodeGeo = new THREE.SphereGeometry(0.15,16,16);
+    const nodeMat = new THREE.MeshBasicMaterial({color:0x34b7a7});
+    const edgeMat = new THREE.LineBasicMaterial({color:0x20c997, opacity:0.4, transparent:true});
 
-    for (let i = 0; i < 100; i++) {
-      let sphere = new THREE.Mesh(geometry, material);
-      sphere.position.set(
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 10,
-        (Math.random() - 0.5) * 20
-      );
-      scene.add(sphere);
-      spheres.push(sphere);
+    // Create nodes
+    for(let i=0;i<30;i++){
+      let node = new THREE.Mesh(nodeGeo,nodeMat);
+      node.position.set((Math.random()-0.5)*10,(Math.random()-0.5)*5,(Math.random()-0.5)*5);
+      scene.add(node);
+      nodes.push(node);
     }
 
-    camera.position.z = 10;
+    // Create edges
+    for(let i=0;i<50;i++){
+      let a = nodes[Math.floor(Math.random()*nodes.length)];
+      let b = nodes[Math.floor(Math.random()*nodes.length)];
+      let points = [a.position.clone(), b.position.clone()];
+      let geo = new THREE.BufferGeometry().setFromPoints(points);
+      let line = new THREE.Line(geo,edgeMat);
+      scene.add(line);
+      edges.push({line, a,b});
+    }
 
-    function animate() {
+    camera.position.z=10;
+
+    function animate(){
       requestAnimationFrame(animate);
-      spheres.forEach(s => {
-        s.rotation.x += 0.002;
-        s.rotation.y += 0.003;
-        s.position.x += Math.sin(Date.now() * 0.001 + s.position.y * 0.1) * 0.005;
+      nodes.forEach(n=>{
+        n.position.x += Math.sin(Date.now()*0.001+n.position.y*0.1)*0.002;
+        n.position.y += Math.cos(Date.now()*0.001+n.position.x*0.1)*0.002;
       });
-      renderer.render(scene, camera);
+      edges.forEach(e=>{
+        e.line.geometry.setFromPoints([e.a.position.clone(),e.b.position.clone()]);
+      });
+      renderer.render(scene,camera);
     }
     animate();
 
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+    window.addEventListener('resize',()=>{
+      camera.aspect = window.innerWidth/window.innerHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(window.innerWidth,window.innerHeight);
     });
 
     // ===== NLP Mini Demo Functions =====
     function analyzeSentiment() {
       const text = document.getElementById('nlp-input').value;
-      if (!text) return;
+      if(!text) return;
       const sentiment = text.toLowerCase().includes('good') ? "😊 Positive" : "😐 Neutral / Negative";
       showResult(sentiment);
     }
-
     function extractKeywords() {
       const text = document.getElementById('nlp-input').value;
-      if (!text) return;
-      const words = text.split(' ').filter(w => w.length > 3);
-      showResult("🔑 " + words.slice(0,5).join(', '));
+      if(!text) return;
+      const words = text.split(' ').filter(w=>w.length>3);
+      showResult("🔑 "+words.slice(0,5).join(', '));
     }
-
-    function showResult(msg) {
+    function showResult(msg){
       const container = document.getElementById('nlp-result');
       container.innerHTML = `<span class="result-bubble">${msg}</span>`;
     }
