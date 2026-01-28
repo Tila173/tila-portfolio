@@ -248,8 +248,6 @@
     </span>
   </li>
 </ul>
-
-
             <p class="text-muted mt-3" style="max-width: 800px;">
               I aim to work/collaborate with leading labs and advance research that delivers real-world
               <span class="fw-semibold text-primary">AI</span> impact.
@@ -260,197 +258,191 @@
     </section>
     <!-- /About Section -->
 
-    <!-- Skills Section -->
 <!-- =========================
-     PREMIUM LIGHT SKILLS SECTION
+     SKILLS SECTION — ALT DESIGN
 ========================== -->
 
 <style>
+/* ===============================
+   BADGE + TRACK SKILLS DESIGN
+================================ */
 
-/* ===== GRID LAYOUT ===== */
-.premium-skills-grid {
+.skills-wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
 }
 
-/* ===== SKILL CARD ===== */
-.premium-skill-card {
-  background: linear-gradient(145deg, #ffffff, #f3f6fb);
-  border-radius: 18px;
-  padding: 18px 20px 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  transition: all .35s ease;
-  position: relative;
-  overflow: hidden;
+/* Skill Row */
+.skill-row {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  transition: all .3s ease;
 }
 
-/* Soft Accent Glow */
-.premium-skill-card::after {
-  content: "";
-  position: absolute;
-  top: -40%;
-  right: -40%;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, rgba(13,110,253,.15), transparent 70%);
+.skill-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
 }
 
-/* Hover Effect */
-.premium-skill-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-}
-
-/* ===== HEADER ===== */
-.premium-skill-header {
+/* Header */
+.skill-top {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 600;
-  font-size: 15px;
-  color: #212529;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
-.premium-skill-header i {
-  font-size: 20px;
+.skill-badge {
+  background: rgba(13,110,253,.1);
   color: #0d6efd;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 50px;
 }
 
-/* ===== PROGRESS BAR ===== */
-.premium-progress {
-  height: 9px;
-  background: #e9edf5;
-  border-radius: 20px;
+.skill-name {
+  font-weight: 600;
+  font-size: 14px;
+  flex: 1;
+}
+
+.skill-percent {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Track Bar */
+.skill-track {
+  width: 100%;
+  height: 5px;
+  background: #e9ecef;
+  border-radius: 10px;
   overflow: hidden;
 }
 
-/* Animated Fill */
-.premium-progress span {
+.skill-track span {
   display: block;
   height: 100%;
-  border-radius: 20px;
-  background: linear-gradient(90deg, #0d6efd, #00c6ff);
-  animation: premiumGrow 1.5s ease forwards;
+  background: linear-gradient(90deg,#0d6efd,#20c997);
+  animation: slideFill 1.3s ease forwards;
 }
 
-/* Percentage */
-.premium-percent {
-  text-align: right;
-  font-size: 12px;
-  color: #6c757d;
-  margin-top: 6px;
+/* Animation */
+@keyframes slideFill {
+  from { width: 0; }
 }
 
-/* ===== ANIMATION ===== */
-@keyframes premiumGrow {
-  from {
-    width: 0;
+/* Mobile */
+@media(max-width:576px){
+  .skill-row {
+    padding: 12px 14px;
+  }
+
+  .skill-name {
+    font-size: 13px;
   }
 }
-
-/* ===== MOBILE TUNING ===== */
-@media (max-width: 576px) {
-
-  .premium-skill-card {
-    padding: 15px;
-  }
-
-  .premium-skill-header {
-    font-size: 14px;
-  }
-
-  .premium-progress {
-    height: 8px;
-  }
-
-}
-
 </style>
 
 
 <section id="skills" class="skills section">
 
-  <div class="container section-title text-center" data-aos="fade-up">
+  <div class="container section-title" data-aos="fade-up">
     <h2>Skills</h2>
-    <p>Professional technical expertise & research stack</p>
+    <p>Technical & Research Competencies</p>
   </div>
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-    <div class="premium-skills-grid">
+    <div class="skills-wrap">
 
-      <!-- SKILL -->
-      <div class="premium-skill-card">
-        <div class="premium-skill-header">
-          <i class="bi bi-filetype-py"></i>
-          Python
+      <!-- Skill -->
+      <div class="skill-row">
+        <div class="skill-top">
+          <span class="skill-badge">Web</span>
+          <span class="skill-name">HTML / CSS</span>
+          <span class="skill-percent">80%</span>
         </div>
-        <div class="premium-progress">
-          <span style="width:75%"></span>
+        <div class="skill-track">
+          <span style="width:80%"></span>
         </div>
-        <div class="premium-percent">75%</div>
       </div>
 
-      <!-- SKILL -->
-      <div class="premium-skill-card">
-        <div class="premium-skill-header">
-          <i class="bi bi-cpu"></i>
-          NLP & Machine Learning
+      <!-- Skill -->
+      <div class="skill-row">
+        <div class="skill-top">
+          <span class="skill-badge">Data</span>
+          <span class="skill-name">Data Analysis & Visualization</span>
+          <span class="skill-percent">80%</span>
         </div>
-        <div class="premium-progress">
+        <div class="skill-track">
+          <span style="width:80%"></span>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="skill-row">
+        <div class="skill-top">
+          <span class="skill-badge">AI</span>
+          <span class="skill-name">NLP Research</span>
+          <span class="skill-percent">70%</span>
+        </div>
+        <div class="skill-track">
           <span style="width:70%"></span>
         </div>
-        <div class="premium-percent">70%</div>
       </div>
 
-      <!-- SKILL -->
-      <div class="premium-skill-card">
-        <div class="premium-skill-header">
-          <i class="bi bi-bar-chart"></i>
-          Data Visualization
+      <!-- Skill -->
+      <div class="skill-row">
+        <div class="skill-top">
+          <span class="skill-badge">Lang</span>
+          <span class="skill-name">Python</span>
+          <span class="skill-percent">60%</span>
         </div>
-        <div class="premium-progress">
+        <div class="skill-track">
+          <span style="width:60%"></span>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="skill-row">
+        <div class="skill-top">
+          <span class="skill-badge">ML</span>
+          <span class="skill-name">Machine Learning</span>
+          <span class="skill-percent">50%</span>
+        </div>
+        <div class="skill-track">
+          <span style="width:50%"></span>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="skill-row">
+        <div class="skill-top">
+          <span class="skill-badge">Deploy</span>
+          <span class="skill-name">Streamlit & Deployment</span>
+          <span class="skill-percent">80%</span>
+        </div>
+        <div class="skill-track">
           <span style="width:80%"></span>
         </div>
-        <div class="premium-percent">80%</div>
       </div>
 
-      <!-- SKILL -->
-      <div class="premium-skill-card">
-        <div class="premium-skill-header">
-          <i class="bi bi-cloud-upload"></i>
-          Streamlit Deployment
+      <!-- Skill -->
+      <div class="skill-row">
+        <div class="skill-top">
+          <span class="skill-badge">VCS</span>
+          <span class="skill-name">Git / GitHub</span>
+          <span class="skill-percent">80%</span>
         </div>
-        <div class="premium-progress">
-          <span style="width:85%"></span>
-        </div>
-        <div class="premium-percent">85%</div>
-      </div>
-
-      <!-- SKILL -->
-      <div class="premium-skill-card">
-        <div class="premium-skill-header">
-          <i class="bi bi-git"></i>
-          Git / GitHub
-        </div>
-        <div class="premium-progress">
+        <div class="skill-track">
           <span style="width:80%"></span>
         </div>
-        <div class="premium-percent">80%</div>
-      </div>
-
-      <!-- SKILL -->
-      <div class="premium-skill-card">
-        <div class="premium-skill-header">
-          <i class="bi bi-code-slash"></i>
-          Web Development
-        </div>
-        <div class="premium-progress">
-          <span style="width:75%"></span>
-        </div>
-        <div class="premium-percent">75%</div>
       </div>
 
     </div>
@@ -460,11 +452,8 @@
 </section>
 
 <!-- =========================
-     /PREMIUM LIGHT SKILLS SECTION
+     /SKILLS SECTION
 ========================== -->
-
-    <!-- /Skills Section -->
-
     <!-- Stats Section -->
     <section id="stats" class="stats section">
       <div class="container section-title" data-aos="fade-up">
