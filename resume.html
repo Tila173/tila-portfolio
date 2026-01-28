@@ -344,7 +344,7 @@
       </div>
 
       <div class="cert-card">
-        <span class="year-badge blue">2023</span>
+        <span class="year-badge">2023</span>
         <i class="bi bi-cpu-fill blue"></i>
         <h3>Machine Learning</h3>
         <p>Simplilearn</p>
@@ -352,7 +352,7 @@
       </div>
 
       <div class="cert-card">
-        <span class="year-badge purple">2025</span>
+        <span class="year-badge">2025</span>
         <i class="bi bi-activity purple"></i>
         <h3>Bioinformatics Seminar</h3>
         <p>International</p>
@@ -360,7 +360,7 @@
       </div>
 
       <div class="cert-card">
-        <span class="year-badge orange">2020</span>
+        <span class="year-badge">2020</span>
         <i class="bi bi-lightning-fill orange"></i>
         <h3>Zero to Mastery ML</h3>
         <p>Udemy</p>
@@ -369,14 +369,14 @@
 
       <!-- IELTS -->
       <div class="cert-card dashed">
-        <span class="year-badge indigo">2025</span>
+        <span class="year-badge">2025</span>
         <i class="bi bi-translate indigo"></i>
         <h3>IELTS – Band 6.0</h3>
         <p>L7 · R5 · W6 · S6</p>
       </div>
 
       <div class="cert-card">
-        <span class="year-badge gray">2022</span>
+        <span class="year-badge">2022</span>
         <i class="bi bi-briefcase-fill gray"></i>
         <h3>KP Digital Internship</h3>
         <p>Govt. of KPK</p>
@@ -388,6 +388,7 @@
 </section>
 
 <style>
+/* CARD */
 .cert-card {
   position: relative;
   flex: 0 0 210px;
@@ -404,15 +405,15 @@
   box-shadow: 0 16px 32px rgba(0,0,0,0.2);
 }
 
-/* YEAR BADGE (TOP LEFT) */
+/* YEAR BADGE — SAME AS PAPERS */
 .year-badge {
   position: absolute;
   top: 8px;
   left: 8px;
   font-size: 11px;
   padding: 4px 8px;
-  border-radius: 12px;
-  background: #4CAF50;
+  border-radius: 10px;
+  background: #6c757d;   /* Bootstrap “secondary” – same as papers */
   color: #fff;
   font-weight: 600;
 }
@@ -474,13 +475,13 @@
 }
 
 /* COLORS */
-.blue { color:#2196F3; border-color:#2196F3; background:#2196F3; }
-.purple { color:#9C27B0; border-color:#9C27B0; background:#9C27B0; }
-.orange { color:#FF9800; border-color:#FF9800; background:#FF9800; }
-.gray { color:#607D8B; border-color:#607D8B; background:#607D8B; }
-.indigo { color:#3F51B5; background:#3F51B5; }
+.blue { color:#2196F3; border-color:#2196F3; }
+.purple { color:#9C27B0; border-color:#9C27B0; }
+.orange { color:#FF9800; border-color:#FF9800; }
+.gray { color:#607D8B; border-color:#607D8B; }
+.indigo { color:#3F51B5; }
 
-/* IELTS STYLE */
+/* IELTS */
 .dashed {
   background:#eef2ff;
   border:2px dashed #3F51B5;
