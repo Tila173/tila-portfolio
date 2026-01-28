@@ -524,145 +524,88 @@
 }
 </style>
 
+
 <!-- =========================
-     TESTIMONIALS SECTION
+     /PREMIUM STATS SECTION
 ========================== -->
-<section id="testimonials" class="testimonials section" style="background: #f8f9fa; padding: 60px 0;">
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Testimonials</h2>
-    <p>What collaborators and mentors say.</p>
-  </div>
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="swiper init-swiper" style="padding-top:30px; padding-bottom:30px;">
-      
-      <script type="application/json" class="swiper-config">
-      {
-        "loop": true,
-        "speed": 600,
-        "autoplay": { "delay": 5000 },
-        "slidesPerView": 1,
-        "spaceBetween": 24,
-        "breakpoints": {
-          "576": { "slidesPerView": 1 },
-          "768": { "slidesPerView": 2 },
-          "992": { "slidesPerView": 2 },
-          "1200": { "slidesPerView": 3 }
-        },
-        "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
-      }
-      </script>
 
-      <div class="swiper-wrapper">
-
-        <!-- Testimonial 1 -->
-        <div class="swiper-slide">
-          <div class="testimonial-card">
-            <div class="testimonial-img">
-              <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
-            </div>
-            <div class="testimonial-content">
-              <p>
-                I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, he patiently guided me and kept me motivated. Thanks to his help, I got selected!
-              </p>
-              <h3>Mazhar Iqbal</h3>
-              <h4>MEXT Scholar</h4>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="swiper-slide">
-          <div class="testimonial-card">
-            <div class="testimonial-img">
-              <img src="assets/img/testimonials/testimonials-2.jpg" alt="Manal Zafar">
-            </div>
-            <div class="testimonial-content">
-              <p>
-                While applying for the K-GKS scholarship, Tila Muhammad helped me at every stage. Whenever I was confused, he patiently guided me. His support played a big part in my selection for K-GKS 2024, and I am now pursuing my MS in Chemistry at Kumoh National Institute of Technology.
-              </p>
-              <h3>Manal Zafar</h3>
-              <h4>K-GKS Scholar</h4>
-            </div>
-          </div>
-        </div>
-
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>What collaborators and mentors say.</p>
       </div>
 
-      <div class="swiper-pagination" style="margin-top:24px;"></div>
-    </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": { "delay": 5000 },
+              "slidesPerView": "auto",
+              "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
+            }
+          </script>
+
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+<!-- Testimonial Item -->
+<div class="testimonial-item">
+  <img src="assets/img/testimonials/m1.jpg" class="testimonial-img" alt="Profile 1" loading="lazy" decoding="async" />
+  <h3>Mazhar Iqbal</h3>
+  <h4>MEXT Scholar</h4>
+  <div class="stars">
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
   </div>
-</section>
+  <p>
+    <i class="bi bi-quote quote-icon-left"></i>
+    <span>
+      I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, I felt lost at so many points, but he patiently guided me through the process and kept me motivated. Thanks to his help, I got selected! I’m really grateful and would recommend him to anyone who needs honest guidance.
+    </span>
+    <i class="bi bi-quote quote-icon-right"></i>
+  </p>
+</div>
 
+<!-- Inline CSS to make the image circular -->
 <style>
-.testimonial-card {
-  position: relative;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  text-align: center;
-  padding: 20px 20px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 360px;
-  width: 100%;
-}
-
-/* Circular image inside card */
-.testimonial-img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  margin-top: 10px;
-}
-
-.testimonial-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Content spacing */
-.testimonial-content p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.6;
-  margin: 15px 0 10px 0;
-}
-
-.testimonial-content h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 2px;
-  color: #222;
-}
-
-.testimonial-content h4 {
-  font-size: 14px;
-  font-weight: 500;
-  color: #0d6efd;
-}
-
-/* Hover effect */
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-}
-
-/* Mobile */
-@media(max-width:576px){
-  .testimonial-card { max-width: 95%; padding: 15px; }
-  .testimonial-img { width: 90px; height: 90px; }
-  .testimonial-content p { font-size: 13px; }
-  .testimonial-content h3 { font-size: 15px; }
-  .testimonial-content h4 { font-size: 13px; }
+.testimonial-item .testimonial-img {
+  width: 120px;             /* fixed width */
+  height: 120px;            /* fixed height = width to keep square */
+  border-radius: 50%;       /* makes circle */
+  object-fit: cover;        /* crops inside the circle */
+  object-position: center;  /* centers the face */
+  display: block;
+  margin: 0 auto 12px;      /* centers the photo above text */
+  border: 3px solid #fff;   /* optional white border */
+  box-shadow: 0 6px 18px rgba(0,0,0,.15); /* subtle shadow */
 }
 </style>
 
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="Profile 2" loading="lazy" decoding="async" />
+                <h3>Manal Zafar</h3><h4>K-GKS Scholar</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>
+                  <span>While applying for the K-GKS scholarship, Tila Muhammad helped me at every stage of the process. Whenever I was confused or unsure, he patiently guided me and explained things in a way that was easy to understand. His support played a big part in my selection for K-GKS 2024, and I am now pursuing my MS in Chemistry at Kumoh National Institute of Technology. I’m truly thankful for his help and would definitely recommend him to anyone who needs genuine guidance.</span>
+                  <i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- /Testimonials Section -->
   </main>
 
   <footer id="footer" class="footer light-background">
