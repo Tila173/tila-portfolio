@@ -118,49 +118,45 @@
     }
 
     @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
     }
 
-    /* Mini LLM/NLP Chat Demo */
+    /* Advanced NLP / Semantic Explorer */
     #nlp-demo {
       margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      width: 80%;
-      max-width: 500px;
+      width: 100%;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    #chat-window {
+    #nlp-demo input {
       width: 100%;
-      min-height: 150px;
-      background: #f0f9f9;
+      padding: 12px;
       border-radius: 15px;
-      padding: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      overflow-y: auto;
-    }
-
-    .chat-message {
-      padding: 8px 12px;
-      border-radius: 20px;
-      max-width: 80%;
-      font-size: 0.95rem;
-      word-wrap: break-word;
-    }
-
-    input#nlp-input {
-      padding: 10px 15px;
-      border-radius: 999px;
       border: 1px solid #ccc;
+    }
+
+    #nlp-demo button {
+      border-radius: 999px;
+    }
+
+    #semantic-canvas {
+      border-radius: 15px;
+      background: #f0f9f9;
+      margin-top: 20px;
       width: 100%;
-      font-size: 1rem;
-      outline: none;
+      height: 400px;
     }
 
     /* Footer */
@@ -184,9 +180,17 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      #hero h1 { font-size: 2.2rem; }
-      #hero p { font-size: 1rem; }
-      #nlp-demo input { width: 100%; }
+      #hero h1 {
+        font-size: 2.2rem;
+      }
+
+      #hero p {
+        font-size: 1rem;
+      }
+
+      #nlp-demo input {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -200,18 +204,17 @@
       <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-img">
 
       <h1>Tila Muhammad</h1>
-      <p>AI/ML Enthusiast focused on NLP. Explore interactive LLM/NLP applications below.</p>
+      <p>AI/ML Enthusiast focused on NLP. Explore interactive research topic visualization below.</p>
       <div class="mt-3 mb-3">
         <a href="about.html" class="btn btn-primary btn-lg me-2 mb-2">About Me</a>
         <a href="contact.html" class="btn btn-outline-primary btn-lg mb-2">Contact</a>
       </div>
 
-      <!-- Mini LLM/NLP Chat Demo -->
+      <!-- Advanced Semantic Topic Explorer -->
       <div id="nlp-demo">
-        <div id="chat-window">
-          <div class="chat-message" style="color:#888; text-align:center;">Ask me anything about AI/NLP 🤖</div>
-        </div>
-        <input type="text" id="nlp-input" placeholder="Type a question...">
+        <input type="text" id="topic-input" placeholder="Enter a research topic...">
+        <button id="explore-btn" class="btn btn-primary mt-2">Explore Topic</button>
+        <div id="semantic-canvas"></div>
       </div>
     </div>
   </section>
@@ -233,13 +236,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/controls/OrbitControls.js"></script>
 
   <!-- AOS Init -->
   <script>
     AOS.init();
   </script>
 
-  <!-- 3D Background Animation (unchanged) -->
+  <!-- 3D Background Animation -->
   <script>
     const canvas = document.getElementById("bg-canvas");
     const scene = new THREE.Scene();
@@ -308,53 +312,95 @@
     });
   </script>
 
-  <!-- Interactive NLP/LLM Chat Script -->
+  <!-- Semantic Topic Explorer Script -->
   <script>
-    const chatWindow = document.getElementById("chat-window");
-    const nlpInput = document.getElementById("nlp-input");
+    const exploreBtn = document.getElementById("explore-btn");
+    const topicInput = document.getElementById("topic-input");
+    const canvasContainer = document.getElementById("semantic-canvas");
 
-    function addMessage(text, fromAI = false) {
-      const msg = document.createElement("div");
-      msg.textContent = text;
-      msg.className = "chat-message";
-      msg.style.background = fromAI ? "var(--accent-color)" : "#d1f7ff";
-      msg.style.color = fromAI ? "#fff" : "#111";
-      msg.style.alignSelf = fromAI ? "flex-start" : "flex-end";
-      chatWindow.appendChild(msg);
-      chatWindow.scrollTop = chatWindow.scrollHeight;
+    let scene2, camera2, renderer2, controls2;
+    let nodes = [], lines = [];
+
+    function initSemanticScene() {
+      scene2 = new THREE.Scene();
+      camera2 = new THREE.PerspectiveCamera(75, canvasContainer.clientWidth / canvasContainer.clientHeight, 0.1, 1000);
+      renderer2 = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer2.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+      canvasContainer.innerHTML = "";
+      canvasContainer.appendChild(renderer2.domElement);
+
+      camera2.position.z = 50;
+      controls2 = new THREE.OrbitControls(camera2, renderer2.domElement);
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+      scene2.add(ambientLight);
+      const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+      dirLight.position.set(50, 50, 50);
+      scene2.add(dirLight);
     }
 
-    function getAIResponse(text) {
-      text = text.toLowerCase();
-      if(text.includes("summarize")) return "Here's a summary of your text... 📄";
-      if(text.includes("translate")) return "Translation: [Placeholder] 🌐";
-      if(text.includes("define")) return "Definition: [Placeholder] 📖";
-      if(text.includes("fun")) return "Fun fact: NLP can detect emotions in text! 😎";
-      return "AI says: [Placeholder response] 🤖";
+    function createNode(text, x, y, z) {
+      const geometry = new THREE.SphereGeometry(1.2, 16, 16);
+      const material = new THREE.MeshStandardMaterial({ color: 0x34b7a7, emissive: 0x2a9d8f });
+      const node = new THREE.Mesh(geometry, material);
+      node.position.set(x, y, z);
+      node.userData = { label: text };
+      scene2.add(node);
+      nodes.push(node);
+      return node;
     }
 
-    function aiReply(text) {
-      const typing = document.createElement("div");
-      typing.textContent = "AI is typing...";
-      typing.className = "chat-message";
-      typing.style.fontStyle = "italic";
-      typing.style.color = "#555";
-      chatWindow.appendChild(typing);
-      chatWindow.scrollTop = chatWindow.scrollHeight;
-
-      setTimeout(() => {
-        chatWindow.removeChild(typing);
-        addMessage(text, true);
-      }, 1200 + Math.random()*800);
+    function createLine(node1, node2) {
+      const material = new THREE.LineBasicMaterial({ color: 0x34b7a7, transparent: true, opacity: 0.3 });
+      const points = [node1.position, node2.position];
+      const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), material);
+      scene2.add(line);
+      lines.push(line);
     }
 
-    nlpInput.addEventListener("keypress", function(e){
-      if(e.key === "Enter" && nlpInput.value.trim() !== ""){
-        addMessage(nlpInput.value);
-        aiReply(getAIResponse(nlpInput.value));
-        nlpInput.value = "";
-      }
+    function generateNetwork(topic) {
+      // Clear previous nodes/lines
+      nodes.forEach(n => scene2.remove(n));
+      lines.forEach(l => scene2.remove(l));
+      nodes = [];
+      lines = [];
+
+      const mainNode = createNode(topic, 0, 0, 0);
+
+      const related = ["AI", "ML", "NLP", "Deep Learning", "Transformer", "Graph Neural Network", "Data Mining", "Knowledge Graph", "Embedding", "Summarization"];
+
+      related.forEach((kw, i) => {
+        const angle = (i / related.length) * Math.PI * 2;
+        const x = Math.cos(angle) * 15;
+        const y = Math.sin(angle) * 10;
+        const z = (Math.random() - 0.5) * 10;
+        const node = createNode(kw, x, y, z);
+        createLine(mainNode, node);
+      });
+    }
+
+    function animateSemantic() {
+      requestAnimationFrame(animateSemantic);
+      nodes.forEach(n => { n.rotation.y += 0.001; n.rotation.x += 0.001; });
+      renderer2.render(scene2, camera2);
+    }
+
+    exploreBtn.addEventListener("click", () => {
+      const topic = topicInput.value.trim();
+      if (!topic) return alert("Please enter a topic to explore.");
+      generateNetwork(topic);
     });
+
+    window.addEventListener("resize", () => {
+      if (!renderer2) return;
+      camera2.aspect = canvasContainer.clientWidth / canvasContainer.clientHeight;
+      camera2.updateProjectionMatrix();
+      renderer2.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+    });
+
+    initSemanticScene();
+    animateSemantic();
   </script>
 </body>
+
 </html>
