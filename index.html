@@ -208,31 +208,33 @@
     AOS.init();
   </script>
 
-  <!-- 3D Floating Words Orbit Animation -->
+  <!-- 3D Floating Glowing Words with Trails -->
   <script>
     const canvas = document.getElementById("bg-canvas");
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
     camera.position.z = 60;
 
     const words = ["ML", "DL", "NLP", "LLMs", "Models", "AI", "Transformer", "Python", "Data", "Embedding"];
+    const colors = ["#34b7a7", "#f72585", "#7209b7", "#4361ee", "#4cc9f0", "#ffbe0b", "#fb5607", "#ff006e", "#3a0ca3", "#007f5f"];
     const floatingTexts = [];
 
     const loader = new THREE.FontLoader();
-    loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function(font) {
+    loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
       words.forEach((word, i) => {
         const textGeo = new THREE.TextGeometry(word, { font: font, size: 3, height: 0.5, curveSegments: 4 });
-        const textMat = new THREE.MeshStandardMaterial({ color: "#34b7a7", emissive: "#2a9d8f" });
+        const textMat = new THREE.MeshStandardMaterial({ color: colors[i], emissive: colors[i], emissiveIntensity: 0.7, roughness: 0.5, metalness: 0.7 });
         const textMesh = new THREE.Mesh(textGeo, textMat);
 
-        // Orbital parameters
         textMesh.userData = {
           angle: Math.random() * Math.PI * 2,
-          radius: 15 + Math.random() * 20,
+          radius: 15 + Math.random() * 25,
           speed: 0.002 + Math.random() * 0.003,
-          verticalOffset: Math.random() * 20 - 10
+          verticalOffset: Math.random() * 20 - 10,
+          color: colors[i]
         };
 
         scene.add(textMesh);
@@ -242,9 +244,9 @@
 
     // Lights
     scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
-    directionalLight.position.set(50, 50, 50);
-    scene.add(directionalLight);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    dirLight.position.set(50, 50, 50);
+    scene.add(dirLight);
 
     // Mouse interaction
     let mouseX = 0, mouseY = 0;
@@ -253,19 +255,25 @@
       mouseY = (0.5 - e.clientY / window.innerHeight) * 20;
     });
 
+    // Create a postprocessing trail effect (fake via motion blur)
+    const clock = new THREE.Clock();
+
     function animate() {
       requestAnimationFrame(animate);
+
       floatingTexts.forEach(text => {
         text.userData.angle += text.userData.speed;
         text.position.x = text.userData.radius * Math.cos(text.userData.angle) + mouseX * 0.5;
         text.position.z = text.userData.radius * Math.sin(text.userData.angle);
-        text.position.y = text.userData.verticalOffset + Math.sin(Date.now() * 0.002 + text.userData.angle) * 5;
+        text.position.y = text.userData.verticalOffset + Math.sin(clock.getElapsedTime() * 2 + text.userData.angle) * 5;
 
         // Pulsating glow
-        text.material.emissiveIntensity = 0.5 + Math.sin(Date.now() * 0.005 + text.userData.angle) * 0.5;
+        text.material.emissiveIntensity = 0.5 + Math.sin(clock.getElapsedTime() * 3 + text.userData.angle) * 0.5;
       });
+
       renderer.render(scene, camera);
     }
+
     animate();
 
     window.addEventListener("resize", () => {
