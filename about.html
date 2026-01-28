@@ -526,7 +526,9 @@
 
 
 <!-- =========================
-<!-- Testimonials Section -->
+<!-- =========================
+     Testimonials Section
+========================== -->
 <section id="testimonials" class="testimonials section" style="background: #f8f9fa; padding: 60px 0;">
   <div class="container section-title" data-aos="fade-up">
     <h2>Testimonials</h2>
@@ -556,35 +558,35 @@
       <div class="swiper-wrapper">
 
         <!-- Testimonial 1 -->
-        <div class="swiper-slide" style="display:flex; justify-content:center;">
-          <div class="testimonial-item" style="display:flex; flex-direction:column; justify-content:flex-start; background: linear-gradient(145deg,#ffffff,#f3f6fb); border-radius:20px; box-shadow:0 12px 28px rgba(0,0,0,.08); padding:28px; text-align:center; width:100%; transition: all .35s ease; min-height:350px;">
-            <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal" loading="lazy" decoding="async" style="width:110px; height:110px; border-radius:50%; object-fit:cover; object-position:center; margin:0 auto 14px; border:3px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,.1);">
-            <h3 style="font-size:18px; font-weight:600; margin-bottom:2px;">Mazhar Iqbal</h3>
-            <h4 style="font-size:14px; color:#0d6efd; margin-bottom:10px;">MEXT Scholar</h4>
-            <div class="stars" style="color:#ffc107; margin-bottom:12px;">
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
+            <h3>Mazhar Iqbal</h3>
+            <h4>MEXT Scholar</h4>
+            <div class="stars">
               <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
             </div>
-            <p style="font-size:14px; color:#6c757d; line-height:1.6; flex-grow:1;">
-              <i class="bi bi-quote quote-icon-left" style="color:#0d6efd;"></i>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
               I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, I felt lost at so many points, but he patiently guided me through the process and kept me motivated. Thanks to his help, I got selected! I’m really grateful and would recommend him to anyone who needs honest guidance.
-              <i class="bi bi-quote quote-icon-right" style="color:#0d6efd;"></i>
+              <i class="bi bi-quote quote-icon-right"></i>
             </p>
           </div>
         </div>
 
         <!-- Testimonial 2 -->
-        <div class="swiper-slide" style="display:flex; justify-content:center;">
-          <div class="testimonial-item" style="display:flex; flex-direction:column; justify-content:flex-start; background: linear-gradient(145deg,#ffffff,#f3f6fb); border-radius:20px; box-shadow:0 12px 28px rgba(0,0,0,.08); padding:28px; text-align:center; width:100%; transition: all .35s ease; min-height:350px;">
-            <img src="assets/img/testimonials/testimonials-2.jpg" alt="Manal Zafar" loading="lazy" decoding="async" style="width:110px; height:110px; border-radius:50%; object-fit:cover; object-position:center; margin:0 auto 14px; border:3px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,.1);">
-            <h3 style="font-size:18px; font-weight:600; margin-bottom:2px;">Manal Zafar</h3>
-            <h4 style="font-size:14px; color:#0d6efd; margin-bottom:10px;">K-GKS Scholar</h4>
-            <div class="stars" style="color:#ffc107; margin-bottom:12px;">
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="assets/img/testimonials/testimonials-2.jpg" alt="Manal Zafar">
+            <h3>Manal Zafar</h3>
+            <h4>K-GKS Scholar</h4>
+            <div class="stars">
               <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
             </div>
-            <p style="font-size:14px; color:#6c757d; line-height:1.6; flex-grow:1;">
-              <i class="bi bi-quote quote-icon-left" style="color:#0d6efd;"></i>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
               While applying for the K-GKS scholarship, Tila Muhammad helped me at every stage of the process. Whenever I was confused or unsure, he patiently guided me and explained things in a way that was easy to understand. His support played a big part in my selection for K-GKS 2024, and I am now pursuing my MS in Chemistry at Kumoh National Institute of Technology. I’m truly thankful for his help and would definitely recommend him to anyone who needs genuine guidance.
-              <i class="bi bi-quote quote-icon-right" style="color:#0d6efd;"></i>
+              <i class="bi bi-quote quote-icon-right"></i>
             </p>
           </div>
         </div>
@@ -596,20 +598,86 @@
   </div>
 </section>
 
-<!-- Hover & responsive adjustments -->
+<!-- =========================
+     Testimonials CSS
+========================== -->
 <style>
+/* Make all testimonial slides equal height */
+.swiper-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: stretch; /* ensures all testimonial items match height */
+}
+
+.testimonial-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(145deg,#ffffff,#f3f6fb);
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+  padding: 28px;
+  text-align: center;
+  width: 100%;
+  transition: all .35s ease;
+  min-height: 350px; /* ensures desktop & mobile match */
+  flex: 1; /* fill the height of swiper-slide */
+}
+
+.testimonial-item img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto 14px;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,.1);
+}
+
+.testimonial-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.testimonial-item h4 {
+  font-size: 14px;
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
+
+.testimonial-item .stars {
+  color: #ffc107;
+  margin-bottom: 12px;
+}
+
+.testimonial-item p {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Hover effect */
 .testimonial-item:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 50px rgba(0,0,0,.12);
 }
+
+/* Mobile adjustments */
 @media(max-width:576px){
-  .testimonial-item { padding:22px; min-height:auto; }
+  .testimonial-item {
+    padding:22px;
+    min-height:350px; /* keep equal height for mobile */
+  }
   .testimonial-item h3 { font-size:16px; }
   .testimonial-item h4 { font-size:12px; }
   .testimonial-item p { font-size:13px; }
   .testimonial-item img { width:90px; height:90px; }
 }
 </style>
+
 
   </main>
 
