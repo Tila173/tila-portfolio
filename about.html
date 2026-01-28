@@ -526,9 +526,9 @@
 
 
 <!-- =========================
-     Modern Premium Testimonials Section
+     Fresh Modern Testimonials Section
 ========================== -->
-<section id="testimonials" class="testimonials section" style="background:#f8f9fa; padding:60px 0;">
+<section id="testimonials" class="testimonials section" style="background:#f4f6f9; padding:60px 0;">
   <div class="container section-title" data-aos="fade-up">
     <h2>Testimonials</h2>
     <p>What collaborators and mentors say.</p>
@@ -547,8 +547,7 @@
         "breakpoints": {
           "576": { "slidesPerView": 1 },
           "768": { "slidesPerView": 2 },
-          "992": { "slidesPerView": 2 },
-          "1200": { "slidesPerView": 3 }
+          "992": { "slidesPerView": 3 }
         },
         "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
       }
@@ -559,19 +558,15 @@
         <!-- Testimonial 1 -->
         <div class="swiper-slide">
           <div class="testimonial-card">
-            <div class="quote-icon"><i class="bi bi-quote"></i></div>
             <div class="testimonial-img">
               <img src="assets/img/testimonials/m1.jpg" alt="Mazhar Iqbal">
             </div>
             <div class="testimonial-content">
+              <p>
+                I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, he patiently guided me and kept me motivated. Thanks to his help, I got selected!
+              </p>
               <h3>Mazhar Iqbal</h3>
               <h4>MEXT Scholar</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                I honestly wouldn’t have made it this far without Tila’s support. When I was applying for the MEXT Embassy Track to Osaka University, I felt lost at so many points, but he patiently guided me through the process and kept me motivated. Thanks to his help, I got selected! I’m really grateful and would recommend him to anyone who needs honest guidance.
-              </p>
             </div>
           </div>
         </div>
@@ -579,19 +574,15 @@
         <!-- Testimonial 2 -->
         <div class="swiper-slide">
           <div class="testimonial-card">
-            <div class="quote-icon"><i class="bi bi-quote"></i></div>
             <div class="testimonial-img">
               <img src="assets/img/testimonials/testimonials-2.jpg" alt="Manal Zafar">
             </div>
             <div class="testimonial-content">
+              <p>
+                Tila Muhammad helped me at every stage of the K-GKS scholarship process. Whenever I was confused, he guided me and explained things clearly. His support played a big part in my selection, and I’m truly thankful.
+              </p>
               <h3>Manal Zafar</h3>
               <h4>K-GKS Scholar</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                While applying for the K-GKS scholarship, Tila Muhammad helped me at every stage of the process. Whenever I was confused or unsure, he patiently guided me and explained things in a way that was easy to understand. His support played a big part in my selection for K-GKS 2024, and I am now pursuing my MS in Chemistry at Kumoh National Institute of Technology. I’m truly thankful for his help and would definitely recommend him to anyone who needs genuine guidance.
-              </p>
             </div>
           </div>
         </div>
@@ -604,10 +595,10 @@
 </section>
 
 <!-- =========================
-     Modern Premium Testimonials CSS
+     Fresh Modern Testimonials CSS
 ========================== -->
 <style>
-/* Swiper slide full height */
+/* Swiper slide alignment */
 .swiper-slide {
   display: flex;
   justify-content: center;
@@ -616,95 +607,67 @@
 
 /* Card */
 .testimonial-card {
-  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(145deg,#ffffff,#f3f6fb);
-  border-radius: 20px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.08);
-  overflow: hidden;
+  justify-content: flex-start;
+  max-width: 360px;
   width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding-top: 30px;
 }
 
-/* Quote icon floating top-left */
-.testimonial-card .quote-icon {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 40px;
-  color: rgba(13,110,253,.15);
-}
-
-/* Hover effect */
+/* Hover */
 .testimonial-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0,0,0,.12);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
 
 /* Image */
 .testimonial-img img {
-  width: 100%;
-  max-width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 10px auto;
-  border: 3px solid #fff;
-  box-shadow: 0 6px 16px rgba(0,0,0,.1);
+  margin: -60px auto 15px auto;
+  border: 3px solid #0d6efd;
 }
 
 /* Content */
-.testimonial-content {
-  flex: 1;
-  padding: 0 20px 20px 20px;
-  text-align: center;
+.testimonial-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
 .testimonial-content h3 {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 600;
   margin-bottom: 2px;
+  color: #222;
 }
 
 .testimonial-content h4 {
   font-size: 14px;
+  font-weight: 500;
   color: #0d6efd;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
-.testimonial-content .stars {
-  color: #ffc107;
-  margin-bottom: 12px;
-}
-
-.testimonial-content p {
-  font-size: 14px;
-  color: #6c757d;
-  line-height: 1.6;
-  max-height: 180px;
-  overflow-y: auto; /* scroll if too long */
-  padding-right: 5px;
-}
-
-/* Custom scrollbar */
-.testimonial-content p::-webkit-scrollbar {
-  width: 5px;
-}
-.testimonial-content p::-webkit-scrollbar-thumb {
-  background: rgba(13,110,253,.2);
-  border-radius: 5px;
-}
-
-/* Mobile */
+/* Mobile responsiveness */
 @media(max-width:576px){
-  .testimonial-img img { max-width: 90px; height: 90px; }
-  .testimonial-content h3 { font-size: 16px; }
-  .testimonial-content h4 { font-size:12px; }
-  .testimonial-content p { font-size:13px; max-height:150px; }
-  .testimonial-card .quote-icon { font-size:30px; top:5px; left:10px; }
+  .testimonial-card { max-width: 95%; padding: 18px; }
+  .testimonial-img img { width: 80px; height: 80px; margin-top: -40px; }
+  .testimonial-content p { font-size: 13px; }
+  .testimonial-content h3 { font-size: 15px; }
+  .testimonial-content h4 { font-size: 13px; }
 }
 </style>
+
 
 
   </main>
