@@ -261,60 +261,202 @@
     <!-- /About Section -->
 
     <!-- Skills Section -->
-    <section id="skills" class="skills section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Technical and research skills reflecting my experience in ML and NLP.</p>
-      </div>
+  <!-- =========================
+     SKILLS SECTION
+========================== -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row skills-content skills-animation">
-          <div class="col-lg-6">
-            <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
-            </div>
+<style>
+/* ===============================
+   MODERN RESPONSIVE SKILLS GRID
+================================ */
 
-            <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
-            </div>
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
 
-            <div class="progress">
-              <span class="skill"><span>Data Analysis &amp; Visualization</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
-            </div>
+/* Skill Card */
+.skill-card {
+  background: #ffffff;
+  padding: 16px 18px 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+  transition: all .3s ease;
+}
 
-            <div class="progress">
-              <span class="skill"><span>NLP (Fake News, Hate Speech, Sentiment)</span> <i class="val">70%</i></span>
-              <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div></div>
-            </div>
-          </div>
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+}
 
-          <div class="col-lg-6">
-            <div class="progress">
-              <span class="skill"><span>Python</span> <i class="val">60%</i></span>
-              <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div></div>
-            </div>
+/* Header Row */
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 
-            <div class="progress">
-              <span class="skill"><span>Machine Learning</span> <i class="val">50%</i></span>
-              <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div>
-            </div>
+.skill-header i {
+  font-size: 18px;
+  color: #0d6efd;
+}
 
-            <div class="progress">
-              <span class="skill"><span>Streamlit &amp; Deployment</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
-            </div>
+.skill-header small {
+  margin-left: auto;
+  font-weight: 600;
+  color: #666;
+}
 
-            <div class="progress">
-              <span class="skill"><span>Git/GitHub</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
-            </div>
-          </div>
+/* Progress Bar */
+.skill-bar {
+  height: 8px;
+  width: 100%;
+  background: #e9ecef;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.skill-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #0d6efd, #00bcd4);
+  animation: growBar 1.4s ease forwards;
+}
+
+/* Animation */
+@keyframes growBar {
+  from {
+    width: 0;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 576px) {
+  .skill-card {
+    padding: 14px;
+  }
+
+  .skill-header {
+    font-size: 13px;
+  }
+
+  .skill-bar {
+    height: 7px;
+  }
+}
+</style>
+
+
+<section id="skills" class="skills section">
+
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Skills</h2>
+    <p>Core technical expertise and research capabilities</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="skills-grid">
+
+      <!-- Skill -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="bi bi-code-slash"></i>
+          HTML / CSS
+          <small>80%</small>
+        </div>
+        <div class="skill-bar">
+          <span style="width:80%"></span>
         </div>
       </div>
-    </section>
+
+      <!-- Skill -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="bi bi-bar-chart"></i>
+          Data Analysis & Visualization
+          <small>80%</small>
+        </div>
+        <div class="skill-bar">
+          <span style="width:80%"></span>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="bi bi-cpu"></i>
+          NLP Research
+          <small>70%</small>
+        </div>
+        <div class="skill-bar">
+          <span style="width:70%"></span>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="bi bi-filetype-py"></i>
+          Python
+          <small>60%</small>
+        </div>
+        <div class="skill-bar">
+          <span style="width:60%"></span>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="bi bi-gear"></i>
+          Machine Learning
+          <small>50%</small>
+        </div>
+        <div class="skill-bar">
+          <span style="width:50%"></span>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="bi bi-cloud-upload"></i>
+          Streamlit & Deployment
+          <small>80%</small>
+        </div>
+        <div class="skill-bar">
+          <span style="width:80%"></span>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="bi bi-git"></i>
+          Git / GitHub
+          <small>80%</small>
+        </div>
+        <div class="skill-bar">
+          <span style="width:80%"></span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     /SKILLS SECTION
+========================== -->
+
     <!-- /Skills Section -->
 
     <!-- Stats Section -->
