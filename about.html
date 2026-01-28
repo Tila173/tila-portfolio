@@ -524,9 +524,8 @@
 }
 </style>
 
-
 <!-- =========================
-     Fresh Modern Testimonials Section
+     Testimonials Section (Full Images)
 ========================== -->
 <section id="testimonials" class="testimonials section" style="background:#f4f6f9; padding:60px 0;">
   <div class="container section-title" data-aos="fade-up">
@@ -595,23 +594,21 @@
 </section>
 
 <!-- =========================
-     Fresh Modern Testimonials CSS
+     Testimonials CSS (Full Images)
 ========================== -->
 <style>
-/* Swiper slide alignment */
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: stretch;
 }
 
-/* Card */
 .testimonial-card {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px 20px 20px; /* extra top padding for image */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -626,14 +623,13 @@
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
 
-/* Image */
+/* Image inside card */
 .testimonial-img img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
   object-fit: cover;
-  margin: -60px auto 15px auto;
-  border: 3px solid #0d6efd;
+  margin-bottom: 15px;
 }
 
 /* Content */
@@ -658,17 +654,15 @@
   margin-bottom: 0;
 }
 
-/* Mobile responsiveness */
+/* Mobile */
 @media(max-width:576px){
-  .testimonial-card { max-width: 95%; padding: 18px; }
-  .testimonial-img img { width: 80px; height: 80px; margin-top: -40px; }
+  .testimonial-card { max-width: 95%; padding: 20px; }
+  .testimonial-img img { width: 100%; height: auto; }
   .testimonial-content p { font-size: 13px; }
   .testimonial-content h3 { font-size: 15px; }
   .testimonial-content h4 { font-size: 13px; }
 }
 </style>
-
-
 
   </main>
 
