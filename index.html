@@ -33,7 +33,7 @@
       --primary: #2563eb;
       --secondary: #06b6d4;
       --bg-soft: #f4f5f7;
-      --line: rgba(0, 0, 0, .12);
+      --line: rgba(0,0,0,.12);
       --ink-2: #1f2328;
       --gbtn: linear-gradient(135deg, #2563eb, #7c3aed);
     }
@@ -43,80 +43,6 @@
       color: var(--ink-2);
       background: var(--bg-soft);
       scroll-behavior: smooth;
-    }
-
-    /* ===== Header ===== */
-    header {
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      padding: 0.75rem 1rem;
-      transition: background 0.3s ease;
-    }
-
-    header:hover {
-      background: var(--bg-soft);
-    }
-
-    .logo h1 {
-      font-weight: 800;
-      font-size: 1.8rem;
-      margin: 0;
-      text-transform: uppercase;
-      color: var(--primary);
-    }
-
-    nav#navmenu {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    nav#navmenu ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav#navmenu ul li a {
-      text-decoration: none;
-      color: var(--ink-2);
-      font-weight: 600;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    nav#navmenu ul li a:hover,
-    nav#navmenu ul li a.active {
-      color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    .mobile-nav-toggle {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--primary);
-      transition: color 0.3s;
-    }
-
-    .mobile-nav-toggle:hover {
-      color: var(--secondary);
-    }
-
-    .header-social-links a {
-      font-size: 1.3rem;
-      color: var(--primary);
-      margin: 0 6px;
-      transition: all 0.3s;
-    }
-
-    .header-social-links a:hover {
-      color: var(--secondary);
-      transform: translateY(-3px);
     }
 
     /* ===== Hero Section ===== */
@@ -132,7 +58,7 @@
       width: 100%;
       max-width: 350px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       object-fit: cover;
       margin: 0 auto;
     }
@@ -157,11 +83,6 @@
       border: none;
       color: #fff;
       border-radius: 999px;
-      transition: transform 0.3s;
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
     }
 
     .btn-outline-primary {
@@ -175,9 +96,21 @@
       color: #fff;
     }
 
+    .social-links a {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin: 0 8px;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+      color: var(--secondary);
+    }
+
     /* ===== Footer ===== */
     footer.light-background {
-      background: #fff;
+      background: var(--bg-soft);
       border-top: 1px solid var(--line);
       color: var(--ink-2);
       text-align: center;
@@ -215,69 +148,10 @@
     #scroll-top:hover {
       background: var(--secondary);
     }
-
-    /* ===== Mobile ===== */
-    @media (max-width: 992px) {
-      nav#navmenu ul {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 0;
-        border-top: 1px solid var(--line);
-        transition: max-height 0.3s ease;
-      }
-
-      nav#navmenu ul.show {
-        display: flex;
-      }
-
-      .mobile-nav-toggle {
-        display: block;
-        margin-right: 0.75rem;
-      }
-
-      .header-social-links {
-        display: none;
-      }
-    }
   </style>
 </head>
 
 <body>
-
-  <!-- ===== Header ===== -->
-  <header id="header" class="header d-flex align-items-center justify-content-between">
-    <div class="d-flex align-items-center">
-      <i class="mobile-nav-toggle bi bi-list"></i>
-      <a href="index.html" class="logo ms-2">
-        <h1>TILA</h1>
-      </a>
-    </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-social-links d-none d-lg-flex">
-      <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" class="google-scholar" target="_blank"><i class="bi bi-mortarboard"></i></a>
-      <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" class="researchgate" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
-      <a href="https://github.com/Tila173" class="github" target="_blank"><i class="bi bi-github"></i></a>
-      <a href="https://www.facebook.com/share/1BJ2wSbfV3/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-      <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
-    </div>
-  </header>
 
   <!-- ===== Hero Section ===== -->
   <section id="hero">
@@ -331,13 +205,6 @@
       scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
     });
     scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Mobile nav toggle
-    const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const navMenu = document.querySelector('#navmenu ul');
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
-    });
   </script>
 
 </body>
