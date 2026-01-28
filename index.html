@@ -1,320 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tila Muhammad - AI/ML & NLP Portfolio</title>
+  <meta name="description" content="Portfolio of Tila Muhammad, AI/ML and NLP enthusiast.">
+  <meta name="keywords" content="Tila Muhammad, AI, ML, NLP, Portfolio, Resume, GitHub">
+
+  <!-- Favicons -->
+  <link href="assets/img/hero.jpg" rel="icon">
+  <link href="assets/img/hero.jpg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;800&family=Raleway:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
-  <!-- Bootstrap & Icons -->
+  <!-- Vendor CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- AOS -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
 
-  <!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+  <!-- Main CSS -->
   <style>
+    :root {
+      --accent-color: #34b7a7;
+      --heading-color: #222222;
+      --default-color: #444444;
+      --surface-color: #ffffff;
+      --contrast-color: #ffffff;
+      --background-color: #f0f2f5;
+    }
+
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
+      font-family: "Roboto", sans-serif;
+      background-color: var(--background-color);
       overflow-x: hidden;
-      background: #f3f4f6;
-      color: #222;
     }
 
     /* ===== Hero Section ===== */
     #hero {
       position: relative;
-      width: 100%;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 60px 20px;
       overflow: hidden;
-      padding: 80px 20px;
     }
 
-    #hero canvas {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-container {
+    #hero .container {
       position: relative;
-      z-index: 10;
+      z-index: 2;
+    }
+
+    #hero .hero-content {
       display: flex;
       align-items: center;
-      gap: 50px;
+      gap: 40px;
       flex-wrap: wrap;
-      justify-content: center;
-      text-align: center;
     }
 
-    .hero-img {
-      width: 300px;
+    #hero .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--accent-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #hero .hero-text p {
+      font-size: 1.2rem;
+      color: #6b7280;
+      margin: 15px 0;
+    }
+
+    #hero .hero-image {
+      max-width: 350px;
       border-radius: 20px;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
       object-fit: cover;
     }
 
-    .hero-text h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #34b7a7, #20c997);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 30px;
-      min-height: 50px;
-    }
-
-    .hero-buttons a {
-      display: inline-block;
-      margin: 5px;
-      padding: 12px 35px;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-
-    .btn-primary { background: #34b7a7; color: #fff; border: none; }
-    .btn-primary:hover { background: #20c997; }
-    .btn-outline-primary { color: #34b7a7; border: 2px solid #34b7a7; }
-    .btn-outline-primary:hover { background: #34b7a7; color: #fff; }
-
-    /* Floating skill tags */
-    .skill-tag {
-      position: absolute;
-      color: #34b7a7;
-      font-weight: bold;
-      font-size: 1rem;
-      user-select: none;
-      pointer-events: none;
-      white-space: nowrap;
-      animation: floatTag 12s infinite linear;
-    }
-
-    @keyframes floatTag {
-      0% { transform: translate3d(0,0,0); }
-      50% { transform: translate3d(20px,-30px,0); }
-      100% { transform: translate3d(0,0,0); }
-    }
-
-    /* NLP demo panel */
-    .nlp-demo {
-      position: relative;
+    /* ===== NLP Demo Card ===== */
+    #nlp-demo {
+      background: linear-gradient(145deg, #ffffff, #e6f7f6);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 450px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       margin-top: 20px;
     }
 
-    .nlp-demo input {
-      padding: 10px 15px;
-      width: 250px;
-      border-radius: 25px;
-      border: 1px solid #34b7a7;
+    #nlp-demo h3 {
+      color: var(--heading-color);
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    #nlp-demo input {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 50px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-bottom: 15px;
       outline: none;
     }
 
-    .nlp-demo button {
-      margin-left: 10px;
-      padding: 10px 20px;
-      border-radius: 25px;
-      border: none;
-      background: #34b7a7;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .nlp-demo button:hover { background: #20c997; }
-
-    .result-bubble {
-      margin-top: 15px;
-      display: inline-block;
-      padding: 10px 15px;
+    #nlp-demo button {
+      width: 100%;
+      padding: 12px;
       border-radius: 50px;
-      background: #34b7a7;
-      color: #fff;
-      font-weight: 500;
-      animation: bubbleAppear 0.5s ease forwards;
+      border: none;
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    @keyframes bubbleAppear {
-      0% { opacity: 0; transform: scale(0.5) translateY(20px);}
-      100% { opacity: 1; transform: scale(1) translateY(0);}
+    #nlp-demo button:hover {
+      background: #2a9d8f;
     }
 
-    footer {
-      background: #f3f4f6;
-      padding: 40px 0;
+    #result-bubble {
+      margin-top: 20px;
       text-align: center;
+      padding: 15px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      font-weight: 700;
+      min-width: 120px;
+      transition: 0.5s;
+    }
+
+    #keywords {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .keyword-chip {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
       font-weight: 500;
-      color: #444;
+      animation: floatUp 1.5s ease forwards;
     }
 
-    footer .social-links a {
+    @keyframes floatUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== Social Links ===== */
+    .social-links {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .social-links a {
       font-size: 1.5rem;
-      color: #34b7a7;
-      margin: 0 10px;
-      transition: all 0.3s;
+      color: var(--accent-color);
+      margin: 0 8px;
+      transition: 0.3s;
     }
 
-    footer .social-links a:hover { color: #222; transform: translateY(-5px); }
+    .social-links a:hover {
+      color: var(--heading-color);
+      transform: translateY(-5px);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: #e9e8e6;
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    /* ===== 3D Background Canvas ===== */
+    #bg-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+      #hero .hero-content {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- ===== Hero Section ===== -->
+  <!-- Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Hero Section -->
   <section id="hero">
-    <canvas id="hero-bg"></canvas>
-    <div class="hero-container">
-      <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-img" data-aos="fade-right">
-      <div class="hero-text" data-aos="fade-left">
-        <h1>Tila Muhammad</h1>
-        <p id="typed-text"></p>
-
-        <div class="hero-buttons">
-          <a href="about.html" class="btn btn-primary">About Me</a>
-          <a href="contact.html" class="btn btn-outline-primary">Contact</a>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Tila Muhammad</h1>
+          <p>AI/ML & NLP Enthusiast | Hands-on demos & interactive portfolio</p>
+          <div id="nlp-demo">
+            <h3>Try NLP Demo</h3>
+            <input type="text" id="user-input" placeholder="Type a sentence..." />
+            <button id="analyze-btn">Analyze</button>
+            <div id="result-bubble">Sentiment</div>
+            <div id="keywords"></div>
+          </div>
         </div>
-
-        <!-- NLP Mini Demo -->
-        <div class="nlp-demo">
-          <input type="text" id="nlp-input" placeholder="Enter text here...">
-          <button onclick="analyzeSentiment()">Sentiment</button>
-          <button onclick="extractKeywords()">Keywords</button>
-          <div id="nlp-result"></div>
-        </div>
-
+        <img src="assets/img/hero.jpg" alt="Tila Muhammad" class="hero-image" />
       </div>
     </div>
 
-    <!-- Floating skill tags -->
-    <div class="skill-tag" style="top:10%; left:15%;">Python</div>
-    <div class="skill-tag" style="top:25%; left:70%;">BERT</div>
-    <div class="skill-tag" style="top:60%; left:30%;">NLP</div>
-    <div class="skill-tag" style="top:40%; left:50%;">Transformers</div>
-    <div class="skill-tag" style="top:75%; left:80%;">LLMs</div>
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i
+          class="bi bi-mortarboard"></i></a>
+      <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" target="_blank"><i
+          class="bi bi-file-earmark-text"></i></a>
+      <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank"><i
+          class="bi bi-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i
+          class="bi bi-linkedin"></i></a>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="social-links mb-3">
-      <a href="https://scholar.google.com" target="_blank"><i class="bi bi-mortarboard"></i></a>
-      <a href="https://www.researchgate.net" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
-      <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
-      <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
-    </div>
     <p>© 2026 <strong>TILA</strong>. All Rights Reserved.</p>
   </footer>
 
   <!-- Background Sound -->
-  <audio id="bg-sound" loop autoplay>
-    <source src="assets/sounds/ambient.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="bg-sound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop autoplay
+    volume="0.1"></audio>
 
-  <!-- JS Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Vendor JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Three.js & NLP JS -->
   <script>
     AOS.init();
 
-    // Typed.js animation
-    new Typed('#typed-text', {
-      strings: [
-        "AI/ML Learner focused on NLP.",
-        "Exploring LLMs and Transformers.",
-        "Building real-world AI solutions."
-      ],
-      typeSpeed: 50,
-      backSpeed: 30,
-      loop: true
+    // ===== NLP Demo =====
+    const sentimentWords = {
+      positive: ["good", "great", "excellent", "happy", "love", "fun", "amazing", "like"],
+      negative: ["bad", "sad", "hate", "terrible", "angry", "dislike", "poor", "ugly"],
+    };
+
+    function analyzeSentiment(text) {
+      text = text.toLowerCase();
+      let score = 0;
+      sentimentWords.positive.forEach(w => { if (text.includes(w)) score++; });
+      sentimentWords.negative.forEach(w => { if (text.includes(w)) score--; });
+
+      if (score > 0) return "Positive";
+      if (score < 0) return "Negative";
+      return "Neutral";
+    }
+
+    function extractKeywords(text) {
+      const stopwords = ["i", "am", "the", "is", "a", "on", "in", "at", "and", "or"];
+      let words = text.toLowerCase().split(/\W+/).filter(w => w && !stopwords.includes(w));
+      let freq = {};
+      words.forEach(w => freq[w] = (freq[w] || 0) + 1);
+      return Object.keys(freq).sort((a, b) => freq[b] - freq[a]).slice(0, 5);
+    }
+
+    const analyzeBtn = document.getElementById("analyze-btn");
+    analyzeBtn.addEventListener("click", () => {
+      const input = document.getElementById("user-input").value;
+      const sentiment = analyzeSentiment(input);
+      const resultBubble = document.getElementById("result-bubble");
+      resultBubble.textContent = sentiment;
+      if (sentiment === "Positive") resultBubble.style.background = "#34b7a7";
+      if (sentiment === "Negative") resultBubble.style.background = "#df1529";
+      if (sentiment === "Neutral") resultBubble.style.background = "#f3b400";
+
+      const keywordsDiv = document.getElementById("keywords");
+      keywordsDiv.innerHTML = "";
+      extractKeywords(input).forEach(kw => {
+        const span = document.createElement("span");
+        span.classList.add("keyword-chip");
+        span.textContent = kw;
+        keywordsDiv.appendChild(span);
+      });
     });
 
-    // ===== Three.js Advanced Transformer Background =====
-    const canvas = document.getElementById('hero-bg');
+    // ===== Three.js Background =====
+    const canvas = document.getElementById("bg-canvas");
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha:true });
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Nodes & Edges (attention)
-    const nodes = [];
-    const edges = [];
-    const nodeGeo = new THREE.SphereGeometry(0.15,16,16);
-    const nodeMat = new THREE.MeshBasicMaterial({color:0x34b7a7});
-    const edgeMat = new THREE.LineBasicMaterial({color:0x20c997, opacity:0.4, transparent:true});
+    camera.position.z = 40;
 
-    // Create nodes
-    for(let i=0;i<30;i++){
-      let node = new THREE.Mesh(nodeGeo,nodeMat);
-      node.position.set((Math.random()-0.5)*10,(Math.random()-0.5)*5,(Math.random()-0.5)*5);
+    const nodes = [];
+    const nodeGeometry = new THREE.SphereGeometry(0.5, 8, 8);
+    const nodeMaterial = new THREE.MeshBasicMaterial({ color: "#34b7a7" });
+
+    for (let i = 0; i < 50; i++) {
+      const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+      node.position.set((Math.random() - 0.5) * 80, (Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50);
       scene.add(node);
       nodes.push(node);
     }
 
-    // Create edges
-    for(let i=0;i<50;i++){
-      let a = nodes[Math.floor(Math.random()*nodes.length)];
-      let b = nodes[Math.floor(Math.random()*nodes.length)];
-      let points = [a.position.clone(), b.position.clone()];
-      let geo = new THREE.BufferGeometry().setFromPoints(points);
-      let line = new THREE.Line(geo,edgeMat);
-      scene.add(line);
-      edges.push({line, a,b});
-    }
-
-    camera.position.z=10;
-
-    function animate(){
-      requestAnimationFrame(animate);
-      nodes.forEach(n=>{
-        n.position.x += Math.sin(Date.now()*0.001+n.position.y*0.1)*0.002;
-        n.position.y += Math.cos(Date.now()*0.001+n.position.x*0.1)*0.002;
+    const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x34b7a7, transparent: true, opacity: 0.2 });
+    const edges = [];
+    nodes.forEach((n1, i) => {
+      nodes.forEach((n2, j) => {
+        if (i < j && Math.random() < 0.1) {
+          const points = [n1.position, n2.position];
+          const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), edgesMaterial);
+          scene.add(line);
+          edges.push(line);
+        }
       });
-      edges.forEach(e=>{
-        e.line.geometry.setFromPoints([e.a.position.clone(),e.b.position.clone()]);
-      });
-      renderer.render(scene,camera);
-    }
-    animate();
-
-    window.addEventListener('resize',()=>{
-      camera.aspect = window.innerWidth/window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth,window.innerHeight);
     });
 
-    // ===== NLP Mini Demo Functions =====
-    function analyzeSentiment() {
-      const text = document.getElementById('nlp-input').value;
-      if(!text) return;
-      const sentiment = text.toLowerCase().includes('good') ? "😊 Positive" : "😐 Neutral / Negative";
-      showResult(sentiment);
+    function animate() {
+      requestAnimationFrame(animate);
+      nodes.forEach(n => {
+        n.rotation.x += 0.002;
+        n.rotation.y += 0.003;
+      });
+      renderer.render(scene, camera);
     }
-    function extractKeywords() {
-      const text = document.getElementById('nlp-input').value;
-      if(!text) return;
-      const words = text.split(' ').filter(w=>w.length>3);
-      showResult("🔑 "+words.slice(0,5).join(', '));
-    }
-    function showResult(msg){
-      const container = document.getElementById('nlp-result');
-      container.innerHTML = `<span class="result-bubble">${msg}</span>`;
-    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
   </script>
+
 </body>
 </html>
