@@ -328,13 +328,15 @@
       </div>
     </section>
     <!-- /Resume Section -->
+<!-- ===================== Certifications & Training ===================== -->
 <section id="certificates" data-aos="fade-up" style="padding:40px 15px;background:#f9f9f9;">
   <div style="max-width:1500px;margin:auto;text-align:center;">
     <h2 style="font-size:30px;margin-bottom:25px;">🎓 Certifications & Training</h2>
 
-    <div style="display:flex;gap:16px;justify-content:center;">
+    <!-- RESPONSIVE GRID -->
+    <div class="cert-grid">
 
-      <!-- CARD -->
+      <!-- CARD 1 -->
       <div class="cert-card">
         <span class="year-badge">2023</span>
         <i class="bi bi-journal-text"></i>
@@ -343,6 +345,7 @@
         <a href="assets/docs/Paper_Certificate.pdf" target="_blank" class="cert-btn">View</a>
       </div>
 
+      <!-- CARD 2 -->
       <div class="cert-card">
         <span class="year-badge">2023</span>
         <i class="bi bi-cpu-fill blue"></i>
@@ -351,6 +354,7 @@
         <a href="assets/docs/Machine_Learning_Certificate.pdf" target="_blank" class="cert-btn blue">View</a>
       </div>
 
+      <!-- CARD 3 -->
       <div class="cert-card">
         <span class="year-badge">2025</span>
         <i class="bi bi-activity purple"></i>
@@ -359,6 +363,7 @@
         <a href="assets/img/Bioinformatics.jpg" target="_blank" class="cert-btn purple">View</a>
       </div>
 
+      <!-- CARD 4 -->
       <div class="cert-card">
         <span class="year-badge">2020</span>
         <i class="bi bi-lightning-fill orange"></i>
@@ -375,6 +380,7 @@
         <p>L7 · R5 · W6 · S6</p>
       </div>
 
+      <!-- CARD 6 -->
       <div class="cert-card">
         <span class="year-badge">2022</span>
         <i class="bi bi-briefcase-fill gray"></i>
@@ -387,17 +393,27 @@
   </div>
 </section>
 
+<!-- ===================== CERTIFICATE STYLES ===================== -->
 <style>
+
+/* RESPONSIVE GRID LAYOUT */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
 /* CARD */
 .cert-card {
   position: relative;
-  flex: 0 0 210px;
   background: #fff;
   border-radius: 14px;
   padding: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
   text-align: center;
   transition: transform .35s ease, box-shadow .35s ease;
+  height: 100%;
 }
 
 .cert-card:hover {
@@ -405,7 +421,7 @@
   box-shadow: 0 16px 32px rgba(0,0,0,0.2);
 }
 
-/* YEAR BADGE — SAME AS PAPERS */
+/* YEAR BADGE */
 .year-badge {
   position: absolute;
   top: 8px;
@@ -413,7 +429,7 @@
   font-size: 11px;
   padding: 4px 8px;
   border-radius: 10px;
-  background: #6c757d;   /* Bootstrap “secondary” – same as papers */
+  background: #6c757d;
   color: #fff;
   font-weight: 600;
 }
@@ -433,7 +449,6 @@
 /* TEXT */
 .cert-card h3 {
   font-size: 16px;
-  height: 38px;
   margin: 8px 0 4px;
   color: #333;
 }
@@ -474,19 +489,51 @@
   transition: left .6s ease;
 }
 
-/* COLORS */
+/* COLOR VARIANTS */
 .blue { color:#2196F3; border-color:#2196F3; }
 .purple { color:#9C27B0; border-color:#9C27B0; }
 .orange { color:#FF9800; border-color:#FF9800; }
 .gray { color:#607D8B; border-color:#607D8B; }
 .indigo { color:#3F51B5; }
 
-/* IELTS */
+/* IELTS CARD */
 .dashed {
   background:#eef2ff;
   border:2px dashed #3F51B5;
 }
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 576px) {
+
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cert-card {
+    padding: 12px;
+  }
+
+  .cert-card h3 {
+    font-size: 14px;
+  }
+
+  .cert-card p {
+    font-size: 12px;
+  }
+
+  .cert-card i {
+    font-size: 28px;
+  }
+
+  .cert-btn {
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+}
+
 </style>
+<!-- ===================== /Certifications & Training ===================== -->
+
 
     
     <!-- ===================== Research Papers (White + Gray, with inline SVGs) ===================== -->
