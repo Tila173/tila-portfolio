@@ -328,80 +328,110 @@
       </div>
     </section>
     <!-- /Resume Section -->
-<section id="certificates" style="padding: 60px 20px; background-color: #f9f9f9;">
-  <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-    <h2 style="font-size: 32px; margin-bottom: 40px;">🎓 Certifications & Training</h2>
+<section id="certificates" style="padding:50px 20px;background:#f9f9f9;">
+  <div style="max-width:1400px;margin:auto;text-align:center;">
+    <h2 style="font-size:32px;margin-bottom:30px;">🎓 Certifications & Training</h2>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+    <div style="
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      padding-bottom:10px;
+      scroll-snap-type:x mandatory;
+    ">
 
-      <!-- TOP TIER: Scientific Writing -->
-      <div style="flex:1 1 300px; max-width:350px; background:#fff; border-radius:15px; padding:25px; box-shadow:0 8px 25px rgba(76,175,80,0.35); text-align:center;"
-           onmouseover="this.style.transform='translateY(-10px)'"
-           onmouseout="this.style.transform='translateY(0)'">
-        <i class="bi bi-journal-text" style="font-size:45px;color:#4CAF50;"></i>
-        <h3>How to Write & Publish a Scientific Paper</h3>
-        <p>Coursera</p>
-        <p style="color:#999;">2023</p>
-        <a href="CERTIFICATE_LINK" target="_blank" style="color:#4CAF50;">View Certificate</a>
+      <!-- CARD -->
+      <div style="
+        flex:0 0 260px;
+        background:#fff;
+        border-radius:14px;
+        padding:18px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.12);
+        text-align:center;
+        scroll-snap-align:start;
+        transition:transform .3s;
+      "
+      onmouseover="this.style.transform='translateY(-8px)'"
+      onmouseout="this.style.transform='translateY(0)'">
+
+        <i class="bi bi-journal-text" style="font-size:38px;color:#4CAF50;"></i>
+
+        <h3 style="
+          font-size:18px;
+          height:44px;
+          margin:10px 0 6px;
+          color:#333;
+        ">
+          Scientific Paper Writing
+        </h3>
+
+        <p style="font-size:14px;color:#555;margin:0;">Coursera</p>
+        <p style="font-size:13px;color:#999;margin:4px 0;">2023</p>
+
+        <a href="CERTIFICATE_LINK" target="_blank" style="
+          display:inline-flex;
+          align-items:center;
+          gap:6px;
+          margin-top:10px;
+          padding:8px 14px;
+          font-size:13px;
+          color:#4CAF50;
+          border:2px solid #4CAF50;
+          border-radius:20px;
+          text-decoration:none;
+          animation:pulse 2s infinite;
+        ">
+          <i class="bi bi-arrow-up-right-circle"></i> View
+        </a>
       </div>
 
-      <!-- TOP TIER: Machine Learning -->
-      <div style="flex:1 1 300px; max-width:350px; background:#fff; border-radius:15px; padding:25px; box-shadow:0 8px 25px rgba(33,150,243,0.35); text-align:center;"
-           onmouseover="this.style.transform='translateY(-10px)'"
-           onmouseout="this.style.transform='translateY(0)'">
-        <i class="bi bi-cpu-fill" style="font-size:45px;color:#2196F3;"></i>
-        <h3>Machine Learning</h3>
-        <p>Simplilearn</p>
-        <p style="color:#999;">2023</p>
-        <a href="CERTIFICATE_LINK" target="_blank" style="color:#2196F3;">View Certificate</a>
+      <!-- ML -->
+      <div style="flex:0 0 260px;background:#fff;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center;transition:transform .3s;"
+        onmouseover="this.style.transform='translateY(-8px)'"
+        onmouseout="this.style.transform='translateY(0)'">
+
+        <i class="bi bi-cpu-fill" style="font-size:38px;color:#2196F3;"></i>
+
+        <h3 style="font-size:18px;height:44px;margin:10px 0 6px;">Machine Learning</h3>
+        <p style="font-size:14px;color:#555;margin:0;">Simplilearn</p>
+        <p style="font-size:13px;color:#999;margin:4px 0;">2023</p>
+
+        <a href="CERTIFICATE_LINK" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 14px;font-size:13px;color:#2196F3;border:2px solid #2196F3;border-radius:20px;text-decoration:none;animation:pulse 2s infinite;">
+          <i class="bi bi-arrow-up-right-circle"></i> View
+        </a>
       </div>
 
-      <!-- MID TIER: Advanced Seminar -->
-      <div style="flex:1 1 300px; max-width:350px; background:#fff; border-radius:15px; padding:25px; box-shadow:0 6px 20px rgba(0,0,0,0.12); text-align:center;"
-           onmouseover="this.style.transform='translateY(-10px)'"
-           onmouseout="this.style.transform='translateY(0)'">
-        <i class="bi bi-activity" style="font-size:45px;color:#9C27B0;"></i>
-        <h3>Advanced Bioinformatics Seminar</h3>
-        <p>International Seminar</p>
-        <p style="color:#999;">2025</p>
-        <a href="CERTIFICATE_LINK" target="_blank" style="color:#9C27B0;">View Certificate</a>
+      <!-- BIO -->
+      <div style="flex:0 0 260px;background:#fff;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center;">
+        <i class="bi bi-activity" style="font-size:38px;color:#9C27B0;"></i>
+        <h3 style="font-size:18px;height:44px;margin:10px 0 6px;">Bioinformatics Seminar</h3>
+        <p style="font-size:14px;color:#555;margin:0;">International</p>
+        <p style="font-size:13px;color:#999;margin:4px 0;">2025</p>
+
+        <a href="CERTIFICATE_LINK" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 14px;font-size:13px;color:#9C27B0;border:2px solid #9C27B0;border-radius:20px;text-decoration:none;animation:pulse 2s infinite;">
+          <i class="bi bi-arrow-up-right-circle"></i> View
+        </a>
       </div>
 
-      <!-- MID TIER: ML Foundations -->
-      <div style="flex:1 1 300px; max-width:350px; background:#fff; border-radius:15px; padding:25px; box-shadow:0 6px 20px rgba(0,0,0,0.12); text-align:center;"
-           onmouseover="this.style.transform='translateY(-10px)'"
-           onmouseout="this.style.transform='translateY(0)'">
-        <i class="bi bi-lightning-fill" style="font-size:45px;color:#FF9800;"></i>
-        <h3>Zero to Mastery Machine Learning</h3>
-        <p>Udemy</p>
-        <p style="color:#999;">2020</p>
-        <a href="CERTIFICATE_LINK" target="_blank" style="color:#FF9800;">View Certificate</a>
-      </div>
-
-      <!-- MID TIER: Internship -->
-      <div style="flex:1 1 300px; max-width:350px; background:#fff; border-radius:15px; padding:25px; box-shadow:0 6px 20px rgba(0,0,0,0.12); text-align:center;"
-           onmouseover="this.style.transform='translateY(-10px)'"
-           onmouseout="this.style.transform='translateY(0)'">
-        <i class="bi bi-briefcase-fill" style="font-size:45px;color:#607D8B;"></i>
-        <h3>KP Digital Internship Program</h3>
-        <p>Government of KPK</p>
-        <p style="color:#999;">2022</p>
-        <a href="CERTIFICATE_LINK" target="_blank" style="color:#607D8B;">View Certificate</a>
-      </div>
-
-      <!-- LOW EMPHASIS: IELTS BADGE -->
-      <div style="flex:1 1 300px; max-width:350px; background:#f0f4ff; border:2px dashed #3F51B5; border-radius:15px; padding:25px; text-align:center;">
-        <i class="bi bi-translate" style="font-size:40px;color:#3F51B5;"></i>
-        <h3>IELTS – Overall Band 6.0</h3>
-        <p style="font-size:14px;">Listening 7.0 · Reading 5.0 · Writing 6.0 · Speaking 6.0</p>
-        <p style="color:#777;">2025</p>
-        <a href="CERTIFICATE_LINK" target="_blank" style="color:#3F51B5;">View Score Report</a>
+      <!-- IELTS BADGE -->
+      <div style="flex:0 0 260px;background:#eef2ff;border:2px dashed #3F51B5;border-radius:14px;padding:18px;text-align:center;">
+        <i class="bi bi-translate" style="font-size:34px;color:#3F51B5;"></i>
+        <h3 style="font-size:18px;height:44px;margin:10px 0 6px;">IELTS – Band 6.0</h3>
+        <p style="font-size:13px;color:#555;">L7 · R5 · W6 · S6</p>
+        <p style="font-size:13px;color:#777;">2025</p>
       </div>
 
     </div>
   </div>
 </section>
 
+<style>
+@keyframes pulse {
+  0% { box-shadow:0 0 0 0 rgba(0,0,0,.15); }
+  70% { box-shadow:0 0 0 8px rgba(0,0,0,0); }
+  100% { box-shadow:0 0 0 0 rgba(0,0,0,0); }
+}
+</style>
 
     
     <!-- ===================== Research Papers (White + Gray, with inline SVGs) ===================== -->
