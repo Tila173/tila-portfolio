@@ -2,265 +2,368 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tila Muhammad</title>
 
-<title>Tila Muhammad</title>
+  <meta name="description" content="Portfolio of Tila Muhammad, AI/ML and NLP enthusiast.">
+  <meta name="keywords" content="AI, ML, NLP, Transformers, Deep Learning">
 
-<link href="assets/img/hero.jpg" rel="icon">
+  <!-- Favicon -->
+  <link href="assets/img/hero.jpg" rel="icon">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-<style>
+  <!-- AOS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-:root {
-  --accent: #34b7a7;
-}
+  <!-- ThreeJS -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
 
-html,body {
-  margin:0;
-  height:100%;
-  overflow:hidden;
-  font-family:Poppins,sans-serif;
-  background: linear-gradient(160deg,#e0f7fa,#ffffff);
-}
+  <style>
+    :root {
+      --accent-color: #34b7a7;
+    }
 
-/* HERO */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+    }
 
-#hero {
-  position:relative;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
+    #hero {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-#bg-canvas {
-  position:absolute;
-  inset:0;
-  z-index:1;
-}
+    #bg-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
 
-.hero-content {
-  position:relative;
-  z-index:2;
-  text-align:center;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+    }
 
-.hero-content h1 {
-  font-size:3rem;
-  font-weight:800;
-  color:var(--accent);
-}
+    .hero-img {
+      width: 170px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      animation: float 4s ease-in-out infinite;
+    }
 
-.hero-content p {
-  color:#6b7280;
-}
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
 
-.hero-img {
-  width:170px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
-  margin-bottom:15px;
-}
+      50% {
+        transform: translateY(-15px);
+      }
 
-/* Footer */
+      100% {
+        transform: translateY(0px);
+      }
+    }
 
-footer {
-  position:absolute;
-  bottom:20px;
-  width:100%;
-  text-align:center;
-  z-index:2;
-}
+    h1 {
+      font-weight: 800;
+      font-size: 3rem;
+      color: var(--accent-color);
+    }
 
-footer a {
-  font-size:1.4rem;
-  color:var(--accent);
-  margin:0 8px;
-}
+    p {
+      color: #cbd5e1;
+      margin: 15px 0;
+    }
 
-@media(max-width:768px){
-.hero-content h1{font-size:2.2rem}
-.hero-img{width:130px}
-}
+    .btn-primary {
+      background: var(--accent-color);
+      border: none;
+      border-radius: 30px;
+      padding: 10px 30px;
+    }
 
-</style>
+    .btn-outline-primary {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      border-radius: 30px;
+      padding: 10px 30px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      z-index: 3;
+      color: white;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      transform: translateY(-5px);
+      color: white;
+    }
+
+    @media(max-width:768px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      .hero-img {
+        width: 120px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
 
-<section id="hero">
+  <section id="hero">
 
-<canvas id="bg-canvas"></canvas>
+    <canvas id="bg-canvas"></canvas>
 
-<div class="hero-content">
-  <img src="assets/img/hero.jpg" class="hero-img">
-  <h1>Tila Muhammad</h1>
-  <p>AI / ML Enthusiast — NLP • LLMs • Research</p>
+    <!-- HERO CONTENT -->
+    <div class="hero-content" data-aos="fade-up">
+      <img src="assets/img/hero.jpg" class="hero-img" alt="Tila Muhammad">
 
-  <a href="about.html" class="btn btn-success rounded-pill me-2">About</a>
-  <a href="contact.html" class="btn btn-outline-success rounded-pill">Contact</a>
-</div>
+      <h1>Tila Muhammad</h1>
+      <p>AI / ML Researcher — NLP & Transformer Specialist</p>
 
-<footer>
-<a href="#"><i class="bi bi-github"></i></a>
-<a href="#"><i class="bi bi-linkedin"></i></a>
-<a href="#"><i class="bi bi-google"></i></a>
-<p class="mt-2">© 2026 TILA</p>
-</footer>
+      <div class="mt-3">
+        <a href="about.html" class="btn btn-primary me-2">About Me</a>
+        <a href="contact.html" class="btn btn-outline-primary">Contact</a>
+      </div>
+    </div>
 
-</section>
+    <!-- FOOTER -->
+    <footer>
+      <div class="mb-2">
+        <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://scholar.google.com/" target="_blank"><i class="bi bi-mortarboard"></i></a>
+      </div>
+      <p>© 2026 Tila Muhammad — AI Portfolio</p>
+    </footer>
 
-<!-- THREE CORE -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
-
-<!-- REQUIRED TEXT MODULES -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/loaders/FontLoader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/geometries/TextGeometry.js"></script>
-
-<script>
-
-// BASIC SETUP
-const canvas = document.getElementById("bg-canvas");
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth/window.innerHeight,
-  0.1,
-  1000
-);
-
-camera.position.z = 50;
-
-const renderer = new THREE.WebGLRenderer({
-  canvas,
-  alpha:true,
-  antialias:true
-});
-
-renderer.setSize(window.innerWidth,window.innerHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
+  </section>
 
 
-// LIGHTS
-scene.add(new THREE.AmbientLight(0xffffff,.6));
+  <!-- AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
-const dir = new THREE.DirectionalLight(0xffffff,.9);
-dir.position.set(20,20,20);
-scene.add(dir);
+  <!-- ===================== -->
+  <!-- THREE JS BACKGROUND -->
+  <!-- ===================== -->
 
+  <script>
+    const canvas = document.getElementById("bg-canvas");
 
-// WORDS
-const labels = ["AI","ML","DL","NLP","LLMs","Transformers","Python","Data","Models"];
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      70,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      3000
+    );
 
-const colors = ["#00f5d4","#ffbe0b","#ff006e","#8338ec","#3a86ff","#06d6a0","#ffd166","#ef476f","#118ab2"];
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true
+    });
 
-const objects=[];
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    camera.position.z = 90;
 
+    // LIGHTS
+    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
 
-// LOAD FONT
-const loader = new THREE.FontLoader();
+    const light = new THREE.DirectionalLight(0x34b7a7, 1.2);
+    light.position.set(50, 100, 50);
+    scene.add(light);
 
-loader.load(
-"https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
+    // PARTICLES
+    const particleCount = 1500;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
 
-(font)=>{
+    for (let i = 0; i < particleCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 600;
+    }
 
-labels.forEach((word,i)=>{
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
-const geo = new THREE.TextGeometry(word,{
-font,
-size:2.8,
-height:.4
-});
+    const material = new THREE.PointsMaterial({
+      size: 1.2,
+      opacity: 0.6,
+      transparent: true
+    });
 
-geo.center();
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
 
-const mat = new THREE.MeshStandardMaterial({
-color:colors[i],
-emissive:colors[i],
-emissiveIntensity:.8,
-metalness:.6,
-roughness:.3
-});
+    // GLOBE
+    const globeGeometry = new THREE.SphereGeometry(22, 40, 40);
+    const globeMaterial = new THREE.MeshStandardMaterial({
+      wireframe: true,
+      emissive: 0x34b7a7,
+      emissiveIntensity: 0.7,
+      transparent: true,
+      opacity: 0.35
+    });
 
-const mesh = new THREE.Mesh(geo,mat);
+    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
+    scene.add(globe);
 
-mesh.userData = {
-angle:Math.random()*Math.PI*2,
-radius:12 + Math.random()*18,
-speed:.003 + Math.random()*.002,
-offset:(Math.random()*10)-5
-};
+    // NEURAL NODES
+    const nodes = [];
+    const nodeGeometry = new THREE.SphereGeometry(1, 16, 16);
+    const nodeMaterial = new THREE.MeshStandardMaterial({
+      color: 0x34b7a7,
+      emissive: 0x34b7a7,
+      emissiveIntensity: 1
+    });
 
-scene.add(mesh);
-objects.push(mesh);
+    for (let i = 0; i < 20; i++) {
+      const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+      node.angle = Math.random() * Math.PI * 2;
+      node.radius = 35 + Math.random() * 15;
+      node.speed = 0.002 + Math.random() * 0.003;
+      scene.add(node);
+      nodes.push(node);
+    }
 
-});
+    // FLOATING NLP WORDS
+    const words = [
+      "NLP", "Transformer", "BERT", "LLM",
+      "Deep Learning", "PyTorch", "AI",
+      "Embeddings", "Neural Net"
+    ];
 
-}
-);
+    const floatingTexts = [];
+    const loader = new THREE.FontLoader();
 
+    loader.load(
+      "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
+      font => {
 
-// MOUSE INTERACTION
-let mx=0,my=0;
+        words.forEach(word => {
 
-document.addEventListener("mousemove",e=>{
-mx=(e.clientX/window.innerWidth - .5)*20;
-my=(.5 - e.clientY/window.innerHeight)*20;
-});
+          const textGeo = new THREE.TextGeometry(word, {
+            font,
+            size: 2,
+            height: 0.4
+          });
 
+          const textMat = new THREE.MeshStandardMaterial({
+            color: 0x34b7a7,
+            emissive: 0x34b7a7,
+            emissiveIntensity: 1
+          });
 
-// ANIMATE LOOP
-function animate(){
+          const textMesh = new THREE.Mesh(textGeo, textMat);
 
-requestAnimationFrame(animate);
+          textMesh.angle = Math.random() * Math.PI * 2;
+          textMesh.radius = 50 + Math.random() * 15;
+          textMesh.speed = 0.001 + Math.random() * 0.002;
+          textMesh.yOffset = Math.random() * 20 - 10;
 
-objects.forEach(obj=>{
+          scene.add(textMesh);
+          floatingTexts.push(textMesh);
 
-obj.userData.angle+=obj.userData.speed;
+        });
+      }
+    );
 
-obj.position.x =
-Math.cos(obj.userData.angle)*obj.userData.radius + mx*.3;
+    // MOUSE EFFECT
+    let mouseX = 0;
+    let mouseY = 0;
 
-obj.position.z =
-Math.sin(obj.userData.angle)*obj.userData.radius;
+    document.addEventListener("mousemove", e => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 15;
+      mouseY = (0.5 - e.clientY / window.innerHeight) * 15;
+    });
 
-obj.position.y =
-obj.userData.offset + Math.sin(Date.now()*0.002)*3;
+    // ANIMATION
+    const clock = new THREE.Clock();
 
-// glow pulse
-obj.material.emissiveIntensity =
-0.6 + Math.sin(Date.now()*0.004)*0.4;
+    function animate() {
+      requestAnimationFrame(animate);
 
-});
+      const time = clock.getElapsedTime();
 
-renderer.render(scene,camera);
-}
+      globe.rotation.y += 0.0015;
 
-animate();
+      particles.rotation.y += 0.0004;
 
+      nodes.forEach(node => {
+        node.angle += node.speed;
+        node.position.x = node.radius * Math.cos(node.angle);
+        node.position.z = node.radius * Math.sin(node.angle);
+        node.position.y = Math.sin(time + node.angle) * 6;
+      });
 
-// RESIZE
-window.addEventListener("resize",()=>{
+      floatingTexts.forEach(text => {
+        text.angle += text.speed;
+        text.position.x = text.radius * Math.cos(text.angle);
+        text.position.z = text.radius * Math.sin(text.angle);
+        text.position.y =
+          text.yOffset + Math.sin(time * 2 + text.angle) * 4;
 
-camera.aspect = window.innerWidth/window.innerHeight;
-camera.updateProjectionMatrix();
-renderer.setSize(window.innerWidth,window.innerHeight);
+        text.lookAt(camera.position);
+      });
 
-});
+      camera.position.x += (mouseX - camera.position.x) * 0.03;
+      camera.position.y += (mouseY - camera.position.y) * 0.03;
 
-</script>
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // RESIZE
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 
 </body>
+
 </html>
