@@ -201,7 +201,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+  
   <script>
     AOS.init();
   </script>
@@ -211,9 +214,9 @@
 
 const canvas = document.getElementById("bg-canvas");
 
-// --------------------
+// ===============================
 // Scene Setup
-// --------------------
+// ===============================
 
 const scene = new THREE.Scene();
 
@@ -221,10 +224,10 @@ const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1500
+  2000
 );
 
-camera.position.z = 90;
+camera.position.z = 95;
 
 const renderer = new THREE.WebGLRenderer({
   canvas,
@@ -235,29 +238,46 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
-// --------------------
+// ===============================
+// CINEMATIC BLOOM SETUP
+// ===============================
+
+const composer = new THREE.EffectComposer(renderer);
+const renderPass = new THREE.RenderPass(scene, camera);
+
+const bloomPass = new THREE.UnrealBloomPass(
+  new THREE.Vector2(window.innerWidth, window.innerHeight),
+  1.2,   // strength
+  0.6,   // radius
+  0.15   // threshold
+);
+
+composer.addPass(renderPass);
+composer.addPass(bloomPass);
+
+// ===============================
 // Lighting
-// --------------------
+// ===============================
 
-scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+scene.add(new THREE.AmbientLight(0xffffff, 0.5));
 
-const mainLight = new THREE.PointLight(0x34b7a7, 1.2);
-mainLight.position.set(40, 40, 40);
-scene.add(mainLight);
+const keyLight = new THREE.PointLight(0x34b7a7, 1.5);
+keyLight.position.set(40, 40, 40);
+scene.add(keyLight);
 
-// --------------------
-// Neural Particle Field
-// --------------------
+// ===============================
+// Neural Node Field
+// ===============================
 
-const nodeCount = 140;
+const nodeCount = 160;
 const nodesGeometry = new THREE.BufferGeometry();
 const nodePositions = [];
 
 for (let i = 0; i < nodeCount; i++) {
   nodePositions.push(
-    (Math.random() - 0.5) * 180,
-    (Math.random() - 0.5) * 110,
-    (Math.random() - 0.5) * 90
+    (Math.random() - 0.5) * 200,
+    (Math.random() - 0.5) * 120,
+    (Math.random() - 0.5) * 100
   );
 }
 
@@ -268,17 +288,17 @@ nodesGeometry.setAttribute(
 
 const nodesMaterial = new THREE.PointsMaterial({
   color: 0x34b7a7,
-  size: 1.5,
-  opacity: 0.9,
-  transparent: true
+  size: 1.6,
+  transparent: true,
+  opacity: 0.9
 });
 
 const neuralNodes = new THREE.Points(nodesGeometry, nodesMaterial);
 scene.add(neuralNodes);
 
-// --------------------
+// ===============================
 // Neural Connections
-// --------------------
+// ===============================
 
 const linesGeometry = new THREE.BufferGeometry();
 const linePositions = [];
@@ -306,33 +326,55 @@ linesGeometry.setAttribute(
 const lineMaterial = new THREE.LineBasicMaterial({
   color: 0x34b7a7,
   transparent: true,
-  opacity: 0.18
+  opacity: 0.22
 });
 
 const neuralLines = new THREE.LineSegments(linesGeometry, lineMaterial);
 scene.add(neuralLines);
 
-// --------------------
-// AI Core Glow Sphere
-// --------------------
+// ===============================
+// AI CORE (Glow Brain)
+// ===============================
 
-const coreGeometry = new THREE.SphereGeometry(4, 32, 32);
+const coreGeometry = new THREE.SphereGeometry(5, 40, 40);
 const coreMaterial = new THREE.MeshStandardMaterial({
   color: 0x34b7a7,
   emissive: 0x2a9d8f,
-  emissiveIntensity: 1,
+  emissiveIntensity: 1.6,
   metalness: 0.6,
-  roughness: 0.2
+  roughness: 0.15
 });
 
 const aiCore = new THREE.Mesh(coreGeometry, coreMaterial);
 scene.add(aiCore);
 
-// --------------------
-// Rotating Wireframe Globe
-// --------------------
+// ===============================
+// Transformer Attention Waves
+// ===============================
 
-const globeGeometry = new THREE.SphereGeometry(22, 32, 32);
+const waveGeometry = new THREE.RingGeometry(7, 7.3, 64);
+const waveMaterial = new THREE.MeshBasicMaterial({
+  color: 0x34b7a7,
+  transparent: true,
+  opacity: 0.5,
+  side: THREE.DoubleSide
+});
+
+const waves = [];
+
+for (let i = 0; i < 3; i++) {
+  const ring = new THREE.Mesh(waveGeometry, waveMaterial.clone());
+  ring.rotation.x = Math.PI / 2;
+  ring.scale.set(1 + i * 0.6, 1 + i * 0.6, 1);
+  scene.add(ring);
+  waves.push(ring);
+}
+
+// ===============================
+// Research Globe
+// ===============================
+
+const globeGeometry = new THREE.SphereGeometry(24, 40, 40);
 const globeMaterial = new THREE.MeshBasicMaterial({
   color: 0x34b7a7,
   wireframe: true,
@@ -343,12 +385,9 @@ const globeMaterial = new THREE.MeshBasicMaterial({
 const globe = new THREE.Mesh(globeGeometry, globeMaterial);
 scene.add(globe);
 
-// --------------------
+// ===============================
 // Data Stream Particles
-// --------------------
-
-const streamCount = 80;
-const streams = [];
+// ===============================
 
 const streamGeometry = new THREE.SphereGeometry(0.6, 12, 12);
 const streamMaterial = new THREE.MeshStandardMaterial({
@@ -356,57 +395,71 @@ const streamMaterial = new THREE.MeshStandardMaterial({
   emissive: 0x2a9d8f
 });
 
-for (let i = 0; i < streamCount; i++) {
+const streams = [];
 
-  const particle = new THREE.Mesh(streamGeometry, streamMaterial);
+for (let i = 0; i < 90; i++) {
 
-  particle.position.set(
-    (Math.random() - 0.5) * 120,
-    Math.random() * 80 - 40,
-    (Math.random() - 0.5) * 80
+  const p = new THREE.Mesh(streamGeometry, streamMaterial);
+
+  p.position.set(
+    (Math.random() - 0.5) * 130,
+    Math.random() * 90 - 45,
+    (Math.random() - 0.5) * 90
   );
 
-  particle.speed = Math.random() * 0.3 + 0.15;
+  p.speed = Math.random() * 0.35 + 0.15;
 
-  scene.add(particle);
-  streams.push(particle);
+  scene.add(p);
+  streams.push(p);
 }
 
-// --------------------
-// Mouse Parallax Control
-// --------------------
+// ===============================
+// Mouse Parallax
+// ===============================
 
 let mouseX = 0;
 let mouseY = 0;
 
 document.addEventListener("mousemove", e => {
-  mouseX = (e.clientX / window.innerWidth - 0.5) * 25;
-  mouseY = (e.clientY / window.innerHeight - 0.5) * 25;
+  mouseX = (e.clientX / window.innerWidth - 0.5) * 30;
+  mouseY = (e.clientY / window.innerHeight - 0.5) * 30;
 });
 
-// --------------------
+// ===============================
 // Animation Loop
-// --------------------
+// ===============================
 
 function animate() {
 
   requestAnimationFrame(animate);
 
   // Neural Motion
-  neuralNodes.rotation.y += 0.0006;
-  neuralLines.rotation.y += 0.0006;
+  neuralNodes.rotation.y += 0.0007;
+  neuralLines.rotation.y += 0.0007;
 
   // Globe Rotation
-  globe.rotation.y += 0.0012;
+  globe.rotation.y += 0.0014;
 
-  // Core Pulse Effect
-  const pulse = 1 + Math.sin(Date.now() * 0.003) * 0.1;
+  // AI Core Pulse
+  const pulse = 1 + Math.sin(Date.now() * 0.003) * 0.12;
   aiCore.scale.set(pulse, pulse, pulse);
 
-  // Data Streams Movement
+  // Transformer Attention Waves
+  waves.forEach((w, i) => {
+    w.scale.x += 0.004;
+    w.scale.y += 0.004;
+    w.material.opacity -= 0.002;
+
+    if (w.material.opacity <= 0) {
+      w.scale.set(1, 1, 1);
+      w.material.opacity = 0.6;
+    }
+  });
+
+  // Data Streams
   streams.forEach(p => {
     p.position.y += p.speed;
-    if (p.position.y > 50) p.position.y = -50;
+    if (p.position.y > 55) p.position.y = -55;
   });
 
   // Camera Parallax
@@ -415,14 +468,14 @@ function animate() {
 
   camera.lookAt(scene.position);
 
-  renderer.render(scene, camera);
+  composer.render();
 }
 
 animate();
 
-// --------------------
+// ===============================
 // Responsive Resize
-// --------------------
+// ===============================
 
 window.addEventListener("resize", () => {
 
@@ -430,6 +483,7 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
 
   renderer.setSize(window.innerWidth, window.innerHeight);
+  composer.setSize(window.innerWidth, window.innerHeight);
 
 });
 
