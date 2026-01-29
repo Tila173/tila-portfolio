@@ -249,6 +249,17 @@
       tokens.push(token);
     }
 
+    // Animated AI Data Streams
+    const streamGroup = new THREE.Group();
+    for (let i = 0; i < 30; i++) {
+      const barGeometry = new THREE.BoxGeometry(0.8, Math.random() * 8 + 2, 0.8);
+      const barMaterial = new THREE.MeshStandardMaterial({ color: 0x34b7a7, emissive: 0x2a9d8f, metalness: 0.3 });
+      const bar = new THREE.Mesh(barGeometry, barMaterial);
+      bar.position.set((Math.random() - 0.5) * 120, -50 + Math.random() * 50, (Math.random() - 0.5) * 60);
+      streamGroup.add(bar);
+    }
+    scene.add(streamGroup);
+
     // Mouse Interaction & Particle Trail
     let mouseX = 0, mouseY = 0;
     const particles = [];
@@ -259,7 +270,6 @@
       mouseX = (e.clientX / window.innerWidth - 0.5) * 20;
       mouseY = (e.clientY / window.innerHeight - 0.5) * 20;
 
-      // Add particle at mouse
       const particle = new THREE.Vector3(
         (e.clientX / window.innerWidth - 0.5) * 160,
         -(e.clientY / window.innerHeight - 0.5) * 100,
@@ -282,11 +292,16 @@
         t.position.y += Math.sin(Date.now() * 0.001 + i) * 0.01;
       });
 
+      // Animate streams
+      streamGroup.children.forEach(bar => {
+        bar.scale.y = 2 + Math.abs(Math.sin(Date.now() * 0.002 + bar.position.x)) * 6;
+      });
+
       camera.position.x += (mouseX - camera.position.x) * 0.02;
       camera.position.y += (-mouseY - camera.position.y) * 0.02;
       camera.lookAt(scene.position);
 
-      // Draw particle trail
+      // Update particle trail
       const particlePositions = [];
       particles.forEach(p => particlePositions.push(p.x, p.y, p.z));
       particleGeometry.setAttribute('position', new THREE.Float32BufferAttribute(particlePositions, 3));
@@ -294,6 +309,17 @@
         const particlePoints = new THREE.Points(particleGeometry, particleMaterial);
         particlePoints.name = 'particleTrail';
         scene.add(particlePoints);
+      }
+
+      // Highlight lines near mouse
+      const positionsArray = geometry.attributes.position.array;
+      const linePositionsArray = lineGeometry.attributes.position.array;
+      for (let i = 0; i < linePositionsArray.length; i += 6) {
+        const midX = (linePositionsArray[i] + linePositionsArray[i + 3]) / 2;
+        const midY = (linePositionsArray[i + 1] + linePositionsArray[i + 4]) / 2;
+        const midZ = (linePositionsArray[i + 2] + linePositionsArray[i + 5]) / 2;
+        const dist = Math.sqrt((midX - mouseX*8)**2 + (midY - mouseY*8)**2 + midZ**2);
+        lineMaterial.color.setHSL(Math.max(0, 0.5 - dist/60), 1, 0.5);
       }
 
       renderer.render(scene, camera);
