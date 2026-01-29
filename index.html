@@ -82,8 +82,14 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-img {
@@ -95,9 +101,15 @@
     }
 
     @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
     }
 
     #hero h1 {
@@ -225,7 +237,7 @@
     }
     type();
 
-    // 3D Neural Network Background
+    // Three.js Setup
     const canvas = document.getElementById("bg-canvas");
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -235,74 +247,115 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-    const pointLight = new THREE.PointLight(0x34b7a7, 1);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    const pointLight = new THREE.PointLight(0x34b7a7, 1.2);
     pointLight.position.set(30, 30, 30);
     scene.add(pointLight);
 
-    // Neural Nodes
-    const nodeCount = 100;
-    const positions = [];
+    // Neural Nodes & Lines
+    const nodeCount = 120;
+    const nodePositions = [];
     const geometry = new THREE.BufferGeometry();
+    const colors = [];
 
     for (let i = 0; i < nodeCount; i++) {
-      positions.push((Math.random() - 0.5) * 160, (Math.random() - 0.5) * 100, (Math.random() - 0.5) * 80);
+      nodePositions.push((Math.random() - 0.5) * 160, (Math.random() - 0.5) * 100, (Math.random() - 0.5) * 80);
+      colors.push(Math.random(), Math.random(), Math.random());
     }
 
-    geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
-    const material = new THREE.PointsMaterial({ color: 0x34b7a7, size: 1.5, transparent: true, opacity: 0.85 });
-    const nodes = new THREE.Points(geometry, material);
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(nodePositions, 3));
+    geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+    const nodes = new THREE.Points(
+      geometry,
+      new THREE.PointsMaterial({ vertexColors: true, size: 1.5, transparent: true, opacity: 0.9 })
+    );
     scene.add(nodes);
 
-    // Connection Lines
-    const lineGeometry = new THREE.BufferGeometry();
+    const lineGeom = new THREE.BufferGeometry();
     const linePositions = [];
+    const lineColors = [];
     for (let i = 0; i < nodeCount; i += 2) {
       linePositions.push(
-        positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2],
-        positions[(i + 1) * 3], positions[(i + 1) * 3 + 1], positions[(i + 1) * 3 + 2]
+        nodePositions[i * 3], nodePositions[i * 3 + 1], nodePositions[i * 3 + 2],
+        nodePositions[(i + 1) * 3], nodePositions[(i + 1) * 3 + 1], nodePositions[(i + 1) * 3 + 2]
       );
-    }
-    lineGeometry.setAttribute("position", new THREE.Float32BufferAttribute(linePositions, 3));
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0x34b7a7, transparent: true, opacity: 0.12 });
-    const networkLines = new THREE.LineSegments(lineGeometry, lineMaterial);
-    scene.add(networkLines);
-
-    // Floating tokens
-    const tokenGeometry = new THREE.SphereGeometry(1.2, 16, 16);
-    const tokenMaterial = new THREE.MeshStandardMaterial({ color: 0x34b7a7, emissive: 0x2a9d8f, metalness: 0.4, roughness: 0.3 });
-    const tokens = [];
-    for (let i = 0; i < 20; i++) {
-      const token = new THREE.Mesh(tokenGeometry, tokenMaterial);
-      token.position.set((Math.random() - 0.5) * 120, (Math.random() - 0.5) * 80, (Math.random() - 0.5) * 80);
-      scene.add(token);
-      tokens.push(token);
+      lineColors.push(Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random());
     }
 
-    let mouseX = 0, mouseY = 0;
+    lineGeom.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+    lineGeom.setAttribute('color', new THREE.Float32BufferAttribute(lineColors, 3));
+
+    const lines = new THREE.LineSegments(
+      lineGeom,
+      new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.15 })
+    );
+    scene.add(lines);
+
+    // Floating Particles (mouse trail)
+    const particleGeometry = new THREE.BufferGeometry();
+    const particleCount = 150;
+    const positionsParticles = [];
+    for (let i = 0; i < particleCount; i++) positionsParticles.push(0, 0, 0);
+    particleGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positionsParticles, 3));
+    const particleMat = new THREE.PointsMaterial({ color: 0x34b7a7, size: 1.2, transparent: true, opacity: 0.8 });
+    const particles = new THREE.Points(particleGeometry, particleMat);
+    scene.add(particles);
+
+    let mouseX = 0, mouseY = 0, mouseHistory = [];
     document.addEventListener("mousemove", (e) => {
-      mouseX = (e.clientX / window.innerWidth - 0.5) * 20;
-      mouseY = (e.clientY / window.innerHeight - 0.5) * 20;
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 80;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 50;
+      mouseHistory.push([mouseX, mouseY]);
+      if (mouseHistory.length > particleCount) mouseHistory.shift();
     });
 
+    // Animated data streams
+    const dataLines = [];
+    const dataMat = new THREE.LineBasicMaterial({ color: 0x34b7a7, transparent: true, opacity: 0.2 });
+    for (let i = 0; i < 30; i++) {
+      const dataGeom = new THREE.BufferGeometry();
+      const x = (Math.random() - 0.5) * 160;
+      const y = -60;
+      const z = (Math.random() - 0.5) * 60;
+      dataGeom.setAttribute('position', new THREE.Float32BufferAttribute([x, y, z, x, y + 30, z], 3));
+      const line = new THREE.Line(dataGeom, dataMat);
+      scene.add(line);
+      dataLines.push(line);
+    }
+
+    // Animation Loop
     function animate() {
       requestAnimationFrame(animate);
-      nodes.rotation.y += 0.0008;
-      networkLines.rotation.y += 0.0008;
 
-      tokens.forEach((t, i) => {
-        t.rotation.x += 0.012;
-        t.rotation.y += 0.012;
-        t.position.y += Math.sin(Date.now() * 0.001 + i) * 0.01;
+      // Rotate nodes & lines
+      nodes.rotation.y += 0.0008;
+      lines.rotation.y += 0.0008;
+
+      // Update mouse trail particles
+      const posAttr = particles.geometry.getAttribute('position');
+      mouseHistory.forEach((m, idx) => posAttr.setXYZ(idx, m[0], m[1], Math.sin(Date.now() * 0.001 + idx) * 5));
+      posAttr.needsUpdate = true;
+
+      // Animate data streams
+      dataLines.forEach(dl => {
+        const pos = dl.geometry.getAttribute('position');
+        pos.array[1] += 0.4; // y start
+        pos.array[4] += 0.4; // y end
+        if (pos.array[1] > 60) { pos.array[1] = -60; pos.array[4] = -30; }
+        pos.needsUpdate = true;
       });
 
       camera.position.x += (mouseX - camera.position.x) * 0.02;
       camera.position.y += (-mouseY - camera.position.y) * 0.02;
       camera.lookAt(scene.position);
+
       renderer.render(scene, camera);
     }
+
     animate();
 
+    // Responsive
     window.addEventListener("resize", () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -310,4 +363,5 @@
     });
   </script>
 </body>
+
 </html>
