@@ -191,107 +191,141 @@
             </p>
 
             <!-- ONE unified list for all rows -->
-<ul style="
-list-style:none;
-padding:0;
-display:flex;
-flex-direction:column;
-gap:18px;
-max-width:720px;
+<div style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 ">
 
-<li style="
-position:relative;
-display:flex;
-align-items:center;
-gap:16px;
-padding:18px 22px;
-border-radius:12px;
-background:#0f172a;
-border-left:5px solid #38bdf8;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
-transition:.4s cubic-bezier(.4,0,.2,1);
+<!-- CARD -->
+<div style="
+padding:20px;
+border-radius:14px;
+background:#0b1220;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 12px 30px rgba(0,0,0,0.5);
+transition:.35s ease;
 cursor:pointer;
+position:relative;
 overflow:hidden;
 "
-onmouseover="this.style.transform='translateX(14px) scale(1.02)';this.style.boxShadow='0 20px 50px rgba(56,189,248,.7)'"
-onmouseout="this.style.transform='none';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.4)'">
+onmouseover="this.style.transform='translateY(-8px)';this.style.borderColor='#3b82f6'"
+onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.08)'">
 
-<div style="
-min-width:52px;
-height:52px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-background:linear-gradient(135deg,#38bdf8,#0ea5e9);
-color:white;
-box-shadow:0 0 20px rgba(56,189,248,.9);
+<div style="display:flex;align-items:center;justify-content:space-between;">
+
+<span style="
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+background:rgba(59,130,246,.15);
+color:#3b82f6;
+font-weight:600;
 ">
-<i class="bi bi-cake"></i>
+PERSONAL
+</span>
+
+<i class="bi bi-cake" style="color:#3b82f6;font-size:20px;"></i>
+
 </div>
 
-<div>
-<div style="color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Birthday</div>
-<div style="color:white;font-size:16px;font-weight:700;">15 Feb 1998</div>
+<h3 style="
+margin:12px 0 4px;
+color:white;
+font-size:18px;
+font-weight:700;
+">
+Birthday
+</h3>
+
+<p style="margin:0;color:#94a3b8;font-size:15px;">
+15 Feb 1998
+</p>
+
 </div>
 
-</li>
 
+<!-- WEBSITE -->
+<div style="padding:20px;border-radius:14px;background:#0b1220;border:1px solid rgba(255,255,255,0.08);box-shadow:0 12px 30px rgba(0,0,0,.5);transition:.35s;cursor:pointer;"
+onmouseover="this.style.transform='translateY(-8px)';this.style.borderColor='#22c55e'"
+onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.08)'">
 
-<li style="position:relative;display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:12px;background:#020617;border-left:5px solid #4ade80;box-shadow:0 10px 25px rgba(0,0,0,0.4);transition:.4s;cursor:pointer;"
-onmouseover="this.style.transform='translateX(14px) scale(1.02)';this.style.boxShadow='0 20px 50px rgba(74,222,128,.7)'"
-onmouseout="this.style.transform='none';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.4)'">
+<div style="display:flex;align-items:center;justify-content:space-between;">
 
-<div style="min-width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,#4ade80,#22c55e);color:white;box-shadow:0 0 20px rgba(74,222,128,.9);">
-<i class="bi bi-globe"></i>
+<span style="padding:6px 12px;border-radius:20px;font-size:12px;background:rgba(34,197,94,.15);color:#22c55e;font-weight:600;">
+LINK
+</span>
+
+<i class="bi bi-globe" style="color:#22c55e;font-size:20px;"></i>
+
 </div>
 
-<div>
-<div style="color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Website</div>
-<div style="font-size:16px;font-weight:700;">
-<a href="https://tila173.github.io/tila-portfolio/" target="_blank" style="color:#4ade80;text-decoration:none;">Portfolio</a>
-</div>
-</div>
+<h3 style="margin:12px 0 4px;color:white;font-size:18px;font-weight:700;">
+Website
+</h3>
 
-</li>
+<a href="https://tila173.github.io/tila-portfolio/" target="_blank"
+style="color:#22c55e;text-decoration:none;font-size:15px;">
+Open Portfolio →
+</a>
 
-
-<li style="position:relative;display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:12px;background:#020617;border-left:5px solid #f472b6;box-shadow:0 10px 25px rgba(0,0,0,0.4);transition:.4s;cursor:pointer;"
-onmouseover="this.style.transform='translateX(14px) scale(1.02)';this.style.boxShadow='0 20px 50px rgba(244,114,182,.7)'"
-onmouseout="this.style.transform='none';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.4)'">
-
-<div style="min-width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,#f472b6,#ec4899);color:white;box-shadow:0 0 20px rgba(244,114,182,.9);">
-<i class="bi bi-phone"></i>
 </div>
 
-<div>
-<div style="color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Phone</div>
-<div style="font-size:16px;font-weight:700;">
-<a href="tel:+923314030386" style="color:#f472b6;text-decoration:none;">+92 331 4030386</a>
-</div>
-</div>
 
-</li>
+<!-- PHONE -->
+<div style="padding:20px;border-radius:14px;background:#0b1220;border:1px solid rgba(255,255,255,0.08);box-shadow:0 12px 30px rgba(0,0,0,.5);transition:.35s;cursor:pointer;"
+onmouseover="this.style.transform='translateY(-8px)';this.style.borderColor='#f97316'"
+onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.08)'">
 
+<div style="display:flex;align-items:center;justify-content:space-between;">
 
-<li style="position:relative;display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:12px;background:#020617;border-left:5px solid #a78bfa;box-shadow:0 10px 25px rgba(0,0,0,0.4);transition:.4s;cursor:pointer;"
-onmouseover="this.style.transform='translateX(14px) scale(1.02)';this.style.boxShadow='0 20px 50px rgba(167,139,250,.7)'"
-onmouseout="this.style.transform='none';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.4)'">
+<span style="padding:6px 12px;border-radius:20px;font-size:12px;background:rgba(249,115,22,.15);color:#f97316;font-weight:600;">
+CONTACT
+</span>
 
-<div style="min-width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,#a78bfa,#8b5cf6);color:white;box-shadow:0 0 20px rgba(167,139,250,.9);">
-<i class="bi bi-geo-alt"></i>
+<i class="bi bi-phone" style="color:#f97316;font-size:20px;"></i>
+
 </div>
 
-<div>
-<div style="color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Location</div>
-<div style="color:white;font-size:16px;font-weight:700;">Nowshera, Pakistan</div>
+<h3 style="margin:12px 0 4px;color:white;font-size:18px;font-weight:700;">
+Phone
+</h3>
+
+<a href="tel:+923314030386"
+style="color:#f97316;text-decoration:none;font-size:15px;">
++92 331 4030386
+</a>
+
 </div>
 
-</li>
 
-</ul>
+<!-- LOCATION -->
+<div style="padding:20px;border-radius:14px;background:#0b1220;border:1px solid rgba(255,255,255,0.08);box-shadow:0 12px 30px rgba(0,0,0,.5);transition:.35s;cursor:pointer;"
+onmouseover="this.style.transform='translateY(-8px)';this.style.borderColor='#a855f7'"
+onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.08)'">
+
+<div style="display:flex;align-items:center;justify-content:space-between;">
+
+<span style="padding:6px 12px;border-radius:20px;font-size:12px;background:rgba(168,85,247,.15);color:#a855f7;font-weight:600;">
+LOCATION
+</span>
+
+<i class="bi bi-geo-alt" style="color:#a855f7;font-size:20px;"></i>
+
+</div>
+
+<h3 style="margin:12px 0 4px;color:white;font-size:18px;font-weight:700;">
+City
+</h3>
+
+<p style="margin:0;color:#94a3b8;font-size:15px;">
+Nowshera, Pakistan
+</p>
+
+</div>
+
+</div>
+
 
 
             <p class="text-muted mt-3" style="max-width: 800px;">
