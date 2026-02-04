@@ -191,63 +191,116 @@
             </p>
 
             <!-- ONE unified list for all rows -->
-<ul class="about-list">
-  <li class="about-item">
-    <i class="bi bi-cake text-warning" aria-hidden="true"></i>
-    <span class="label">Birthday:</span>
-    <span class="value">15 Feb 1998</span>
+<ul style="
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+  padding:0;
+  list-style:none;
+">
+
+  <li style="
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:16px 18px;
+    border-radius:14px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:all 0.3s ease;
+    cursor:pointer;
+  "
+  onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 15px 40px rgba(0,0,0,0.15)'"
+  onmouseout="this.style.transform='none';this.style.boxShadow='0 8px 25px rgba(0,0,0,0.08)'">
+
+    <div style="
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      background:linear-gradient(135deg,#4facfe,#00f2fe);
+      color:white;
+      box-shadow:0 5px 15px rgba(79,172,254,0.4);
+    ">
+      <i class="bi bi-cake"></i>
+    </div>
+
+    <div>
+      <div style="font-size:13px;color:#aaa;font-weight:600;text-transform:uppercase;">Birthday</div>
+      <div style="font-size:15px;color:white;font-weight:600;">15 Feb 1998</div>
+    </div>
   </li>
 
-  <li class="about-item">
-    <i class="bi bi-globe text-primary" aria-hidden="true"></i>
-    <span class="label">Website:</span>
-    <span class="value">
-      <a href="https://tila173.github.io/tila-portfolio/" target="_blank" rel="noopener">Portfolio</a>
-    </span>
+
+  <li style="display:flex;align-items:center;gap:15px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);box-shadow:0 8px 25px rgba(0,0,0,0.08);transition:all .3s;cursor:pointer;"
+  onmouseover="this.style.transform='translateY(-6px) scale(1.02)'"
+  onmouseout="this.style.transform='none'">
+
+    <div style="width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,#43e97b,#38f9d7);color:white;">
+      <i class="bi bi-globe"></i>
+    </div>
+
+    <div>
+      <div style="font-size:13px;color:#aaa;font-weight:600;text-transform:uppercase;">Website</div>
+      <div style="font-size:15px;font-weight:600;">
+        <a href="https://tila173.github.io/tila-portfolio/" target="_blank" style="color:#43e97b;text-decoration:none;">Portfolio</a>
+      </div>
+    </div>
   </li>
 
-  <li class="about-item">
-    <i class="bi bi-phone text-success" aria-hidden="true"></i>
-    <span class="label">Phone:</span>
-    <span class="value">
-      <a href="tel:+923314030386">+92 331 4030386</a>
-    </span>
+
+  <li style="display:flex;align-items:center;gap:15px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);box-shadow:0 8px 25px rgba(0,0,0,0.08);transition:.3s;cursor:pointer;"
+  onmouseover="this.style.transform='translateY(-6px) scale(1.02)'"
+  onmouseout="this.style.transform='none'">
+
+    <div style="width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,#fa709a,#fee140);color:white;">
+      <i class="bi bi-phone"></i>
+    </div>
+
+    <div>
+      <div style="font-size:13px;color:#aaa;font-weight:600;text-transform:uppercase;">Phone</div>
+      <div style="font-size:15px;font-weight:600;">
+        <a href="tel:+923314030386" style="color:#fee140;text-decoration:none;">+92 331 4030386</a>
+      </div>
+    </div>
   </li>
 
-  <li class="about-item">
-    <i class="bi bi-geo-alt text-warning" aria-hidden="true"></i>
-    <span class="label">City:</span>
-    <span class="value">Nowshera, Pakistan</span>
+
+  <li style="display:flex;align-items:center;gap:15px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);box-shadow:0 8px 25px rgba(0,0,0,0.08);transition:.3s;cursor:pointer;"
+  onmouseover="this.style.transform='translateY(-6px) scale(1.02)'"
+  onmouseout="this.style.transform='none'">
+
+    <div style="width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,#667eea,#764ba2);color:white;">
+      <i class="bi bi-geo-alt"></i>
+    </div>
+
+    <div>
+      <div style="font-size:13px;color:#aaa;font-weight:600;text-transform:uppercase;">Location</div>
+      <div style="font-size:15px;color:white;font-weight:600;">Nowshera, Pakistan</div>
+    </div>
   </li>
 
-  <li class="about-item">
-    <i class="bi bi-person text-secondary" aria-hidden="true"></i>
-    <span class="label">Age:</span>
-    <span class="value">28</span>
+
+  <li style="display:flex;align-items:center;gap:15px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);box-shadow:0 8px 25px rgba(0,0,0,0.08);transition:.3s;cursor:pointer;"
+  onmouseover="this.style.transform='translateY(-6px) scale(1.02)'"
+  onmouseout="this.style.transform='none'">
+
+    <div style="width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,#11998e,#38ef7d);color:white;">
+      <i class="bi bi-person"></i>
+    </div>
+
+    <div>
+      <div style="font-size:13px;color:#aaa;font-weight:600;text-transform:uppercase;">Age</div>
+      <div style="font-size:15px;color:white;font-weight:600;">28</div>
+    </div>
   </li>
 
-  <li class="about-item">
-    <i class="bi bi-mortarboard text-primary" aria-hidden="true"></i>
-    <span class="label">Degree:</span>
-    <span class="value">MS in AI (in progress)</span>
-  </li>
-
-  <li class="about-item">
-    <i class="bi bi-envelope text-danger" aria-hidden="true"></i>
-    <span class="label">Email:</span>
-    <span class="value">
-      <a href="mailto:w4s.tila@gmail.com">w4s.tila@gmail.com</a>
-    </span>
-  </li>
-
-  <li class="about-item">
-    <i class="bi bi-briefcase text-success" aria-hidden="true"></i>
-    <span class="label">Upwork:</span>
-    <span class="value">
-      <a href="https://www.upwork.com/freelancers/~0168b3a45de594ce52?mp_source=share" target="_blank" rel="noopener">Available</a>
-    </span>
-  </li>
 </ul>
+
             <p class="text-muted mt-3" style="max-width: 800px;">
               I aim to work/collaborate with leading labs and advance research that delivers real-world
               <span class="fw-semibold text-primary">AI</span> impact.
