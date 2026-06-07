@@ -7,25 +7,29 @@
   <meta name="description" content="Resume of Tila Muhammad — ML/NLP researcher and full-stack developer. Education, experience, and publications." />
   <link rel="canonical" href="https://your-domain.example/resume.html" />
 
+  <!-- Favicons -->
   <link rel="icon" href="assets/img/hero.jpg" />
   <link rel="apple-touch-icon" href="assets/img/hero.jpg" />
 
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet" />
 
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
+  <!-- Page-specific styles -->
   <style>
-    /* ── Existing shared styles ── */
     .link-underline {
       position: relative; text-decoration: none; color: #1a73e8; font-weight: 600; transition: color .2s, transform .2s;
     }
@@ -38,283 +42,111 @@
     .resume-item ul { margin-bottom:0; }
     .btn-toolbar-gap .btn { margin-right:.5rem; }
 
-    /* ── Research Papers ── */
+    /* ——— Research Papers: Equal-height cards + visual polish ——— */
     .paper-grid .paper-card {
-      position: relative; display: flex; flex-direction: column;
-      padding: 1rem 1.1rem; border-radius: 1rem; background: #fff;
-      box-shadow: 0 6px 18px rgba(0,0,0,.07); transition: transform .25s ease, box-shadow .25s ease;
-      min-height: 240px; isolation: isolate; overflow: hidden;
-    }
-    .paper-grid .paper-card::before {
-      content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: 1.05rem;
-      background: linear-gradient(120deg, #8ec5fc, #e0c3fc, #a1ffce, #faffd1);
-      background-size: 200% 200%; opacity: .6; filter: blur(10px);
-      transition: opacity .25s ease, filter .25s ease, transform .25s ease;
-    }
-    .paper-grid .paper-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,.12); }
-    .paper-grid .paper-card:hover::before { opacity: .9; filter: blur(16px); }
-    @media (prefers-reduced-motion: reduce) {
-      .paper-grid .paper-card, .paper-grid .paper-card::before { transition: none !important; }
-    }
-    .paper-title { font-size: 1.02rem; font-weight: 700; color: #0d47a1; margin: .25rem 0 .5rem;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .paper-summary { color: #556; font-size: .94rem; line-height: 1.5; margin-bottom: .75rem; }
-
-    /* ── Print ── */
-    @media print {
-      html, body { background: #fff !important; color: #000 !important; font-size: 11pt !important; line-height: 1.35 !important; }
-      header, footer, #scroll-top, .preloader, .btn-toolbar-gap, .header-social-links, .navmenu, .credits, .section .btn, .paper-grid .btn { display: none !important; }
-      .section .container, .container, .container-fluid { width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
-      .row, [class*="col-"] { display: block !important; width: 100% !important; max-width: 100% !important; }
-      .section-title { margin: 0 0 10pt 0 !important; }
-      .resume-title { margin: 14pt 0 6pt 0 !important; }
-      .resume-item { break-inside: avoid !important; page-break-inside: avoid !important; margin-bottom: 10pt; }
-      h3, h4, h5 { break-after: avoid !important; page-break-after: avoid !important; }
-      ul { padding-left: 16pt !important; margin: 6pt 0 !important; }
-      li { margin: 2pt 0 !important; }
-      .paper-grid .paper-card, .paper-grid .paper-card::before { box-shadow: none !important; filter: none !important; transform: none !important; background: #fff !important; }
-      a[href]:after { content: "" !important; }
-      .ms-projects-section { page-break-inside: avoid; }
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       MS SEMESTER 1 PROJECTS — REDESIGNED
-    ═══════════════════════════════════════════════════════ */
-
-    #ms-projects {
-      padding: 60px 0 50px;
-      background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 55%, #0f172a 100%);
       position: relative;
-      overflow: hidden;
-    }
-
-    /* subtle grid pattern overlay */
-    #ms-projects::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
-
-    /* section header */
-    .msp-header {
-      text-align: center;
-      margin-bottom: 48px;
-      position: relative;
-      z-index: 1;
-    }
-    .msp-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: rgba(99,179,237,.12);
-      border: 1px solid rgba(99,179,237,.25);
-      color: #93c5fd;
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-    }
-    .msp-title {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 800;
-      color: #f8fafc;
-      margin-bottom: 8px;
-      line-height: 1.25;
-    }
-    .msp-sub {
-      font-size: .88rem;
-      color: #94a3b8;
-      margin: 0;
-    }
-
-    /* card grid */
-    .msp-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      position: relative;
-      z-index: 1;
-    }
-    @media (max-width: 991px)  { .msp-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 599px)  { .msp-grid { grid-template-columns: 1fr; gap: 16px; } }
-
-    /* card */
-    .msp-card {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 16px;
-      padding: 28px 24px 22px;
       display: flex;
       flex-direction: column;
-      position: relative;
+      padding: 1rem 1.1rem;
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,.07);
+      transition: transform .25s ease, box-shadow .25s ease;
+      min-height: 240px;
+      isolation: isolate;
       overflow: hidden;
-      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-      backdrop-filter: blur(8px);
     }
-    .msp-card:hover {
+    .paper-grid .paper-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      border-radius: 1.05rem;
+      background: linear-gradient(120deg, #8ec5fc, #e0c3fc, #a1ffce, #faffd1);
+      background-size: 200% 200%;
+      opacity: .6;
+      filter: blur(10px);
+      transition: opacity .25s ease, filter .25s ease, transform .25s ease;
+    }
+    .paper-grid .paper-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 24px 48px rgba(0,0,0,.45);
-      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 12px 28px rgba(0,0,0,.12);
     }
-
-    /* glowing top line */
-    .msp-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--card-glow);
-      border-radius: 16px 16px 0 0;
+    .paper-grid .paper-card:hover::before {
+      opacity: .9;
+      filter: blur(16px);
     }
-    /* soft ambient glow in corner */
-    .msp-card::after {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 130px; height: 130px;
-      border-radius: 50%;
-      background: var(--card-glow);
-      opacity: .07;
-      filter: blur(30px);
-      pointer-events: none;
-    }
-
-    .msp-card.blue   { --card-glow: linear-gradient(90deg,#3b82f6,#60a5fa); }
-    .msp-card.violet { --card-glow: linear-gradient(90deg,#8b5cf6,#a78bfa); }
-    .msp-card.cyan   { --card-glow: linear-gradient(90deg,#06b6d4,#67e8f9); }
-
-    /* icon badge */
-    .msp-icon {
-      width: 46px; height: 46px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.15rem;
-      color: #fff;
-      margin-bottom: 18px;
-      flex-shrink: 0;
-    }
-    .msp-card.blue   .msp-icon { background: linear-gradient(135deg,#2563eb,#3b82f6); box-shadow: 0 4px 14px rgba(59,130,246,.4); }
-    .msp-card.violet .msp-icon { background: linear-gradient(135deg,#7c3aed,#8b5cf6); box-shadow: 0 4px 14px rgba(139,92,246,.4); }
-    .msp-card.cyan   .msp-icon { background: linear-gradient(135deg,#0891b2,#06b6d4); box-shadow: 0 4px 14px rgba(6,182,212,.4); }
-
-    /* course pill */
-    .msp-course {
-      display: inline-block;
-      font-size: .64rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .6px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-      width: fit-content;
-    }
-    .msp-card.blue   .msp-course { background: rgba(59,130,246,.15);  color: #93c5fd; border: 1px solid rgba(59,130,246,.3); }
-    .msp-card.violet .msp-course { background: rgba(139,92,246,.15);  color: #c4b5fd; border: 1px solid rgba(139,92,246,.3); }
-    .msp-card.cyan   .msp-course { background: rgba(6,182,212,.15);   color: #67e8f9; border: 1px solid rgba(6,182,212,.3); }
-
-    /* title */
-    .msp-ctitle {
-      font-size: .97rem;
-      font-weight: 700;
-      color: #f1f5f9;
-      line-height: 1.45;
-      margin-bottom: 10px;
-    }
-
-    /* desc */
-    .msp-cdesc {
-      font-size: .81rem;
-      color: #94a3b8;
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 0;
-    }
-    .msp-cdesc strong { color: #e2e8f0; font-weight: 600; }
-
-    /* stat row */
-    .msp-stats {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 16px 0 14px;
-    }
-    .msp-stat {
-      font-size: .68rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-    .msp-card.blue   .msp-stat { background: rgba(59,130,246,.15);  color: #93c5fd;  border: 1px solid rgba(59,130,246,.25); }
-    .msp-card.violet .msp-stat { background: rgba(139,92,246,.15);  color: #c4b5fd;  border: 1px solid rgba(139,92,246,.25); }
-    .msp-card.cyan   .msp-stat { background: rgba(6,182,212,.15);   color: #67e8f9;  border: 1px solid rgba(6,182,212,.25); }
-
-    /* footer */
-    .msp-footer {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      flex-wrap: wrap;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.07);
-      margin-top: auto;
-    }
-    .msp-tag {
-      font-size: .65rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 5px;
-      background: rgba(255,255,255,.06);
-      color: #cbd5e1;
-      border: 1px solid rgba(255,255,255,.1);
-      white-space: nowrap;
-    }
-    .msp-link {
-      margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: .74rem;
-      font-weight: 700;
-      color: #f8fafc;
-      text-decoration: none;
-      padding: 5px 13px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.07);
-      transition: background .18s, border-color .18s, transform .18s;
-      white-space: nowrap;
-    }
-    .msp-link:hover {
-      background: rgba(255,255,255,.15);
-      border-color: rgba(255,255,255,.35);
-      color: #fff;
-      transform: translateX(2px);
-      text-decoration: none;
-    }
-
-    @media (max-width: 599px) {
-      #ms-projects { padding: 44px 0 36px; }
-      .msp-card { padding: 22px 18px 18px; }
-      .msp-title { font-size: 1.35rem; }
-      .msp-link { margin-left: 0; }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      .msp-card { transition: none !important; }
+      .paper-grid .paper-card,
+      .paper-grid .paper-card::before { transition: none !important; }
+    }
+    .paper-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #0d47a1;
+      margin: .25rem 0 .5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .paper-summary {
+      color: #556;
+      font-size: .94rem;
+      line-height: 1.5;
+      margin-bottom: .75rem;
     }
 
+    /* ——— Print-friendly resume ——— */
+    @media print {
+      html, body {
+        background: #fff !important;
+        color: #000 !important;
+        font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+        font-size: 11pt !important;
+        line-height: 1.35 !important;
+      }
+      /* Hide non-content chrome */
+      header, footer, #scroll-top, .preloader, .btn-toolbar-gap,
+      .header-social-links, .navmenu, .credits, .section .btn, .paper-grid .btn {
+        display: none !important;
+      }
+      /* Full-width containers */
+      .section .container, .container, .container-fluid {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      /* Single column */
+      .row, [class*="col-"] {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .section-title { margin: 0 0 10pt 0 !important; }
+      .resume-title { margin: 14pt 0 6pt 0 !important; }
+
+      .resume-item { break-inside: avoid !important; page-break-inside: avoid !important; margin-bottom: 10pt; }
+      h3, h4, h5 { break-after: avoid !important; page-break-after: avoid !important; }
+
+      ul { padding-left: 16pt !important; margin: 6pt 0 !important; }
+      li { margin: 2pt 0 !important; }
+
+      .paper-grid .paper-card,
+      .paper-grid .paper-card::before {
+        box-shadow: none !important;
+        filter: none !important;
+        transform: none !important;
+        background: #fff !important;
+      }
+
+      /* Keep layout clean: don't print URLs after links */
+      a[href]:after { content: "" !important; }
+    }
   </style>
 
+  <!-- Social Cards -->
   <meta property="og:title" content="Resume — Tila Muhammad" />
   <meta property="og:description" content="ML/NLP researcher. Education, experience, and publications." />
   <meta property="og:type" content="website" />
@@ -322,6 +154,7 @@
   <meta property="og:image" content="https://your-domain.example/assets/img/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- JSON-LD Person -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -344,9 +177,11 @@
 
   <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="Home">
         <h1 class="sitename m-0">Tila</h1>
       </a>
+
       <nav id="navmenu" class="navmenu" aria-label="Primary Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -360,6 +195,7 @@
           <i class="bi bi-list" aria-hidden="true"></i>
         </button>
       </nav>
+
       <div class="header-social-links">
         <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" class="google-scholar" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="bi bi-mortarboard"></i></a>
         <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" class="researchgate" target="_blank" rel="noopener" aria-label="ResearchGate"><i class="bi bi-file-earmark-text"></i></a>
@@ -368,16 +204,17 @@
         <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" class="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
       </div>
+
     </div>
   </header>
 
   <main class="main">
-
-    <!-- ════════════════════ Resume Section ════════════════════ -->
+    <!-- Resume Section -->
     <section id="resume" class="resume section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Resume</h2>
         <p class="text-muted">ML/NLP researcher focused on practical AI for low-resource languages.</p>
+
         <div class="btn-toolbar-gap mt-3">
           <a class="btn btn-primary btn-sm" href="assets/docs/Tila_Muhammad_CV.pdf" target="_blank" rel="noopener noreferrer">
             <i class="bi bi-download me-1"></i> Download CV (PDF)
@@ -408,27 +245,22 @@
 
             <h3 class="resume-title">Education</h3>
 
-            <div class="resume-item">
-              <h4>Master of Science in Artificial Intelligence</h4>
-              <h5>01/2026 — Present</h5>
-              <p class="mb-1"><em>
-                <a href="https://isb.nu.edu.pk/" target="_blank" rel="noopener noreferrer" class="link-underline">
-                  FAST-NUCES, Islamabad
-                </a>
-              </em></p>
-              <ul style="font-size:14px;">
-                <li>Coursework: Advanced ML, Deep Learning, Natural Language Processing, Understanding of the Holy Quran I &amp; II.</li>
-                <li>Ongoing Project: <strong>Cross-Domain Adaptation of Stacking Ensembles for Behavioral Fatigue Detection System</strong></li>
-                <li>Currently designing a <strong>stacked ensemble framework</strong> for cross-domain behavioral fatigue detection.</li>
-                <li>Focus: <span class="badge bg-primary">Ensemble Learning</span> <span class="badge bg-secondary">Domain Adaptation</span> <span class="badge bg-success">Fatigue Detection</span></li>
-                <li class="mt-2">
-                  <strong>Semester 1 Projects:</strong>
-                  <a href="#ms-projects" class="link-underline" style="font-size:13px;">
-                    <i class="bi bi-arrow-down-circle me-1"></i>View 3 published-format project papers below
-                  </a>
-                </li>
-              </ul>
-            </div>
+<div class="resume-item">
+  <h4>Master of Science in Artificial Intelligence</h4>
+  <h5>01/2026 — Present</h5>
+  <p class="mb-1"><em>
+    <a href="https://isb.nu.edu.pk/" target="_blank" rel="noopener noreferrer" class="link-underline">
+      FAST-NUCES, Islamabad
+    </a>
+  </em></p>
+  <ul style="font-size:14px;">
+    <li>Coursework: Advanced ML, Deep Learning, Natural Language Processing, Understanding of the Holy Quran I & II.</li>
+    <li>Ongoing Project: <strong>Cross-Domain Adaptation of Stacking Ensembles for Behavioral Fatigue Detection System</strong></li>
+    <li>Currently designing a <strong>stacked ensemble framework</strong> for cross-domain behavioral fatigue detection.</li>
+    <li>Focus: <span class="badge bg-primary">Ensemble Learning</span> <span class="badge bg-secondary">Domain Adaptation</span> <span class="badge bg-success">Fatigue Detection</span></li>
+  </ul>
+</div>
+
 
             <div class="resume-item">
               <h4>Bachelor of Science in Software Engineering</h4>
@@ -458,7 +290,7 @@
               </em></p>
               <ul>
                 <li>Built sentiment models on Yelp (Logistic Regression); <em>93.27% accuracy, F1 93.27% (P 93.00%, R 93.54%), evaluated on 560k binary-labeled texts</em> — <a href="https://github.com/Tila173/PAISOL/blob/main/PAISOL_TaskNo_1.ipynb" target="_blank" rel="noopener">Code</a></li>
-                <li>Built &amp; deployed an email spam classifier (LSTM + Word2Vec) on Streamlit; <em>83,448 emails (binary), test accuracy 99.00% (val 98.96%), 5 epochs</em> — <a href="https://github.com/Tila173/CodexCue_NLP_Internship/tree/main/email_spam_classifier" target="_blank" rel="noopener">Code</a></li>
+                <li>Built & deployed an email spam classifier (LSTM + Word2Vec) on Streamlit; <em>83,448 emails (binary), test accuracy 99.00% (val 98.96%), 5 epochs</em> — <a href="https://github.com/Tila173/CodexCue_NLP_Internship/tree/main/email_spam_classifier" target="_blank" rel="noopener">Code</a></li>
                 <li>Implemented Quora Duplicate Question Detection (KNN) on Quora Question Pairs; <em>accuracy 82.35%, precision 79.86%, recall 73.98%, F1 76.80%</em> — <a href="https://github.com/Tila173/ML-Learning-Diary/tree/main/code/ML-Projects/02-KNN-Duplicate-Detection" target="_blank" rel="noopener">Code</a></li>
                 <li>Automated JD classification → ESCO codes — <a href="https://github.com/Tila173/ML-Learning-Diary/tree/main/code/ML-Projects/01-ESCO-Job-Classifier" target="_blank" rel="noopener">Code</a>.</li>
               </ul>
@@ -478,6 +310,7 @@
                 <li>CV for weather condition identification from images</li>
                 <li>Urdu discussion summarization with LSTM + K-Means</li>
                 <li>COVID-19 clinical trial analysis — <a href="https://github.com/Tila173/Clinical-Trials-Analysis/blob/main/Covid_Clinical_Trials_Analysis.ipynb" target="_blank" rel="noopener">Code</a>.</li>
+
               </ul>
             </div>
 
@@ -500,302 +333,469 @@
       </div>
     </section>
     <!-- /Resume Section -->
+<!-- ===================== Certifications & Training ===================== -->
+<section id="certificates" data-aos="fade-up" style="padding:40px 15px;background:#f9f9f9;">
+  <div style="max-width:1500px;margin:auto;text-align:center;">
+    <h2 style="font-size:30px;margin-bottom:25px;">🎓 Certifications & Training</h2>
+
+    <!-- RESPONSIVE GRID -->
+    <div class="cert-grid">
+
+      <!-- CARD 1 -->
+      <div class="cert-card">
+        <span class="year-badge">2023</span>
+        <i class="bi bi-journal-text"></i>
+        <h3>Scientific Paper Writing</h3>
+        <p>Coursera</p>
+        <a href="assets/docs/Paper_Certificate.pdf" target="_blank" class="cert-btn">View</a>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="cert-card">
+        <span class="year-badge">2023</span>
+        <i class="bi bi-cpu-fill blue"></i>
+        <h3>Machine Learning</h3>
+        <p>Simplilearn</p>
+        <a href="assets/docs/Machine_Learning_Certificate.pdf" target="_blank" class="cert-btn blue">View</a>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="cert-card">
+        <span class="year-badge">2025</span>
+        <i class="bi bi-activity purple"></i>
+        <h3>Bioinformatics Seminar</h3>
+        <p>International</p>
+        <a href="assets/img/Bioinformatics.jpg" target="_blank" class="cert-btn purple">View</a>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="cert-card">
+        <span class="year-badge">2020</span>
+        <i class="bi bi-lightning-fill orange"></i>
+        <h3>Zero to Mastery ML</h3>
+        <p>Udemy</p>
+        <a href="CERTIFICATE_LINK" target="_blank" class="cert-btn orange">View</a>
+      </div>
+
+      <!-- IELTS -->
+      <div class="cert-card dashed">
+        <span class="year-badge">2025</span>
+        <i class="bi bi-translate indigo"></i>
+        <h3>IELTS – Band 6.0</h3>
+        <p>L7 · R5 · W6 · S6</p>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="cert-card">
+        <span class="year-badge">2022</span>
+        <i class="bi bi-briefcase-fill gray"></i>
+        <h3>KP Digital Internship</h3>
+        <p>Govt. of KPK</p>
+        <a href="assets/docs/Odoo_Internship.pdf" target="_blank" class="cert-btn gray">View</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CERTIFICATE STYLES ===================== -->
+<style>
+
+/* RESPONSIVE GRID LAYOUT */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* CARD */
+.cert-card {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  text-align: center;
+  transition: transform .35s ease, box-shadow .35s ease;
+  height: 100%;
+}
+
+.cert-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+}
+
+/* YEAR BADGE */
+.year-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  background: #6c757d;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ICON */
+.cert-card i {
+  font-size: 32px;
+  margin-bottom: 6px;
+  color: #4CAF50;
+  transition: transform .35s ease;
+}
+
+.cert-card:hover i {
+  transform: scale(1.2) rotate(8deg);
+}
+
+/* TEXT */
+.cert-card h3 {
+  font-size: 16px;
+  margin: 8px 0 4px;
+  color: #333;
+}
+
+.cert-card p {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
+
+/* BUTTON */
+.cert-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-20deg);
+}
+
+.cert-card:hover .cert-btn::after {
+  left: 120%;
+  transition: left .6s ease;
+}
+
+/* COLOR VARIANTS */
+.blue { color:#2196F3; border-color:#2196F3; }
+.purple { color:#9C27B0; border-color:#9C27B0; }
+.orange { color:#FF9800; border-color:#FF9800; }
+.gray { color:#607D8B; border-color:#607D8B; }
+.indigo { color:#3F51B5; }
+
+/* IELTS CARD */
+.dashed {
+  background:#eef2ff;
+  border:2px dashed #3F51B5;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 576px) {
+
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cert-card {
+    padding: 12px;
+  }
+
+  .cert-card h3 {
+    font-size: 14px;
+  }
+
+  .cert-card p {
+    font-size: 12px;
+  }
+
+  .cert-card i {
+    font-size: 28px;
+  }
+
+  .cert-btn {
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+}
+
+</style>
+<!-- ===================== /Certifications & Training ===================== -->
 
 
-    <!-- ════════════ MS SEMESTER 1 PROJECTS ════════════ -->
-    <section id="ms-projects">
+    
+    <!-- ===================== Research Papers (White + Gray, with inline SVGs) ===================== -->
+<!-- Font Awesome (icons) – kept here so this block is fully self-contained -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-      <div class="container">
+<section id="research-papers" class="section" data-aos="fade-up">
+  <div class="container">
+    <h2 class="text-center mb-4">📚 Research Papers</h2>
 
-        <!-- Header -->
-        <div class="msp-header" data-aos="fade-up">
-          <div class="msp-eyebrow">
-            <i class="bi bi-mortarboard-fill"></i>
-            FAST-NUCES Islamabad &nbsp;&middot;&nbsp; MS Artificial Intelligence &nbsp;&middot;&nbsp; Semester 1 &nbsp;&middot;&nbsp; 2026
+    <div class="row g-4 papers-grid">
+      <!-- Paper 1 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <article class="paper-card">
+          <div
+            class="paper-media"
+            style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><defs><linearGradient id=&quot;g&quot; x1=&quot;0&quot; x2=&quot;1&quot; y1=&quot;0&quot; y2=&quot;1&quot;><stop offset=&quot;0&quot; stop-color=&quot;%23ffffff&quot;/><stop offset=&quot;1&quot; stop-color=&quot;%23f3f4f6&quot;/></linearGradient></defs><rect fill=&quot;url(%23g)&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;240&quot; y=&quot;210&quot; rx=&quot;24&quot; ry=&quot;24&quot; width=&quot;720&quot; height=&quot;380&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;300&quot; y=&quot;270&quot; rx=&quot;12&quot; ry=&quot;12&quot; width=&quot;600&quot; height=&quot;260&quot; fill=&quot;%23ffffff&quot; stroke=&quot;%23d1d5db&quot; stroke-width=&quot;2&quot;/><g fill=&quot;%239ca3af&quot;><rect x=&quot;340&quot; y=&quot;310&quot; width=&quot;200&quot; height=&quot;8&quot; rx=&quot;4&quot;/><rect x=&quot;340&quot; y=&quot;330&quot; width=&quot;160&quot; height=&quot;8&quot; rx=&quot;4&quot;/></g><g fill=&quot;%239ca3af&quot; opacity=&quot;.8&quot;><rect x=&quot;620&quot; y=&quot;310&quot; width=&quot;60&quot; height=&quot;60&quot; rx=&quot;8&quot;/><rect x=&quot;700&quot; y=&quot;310&quot; width=&quot;60&quot; height=&quot;60&quot; rx=&quot;8&quot;/><rect x=&quot;540&quot; y=&quot;310&quot; width=&quot;60&quot; height=&quot;60&quot; rx=&quot;8&quot;/></g><g fill=&quot;%23d1d5db&quot;><rect x=&quot;340&quot; y=&quot;400&quot; width=&quot;420&quot; height=&quot;6&quot; rx=&quot;3&quot;/><rect x=&quot;340&quot; y=&quot;416&quot; width=&quot;380&quot; height=&quot;6&quot; rx=&quot;3&quot;/><rect x=&quot;340&quot; y=&quot;432&quot; width=&quot;440&quot; height=&quot;6&quot; rx=&quot;3&quot;/></g></g><circle cx=&quot;110&quot; cy=&quot;100&quot; r=&quot;40&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;80&quot; y=&quot;140&quot; width=&quot;60&quot; height=&quot;18&quot; rx=&quot;9&quot; fill=&quot;%23d1d5db&quot;/></svg>')"
+          >
+            <span class="paper-ribbon">2025</span>
+            <i class="fa-solid fa-microchip paper-icon" aria-hidden="true"></i>
           </div>
-          <h2 class="msp-title">Semester 1 Research Projects</h2>
-          <p class="msp-sub">Three course projects written and evaluated in full published-paper format.</p>
-        </div>
 
-        <!-- Cards -->
-        <div class="msp-grid">
+          <div class="paper-body">
+            <h3 class="paper-title" title="IoT-Enabled Food Freshness Detection Using Multi-Sensor Data Fusion and Mobile Sensing Interface">
+              IoT-Enabled Food Freshness Detection Using Multi-Sensor Data Fusion and Mobile Sensing Interface
+            </h3>
 
-          <!-- Card 1 -->
-          <div class="msp-card blue" data-aos="fade-up" data-aos-delay="0">
-            <div class="msp-icon"><i class="fa-solid fa-car-side"></i></div>
-            <span class="msp-course">Deep Learning</span>
-            <div class="msp-ctitle">Driver Drowsiness Detection via Multi-Feature Facial Landmarks</div>
-            <p class="msp-cdesc">Hybrid ensemble of MobileNetV2 + EfficientNetB0 fused with geometric features — bilateral EAR, MAR &amp; 3-axis head pose — via AUC-weighted probabilities. Three-stage face-detection fallback (HOG &rarr; upsampled HOG &rarr; Haar) handles adverse conditions. Full ablation, calibration &amp; cross-dataset analysis on NTHU-DDD.</p>
-            <div class="msp-stats">
-              <span class="msp-stat">99.70% Accuracy</span>
-              <span class="msp-stat">1.0000 AUC-ROC</span>
-              <span class="msp-stat">100% Recall</span>
+            <div class="paper-tags" aria-label="Tags">
+              <span class="chip chip-gray">IoT</span>
+              <span class="chip chip-gray">Sensors</span>
+              <span class="chip chip-gray">ML</span>
             </div>
-            <div class="msp-footer">
-              <span class="msp-tag">MobileNetV2</span>
-              <span class="msp-tag">EfficientNetB0</span>
-              <span class="msp-tag">dlib</span>
-              <span class="msp-tag">TensorFlow</span>
-              <a href="https://github.com/Tila173/MS-AI-FAST-IslamabadSem2" target="_blank" rel="noopener" class="msp-link">
-                <i class="bi bi-github"></i> View Code
+
+            <p class="paper-summary">
+              Real-time freshness estimation using pH, moisture, and ethanol sensors. Reduces waste and improves safety.
+            </p>
+
+            <div class="paper-actions mt-auto">
+              <a class="btn btn-paper neutral" target="_blank" rel="noopener noreferrer"
+                 href="https://www.icck.org/article/abs/tscc.2025.401245">
+                <i class="fa-solid fa-book-open me-1" aria-hidden="true"></i>
+                <span>Read paper</span>
               </a>
             </div>
           </div>
+        </article>
+      </div>
 
-          <!-- Card 2 -->
-          <div class="msp-card violet" data-aos="fade-up" data-aos-delay="100">
-            <div class="msp-icon"><i class="fa-solid fa-newspaper"></i></div>
-            <span class="msp-course">Deep Learning &mdash; Reproduction Study</span>
-            <div class="msp-ctitle">Transformer Text Summarization: Reproduction &amp; Cross-Domain Analysis</div>
-            <p class="msp-cdesc">Reproduced BART, T5 &amp; PEGASUS on CNN/DailyMail (4&times; V100); all reproduced scores <strong>exceeded the original paper</strong>. Documented T5-base FP16 training collapse, zero-shot XSum transfer (<strong>&minus;49% ROUGE-1</strong>), TF-IDF extractive baseline, and BART domain fine-tuning recovering <strong>+69.3% ROUGE-1</strong>.</p>
-            <div class="msp-stats">
-              <span class="msp-stat">BART R-1: 0.448</span>
-              <span class="msp-stat">&minus;49% zero-shot drop</span>
-              <span class="msp-stat">+69.3% recovery</span>
+      <!-- Paper 2 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <article class="paper-card">
+          <div
+            class="paper-media"
+            style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><rect fill=&quot;%23ffffff&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;220&quot; y=&quot;220&quot; width=&quot;760&quot; height=&quot;360&quot; rx=&quot;24&quot; fill=&quot;%23f3f4f6&quot;/><rect x=&quot;280&quot; y=&quot;280&quot; width=&quot;640&quot; height=&quot;120&quot; rx=&quot;16&quot; fill=&quot;%23ffffff&quot; stroke=&quot;%23e5e7eb&quot; stroke-width=&quot;2&quot;/><g fill=&quot;%239ca3af&quot;><rect x=&quot;310&quot; y=&quot;310&quot; width=&quot;400&quot; height=&quot;10&quot; rx=&quot;5&quot;/><rect x=&quot;310&quot; y=&quot;330&quot; width=&quot;460&quot; height=&quot;8&quot; rx=&quot;4&quot;/></g><rect x=&quot;280&quot; y=&quot;420&quot; width=&quot;420&quot; height=&quot;18&quot; rx=&quot;9&quot; fill=&quot;%23d1d5db&quot; opacity=&quot;.75&quot;/><rect x=&quot;720&quot; y=&quot;420&quot; width=&quot;200&quot; height=&quot;18&quot; rx=&quot;9&quot; fill=&quot;%23d1d5db&quot; opacity=&quot;.75&quot;/></g><g opacity=&quot;.5&quot;><circle cx=&quot;1050&quot; cy=&quot;150&quot; r=&quot;36&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;1018&quot; y=&quot;188&quot; width=&quot;64&quot; height=&quot;14&quot; rx=&quot;7&quot; fill=&quot;%23d1d5db&quot;/></g></svg>')"
+          >
+            <span class="paper-ribbon">2023</span>
+            <i class="fa-solid fa-language paper-icon" aria-hidden="true"></i>
+          </div>
+
+          <div class="paper-body">
+            <h3 class="paper-title" title="Hate Speech Detection Using Machine Learning and N-Gram Techniques">
+              Hate Speech Detection Using Machine Learning and N-Gram Techniques
+            </h3>
+
+            <div class="paper-tags" aria-label="Tags">
+              <span class="chip chip-gray">NLP</span>
+              <span class="chip chip-gray">Classification</span>
+              <span class="chip chip-gray">Baselines</span>
             </div>
-            <div class="msp-footer">
-              <span class="msp-tag">BART</span>
-              <span class="msp-tag">T5</span>
-              <span class="msp-tag">PEGASUS</span>
-              <span class="msp-tag">HuggingFace</span>
-              <a href="https://github.com/Tila173/MS-AI-FAST-IslamabadSem2/tree/7958aa89a045cdc50c85449e0ab8c7ab621bd9f2/Deep%20Learning/text-summarization-reproduction" target="_blank" rel="noopener" class="msp-link">
-                <i class="bi bi-github"></i> View Code
+
+            <p class="paper-summary">
+              Classical ML with n-gram features for toxic text detection; a strong, simple baseline for English experiments.
+            </p>
+
+            <div class="paper-actions mt-auto">
+              <a class="btn btn-paper neutral" target="_blank" rel="noopener noreferrer"
+                 href="https://jurnal.mdp.ac.id/index.php/jatisi/article/view/4711">
+                <i class="fa-solid fa-book-open-reader me-1" aria-hidden="true"></i>
+                <span>Read paper</span>
               </a>
             </div>
           </div>
+        </article>
+      </div>
 
-          <!-- Card 3 -->
-          <div class="msp-card cyan" data-aos="fade-up" data-aos-delay="200">
-            <div class="msp-icon"><i class="fa-solid fa-comments"></i></div>
-            <span class="msp-course">NLP &mdash; Reproduction Study</span>
-            <div class="msp-ctitle">Multimodal Emotion Recognition &amp; Sentiment Analysis in Conversations</div>
-            <p class="msp-cdesc">Reproduced four-modality pipeline (RoBERTa, Wav2Vec2, MobileNetV2+Transformer, BiLSTM) on MELD. Proposed gated attention fusion — gate collapsed to <strong>99.98% text weight</strong>, quantifying modality dominance. IEMOCAP&rarr;MELD cross-domain transfer improved by <strong>+12&ndash;15 pp</strong> over zero-shot.</p>
-            <div class="msp-stats">
-              <span class="msp-stat">64.01% Emotion Acc</span>
-              <span class="msp-stat">87.21% Sentiment Acc</span>
-              <span class="msp-stat">4 Modalities</span>
+      <!-- Paper 3 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <article class="paper-card">
+          <div
+            class="paper-media"
+            style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><rect fill=&quot;%23ffffff&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;420&quot; y=&quot;180&quot; width=&quot;360&quot; height=&quot;440&quot; rx=&quot;36&quot; fill=&quot;%23f3f4f6&quot; stroke=&quot;%23e5e7eb&quot; stroke-width=&quot;2&quot;/><rect x=&quot;480&quot; y=&quot;240&quot; width=&quot;240&quot; height=&quot;120&quot; rx=&quot;16&quot; fill=&quot;%23ffffff&quot; stroke=&quot;%23d1d5db&quot; stroke-width=&quot;2&quot;/><rect x=&quot;540&quot; y=&quot;240&quot; width=&quot;120&quot; height=&quot;120&quot; rx=&quot;60&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;480&quot; y=&quot;390&quot; width=&quot;240&quot; height=&quot;12&quot; rx=&quot;6&quot; fill=&quot;%23d1d5db&quot;/><rect x=&quot;510&quot; y=&quot;410&quot; width=&quot;180&quot; height=&quot;10&quot; rx=&quot;5&quot; fill=&quot;%23e5e7eb&quot;/></g><g opacity=&quot;.5&quot;><circle cx=&quot;104&quot; cy=&quot;680&quot; r=&quot;48&quot; fill=&quot;%23f3f4f6&quot;/><rect x=&quot;60&quot; y=&quot;732&quot; width=&quot;88&quot; height=&quot;16&quot; rx=&quot;8&quot; fill=&quot;%23e5e7eb&quot;/></g></svg>')"
+          >
+            <span class="paper-ribbon">In progress</span>
+            <i class="fa-solid fa-hourglass-half paper-icon" aria-hidden="true"></i>
+          </div>
+
+          <div class="paper-body">
+            <h3 class="paper-title" title="Transliteration-Invariant Urdu Toxicity Detection with Fine-Grained Labels">
+              Transliteration-Invariant Urdu Toxicity Detection with Fine-Grained Labels
+            </h3>
+
+            <div class="paper-tags" aria-label="Tags">
+              <span class="chip chip-gray">NLP</span>
+              <span class="chip chip-gray">Urdu</span>
+              <span class="chip chip-gray">Cross-domain</span>
             </div>
-            <div class="msp-footer">
-              <span class="msp-tag">RoBERTa</span>
-              <span class="msp-tag">Wav2Vec2</span>
-              <span class="msp-tag">PyTorch</span>
-              <span class="msp-tag">MELD</span>
-              <a href="https://github.com/Tila173/MS-AI-FAST-Islamabad-Sem2/tree/7c11df2dc3beff5cc23b6dcba8d85731ea79146f/Natural%20Language%20Processing/Multi-modality" target="_blank" rel="noopener" class="msp-link">
-                <i class="bi bi-github"></i> View Code
-              </a>
+
+            <p class="paper-summary">
+              Robust toxicity detection across scripts and domains using label granularity and transliteration stability.
+            </p>
+
+            <div class="paper-actions mt-auto">
+              <button class="btn btn-paper neutral disabled" disabled>
+                <i class="fa-solid fa-circle-notch me-1" aria-hidden="true"></i>
+                <span>Coming soon</span>
+              </button>
             </div>
           </div>
-
-        </div><!-- /msp-grid -->
-      </div><!-- /container -->
-
-    </section>
-    <!-- /MS Projects Section -->
-
-
-    <!-- ════════════════ Certifications & Training ════════════════ -->
-    <section id="certificates" data-aos="fade-up" style="padding:40px 15px;background:#f9f9f9;">
-      <div style="max-width:1500px;margin:auto;text-align:center;">
-        <h2 style="font-size:30px;margin-bottom:25px;">🎓 Certifications & Training</h2>
-        <div class="cert-grid">
-          <div class="cert-card">
-            <span class="year-badge">2023</span>
-            <i class="bi bi-journal-text"></i>
-            <h3>Scientific Paper Writing</h3>
-            <p>Coursera</p>
-            <a href="assets/docs/Paper_Certificate.pdf" target="_blank" class="cert-btn">View</a>
-          </div>
-          <div class="cert-card">
-            <span class="year-badge">2023</span>
-            <i class="bi bi-cpu-fill blue"></i>
-            <h3>Machine Learning</h3>
-            <p>Simplilearn</p>
-            <a href="assets/docs/Machine_Learning_Certificate.pdf" target="_blank" class="cert-btn blue">View</a>
-          </div>
-          <div class="cert-card">
-            <span class="year-badge">2025</span>
-            <i class="bi bi-activity purple"></i>
-            <h3>Bioinformatics Seminar</h3>
-            <p>International</p>
-            <a href="assets/img/Bioinformatics.jpg" target="_blank" class="cert-btn purple">View</a>
-          </div>
-          <div class="cert-card">
-            <span class="year-badge">2020</span>
-            <i class="bi bi-lightning-fill orange"></i>
-            <h3>Zero to Mastery ML</h3>
-            <p>Udemy</p>
-            <a href="CERTIFICATE_LINK" target="_blank" class="cert-btn orange">View</a>
-          </div>
-          <div class="cert-card dashed">
-            <span class="year-badge">2025</span>
-            <i class="bi bi-translate indigo"></i>
-            <h3>IELTS – Band 6.0</h3>
-            <p>L7 · R5 · W6 · S6</p>
-          </div>
-          <div class="cert-card">
-            <span class="year-badge">2022</span>
-            <i class="bi bi-briefcase-fill gray"></i>
-            <h3>KP Digital Internship</h3>
-            <p>Govt. of KPK</p>
-            <a href="assets/docs/Odoo_Internship.pdf" target="_blank" class="cert-btn gray">View</a>
-          </div>
-        </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <style>
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; align-items: stretch; }
-    .cert-card { position: relative; background: #fff; border-radius: 14px; padding: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); text-align: center; transition: transform .35s ease, box-shadow .35s ease; height: 100%; }
-    .cert-card:hover { transform: translateY(-10px) scale(1.04); box-shadow: 0 16px 32px rgba(0,0,0,0.2); }
-    .year-badge { position: absolute; top: 8px; left: 8px; font-size: 11px; padding: 4px 8px; border-radius: 10px; background: #6c757d; color: #fff; font-weight: 600; }
-    .cert-card i { font-size: 32px; margin-bottom: 6px; color: #4CAF50; transition: transform .35s ease; }
-    .cert-card:hover i { transform: scale(1.2) rotate(8deg); }
-    .cert-card h3 { font-size: 16px; margin: 8px 0 4px; color: #333; }
-    .cert-card p { font-size: 13px; color: #555; margin: 0; }
-    .cert-btn { display: inline-block; margin-top: 8px; padding: 6px 14px; font-size: 12px; border-radius: 20px; border: 2px solid #4CAF50; color: #4CAF50; text-decoration: none; position: relative; overflow: hidden; }
-    .cert-btn::after { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255,255,255,0.4); transform: skewX(-20deg); }
-    .cert-card:hover .cert-btn::after { left: 120%; transition: left .6s ease; }
-    .blue { color:#2196F3; border-color:#2196F3; }
-    .purple { color:#9C27B0; border-color:#9C27B0; }
-    .orange { color:#FF9800; border-color:#FF9800; }
-    .gray { color:#607D8B; border-color:#607D8B; }
-    .indigo { color:#3F51B5; }
-    .dashed { background:#eef2ff; border:2px dashed #3F51B5; }
-    @media (max-width: 576px) {
-      .cert-grid { grid-template-columns: repeat(2, 1fr); }
-      .cert-card { padding: 12px; }
-      .cert-card h3 { font-size: 14px; }
-      .cert-card p { font-size: 12px; }
-      .cert-card i { font-size: 28px; }
-      .cert-btn { font-size: 11px; padding: 5px 12px; }
-    }
-    </style>
+<!-- Styles specific to Research Papers (white + gray) -->
+<style>
+  :root{ --paper-radius: 16px; }
+
+  .papers-grid .paper-card{
+    display:flex; flex-direction: column; height:100%;
+    border-radius: var(--paper-radius);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(0,0,0,.06);
+    position: relative; isolation: isolate;
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    border: 1px solid #e5e7eb;
+  }
+  .papers-grid .paper-card::before{
+    /* soft neutral glow */
+    content:"";
+    position:absolute; inset:-1px;
+    border-radius: calc(var(--paper-radius) + 1px);
+    background: radial-gradient(120% 120% at 20% 0%, rgba(156,163,175,.15), transparent 55%),
+                radial-gradient(120% 120% at 80% 100%, rgba(156,163,175,.12), transparent 55%);
+    filter: blur(14px); opacity:.45; z-index:-1;
+    transition: opacity .25s ease, filter .25s ease, transform .25s ease;
+  }
+  .papers-grid .paper-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 42px rgba(17,24,39,.10);
+  }
+  .papers-grid .paper-card:hover::before{ opacity:.7; filter: blur(18px); }
+
+  .paper-media{
+    position: relative; height: 160px;
+    background: var(--paper-img, linear-gradient(135deg,#ffffff,#f3f4f6));
+    background-size: cover; background-position: center;
+  }
+  .paper-media::after{
+    /* subtle shine sweep */
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(75deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.22) 50%, rgba(255,255,255,0) 65%);
+    transform: translateX(-120%); transition: transform .8s ease;
+  }
+  .paper-card:hover .paper-media::after{ transform: translateX(120%); }
+
+  .paper-icon{
+    position:absolute; bottom:12px; right:14px;
+    font-size: 2.2rem; color: rgba(31,41,55,.85);
+    text-shadow: 0 2px 10px rgba(0,0,0,.15);
+    transition: transform .3s ease, color .3s ease, opacity .3s ease;
+  }
+  .paper-card:hover .paper-icon{ transform: translateY(-2px); color: rgba(17,24,39,.95); }
+
+  .paper-ribbon{
+    position:absolute; top:12px; left:12px;
+    background: rgba(255,255,255,.95);
+    color:#374151; border:1px solid #e5e7eb;
+    font-weight:700; font-size:.78rem;
+    padding:.25rem .55rem; border-radius:999px;
+    backdrop-filter: blur(6px);
+  }
+
+  .paper-body{
+    display:flex; flex-direction: column; gap:.6rem;
+    padding: 1rem .95rem 1rem .95rem;
+  }
+  .paper-title{
+    font-size:1.02rem; font-weight:800; color:#111827; margin:0;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    letter-spacing:.1px;
+  }
+  .paper-tags{ display:flex; flex-wrap:wrap; gap:.35rem; }
+  .chip{
+    font-size:.72rem; font-weight:600; line-height:1;
+    padding:.45rem .55rem; border-radius:999px;
+    background:#f3f4f6; color:#374151; border:1px solid #e5e7eb;
+  }
+  .chip-gray{ background:#f3f4f6; color:#374151; border-color:#e5e7eb; }
+
+  .paper-summary{ color:#4b5563; font-size:.92rem; line-height:1.55; margin:0; }
+
+  .paper-actions{ display:flex; gap:.5rem; justify-content: flex-end; }
+  .btn-paper{
+    background:#1f2937; color:#fff; border:none;
+    padding:.5rem .75rem; border-radius:10px;
+    font-weight:600; font-size:.86rem;
+    display:inline-flex; align-items:center;
+    box-shadow: 0 6px 16px rgba(17,24,39,.18);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  }
+  .btn-paper:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(17,24,39,.24); color:#fff; }
+  .btn-paper.neutral{ background:#1f2937; }
+  .btn-paper.disabled{ background:#9ca3af; box-shadow:none; cursor:not-allowed; }
+
+  @media (prefers-reduced-motion: reduce){
+    .papers-grid .paper-card,
+    .papers-grid .paper-card::before,
+    .paper-media::after,
+    .paper-icon,
+    .btn-paper{ transition:none !important; }
+  }
+</style>
+<!-- ===================== /Research Papers (White + Gray) ===================== -->
 
 
-    <!-- ════════════════ Research Papers ════════════════ -->
-    <section id="research-papers" class="section" data-aos="fade-up">
-      <div class="container">
-        <h2 class="text-center mb-4">📚 Research Papers</h2>
-        <div class="row g-4 papers-grid">
-
-          <!-- Paper 1 -->
-          <div class="col-12 col-sm-6 col-lg-4">
-            <article class="paper-card">
-              <div class="paper-media" style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><defs><linearGradient id=&quot;g&quot; x1=&quot;0&quot; x2=&quot;1&quot; y1=&quot;0&quot; y2=&quot;1&quot;><stop offset=&quot;0&quot; stop-color=&quot;%23ffffff&quot;/><stop offset=&quot;1&quot; stop-color=&quot;%23f3f4f6&quot;/></linearGradient></defs><rect fill=&quot;url(%23g)&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;240&quot; y=&quot;210&quot; rx=&quot;24&quot; ry=&quot;24&quot; width=&quot;720&quot; height=&quot;380&quot; fill=&quot;%23e5e7eb&quot;/><rect x=&quot;300&quot; y=&quot;270&quot; rx=&quot;12&quot; ry=&quot;12&quot; width=&quot;600&quot; height=&quot;260&quot; fill=&quot;%23ffffff&quot; stroke=&quot;%23d1d5db&quot; stroke-width=&quot;2&quot;/></g></svg>')">
-                <span class="paper-ribbon">2025</span>
-                <i class="fa-solid fa-microchip paper-icon" aria-hidden="true"></i>
-              </div>
-              <div class="paper-body">
-                <h3 class="paper-title">IoT-Enabled Food Freshness Detection Using Multi-Sensor Data Fusion and Mobile Sensing Interface</h3>
-                <div class="paper-tags"><span class="chip chip-gray">IoT</span><span class="chip chip-gray">Sensors</span><span class="chip chip-gray">ML</span></div>
-                <p class="paper-summary">Real-time freshness estimation using pH, moisture, and ethanol sensors. Reduces waste and improves safety.</p>
-                <div class="paper-actions mt-auto">
-                  <a class="btn btn-paper neutral" target="_blank" rel="noopener noreferrer" href="https://www.icck.org/article/abs/tscc.2025.401245">
-                    <i class="fa-solid fa-book-open me-1"></i><span>Read paper</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Paper 2 -->
-          <div class="col-12 col-sm-6 col-lg-4">
-            <article class="paper-card">
-              <div class="paper-media" style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><rect fill=&quot;%23ffffff&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;220&quot; y=&quot;220&quot; width=&quot;760&quot; height=&quot;360&quot; rx=&quot;24&quot; fill=&quot;%23f3f4f6&quot;/></g></svg>')">
-                <span class="paper-ribbon">2023</span>
-                <i class="fa-solid fa-language paper-icon" aria-hidden="true"></i>
-              </div>
-              <div class="paper-body">
-                <h3 class="paper-title">Hate Speech Detection Using Machine Learning and N-Gram Techniques</h3>
-                <div class="paper-tags"><span class="chip chip-gray">NLP</span><span class="chip chip-gray">Classification</span><span class="chip chip-gray">Baselines</span></div>
-                <p class="paper-summary">Classical ML with n-gram features for toxic text detection; a strong, simple baseline for English experiments.</p>
-                <div class="paper-actions mt-auto">
-                  <a class="btn btn-paper neutral" target="_blank" rel="noopener noreferrer" href="https://jurnal.mdp.ac.id/index.php/jatisi/article/view/4711">
-                    <i class="fa-solid fa-book-open-reader me-1"></i><span>Read paper</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Paper 3 -->
-          <div class="col-12 col-sm-6 col-lg-4">
-            <article class="paper-card">
-              <div class="paper-media" style="--paper-img:url('data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;800&quot; viewBox=&quot;0 0 1200 800&quot;><rect fill=&quot;%23ffffff&quot; width=&quot;1200&quot; height=&quot;800&quot;/><g opacity=&quot;.9&quot;><rect x=&quot;420&quot; y=&quot;180&quot; width=&quot;360&quot; height=&quot;440&quot; rx=&quot;36&quot; fill=&quot;%23f3f4f6&quot;/></g></svg>')">
-                <span class="paper-ribbon">In progress</span>
-                <i class="fa-solid fa-hourglass-half paper-icon" aria-hidden="true"></i>
-              </div>
-              <div class="paper-body">
-                <h3 class="paper-title">Transliteration-Invariant Urdu Toxicity Detection with Fine-Grained Labels</h3>
-                <div class="paper-tags"><span class="chip chip-gray">NLP</span><span class="chip chip-gray">Urdu</span><span class="chip chip-gray">Cross-domain</span></div>
-                <p class="paper-summary">Robust toxicity detection across scripts and domains using label granularity and transliteration stability.</p>
-                <div class="paper-actions mt-auto">
-                  <button class="btn btn-paper neutral disabled" disabled>
-                    <i class="fa-solid fa-circle-notch me-1"></i><span>Coming soon</span>
-                  </button>
-                </div>
-              </div>
-            </article>
-          </div>
-
-        </div>
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span id="year"></span> <strong class="px-1 sitename">Tila</strong> — All Rights Reserved</p>
       </div>
-    </section>
-
-    <style>
-    :root{ --paper-radius: 16px; }
-    .papers-grid .paper-card{ display:flex; flex-direction: column; height:100%; border-radius: var(--paper-radius); overflow: hidden; background: #fff; box-shadow: 0 10px 26px rgba(0,0,0,.06); position: relative; isolation: isolate; transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; border: 1px solid #e5e7eb; }
-    .papers-grid .paper-card::before{ content:""; position:absolute; inset:-1px; border-radius: calc(var(--paper-radius) + 1px); background: radial-gradient(120% 120% at 20% 0%, rgba(156,163,175,.15), transparent 55%), radial-gradient(120% 120% at 80% 100%, rgba(156,163,175,.12), transparent 55%); filter: blur(14px); opacity:.45; z-index:-1; transition: opacity .25s ease, filter .25s ease, transform .25s ease; }
-    .papers-grid .paper-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 42px rgba(17,24,39,.10); }
-    .papers-grid .paper-card:hover::before{ opacity:.7; filter: blur(18px); }
-    .paper-media{ position: relative; height: 160px; background: var(--paper-img, linear-gradient(135deg,#ffffff,#f3f4f6)); background-size: cover; background-position: center; }
-    .paper-media::after{ content:""; position:absolute; inset:0; background: linear-gradient(75deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.22) 50%, rgba(255,255,255,0) 65%); transform: translateX(-120%); transition: transform .8s ease; }
-    .paper-card:hover .paper-media::after{ transform: translateX(120%); }
-    .paper-icon{ position:absolute; bottom:12px; right:14px; font-size: 2.2rem; color: rgba(31,41,55,.85); text-shadow: 0 2px 10px rgba(0,0,0,.15); transition: transform .3s ease, color .3s ease, opacity .3s ease; }
-    .paper-card:hover .paper-icon{ transform: translateY(-2px); color: rgba(17,24,39,.95); }
-    .paper-ribbon{ position:absolute; top:12px; left:12px; background: rgba(255,255,255,.95); color:#374151; border:1px solid #e5e7eb; font-weight:700; font-size:.78rem; padding:.25rem .55rem; border-radius:999px; backdrop-filter: blur(6px); }
-    .paper-body{ display:flex; flex-direction: column; gap:.6rem; padding: 1rem .95rem 1rem .95rem; }
-    .paper-title{ font-size:1.02rem; font-weight:800; color:#111827; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; letter-spacing:.1px; }
-    .paper-tags{ display:flex; flex-wrap:wrap; gap:.35rem; }
-    .chip{ font-size:.72rem; font-weight:600; line-height:1; padding:.45rem .55rem; border-radius:999px; background:#f3f4f6; color:#374151; border:1px solid #e5e7eb; }
-    .chip-gray{ background:#f3f4f6; color:#374151; border-color:#e5e7eb; }
-    .paper-summary{ color:#4b5563; font-size:.92rem; line-height:1.55; margin:0; }
-    .paper-actions{ display:flex; gap:.5rem; justify-content: flex-end; }
-    .btn-paper{ background:#1f2937; color:#fff; border:none; padding:.5rem .75rem; border-radius:10px; font-weight:600; font-size:.86rem; display:inline-flex; align-items:center; box-shadow: 0 6px 16px rgba(17,24,39,.18); transition: transform .2s ease, box-shadow .2s ease, filter .2s ease; }
-    .btn-paper:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(17,24,39,.24); color:#fff; }
-    .btn-paper.neutral{ background:#1f2937; }
-    .btn-paper.disabled{ background:#9ca3af; box-shadow:none; cursor:not-allowed; }
-    @media (prefers-reduced-motion: reduce){ .papers-grid .paper-card, .papers-grid .paper-card::before, .paper-media::after, .paper-icon, .btn-paper{ transition:none !important; } }
-    </style>
-
-
-    <footer id="footer" class="footer light-background">
-      <div class="container">
-        <div class="copyright text-center">
-          <p>© <span id="year"></span> <strong class="px-1 sitename">Tila</strong> — All Rights Reserved</p>
-        </div>
-        <div class="social-links mb-3 d-flex justify-content-center gap-3">
-          <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
-          <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
-          <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
-          <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
-        </div>
-        <div class="credits small text-center text-muted">
-          Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener noreferrer">BootstrapMade</a>
-          &middot; Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener noreferrer">ThemeWagon</a>
-        </div>
+      <div class="social-links mb-3 d-flex justify-content-center gap-3">
+        <a href="https://scholar.google.com/citations?user=0ZElWpYAAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard"></i></a>
+        <a href="https://www.researchgate.net/profile/Tila-Muhammad-2" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
+        <a href="https://github.com/Tila173" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/share/1BJ2wSbfV3/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/wings4scholars?igsh=ODFsZWN3ZHFidGly" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tila-muhammad-b77498240" target="_blank"><i class="bi bi-linkedin"></i></a>
       </div>
-    </footer>
+      <div class="credits small text-center text-muted">
+        Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener noreferrer">BootstrapMade</a>
+        &middot; Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener noreferrer">ThemeWagon</a>
+      </div>
+    </div>
+  </footer>
 
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top">
-      <i class="bi bi-arrow-up-short"></i>
-    </a>
-    <div id="preloader" aria-hidden="true"></div>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
-  </main>
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true"></div>
 
+  <!-- Vendor JS -->
   <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script defer src="assets/vendor/php-email-form/validate.js"></script>
   <script defer src="assets/vendor/aos/aos.js"></script>
@@ -805,12 +805,16 @@
   <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script defer src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script defer src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS -->
   <script defer src="assets/js/main.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
+
+      // Optional: hide print button during printing (cosmetic)
       const printBtn = document.querySelector('button[onclick="window.print()"]');
       if (printBtn) {
         const hide = () => printBtn.style.visibility = 'hidden';
@@ -818,9 +822,10 @@
         window.addEventListener('beforeprint', hide);
         window.addEventListener('afterprint', show);
       }
+
       if (window.PureCounter) new PureCounter();
     });
   </script>
-
+</main>
 </body>
 </html>
