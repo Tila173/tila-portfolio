@@ -77,131 +77,242 @@
       .ms-projects-section { page-break-inside: avoid; }
     }
 
-    /* ═══════════════════════════════════════════════
-       MS PROJECTS SECTION
-    ═══════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════
+       MS SEMESTER 1 PROJECTS — REDESIGNED
+    ═══════════════════════════════════════════════════════ */
+
     #ms-projects {
-      padding: 40px 0 30px;
-      background: #fff;
+      padding: 60px 0 50px;
+      background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 55%, #0f172a 100%);
+      position: relative;
+      overflow: hidden;
     }
 
-    /* divider label matching resume-title rhythm */
-    .ms-semester-label {
-      font-size: .72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-      color: #6b7280;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .ms-semester-label::after {
+    /* subtle grid pattern overlay */
+    #ms-projects::before {
       content: '';
-      flex: 1;
-      height: 1px;
-      background: #e5e7eb;
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
     }
+
+    /* section header */
+    .msp-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 1;
+    }
+    .msp-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(99,179,237,.12);
+      border: 1px solid rgba(99,179,237,.25);
+      color: #93c5fd;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .msp-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .msp-sub {
+      font-size: .88rem;
+      color: #94a3b8;
+      margin: 0;
+    }
+
+    /* card grid */
+    .msp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 991px)  { .msp-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 599px)  { .msp-grid { grid-template-columns: 1fr; gap: 16px; } }
 
     /* card */
-    .ms-proj-card {
+    .msp-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 28px 24px 22px;
       display: flex;
       flex-direction: column;
-      background: #fff;
-      border: 1px solid #e3eaf5;
-      border-top: 3px solid #1a73e8;
-      border-radius: 10px;
-      padding: 20px 22px 18px;
-      height: 100%;
-      transition: box-shadow .22s ease, transform .22s ease;
+      position: relative;
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+      backdrop-filter: blur(8px);
     }
-    .ms-proj-card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,.09);
-      transform: translateY(-3px);
+    .msp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0,0,0,.45);
+      border-color: rgba(255,255,255,.22);
     }
-    .ms-proj-card.purple { border-top-color: #7c3aed; }
-    .ms-proj-card.teal   { border-top-color: #0891b2; }
 
-    /* course badge */
-    .proj-course {
-      font-size: .68rem;
+    /* glowing top line */
+    .msp-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-glow);
+      border-radius: 16px 16px 0 0;
+    }
+    /* soft ambient glow in corner */
+    .msp-card::after {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      background: var(--card-glow);
+      opacity: .07;
+      filter: blur(30px);
+      pointer-events: none;
+    }
+
+    .msp-card.blue   { --card-glow: linear-gradient(90deg,#3b82f6,#60a5fa); }
+    .msp-card.violet { --card-glow: linear-gradient(90deg,#8b5cf6,#a78bfa); }
+    .msp-card.cyan   { --card-glow: linear-gradient(90deg,#06b6d4,#67e8f9); }
+
+    /* icon badge */
+    .msp-icon {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .msp-card.blue   .msp-icon { background: linear-gradient(135deg,#2563eb,#3b82f6); box-shadow: 0 4px 14px rgba(59,130,246,.4); }
+    .msp-card.violet .msp-icon { background: linear-gradient(135deg,#7c3aed,#8b5cf6); box-shadow: 0 4px 14px rgba(139,92,246,.4); }
+    .msp-card.cyan   .msp-icon { background: linear-gradient(135deg,#0891b2,#06b6d4); box-shadow: 0 4px 14px rgba(6,182,212,.4); }
+
+    /* course pill */
+    .msp-course {
+      display: inline-block;
+      font-size: .64rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .6px;
-      color: #1a73e8;
-      margin-bottom: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      width: fit-content;
     }
-    .ms-proj-card.purple .proj-course { color: #7c3aed; }
-    .ms-proj-card.teal   .proj-course { color: #0891b2; }
+    .msp-card.blue   .msp-course { background: rgba(59,130,246,.15);  color: #93c5fd; border: 1px solid rgba(59,130,246,.3); }
+    .msp-card.violet .msp-course { background: rgba(139,92,246,.15);  color: #c4b5fd; border: 1px solid rgba(139,92,246,.3); }
+    .msp-card.cyan   .msp-course { background: rgba(6,182,212,.15);   color: #67e8f9; border: 1px solid rgba(6,182,212,.3); }
 
     /* title */
-    .proj-title {
-      font-size: .94rem;
+    .msp-ctitle {
+      font-size: .97rem;
       font-weight: 700;
-      color: #111827;
+      color: #f1f5f9;
       line-height: 1.45;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    /* description */
-    .proj-desc {
-      font-size: .82rem;
-      color: #4b5563;
-      line-height: 1.6;
-      margin-bottom: 0;
+    /* desc */
+    .msp-cdesc {
+      font-size: .81rem;
+      color: #94a3b8;
+      line-height: 1.65;
       flex: 1;
+      margin-bottom: 0;
     }
+    .msp-cdesc strong { color: #e2e8f0; font-weight: 600; }
 
-    /* footer: tags + link */
-    .proj-footer {
+    /* stat row */
+    .msp-stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 16px 0 14px;
+    }
+    .msp-stat {
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .msp-card.blue   .msp-stat { background: rgba(59,130,246,.15);  color: #93c5fd;  border: 1px solid rgba(59,130,246,.25); }
+    .msp-card.violet .msp-stat { background: rgba(139,92,246,.15);  color: #c4b5fd;  border: 1px solid rgba(139,92,246,.25); }
+    .msp-card.cyan   .msp-stat { background: rgba(6,182,212,.15);   color: #67e8f9;  border: 1px solid rgba(6,182,212,.25); }
+
+    /* footer */
+    .msp-footer {
       display: flex;
       align-items: center;
+      gap: 7px;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid #f0f2f8;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      margin-top: auto;
     }
-
-    .proj-tag {
-      font-size: .68rem;
+    .msp-tag {
+      font-size: .65rem;
       font-weight: 600;
       padding: 3px 8px;
       border-radius: 5px;
-      background: #f3f6fd;
-      color: #374151;
-      border: 1px solid #dde3f0;
+      background: rgba(255,255,255,.06);
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,.1);
       white-space: nowrap;
     }
-
-    .proj-link {
+    .msp-link {
       margin-left: auto;
-      font-size: .75rem;
-      font-weight: 700;
-      color: #1a73e8;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
+      font-size: .74rem;
+      font-weight: 700;
+      color: #f8fafc;
+      text-decoration: none;
+      padding: 5px 13px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.07);
+      transition: background .18s, border-color .18s, transform .18s;
       white-space: nowrap;
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid #cddcf8;
-      background: #f0f5ff;
-      transition: background .15s, color .15s;
     }
-    .proj-link:hover {
-      background: #1a73e8;
+    .msp-link:hover {
+      background: rgba(255,255,255,.15);
+      border-color: rgba(255,255,255,.35);
       color: #fff;
+      transform: translateX(2px);
       text-decoration: none;
     }
 
-    /* responsive: on mobile stack cards full-width */
-    @media (max-width: 767px) {
-      #ms-projects { padding: 30px 0 20px; }
-      .ms-proj-card { padding: 16px 18px 14px; }
+    @media (max-width: 599px) {
+      #ms-projects { padding: 44px 0 36px; }
+      .msp-card { padding: 22px 18px 18px; }
+      .msp-title { font-size: 1.35rem; }
+      .msp-link { margin-left: 0; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .msp-card { transition: none !important; }
+    }
+
   </style>
 
   <meta property="og:title" content="Resume — Tila Muhammad" />
@@ -392,70 +503,92 @@
 
 
     <!-- ════════════ MS SEMESTER 1 PROJECTS ════════════ -->
-    <section id="ms-projects" data-aos="fade-up">
+    <section id="ms-projects">
+
       <div class="container">
 
-        <h3 class="resume-title">MS AI &mdash; Semester 1 Projects</h3>
-        <div class="ms-semester-label">FAST-NUCES Islamabad &nbsp;&middot;&nbsp; Jan&ndash;Jun 2026</div>
+        <!-- Header -->
+        <div class="msp-header" data-aos="fade-up">
+          <div class="msp-eyebrow">
+            <i class="bi bi-mortarboard-fill"></i>
+            FAST-NUCES Islamabad &nbsp;&middot;&nbsp; MS Artificial Intelligence &nbsp;&middot;&nbsp; Semester 1 &nbsp;&middot;&nbsp; 2026
+          </div>
+          <h2 class="msp-title">Semester 1 Research Projects</h2>
+          <p class="msp-sub">Three course projects written and evaluated in full published-paper format.</p>
+        </div>
 
-        <div class="row g-3 align-items-stretch">
+        <!-- Cards -->
+        <div class="msp-grid">
 
           <!-- Card 1 -->
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="ms-proj-card">
-              <div class="proj-course">Deep Learning</div>
-              <div class="proj-title">Driver Drowsiness Detection Using Multi-Feature Facial Landmarks</div>
-              <p class="proj-desc">Hybrid CNN ensemble (MobileNetV2 + EfficientNetB0) fused with geometric features — EAR, MAR, and 3-axis head pose — via AUC-weighted ensembling. Achieved <strong>99.70% accuracy</strong> and <strong>1.0000 AUC-ROC</strong> on 2,226 real driver images; outperforms CDLM Hybrid (99.6%) with full ablation &amp; robustness analysis.</p>
-              <div class="proj-footer">
-                <span class="proj-tag">MobileNetV2</span>
-                <span class="proj-tag">EfficientNetB0</span>
-                <span class="proj-tag">dlib</span>
-                <span class="proj-tag">TensorFlow</span>
-                <a href="https://github.com/Tila173/MS-AI-FAST-IslamabadSem2" target="_blank" rel="noopener" class="proj-link">
-                  <i class="bi bi-github"></i> Code
-                </a>
-              </div>
+          <div class="msp-card blue" data-aos="fade-up" data-aos-delay="0">
+            <div class="msp-icon"><i class="fa-solid fa-car-side"></i></div>
+            <span class="msp-course">Deep Learning</span>
+            <div class="msp-ctitle">Driver Drowsiness Detection via Multi-Feature Facial Landmarks</div>
+            <p class="msp-cdesc">Hybrid ensemble of MobileNetV2 + EfficientNetB0 fused with geometric features — bilateral EAR, MAR &amp; 3-axis head pose — via AUC-weighted probabilities. Three-stage face-detection fallback (HOG &rarr; upsampled HOG &rarr; Haar) handles adverse conditions. Full ablation, calibration &amp; cross-dataset analysis on NTHU-DDD.</p>
+            <div class="msp-stats">
+              <span class="msp-stat">99.70% Accuracy</span>
+              <span class="msp-stat">1.0000 AUC-ROC</span>
+              <span class="msp-stat">100% Recall</span>
+            </div>
+            <div class="msp-footer">
+              <span class="msp-tag">MobileNetV2</span>
+              <span class="msp-tag">EfficientNetB0</span>
+              <span class="msp-tag">dlib</span>
+              <span class="msp-tag">TensorFlow</span>
+              <a href="https://github.com/Tila173/MS-AI-FAST-IslamabadSem2" target="_blank" rel="noopener" class="msp-link">
+                <i class="bi bi-github"></i> View Code
+              </a>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="ms-proj-card purple">
-              <div class="proj-course">Deep Learning &mdash; Reproduction Study</div>
-              <div class="proj-title">Transformer Text Summarization: Reproduction &amp; Cross-Domain Analysis</div>
-              <p class="proj-desc">Reproduced BART, T5 &amp; PEGASUS on CNN/DailyMail (4&times; V100); scores exceeded the original paper. Documented T5-base FP16 training collapse, zero-shot XSum transfer (&minus;49% ROUGE-1), TF-IDF extractive baseline, and BART fine-tuned upper bound (+69.3% ROUGE-1 recovery).</p>
-              <div class="proj-footer">
-                <span class="proj-tag">BART</span>
-                <span class="proj-tag">T5</span>
-                <span class="proj-tag">PEGASUS</span>
-                <span class="proj-tag">HuggingFace</span>
-                <a href="https://github.com/Tila173/MS-AI-FAST-IslamabadSem2/tree/7958aa89a045cdc50c85449e0ab8c7ab621bd9f2/Deep%20Learning/text-summarization-reproduction" target="_blank" rel="noopener" class="proj-link">
-                  <i class="bi bi-github"></i> Code
-                </a>
-              </div>
+          <div class="msp-card violet" data-aos="fade-up" data-aos-delay="100">
+            <div class="msp-icon"><i class="fa-solid fa-newspaper"></i></div>
+            <span class="msp-course">Deep Learning &mdash; Reproduction Study</span>
+            <div class="msp-ctitle">Transformer Text Summarization: Reproduction &amp; Cross-Domain Analysis</div>
+            <p class="msp-cdesc">Reproduced BART, T5 &amp; PEGASUS on CNN/DailyMail (4&times; V100); all reproduced scores <strong>exceeded the original paper</strong>. Documented T5-base FP16 training collapse, zero-shot XSum transfer (<strong>&minus;49% ROUGE-1</strong>), TF-IDF extractive baseline, and BART domain fine-tuning recovering <strong>+69.3% ROUGE-1</strong>.</p>
+            <div class="msp-stats">
+              <span class="msp-stat">BART R-1: 0.448</span>
+              <span class="msp-stat">&minus;49% zero-shot drop</span>
+              <span class="msp-stat">+69.3% recovery</span>
+            </div>
+            <div class="msp-footer">
+              <span class="msp-tag">BART</span>
+              <span class="msp-tag">T5</span>
+              <span class="msp-tag">PEGASUS</span>
+              <span class="msp-tag">HuggingFace</span>
+              <a href="https://github.com/Tila173/MS-AI-FAST-IslamabadSem2/tree/7958aa89a045cdc50c85449e0ab8c7ab621bd9f2/Deep%20Learning/text-summarization-reproduction" target="_blank" rel="noopener" class="msp-link">
+                <i class="bi bi-github"></i> View Code
+              </a>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="ms-proj-card teal">
-              <div class="proj-course">Natural Language Processing &mdash; Reproduction Study</div>
-              <div class="proj-title">Multimodal Emotion Recognition &amp; Sentiment Analysis in Conversations</div>
-              <p class="proj-desc">Reproduced four-modality pipeline (RoBERTa, Wav2Vec2, MobileNetV2+Transformer, BiLSTM) on MELD; achieved 64.01% emotion and 87.21% sentiment accuracy. Extended with gated attention fusion and IEMOCAP&rarr;MELD cross-domain transfer (+12&ndash;15 pp over zero-shot).</p>
-              <div class="proj-footer">
-                <span class="proj-tag">RoBERTa</span>
-                <span class="proj-tag">Wav2Vec2</span>
-                <span class="proj-tag">PyTorch</span>
-                <span class="proj-tag">MELD</span>
-                <a href="https://github.com/Tila173/MS-AI-FAST-Islamabad-Sem2/tree/7c11df2dc3beff5cc23b6dcba8d85731ea79146f/Natural%20Language%20Processing/Multi-modality" target="_blank" rel="noopener" class="proj-link">
-                  <i class="bi bi-github"></i> Code
-                </a>
-              </div>
+          <div class="msp-card cyan" data-aos="fade-up" data-aos-delay="200">
+            <div class="msp-icon"><i class="fa-solid fa-comments"></i></div>
+            <span class="msp-course">NLP &mdash; Reproduction Study</span>
+            <div class="msp-ctitle">Multimodal Emotion Recognition &amp; Sentiment Analysis in Conversations</div>
+            <p class="msp-cdesc">Reproduced four-modality pipeline (RoBERTa, Wav2Vec2, MobileNetV2+Transformer, BiLSTM) on MELD. Proposed gated attention fusion — gate collapsed to <strong>99.98% text weight</strong>, quantifying modality dominance. IEMOCAP&rarr;MELD cross-domain transfer improved by <strong>+12&ndash;15 pp</strong> over zero-shot.</p>
+            <div class="msp-stats">
+              <span class="msp-stat">64.01% Emotion Acc</span>
+              <span class="msp-stat">87.21% Sentiment Acc</span>
+              <span class="msp-stat">4 Modalities</span>
+            </div>
+            <div class="msp-footer">
+              <span class="msp-tag">RoBERTa</span>
+              <span class="msp-tag">Wav2Vec2</span>
+              <span class="msp-tag">PyTorch</span>
+              <span class="msp-tag">MELD</span>
+              <a href="https://github.com/Tila173/MS-AI-FAST-Islamabad-Sem2/tree/7c11df2dc3beff5cc23b6dcba8d85731ea79146f/Natural%20Language%20Processing/Multi-modality" target="_blank" rel="noopener" class="msp-link">
+                <i class="bi bi-github"></i> View Code
+              </a>
             </div>
           </div>
 
-        </div>
-      </div>
+        </div><!-- /msp-grid -->
+      </div><!-- /container -->
+
     </section>
     <!-- /MS Projects Section -->
 
