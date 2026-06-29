@@ -42,6 +42,40 @@
     .resume-item ul { margin-bottom:0; }
     .btn-toolbar-gap .btn { margin-right:.5rem; }
 
+    /* ——— Semester / CGPA blocks (Education) ——— */
+    .semester-block + .semester-block {
+      border-top: 1px dashed #e0e0e0;
+      padding-top: .65rem;
+    }
+    .semester-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: .4rem;
+    }
+    .semester-head > span:first-child {
+      font-weight: 700;
+      font-size: .92rem;
+      color: #0d47a1;
+      letter-spacing: .2px;
+    }
+    .cgpa-pill {
+      display: inline-block;
+      font-size: .74rem;
+      font-weight: 700;
+      padding: .22rem .6rem;
+      border-radius: 999px;
+      background: #e8f0fe;
+      color: #1a73e8;
+      border: 1px solid #c7dbfc;
+      white-space: nowrap;
+    }
+    .cgpa-pill--muted {
+      background: #f3f4f6;
+      color: #6c757d;
+      border-color: #e5e7eb;
+    }
+
     /* ——— Research Papers: Equal-height cards + visual polish ——— */
     .paper-grid .paper-card {
       position: relative;
@@ -253,12 +287,32 @@
       FAST-NUCES, Islamabad
     </a>
   </em></p>
-  <ul style="font-size:14px;">
-    <li>Coursework: Advanced ML, Deep Learning, Natural Language Processing, Understanding of the Holy Quran I & II.</li>
-    <li>Ongoing Project: <strong>Cross-Domain Adaptation of Stacking Ensembles for Behavioral Fatigue Detection System</strong></li>
-    <li>Currently designing a <strong>stacked ensemble framework</strong> for cross-domain behavioral fatigue detection.</li>
-    <li>Focus: <span class="badge bg-primary">Ensemble Learning</span> <span class="badge bg-secondary">Domain Adaptation</span> <span class="badge bg-success">Fatigue Detection</span></li>
-  </ul>
+
+  <div class="semester-block">
+    <div class="semester-head">
+      <span>1st Semester</span>
+      <span class="cgpa-pill">CGPA 3.42</span>
+    </div>
+    <ul style="font-size:14px;">
+      <li>Coursework: Advanced ML, Deep Learning, Natural Language Processing, Understanding of the Holy Quran I.</li>
+      <li><strong>NLP —</strong> Reproduced <em>“Multimodal Emotion Recognition and Sentiment Analysis in Multi-Party Conversation Contexts”</em>; implemented a multimodal pipeline fusing text, audio, and visual cues for emotion and sentiment classification in multi-party dialogue.</li>
+      <li><strong>Deep Learning —</strong> Reproduced <em>“Deep Learning for Text Summarization Using NLP for Automated News Digest”</em>; built a neural summarization pipeline for generating automated news digests.</li>
+      <li><strong>Advanced ML —</strong> <em>“Driver Drowsiness Detection Using Multi-Feature Facial Landmarks”</em>; developed a multi-feature facial-landmark pipeline for real-time drowsiness classification.</li>
+    </ul>
+  </div>
+
+  <div class="semester-block mt-3">
+    <div class="semester-head">
+      <span>2nd Semester</span>
+      <span class="cgpa-pill cgpa-pill--muted">In progress</span>
+    </div>
+    <ul style="font-size:14px;">
+      <li>Coursework: Natural Language Processing (cont.), Understanding of the Holy Quran II.</li>
+      <li>Ongoing Project: <strong>Cross-Domain Adaptation of Stacking Ensembles for Behavioral Fatigue Detection System</strong></li>
+      <li>Currently designing a <strong>stacked ensemble framework</strong> for cross-domain behavioral fatigue detection.</li>
+      <li>Focus: <span class="badge bg-primary">Ensemble Learning</span> <span class="badge bg-secondary">Domain Adaptation</span> <span class="badge bg-success">Fatigue Detection</span></li>
+    </ul>
+  </div>
 </div>
 
 
